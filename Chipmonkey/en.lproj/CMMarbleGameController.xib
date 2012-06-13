@@ -112,7 +112,7 @@
 										</object>
 									</object>
 								</array>
-								<string key="NSFrame">{{310, 222}, {364, 238}}</string>
+								<string key="NSFrame">{{330, 265}, {364, 238}}</string>
 								<reference key="NSSuperview" ref="82254823"/>
 								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="471922550"/>
@@ -178,7 +178,6 @@
 								<string key="NSFrame">{{944, 6}, {71, 34}}</string>
 								<reference key="NSSuperview" ref="469035125"/>
 								<reference key="NSWindow"/>
-								<reference key="NSNextKeyView"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
 								<object class="NSColor" key="IBUIBackgroundColor">
 									<int key="NSColorSpace">4</int>
@@ -456,7 +455,7 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">41</int>
+			<int key="maxID">55</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">

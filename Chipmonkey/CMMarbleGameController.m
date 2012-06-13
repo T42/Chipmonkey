@@ -228,6 +228,7 @@ static cpFloat frand_unit(){return 2.0f*((cpFloat)rand()/(cpFloat)RAND_MAX) - 1.
 		self.marblePreview.image = [self freshImage];
 //		[self resetSimulation:nil];
 		self.finishView.hidden = NO;
+		self.finishView.layer.zPosition = 10;
 	}
 }
 
