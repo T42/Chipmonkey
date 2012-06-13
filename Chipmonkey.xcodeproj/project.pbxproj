@@ -34,6 +34,12 @@
 		93AFEA78158290B2003A6382 /* libChipmunkPro-iPhone.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 93AFEA7615829097003A6382 /* libChipmunkPro-iPhone.a */; };
 		93AFEA7C1582968C003A6382 /* Marble_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 93AFEA7A1582968C003A6382 /* Marble_1.png */; };
 		93AFEA7D1582968C003A6382 /* Marble_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 93AFEA7B1582968C003A6382 /* Marble_2.png */; };
+		93EE4E0A1589374900B491DE /* Level2-Background.png in Resources */ = {isa = PBXBuildFile; fileRef = 93EE4E071589374900B491DE /* Level2-Background.png */; };
+		93EE4E0B1589374900B491DE /* Level2-Overlay.png in Resources */ = {isa = PBXBuildFile; fileRef = 93EE4E081589374900B491DE /* Level2-Overlay.png */; };
+		93EE4E0C1589374900B491DE /* Level2-StaticBodies.stb in Resources */ = {isa = PBXBuildFile; fileRef = 93EE4E091589374900B491DE /* Level2-StaticBodies.stb */; };
+		93EE4E0F1589378D00B491DE /* CMSimpleLevel.m in Sources */ = {isa = PBXBuildFile; fileRef = 93EE4E0E1589378D00B491DE /* CMSimpleLevel.m */; };
+		93EE4E1315895A4000B491DE /* Level1Background.pxm in Resources */ = {isa = PBXBuildFile; fileRef = 93EE4E1115895A4000B491DE /* Level1Background.pxm */; };
+		93EE4E1415895A4000B491DE /* Level2.pxm in Resources */ = {isa = PBXBuildFile; fileRef = 93EE4E1215895A4000B491DE /* Level2.pxm */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -116,6 +122,13 @@
 		93AFEA7A1582968C003A6382 /* Marble_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Marble_1.png; sourceTree = "<group>"; };
 		93AFEA7B1582968C003A6382 /* Marble_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Marble_2.png; sourceTree = "<group>"; };
 		93AFEA7E15829AB9003A6382 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		93EE4E071589374900B491DE /* Level2-Background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Level2-Background.png"; sourceTree = "<group>"; };
+		93EE4E081589374900B491DE /* Level2-Overlay.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Level2-Overlay.png"; sourceTree = "<group>"; };
+		93EE4E091589374900B491DE /* Level2-StaticBodies.stb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Level2-StaticBodies.stb"; sourceTree = "<group>"; };
+		93EE4E0D1589378D00B491DE /* CMSimpleLevel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMSimpleLevel.h; sourceTree = "<group>"; };
+		93EE4E0E1589378D00B491DE /* CMSimpleLevel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMSimpleLevel.m; sourceTree = "<group>"; };
+		93EE4E1115895A4000B491DE /* Level1Background.pxm */ = {isa = PBXFileReference; lastKnownFileType = file; path = Level1Background.pxm; sourceTree = "<group>"; };
+		93EE4E1215895A4000B491DE /* Level2.pxm */ = {isa = PBXFileReference; lastKnownFileType = file; path = Level2.pxm; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,14 +166,17 @@
 			path = Sources;
 			sourceTree = "<group>";
 		};
-		932485681587DAD80092E2FD /* Level1 */ = {
+		932485681587DAD80092E2FD /* Levels */ = {
 			isa = PBXGroup;
 			children = (
+				93EE4E091589374900B491DE /* Level2-StaticBodies.stb */,
+				93EE4E071589374900B491DE /* Level2-Background.png */,
+				93EE4E081589374900B491DE /* Level2-Overlay.png */,
 				932485711587E3CB0092E2FD /* Level1-StaticBodies.stb */,
-				932485691587DAFD0092E2FD /* Level1-Overlay.png */,
 				9324856A1587DAFD0092E2FD /* Level1-Background.png */,
+				932485691587DAFD0092E2FD /* Level1-Overlay.png */,
 			);
-			name = Level1;
+			path = Levels;
 			sourceTree = "<group>";
 		};
 		9324856E1587E28E0092E2FD /* Scripts */ = {
@@ -176,6 +192,8 @@
 			children = (
 				932485741587E4870092E2FD /* CMSimpleShapeReader.h */,
 				932485751587E4870092E2FD /* CMSimpleShapeReader.m */,
+				93EE4E0D1589378D00B491DE /* CMSimpleLevel.h */,
+				93EE4E0E1589378D00B491DE /* CMSimpleLevel.m */,
 			);
 			path = HelperClasses;
 			sourceTree = "<group>";
@@ -222,6 +240,7 @@
 		93AFEA1915828FA1003A6382 /* Chipmonkey */ = {
 			isa = PBXGroup;
 			children = (
+				93EE4E1015895A1B00B491DE /* Original Artwork */,
 				9312972C1582A23D00A2B556 /* Sources */,
 				93AFEA7915829669003A6382 /* Resources */,
 				93AFEA4B15829097003A6382 /* ChipmunkPro-iPhone-Trial */,
@@ -309,7 +328,7 @@
 		93AFEA7915829669003A6382 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				932485681587DAD80092E2FD /* Level1 */,
+				932485681587DAD80092E2FD /* Levels */,
 				939682C115841956007CD4FA /* Icon.png */,
 				93AFEA7A1582968C003A6382 /* Marble_1.png */,
 				93AFEA7B1582968C003A6382 /* Marble_2.png */,
@@ -322,6 +341,15 @@
 				939682AC1583E717007CD4FA /* Marble_9.png */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		93EE4E1015895A1B00B491DE /* Original Artwork */ = {
+			isa = PBXGroup;
+			children = (
+				93EE4E1115895A4000B491DE /* Level1Background.pxm */,
+				93EE4E1215895A4000B491DE /* Level2.pxm */,
+			);
+			path = "Original Artwork";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -391,6 +419,11 @@
 				9324856B1587DAFD0092E2FD /* Level1-Overlay.png in Resources */,
 				9324856C1587DAFD0092E2FD /* Level1-Background.png in Resources */,
 				932485721587E3CB0092E2FD /* Level1-StaticBodies.stb in Resources */,
+				93EE4E0A1589374900B491DE /* Level2-Background.png in Resources */,
+				93EE4E0B1589374900B491DE /* Level2-Overlay.png in Resources */,
+				93EE4E0C1589374900B491DE /* Level2-StaticBodies.stb in Resources */,
+				93EE4E1315895A4000B491DE /* Level1Background.pxm in Resources */,
+				93EE4E1415895A4000B491DE /* Level2.pxm in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -407,6 +440,7 @@
 				9312972F1582A48400A2B556 /* CMMarbleSimulationView.m in Sources */,
 				931297321582A5D700A2B556 /* CMMarbleLayer.m in Sources */,
 				932485761587E4870092E2FD /* CMSimpleShapeReader.m in Sources */,
+				93EE4E0F1589378D00B491DE /* CMSimpleLevel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

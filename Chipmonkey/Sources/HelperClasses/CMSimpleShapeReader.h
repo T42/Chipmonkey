@@ -10,6 +10,7 @@
 
 @interface CMSimpleShapeReader : NSObject
 {
+	@protected
 	NSMutableArray *shapes;
 	
 }

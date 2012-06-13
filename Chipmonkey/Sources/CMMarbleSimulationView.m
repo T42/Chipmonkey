@@ -132,6 +132,19 @@ static cpFloat frand_unit(){return 2.0f*((cpFloat)rand()/(cpFloat)RAND_MAX) - 1.
 		self.foregroundLayer.contents = (id) [lForeground CGImage];
 	}
 }
+- (void) setStaticShapes:(NSArray *)staticBodies
+{
+	ChipmunkBody * staticBody = self.space.staticBody;
+	for (ChipmunkShape *shape in staticBodies) {
+		shape.body = staticBody;
+		[self.space add:shape];
+	}
+}
+
+- (NSArray*) staticShapes
+{
+	return self.space.staticBody.shapes;
+}
 
 - (void) removeLevelData
 {

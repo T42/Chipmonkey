@@ -41,6 +41,7 @@
 @property (retain, nonatomic) ChipmunkSpace *space;
 @property (retain, nonatomic) CADisplayLink *displayLink;
 @property (retain, nonatomic) CMMarbleLayer *preparedLayer;
+@property (assign, nonatomic) NSArray* staticShapes;
 
 
 - (IBAction)createMarble:(id)sender;

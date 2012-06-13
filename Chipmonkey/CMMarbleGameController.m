@@ -9,7 +9,9 @@
 #import "CMMarbleGameController.h"
 #import "CMMarbleSimulationView.h"
 #import "CMSimpleShapeReader.h"
-#define MAX_MARBLE_IMAGES 9
+#import "CMSimpleLevel.h"
+#define MAX_MARBLE_IMAGES 2
+#define NUM_LEVEL_MARBLES 80
 
 @implementation UIButton (CMMarbleGameHelper)
 
@@ -27,7 +29,7 @@
 
 static cpFloat frand_unit(){return 2.0f*((cpFloat)rand()/(cpFloat)RAND_MAX) - 1.0f;}
 @implementation CMMarbleGameController
-@synthesize playgroundView, marblePreview,finishView;
+@synthesize playgroundView, marblePreview,finishView,startView,levelLabel,levelLimit,currentLevel,levels;
 
 - (void)didReceiveMemoryWarning
 {
@@ -62,6 +64,47 @@ static cpFloat frand_unit(){return 2.0f*((cpFloat)rand()/(cpFloat)RAND_MAX) - 1.
 	return newImage;	
 }
 
+- (void) configureDialogViews
+{
+	self.startView.layer.borderColor = [[UIColor colorWithWhite:1.0 alpha:.6]CGColor];
+	self.startView.layer.cornerRadius = 15;
+	self.startView.layer.borderWidth = 2;
+	self.startView.layer.backgroundColor = [[UIColor colorWithWhite:0.1 alpha:.6]CGColor];
+	
+	self.finishView.layer.borderColor = [[UIColor colorWithWhite:1.0 alpha:.6]CGColor];
+	self.finishView.layer.cornerRadius = 15;
+	self.finishView.layer.borderWidth = 2;
+	self.finishView.layer.backgroundColor = [[UIColor colorWithWhite:0.1 alpha:.9]CGColor];
+}
+
+- (void) loadLevels
+{
+	if(!self.levels){
+		self.levels = [NSMutableArray array];
+	}
+	
+	for (NSUInteger i=0; i<(self.levelLimit+1); i++) {
+		CMSimpleLevel *sl = [[[CMSimpleLevel alloc]initWithLevelNumber:i]autorelease];
+		if (sl) {
+			[self.levels addObject:sl];
+		}
+	}
+}
+
+- (void) prepareLevel:(NSUInteger) levelIndex
+{
+	[self resetSimulation:nil];
+	CMSimpleLevel *currentL = [self.levels objectAtIndex:levelIndex];
+	if (!currentL.backgroundImage) {
+		[self.playgroundView removeLevelData];
+	}else{
+		self.playgroundView.levelBackground = currentL.backgroundImage;
+		self.playgroundView.levelForeground = currentL.overlayImage;
+		self.playgroundView.staticShapes = currentL.shapeReader.shapes;
+	}
+	self.startView.hidden = NO;
+	self.levelLabel.text = [NSString stringWithFormat:@"Level - %d",levelIndex];
+}
 
 - (void)viewDidLoad
 {
@@ -73,6 +116,12 @@ static cpFloat frand_unit(){return 2.0f*((cpFloat)rand()/(cpFloat)RAND_MAX) - 1.
 		self.playgroundView.layer.masksToBounds = YES;
 	[self.playgroundView startSimulation];
 	self.finishView.hidden = YES;
+	self.startView.hidden = YES;
+	[self configureDialogViews];
+	self.levelLimit = [CMSimpleLevel maxLevelIndex];
+	self.currentLevel = 0;
+	[self loadLevels];
+	[self prepareLevel:self.currentLevel];
 }
 
 - (void)viewDidUnload
@@ -112,42 +161,37 @@ static cpFloat frand_unit(){return 2.0f*((cpFloat)rand()/(cpFloat)RAND_MAX) - 1.
 
 #pragma mark -
 #pragma mark Stupid Level handling
-- (void) loadLevelImages:(NSString*) levelName
-{
-	self.playgroundView.levelForeground = [UIImage imageNamed:[NSString stringWithFormat:@"%@-Overlay",levelName]];
-	self.playgroundView.levelBackground = [UIImage imageNamed:[NSString stringWithFormat:@"%@-Background",levelName]];
-}
-
-- (void) loadLevelStaticBodies:(NSString*) levelName
-{
-	NSString *fileName = [NSString stringWithFormat:@"%@-StaticBodies",levelName];
-	NSString *filePath = [[NSBundle mainBundle] pathForResource:fileName ofType:@"stb"];
-	CMSimpleShapeReader *shapeReader = [[CMSimpleShapeReader alloc]initWithContentsOfFile:filePath];
-	NSLog(@"Static Shapes: %@",shapeReader.shapes);
-	
-	ChipmunkBody *staticBody = self.playgroundView.space.staticBody;
-	for (ChipmunkShape *shape in shapeReader.shapes) {
-		shape.body = staticBody;
-		[self.playgroundView.space add:shape];
-	}
-	[shapeReader release];
-}
-
-- (void) loadLevel:(NSUInteger) count
-{
-	NSString *levelName = [NSString stringWithFormat:@"Level%d",count];
-	[self loadLevelImages:levelName];
-	[self loadLevelStaticBodies:levelName];
-}
+//- (void) loadLevelImages:(NSString*) levelName
+//{
+//	self.playgroundView.levelForeground = [UIImage imageNamed:[NSString stringWithFormat:@"%@-Overlay",levelName]];
+//	self.playgroundView.levelBackground = [UIImage imageNamed:[NSString stringWithFormat:@"%@-Background",levelName]];
+//}
+//
+//- (void) loadLevelStaticBodies:(NSString*) levelName
+//{
+//	NSString *fileName = [NSString stringWithFormat:@"%@-StaticBodies",levelName];
+//	NSString *filePath = [[NSBundle mainBundle] pathForResource:fileName ofType:@"stb"];
+//	CMSimpleShapeReader *shapeReader = [[CMSimpleShapeReader alloc]initWithContentsOfFile:filePath];
+//	NSLog(@"Static Shapes: %@",shapeReader.shapes);
+//	
+//	ChipmunkBody *staticBody = self.playgroundView.space.staticBody;
+//	for (ChipmunkShape *shape in shapeReader.shapes) {
+//		shape.body = staticBody;
+//		[self.playgroundView.space add:shape];
+//	}
+//	[shapeReader release];
+//}
+//
+//- (void) loadLevel:(NSUInteger) count
+//{
+//	NSString *levelName = [NSString stringWithFormat:@"Level%d",count];
+//	[self loadLevelImages:levelName];
+//	[self loadLevelStaticBodies:levelName];
+//}
 
 #pragma mark -
 #pragma mark Actions
 
-- (IBAction)loadLevelAction:(id)sender
-{
-	[self loadLevel:1];
-	
-}
 
 - (IBAction)stopSimulation:(id)sender
 {
@@ -158,6 +202,14 @@ static cpFloat frand_unit(){return 2.0f*((cpFloat)rand()/(cpFloat)RAND_MAX) - 1.
 {
 	[self.playgroundView startSimulation];
 }
+
+- (IBAction)resetLevels:(id)sender
+{
+	[self resetSimulation:sender];
+	self.currentLevel = 0;
+	[self prepareLevel:self.currentLevel];
+}
+
 - (IBAction)resetSimulation:(id)sender
 {
 	[self.playgroundView stopSimulation];
@@ -165,22 +217,38 @@ static cpFloat frand_unit(){return 2.0f*((cpFloat)rand()/(cpFloat)RAND_MAX) - 1.
 	[self loadMarbleImages];
 	self.marblePreview.image = [self freshImage];
 	[self.playgroundView removeLevelData];
-
 	[self.playgroundView startSimulation];
 }
 
 - (IBAction)fireMarbles:(id)sender
 {
-	[self.playgroundView fireMarbles:100 inTime:10];
+	[self.playgroundView fireMarbles:NUM_LEVEL_MARBLES inTime:10];
 }
+
+#pragma mark -
 
 - (IBAction)thanksAction:(id)sender
 {
 	self.finishView.hidden = YES;
-	[self.playgroundView startSimulation];
+	self.currentLevel = (self.currentLevel +1)%(self.levelLimit+1);
+	[self prepareLevel:self.currentLevel];
 }
+- (IBAction)cancelLevel:(id)sender
+{
+	self.startView.hidden = YES;
+	[self resetSimulation:nil];
+	[self startSimulation:nil];
+	self.currentLevel = 0;
+}
+
+- (IBAction)startLevel:(id)sender
+{
+	self.startView.hidden = YES;
+	[self startSimulation:nil];
+}
+
 #pragma mark -
-#pragma mark ATImageSource
+#pragma mark CMMarbleImageSource
 
 - (UIImage*) nextImage
 {
@@ -228,6 +296,7 @@ static cpFloat frand_unit(){return 2.0f*((cpFloat)rand()/(cpFloat)RAND_MAX) - 1.
 		self.marblePreview.image = [self freshImage];
 //		[self resetSimulation:nil];
 		self.finishView.hidden = NO;
+		[self.view addSubview:self.finishView];
 		self.finishView.layer.zPosition = 10;
 	}
 }
