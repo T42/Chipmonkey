@@ -1,0 +1,535 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		9312972F1582A48400A2B556 /* CMMarbleSimulationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9312972E1582A48400A2B556 /* CMMarbleSimulationView.m */; };
+		931297321582A5D700A2B556 /* CMMarbleLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 931297311582A5D700A2B556 /* CMMarbleLayer.m */; };
+		9323A11B1584DBE3007E8F9A /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93AFEA7E15829AB9003A6382 /* QuartzCore.framework */; };
+		9323A11C1584DBE6007E8F9A /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9323A1181584DB9A007E8F9A /* MediaPlayer.framework */; };
+		9324856B1587DAFD0092E2FD /* Level1-Overlay.png in Resources */ = {isa = PBXBuildFile; fileRef = 932485691587DAFD0092E2FD /* Level1-Overlay.png */; };
+		9324856C1587DAFD0092E2FD /* Level1-Background.png in Resources */ = {isa = PBXBuildFile; fileRef = 9324856A1587DAFD0092E2FD /* Level1-Background.png */; };
+		932485721587E3CB0092E2FD /* Level1-StaticBodies.stb in Resources */ = {isa = PBXBuildFile; fileRef = 932485711587E3CB0092E2FD /* Level1-StaticBodies.stb */; };
+		932485761587E4870092E2FD /* CMSimpleShapeReader.m in Sources */ = {isa = PBXBuildFile; fileRef = 932485751587E4870092E2FD /* CMSimpleShapeReader.m */; };
+		939682AD1583E717007CD4FA /* Marble_3.png in Resources */ = {isa = PBXBuildFile; fileRef = 939682A61583E717007CD4FA /* Marble_3.png */; };
+		939682AE1583E717007CD4FA /* Marble_4.png in Resources */ = {isa = PBXBuildFile; fileRef = 939682A71583E717007CD4FA /* Marble_4.png */; };
+		939682AF1583E717007CD4FA /* Marble_5.png in Resources */ = {isa = PBXBuildFile; fileRef = 939682A81583E717007CD4FA /* Marble_5.png */; };
+		939682B01583E717007CD4FA /* Marble_6.png in Resources */ = {isa = PBXBuildFile; fileRef = 939682A91583E717007CD4FA /* Marble_6.png */; };
+		939682B11583E717007CD4FA /* Marble_7.png in Resources */ = {isa = PBXBuildFile; fileRef = 939682AA1583E717007CD4FA /* Marble_7.png */; };
+		939682B21583E717007CD4FA /* Marble_8.png in Resources */ = {isa = PBXBuildFile; fileRef = 939682AB1583E717007CD4FA /* Marble_8.png */; };
+		939682B31583E717007CD4FA /* Marble_9.png in Resources */ = {isa = PBXBuildFile; fileRef = 939682AC1583E717007CD4FA /* Marble_9.png */; };
+		939682C215841956007CD4FA /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 939682C115841956007CD4FA /* Icon.png */; };
+		93AFEA1415828FA1003A6382 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93AFEA1315828FA1003A6382 /* UIKit.framework */; };
+		93AFEA1615828FA1003A6382 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93AFEA1515828FA1003A6382 /* Foundation.framework */; };
+		93AFEA1815828FA1003A6382 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93AFEA1715828FA1003A6382 /* CoreGraphics.framework */; };
+		93AFEA1E15828FA1003A6382 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 93AFEA1C15828FA1003A6382 /* InfoPlist.strings */; };
+		93AFEA2015828FA1003A6382 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 93AFEA1F15828FA1003A6382 /* main.m */; };
+		93AFEA2415828FA1003A6382 /* CMAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 93AFEA2315828FA1003A6382 /* CMAppDelegate.m */; };
+		93AFEA2715828FA1003A6382 /* CMMarbleGameController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93AFEA2615828FA1003A6382 /* CMMarbleGameController.m */; };
+		93AFEA2A15828FA1003A6382 /* CMMarbleGameController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93AFEA2815828FA1003A6382 /* CMMarbleGameController.xib */; };
+		93AFEA78158290B2003A6382 /* libChipmunkPro-iPhone.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 93AFEA7615829097003A6382 /* libChipmunkPro-iPhone.a */; };
+		93AFEA7C1582968C003A6382 /* Marble_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 93AFEA7A1582968C003A6382 /* Marble_1.png */; };
+		93AFEA7D1582968C003A6382 /* Marble_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 93AFEA7B1582968C003A6382 /* Marble_2.png */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		9312972D1582A48400A2B556 /* CMMarbleSimulationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMMarbleSimulationView.h; sourceTree = "<group>"; };
+		9312972E1582A48400A2B556 /* CMMarbleSimulationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMMarbleSimulationView.m; sourceTree = "<group>"; };
+		931297301582A5D700A2B556 /* CMMarbleLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMMarbleLayer.h; sourceTree = "<group>"; };
+		931297311582A5D700A2B556 /* CMMarbleLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMMarbleLayer.m; sourceTree = "<group>"; };
+		9323A1181584DB9A007E8F9A /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
+		932485691587DAFD0092E2FD /* Level1-Overlay.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Level1-Overlay.png"; sourceTree = "<group>"; };
+		9324856A1587DAFD0092E2FD /* Level1-Background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Level1-Background.png"; sourceTree = "<group>"; };
+		9324856F1587E2C80092E2FD /* CompileLevels.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = CompileLevels.sh; sourceTree = "<group>"; };
+		932485711587E3CB0092E2FD /* Level1-StaticBodies.stb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Level1-StaticBodies.stb"; sourceTree = "<group>"; };
+		932485741587E4870092E2FD /* CMSimpleShapeReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMSimpleShapeReader.h; sourceTree = "<group>"; };
+		932485751587E4870092E2FD /* CMSimpleShapeReader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMSimpleShapeReader.m; sourceTree = "<group>"; };
+		939682A61583E717007CD4FA /* Marble_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Marble_3.png; sourceTree = "<group>"; };
+		939682A71583E717007CD4FA /* Marble_4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Marble_4.png; sourceTree = "<group>"; };
+		939682A81583E717007CD4FA /* Marble_5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Marble_5.png; sourceTree = "<group>"; };
+		939682A91583E717007CD4FA /* Marble_6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Marble_6.png; sourceTree = "<group>"; };
+		939682AA1583E717007CD4FA /* Marble_7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Marble_7.png; sourceTree = "<group>"; };
+		939682AB1583E717007CD4FA /* Marble_8.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Marble_8.png; sourceTree = "<group>"; };
+		939682AC1583E717007CD4FA /* Marble_9.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Marble_9.png; sourceTree = "<group>"; };
+		939682B41583F3E5007CD4FA /* CMMarbleImageSource.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CMMarbleImageSource.h; sourceTree = "<group>"; };
+		939682BA15840637007CD4FA /* marchutil */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = marchutil; sourceTree = "<group>"; };
+		939682C115841956007CD4FA /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
+		93AFEA0F15828FA1003A6382 /* Chipmonkey.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Chipmonkey.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		93AFEA1315828FA1003A6382 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		93AFEA1515828FA1003A6382 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		93AFEA1715828FA1003A6382 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		93AFEA1B15828FA1003A6382 /* Chipmonkey-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Chipmonkey-Info.plist"; sourceTree = "<group>"; };
+		93AFEA1D15828FA1003A6382 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		93AFEA1F15828FA1003A6382 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		93AFEA2115828FA1003A6382 /* Chipmonkey-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Chipmonkey-Prefix.pch"; sourceTree = "<group>"; };
+		93AFEA2215828FA1003A6382 /* CMAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CMAppDelegate.h; path = ../CMAppDelegate.h; sourceTree = "<group>"; };
+		93AFEA2315828FA1003A6382 /* CMAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = CMAppDelegate.m; path = ../CMAppDelegate.m; sourceTree = "<group>"; };
+		93AFEA2515828FA1003A6382 /* CMMarbleGameController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CMMarbleGameController.h; path = ../CMMarbleGameController.h; sourceTree = "<group>"; };
+		93AFEA2615828FA1003A6382 /* CMMarbleGameController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = CMMarbleGameController.m; path = ../CMMarbleGameController.m; sourceTree = "<group>"; };
+		93AFEA2915828FA1003A6382 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/CMMarbleGameController.xib; sourceTree = "<group>"; };
+		93AFEA4D15829097003A6382 /* chipmunk.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = chipmunk.h; sourceTree = "<group>"; };
+		93AFEA4E15829097003A6382 /* chipmunk_ffi.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = chipmunk_ffi.h; sourceTree = "<group>"; };
+		93AFEA4F15829097003A6382 /* chipmunk_private.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = chipmunk_private.h; sourceTree = "<group>"; };
+		93AFEA5015829097003A6382 /* chipmunk_types.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = chipmunk_types.h; sourceTree = "<group>"; };
+		93AFEA5115829097003A6382 /* chipmunk_unsafe.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = chipmunk_unsafe.h; sourceTree = "<group>"; };
+		93AFEA5315829097003A6382 /* cpConstraint.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = cpConstraint.h; sourceTree = "<group>"; };
+		93AFEA5415829097003A6382 /* cpDampedRotarySpring.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = cpDampedRotarySpring.h; sourceTree = "<group>"; };
+		93AFEA5515829097003A6382 /* cpDampedSpring.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = cpDampedSpring.h; sourceTree = "<group>"; };
+		93AFEA5615829097003A6382 /* cpGearJoint.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = cpGearJoint.h; sourceTree = "<group>"; };
+		93AFEA5715829097003A6382 /* cpGrooveJoint.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = cpGrooveJoint.h; sourceTree = "<group>"; };
+		93AFEA5815829097003A6382 /* cpPinJoint.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = cpPinJoint.h; sourceTree = "<group>"; };
+		93AFEA5915829097003A6382 /* cpPivotJoint.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = cpPivotJoint.h; sourceTree = "<group>"; };
+		93AFEA5A15829097003A6382 /* cpRatchetJoint.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = cpRatchetJoint.h; sourceTree = "<group>"; };
+		93AFEA5B15829097003A6382 /* cpRotaryLimitJoint.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = cpRotaryLimitJoint.h; sourceTree = "<group>"; };
+		93AFEA5C15829097003A6382 /* cpSimpleMotor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = cpSimpleMotor.h; sourceTree = "<group>"; };
+		93AFEA5D15829097003A6382 /* cpSlideJoint.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = cpSlideJoint.h; sourceTree = "<group>"; };
+		93AFEA5E15829097003A6382 /* util.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = util.h; sourceTree = "<group>"; };
+		93AFEA5F15829097003A6382 /* cpArbiter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = cpArbiter.h; sourceTree = "<group>"; };
+		93AFEA6015829097003A6382 /* cpBB.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = cpBB.h; sourceTree = "<group>"; };
+		93AFEA6115829097003A6382 /* cpBody.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = cpBody.h; sourceTree = "<group>"; };
+		93AFEA6215829097003A6382 /* cpPolyShape.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = cpPolyShape.h; sourceTree = "<group>"; };
+		93AFEA6315829097003A6382 /* cpShape.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = cpShape.h; sourceTree = "<group>"; };
+		93AFEA6415829097003A6382 /* cpSpace.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = cpSpace.h; sourceTree = "<group>"; };
+		93AFEA6515829097003A6382 /* cpSpatialIndex.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = cpSpatialIndex.h; sourceTree = "<group>"; };
+		93AFEA6615829097003A6382 /* cpVect.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = cpVect.h; sourceTree = "<group>"; };
+		93AFEA6715829097003A6382 /* ChipmunkAutoGeometry.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChipmunkAutoGeometry.h; sourceTree = "<group>"; };
+		93AFEA6815829097003A6382 /* ChipmunkBody.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChipmunkBody.h; sourceTree = "<group>"; };
+		93AFEA6915829097003A6382 /* ChipmunkConstraint.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChipmunkConstraint.h; sourceTree = "<group>"; };
+		93AFEA6A15829097003A6382 /* ChipmunkExtras.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChipmunkExtras.h; sourceTree = "<group>"; };
+		93AFEA6B15829097003A6382 /* ChipmunkHastySpace.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChipmunkHastySpace.h; sourceTree = "<group>"; };
+		93AFEA6C15829097003A6382 /* ChipmunkImageSampler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChipmunkImageSampler.h; sourceTree = "<group>"; };
+		93AFEA6D15829097003A6382 /* ChipmunkMultiGrab.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChipmunkMultiGrab.h; sourceTree = "<group>"; };
+		93AFEA6E15829097003A6382 /* ChipmunkObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChipmunkObject.h; sourceTree = "<group>"; };
+		93AFEA6F15829097003A6382 /* ChipmunkPointCloudSampler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChipmunkPointCloudSampler.h; sourceTree = "<group>"; };
+		93AFEA7015829097003A6382 /* ChipmunkShape.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChipmunkShape.h; sourceTree = "<group>"; };
+		93AFEA7115829097003A6382 /* ChipmunkSpace.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChipmunkSpace.h; sourceTree = "<group>"; };
+		93AFEA7215829097003A6382 /* ChipmunkTileCache.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChipmunkTileCache.h; sourceTree = "<group>"; };
+		93AFEA7315829097003A6382 /* cpHastySpace.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = cpHastySpace.h; sourceTree = "<group>"; };
+		93AFEA7415829097003A6382 /* cpMarch.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = cpMarch.h; sourceTree = "<group>"; };
+		93AFEA7515829097003A6382 /* cpPolyline.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = cpPolyline.h; sourceTree = "<group>"; };
+		93AFEA7615829097003A6382 /* libChipmunkPro-iPhone.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libChipmunkPro-iPhone.a"; sourceTree = "<group>"; };
+		93AFEA7715829097003A6382 /* ObjectiveChipmunk.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ObjectiveChipmunk.h; sourceTree = "<group>"; };
+		93AFEA7A1582968C003A6382 /* Marble_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Marble_1.png; sourceTree = "<group>"; };
+		93AFEA7B1582968C003A6382 /* Marble_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Marble_2.png; sourceTree = "<group>"; };
+		93AFEA7E15829AB9003A6382 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		93AFEA0C15828FA1003A6382 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9323A11C1584DBE6007E8F9A /* MediaPlayer.framework in Frameworks */,
+				9323A11B1584DBE3007E8F9A /* QuartzCore.framework in Frameworks */,
+				93AFEA1415828FA1003A6382 /* UIKit.framework in Frameworks */,
+				93AFEA1615828FA1003A6382 /* Foundation.framework in Frameworks */,
+				93AFEA1815828FA1003A6382 /* CoreGraphics.framework in Frameworks */,
+				93AFEA78158290B2003A6382 /* libChipmunkPro-iPhone.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		9312972C1582A23D00A2B556 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				932485731587E4520092E2FD /* HelperClasses */,
+				93AFEA2215828FA1003A6382 /* CMAppDelegate.h */,
+				93AFEA2315828FA1003A6382 /* CMAppDelegate.m */,
+				93AFEA2515828FA1003A6382 /* CMMarbleGameController.h */,
+				93AFEA2615828FA1003A6382 /* CMMarbleGameController.m */,
+				93AFEA2815828FA1003A6382 /* CMMarbleGameController.xib */,
+				9312972D1582A48400A2B556 /* CMMarbleSimulationView.h */,
+				9312972E1582A48400A2B556 /* CMMarbleSimulationView.m */,
+				931297301582A5D700A2B556 /* CMMarbleLayer.h */,
+				931297311582A5D700A2B556 /* CMMarbleLayer.m */,
+				939682B41583F3E5007CD4FA /* CMMarbleImageSource.h */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		932485681587DAD80092E2FD /* Level1 */ = {
+			isa = PBXGroup;
+			children = (
+				932485711587E3CB0092E2FD /* Level1-StaticBodies.stb */,
+				932485691587DAFD0092E2FD /* Level1-Overlay.png */,
+				9324856A1587DAFD0092E2FD /* Level1-Background.png */,
+			);
+			name = Level1;
+			sourceTree = "<group>";
+		};
+		9324856E1587E28E0092E2FD /* Scripts */ = {
+			isa = PBXGroup;
+			children = (
+				9324856F1587E2C80092E2FD /* CompileLevels.sh */,
+			);
+			path = Scripts;
+			sourceTree = "<group>";
+		};
+		932485731587E4520092E2FD /* HelperClasses */ = {
+			isa = PBXGroup;
+			children = (
+				932485741587E4870092E2FD /* CMSimpleShapeReader.h */,
+				932485751587E4870092E2FD /* CMSimpleShapeReader.m */,
+			);
+			path = HelperClasses;
+			sourceTree = "<group>";
+		};
+		939682B915840617007CD4FA /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				939682BA15840637007CD4FA /* marchutil */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		93AFEA0415828FA1003A6382 = {
+			isa = PBXGroup;
+			children = (
+				9324856E1587E28E0092E2FD /* Scripts */,
+				939682B915840617007CD4FA /* Helpers */,
+				93AFEA1915828FA1003A6382 /* Chipmonkey */,
+				93AFEA1215828FA1003A6382 /* Frameworks */,
+				93AFEA1015828FA1003A6382 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		93AFEA1015828FA1003A6382 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				93AFEA0F15828FA1003A6382 /* Chipmonkey.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		93AFEA1215828FA1003A6382 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				93AFEA7E15829AB9003A6382 /* QuartzCore.framework */,
+				9323A1181584DB9A007E8F9A /* MediaPlayer.framework */,
+				93AFEA1315828FA1003A6382 /* UIKit.framework */,
+				93AFEA1515828FA1003A6382 /* Foundation.framework */,
+				93AFEA1715828FA1003A6382 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		93AFEA1915828FA1003A6382 /* Chipmonkey */ = {
+			isa = PBXGroup;
+			children = (
+				9312972C1582A23D00A2B556 /* Sources */,
+				93AFEA7915829669003A6382 /* Resources */,
+				93AFEA4B15829097003A6382 /* ChipmunkPro-iPhone-Trial */,
+				93AFEA1A15828FA1003A6382 /* Supporting Files */,
+			);
+			path = Chipmonkey;
+			sourceTree = "<group>";
+		};
+		93AFEA1A15828FA1003A6382 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				93AFEA1B15828FA1003A6382 /* Chipmonkey-Info.plist */,
+				93AFEA1C15828FA1003A6382 /* InfoPlist.strings */,
+				93AFEA1F15828FA1003A6382 /* main.m */,
+				93AFEA2115828FA1003A6382 /* Chipmonkey-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		93AFEA4B15829097003A6382 /* ChipmunkPro-iPhone-Trial */ = {
+			isa = PBXGroup;
+			children = (
+				93AFEA4C15829097003A6382 /* chipmunk */,
+				93AFEA6715829097003A6382 /* ChipmunkAutoGeometry.h */,
+				93AFEA6815829097003A6382 /* ChipmunkBody.h */,
+				93AFEA6915829097003A6382 /* ChipmunkConstraint.h */,
+				93AFEA6A15829097003A6382 /* ChipmunkExtras.h */,
+				93AFEA6B15829097003A6382 /* ChipmunkHastySpace.h */,
+				93AFEA6C15829097003A6382 /* ChipmunkImageSampler.h */,
+				93AFEA6D15829097003A6382 /* ChipmunkMultiGrab.h */,
+				93AFEA6E15829097003A6382 /* ChipmunkObject.h */,
+				93AFEA6F15829097003A6382 /* ChipmunkPointCloudSampler.h */,
+				93AFEA7015829097003A6382 /* ChipmunkShape.h */,
+				93AFEA7115829097003A6382 /* ChipmunkSpace.h */,
+				93AFEA7215829097003A6382 /* ChipmunkTileCache.h */,
+				93AFEA7315829097003A6382 /* cpHastySpace.h */,
+				93AFEA7415829097003A6382 /* cpMarch.h */,
+				93AFEA7515829097003A6382 /* cpPolyline.h */,
+				93AFEA7615829097003A6382 /* libChipmunkPro-iPhone.a */,
+				93AFEA7715829097003A6382 /* ObjectiveChipmunk.h */,
+			);
+			path = "ChipmunkPro-iPhone-Trial";
+			sourceTree = "<group>";
+		};
+		93AFEA4C15829097003A6382 /* chipmunk */ = {
+			isa = PBXGroup;
+			children = (
+				93AFEA4D15829097003A6382 /* chipmunk.h */,
+				93AFEA4E15829097003A6382 /* chipmunk_ffi.h */,
+				93AFEA4F15829097003A6382 /* chipmunk_private.h */,
+				93AFEA5015829097003A6382 /* chipmunk_types.h */,
+				93AFEA5115829097003A6382 /* chipmunk_unsafe.h */,
+				93AFEA5215829097003A6382 /* constraints */,
+				93AFEA5F15829097003A6382 /* cpArbiter.h */,
+				93AFEA6015829097003A6382 /* cpBB.h */,
+				93AFEA6115829097003A6382 /* cpBody.h */,
+				93AFEA6215829097003A6382 /* cpPolyShape.h */,
+				93AFEA6315829097003A6382 /* cpShape.h */,
+				93AFEA6415829097003A6382 /* cpSpace.h */,
+				93AFEA6515829097003A6382 /* cpSpatialIndex.h */,
+				93AFEA6615829097003A6382 /* cpVect.h */,
+			);
+			path = chipmunk;
+			sourceTree = "<group>";
+		};
+		93AFEA5215829097003A6382 /* constraints */ = {
+			isa = PBXGroup;
+			children = (
+				93AFEA5315829097003A6382 /* cpConstraint.h */,
+				93AFEA5415829097003A6382 /* cpDampedRotarySpring.h */,
+				93AFEA5515829097003A6382 /* cpDampedSpring.h */,
+				93AFEA5615829097003A6382 /* cpGearJoint.h */,
+				93AFEA5715829097003A6382 /* cpGrooveJoint.h */,
+				93AFEA5815829097003A6382 /* cpPinJoint.h */,
+				93AFEA5915829097003A6382 /* cpPivotJoint.h */,
+				93AFEA5A15829097003A6382 /* cpRatchetJoint.h */,
+				93AFEA5B15829097003A6382 /* cpRotaryLimitJoint.h */,
+				93AFEA5C15829097003A6382 /* cpSimpleMotor.h */,
+				93AFEA5D15829097003A6382 /* cpSlideJoint.h */,
+				93AFEA5E15829097003A6382 /* util.h */,
+			);
+			path = constraints;
+			sourceTree = "<group>";
+		};
+		93AFEA7915829669003A6382 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				932485681587DAD80092E2FD /* Level1 */,
+				939682C115841956007CD4FA /* Icon.png */,
+				93AFEA7A1582968C003A6382 /* Marble_1.png */,
+				93AFEA7B1582968C003A6382 /* Marble_2.png */,
+				939682A61583E717007CD4FA /* Marble_3.png */,
+				939682A71583E717007CD4FA /* Marble_4.png */,
+				939682A81583E717007CD4FA /* Marble_5.png */,
+				939682A91583E717007CD4FA /* Marble_6.png */,
+				939682AA1583E717007CD4FA /* Marble_7.png */,
+				939682AB1583E717007CD4FA /* Marble_8.png */,
+				939682AC1583E717007CD4FA /* Marble_9.png */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		93AFEA0E15828FA1003A6382 /* Chipmonkey */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 93AFEA2D15828FA1003A6382 /* Build configuration list for PBXNativeTarget "Chipmonkey" */;
+			buildPhases = (
+				93AFEA0B15828FA1003A6382 /* Sources */,
+				93AFEA0C15828FA1003A6382 /* Frameworks */,
+				93AFEA0D15828FA1003A6382 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Chipmonkey;
+			productName = Chipmonkey;
+			productReference = 93AFEA0F15828FA1003A6382 /* Chipmonkey.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		93AFEA0615828FA1003A6382 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = CM;
+				LastUpgradeCheck = 0430;
+				ORGANIZATIONNAME = "Carsten Müller";
+			};
+			buildConfigurationList = 93AFEA0915828FA1003A6382 /* Build configuration list for PBXProject "Chipmonkey" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 93AFEA0415828FA1003A6382;
+			productRefGroup = 93AFEA1015828FA1003A6382 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				93AFEA0E15828FA1003A6382 /* Chipmonkey */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		93AFEA0D15828FA1003A6382 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				93AFEA1E15828FA1003A6382 /* InfoPlist.strings in Resources */,
+				93AFEA2A15828FA1003A6382 /* CMMarbleGameController.xib in Resources */,
+				93AFEA7C1582968C003A6382 /* Marble_1.png in Resources */,
+				93AFEA7D1582968C003A6382 /* Marble_2.png in Resources */,
+				939682AD1583E717007CD4FA /* Marble_3.png in Resources */,
+				939682AE1583E717007CD4FA /* Marble_4.png in Resources */,
+				939682AF1583E717007CD4FA /* Marble_5.png in Resources */,
+				939682B01583E717007CD4FA /* Marble_6.png in Resources */,
+				939682B11583E717007CD4FA /* Marble_7.png in Resources */,
+				939682B21583E717007CD4FA /* Marble_8.png in Resources */,
+				939682B31583E717007CD4FA /* Marble_9.png in Resources */,
+				939682C215841956007CD4FA /* Icon.png in Resources */,
+				9324856B1587DAFD0092E2FD /* Level1-Overlay.png in Resources */,
+				9324856C1587DAFD0092E2FD /* Level1-Background.png in Resources */,
+				932485721587E3CB0092E2FD /* Level1-StaticBodies.stb in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		93AFEA0B15828FA1003A6382 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				93AFEA2015828FA1003A6382 /* main.m in Sources */,
+				93AFEA2415828FA1003A6382 /* CMAppDelegate.m in Sources */,
+				93AFEA2715828FA1003A6382 /* CMMarbleGameController.m in Sources */,
+				9312972F1582A48400A2B556 /* CMMarbleSimulationView.m in Sources */,
+				931297321582A5D700A2B556 /* CMMarbleLayer.m in Sources */,
+				932485761587E4870092E2FD /* CMSimpleShapeReader.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		93AFEA1C15828FA1003A6382 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				93AFEA1D15828FA1003A6382 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		93AFEA2815828FA1003A6382 /* CMMarbleGameController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				93AFEA2915828FA1003A6382 /* en */,
+			);
+			name = CMMarbleGameController.xib;
+			path = ..;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		93AFEA2B15828FA1003A6382 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 2;
+			};
+			name = Debug;
+		};
+		93AFEA2C15828FA1003A6382 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 2;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		93AFEA2E15828FA1003A6382 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Chipmonkey/Chipmonkey-Prefix.pch";
+				INFOPLIST_FILE = "Chipmonkey/Chipmonkey-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/Chipmonkey/ChipmunkPro-iPhone-Trial\"",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		93AFEA2F15828FA1003A6382 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Chipmonkey/Chipmonkey-Prefix.pch";
+				INFOPLIST_FILE = "Chipmonkey/Chipmonkey-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/Chipmonkey/ChipmunkPro-iPhone-Trial\"",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		93AFEA0915828FA1003A6382 /* Build configuration list for PBXProject "Chipmonkey" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				93AFEA2B15828FA1003A6382 /* Debug */,
+				93AFEA2C15828FA1003A6382 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		93AFEA2D15828FA1003A6382 /* Build configuration list for PBXNativeTarget "Chipmonkey" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				93AFEA2E15828FA1003A6382 /* Debug */,
+				93AFEA2F15828FA1003A6382 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 93AFEA0615828FA1003A6382 /* Project object */;
+}

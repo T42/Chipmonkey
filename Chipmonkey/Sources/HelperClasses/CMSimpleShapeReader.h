@@ -1,0 +1,21 @@
+//
+//  CMSimpleShapeReader.h
+//  Chipmonkey
+//
+//  Created by Carsten Müller on 6/12/12.
+//  Copyright (c) 2012 Carsten Müller. All rights reserved.
+//
+
+#import <UIKit/UIKit.h>
+
+@interface CMSimpleShapeReader : NSObject
+{
+	NSMutableArray *shapes;
+	
+}
+
+@property (retain, nonatomic) NSMutableArray *shapes;
+
+- (id) initWithContentsOfURL:(NSURL*) fileURL;
+- (id) initWithContentsOfFile:(NSString*) filePath;
+@end

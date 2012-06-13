@@ -1,0 +1,406 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 45;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1DDD582C0DA1D0D100B32029 /* GraffleDocument.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DDD58280DA1D0D100B32029 /* GraffleDocument.xib */; };
+		1DDD582D0DA1D0D100B32029 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DDD582A0DA1D0D100B32029 /* MainMenu.xib */; };
+		8D15AC2C0486D014006FF6A4 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 2A37F4B9FDCFA73011CA2CEA /* Credits.rtf */; };
+		8D15AC2F0486D014006FF6A4 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165FFE840EACC02AAC07 /* InfoPlist.strings */; };
+		8D15AC310486D014006FF6A4 /* GraffleDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A37F4ACFDCFA73011CA2CEA /* GraffleDocument.m */; settings = {ATTRIBUTES = (); }; };
+		8D15AC320486D014006FF6A4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A37F4B0FDCFA73011CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
+		8D15AC340486D014006FF6A4 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A7FEA54F5311CA2CBB /* Cocoa.framework */; };
+		FE2D8C750F659DC40038D814 /* SimpleBezier.m in Sources */ = {isa = PBXBuildFile; fileRef = FE2D8C740F659DC40038D814 /* SimpleBezier.m */; };
+		FE74F2E00F2506D800EA1D10 /* PropertyInfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE74F2DF0F2506D800EA1D10 /* PropertyInfoView.xib */; };
+		FE74F31D0F25116C00EA1D10 /* PropertyInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE74F31C0F25116C00EA1D10 /* PropertyInfoViewController.m */; };
+		FE74F3E00F251D2700EA1D10 /* GraffleBezierViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE74F3DF0F251D2700EA1D10 /* GraffleBezierViewController.m */; };
+		FE74F3E20F251D8100EA1D10 /* GraffleBezierView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE74F3E10F251D8100EA1D10 /* GraffleBezierView.xib */; };
+		FE74F3E70F251E4500EA1D10 /* BezierDrawView.m in Sources */ = {isa = PBXBuildFile; fileRef = FE74F3E60F251E4500EA1D10 /* BezierDrawView.m */; };
+		FE74F51D0F2529C900EA1D10 /* TGZoomingScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = FE74F51C0F2529C900EA1D10 /* TGZoomingScrollView.m */; };
+		FEE7BDB70F24F0130056746F /* Regatta-Test.graffle in Resources */ = {isa = PBXBuildFile; fileRef = FEE7BDB60F24F0130056746F /* Regatta-Test.graffle */; };
+		FEE7BDCA0F24F2CF0056746F /* GraffleWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = FEE7BDC90F24F2CF0056746F /* GraffleWindowController.m */; };
+		FEE7BE7C0F24FFFB0056746F /* GraffleBezierFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = FEE7BE7B0F24FFFB0056746F /* GraffleBezierFactory.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		089C1660FE840EACC02AAC07 /* English */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		1058C7A7FEA54F5311CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
+		13E42FBA07B3F13500E4EEF1 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = /System/Library/Frameworks/CoreData.framework; sourceTree = "<absolute>"; };
+		1DDD58290DA1D0D100B32029 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/GraffleDocument.xib; sourceTree = "<group>"; };
+		1DDD582B0DA1D0D100B32029 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		2A37F4ACFDCFA73011CA2CEA /* GraffleDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GraffleDocument.m; sourceTree = "<group>"; };
+		2A37F4AEFDCFA73011CA2CEA /* GraffleDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GraffleDocument.h; sourceTree = "<group>"; };
+		2A37F4B0FDCFA73011CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		2A37F4BAFDCFA73011CA2CEA /* English */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = English; path = English.lproj/Credits.rtf; sourceTree = "<group>"; };
+		2A37F4C4FDCFA73011CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
+		2A37F4C5FDCFA73011CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
+		32DBCF750370BD2300C91783 /* GraffleReader_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GraffleReader_Prefix.pch; sourceTree = "<group>"; };
+		8D15AC360486D014006FF6A4 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8D15AC370486D014006FF6A4 /* GraffleReader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GraffleReader.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FE2D8C730F659DC40038D814 /* SimpleBezier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleBezier.h; sourceTree = "<group>"; };
+		FE2D8C740F659DC40038D814 /* SimpleBezier.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleBezier.m; sourceTree = "<group>"; };
+		FE74F2DF0F2506D800EA1D10 /* PropertyInfoView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PropertyInfoView.xib; sourceTree = "<group>"; };
+		FE74F31B0F25116C00EA1D10 /* PropertyInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PropertyInfoViewController.h; sourceTree = "<group>"; };
+		FE74F31C0F25116C00EA1D10 /* PropertyInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PropertyInfoViewController.m; sourceTree = "<group>"; };
+		FE74F3DE0F251D2700EA1D10 /* GraffleBezierViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GraffleBezierViewController.h; sourceTree = "<group>"; };
+		FE74F3DF0F251D2700EA1D10 /* GraffleBezierViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GraffleBezierViewController.m; sourceTree = "<group>"; };
+		FE74F3E10F251D8100EA1D10 /* GraffleBezierView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GraffleBezierView.xib; sourceTree = "<group>"; };
+		FE74F3E50F251E4500EA1D10 /* BezierDrawView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BezierDrawView.h; sourceTree = "<group>"; };
+		FE74F3E60F251E4500EA1D10 /* BezierDrawView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BezierDrawView.m; sourceTree = "<group>"; };
+		FE74F51B0F2529C900EA1D10 /* TGZoomingScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TGZoomingScrollView.h; sourceTree = "<group>"; };
+		FE74F51C0F2529C900EA1D10 /* TGZoomingScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TGZoomingScrollView.m; sourceTree = "<group>"; };
+		FEE7BDB60F24F0130056746F /* Regatta-Test.graffle */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Regatta-Test.graffle"; sourceTree = "<group>"; };
+		FEE7BDC80F24F2CF0056746F /* GraffleWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GraffleWindowController.h; sourceTree = "<group>"; };
+		FEE7BDC90F24F2CF0056746F /* GraffleWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GraffleWindowController.m; sourceTree = "<group>"; };
+		FEE7BE7A0F24FFFB0056746F /* GraffleBezierFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GraffleBezierFactory.h; sourceTree = "<group>"; };
+		FEE7BE7B0F24FFFB0056746F /* GraffleBezierFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GraffleBezierFactory.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8D15AC330486D014006FF6A4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8D15AC340486D014006FF6A4 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1058C7A6FEA54F5311CA2CBB /* Linked Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1058C7A7FEA54F5311CA2CBB /* Cocoa.framework */,
+			);
+			name = "Linked Frameworks";
+			sourceTree = "<group>";
+		};
+		1058C7A8FEA54F5311CA2CBB /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2A37F4C4FDCFA73011CA2CEA /* AppKit.framework */,
+				13E42FBA07B3F13500E4EEF1 /* CoreData.framework */,
+				2A37F4C5FDCFA73011CA2CEA /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		19C28FB0FE9D524F11CA2CBB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8D15AC370486D014006FF6A4 /* GraffleReader.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		2A37F4AAFDCFA73011CA2CEA /* GraffleReader */ = {
+			isa = PBXGroup;
+			children = (
+				FEE7BDB50F24EFD80056746F /* Data */,
+				FEE7BD970F24EB420056746F /* Sources */,
+				2A37F4AFFDCFA73011CA2CEA /* Other Sources */,
+				2A37F4B8FDCFA73011CA2CEA /* Resources */,
+				2A37F4C3FDCFA73011CA2CEA /* Frameworks */,
+				19C28FB0FE9D524F11CA2CBB /* Products */,
+			);
+			name = GraffleReader;
+			sourceTree = "<group>";
+		};
+		2A37F4AFFDCFA73011CA2CEA /* Other Sources */ = {
+			isa = PBXGroup;
+			children = (
+				32DBCF750370BD2300C91783 /* GraffleReader_Prefix.pch */,
+				2A37F4B0FDCFA73011CA2CEA /* main.m */,
+			);
+			name = "Other Sources";
+			sourceTree = "<group>";
+		};
+		2A37F4B8FDCFA73011CA2CEA /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				2A37F4B9FDCFA73011CA2CEA /* Credits.rtf */,
+				8D15AC360486D014006FF6A4 /* Info.plist */,
+				089C165FFE840EACC02AAC07 /* InfoPlist.strings */,
+				1DDD58280DA1D0D100B32029 /* GraffleDocument.xib */,
+				1DDD582A0DA1D0D100B32029 /* MainMenu.xib */,
+				FE74F2DF0F2506D800EA1D10 /* PropertyInfoView.xib */,
+				FE74F3E10F251D8100EA1D10 /* GraffleBezierView.xib */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		2A37F4C3FDCFA73011CA2CEA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1058C7A6FEA54F5311CA2CBB /* Linked Frameworks */,
+				1058C7A8FEA54F5311CA2CBB /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FE2D8C720F659D710038D814 /* Export */ = {
+			isa = PBXGroup;
+			children = (
+				FE2D8C730F659DC40038D814 /* SimpleBezier.h */,
+				FE2D8C740F659DC40038D814 /* SimpleBezier.m */,
+			);
+			path = Export;
+			sourceTree = "<group>";
+		};
+		FE74F31A0F2510EC00EA1D10 /* GraffleViews */ = {
+			isa = PBXGroup;
+			children = (
+				FE74F51B0F2529C900EA1D10 /* TGZoomingScrollView.h */,
+				FE74F51C0F2529C900EA1D10 /* TGZoomingScrollView.m */,
+				FE74F31B0F25116C00EA1D10 /* PropertyInfoViewController.h */,
+				FE74F31C0F25116C00EA1D10 /* PropertyInfoViewController.m */,
+				FE74F3DE0F251D2700EA1D10 /* GraffleBezierViewController.h */,
+				FE74F3DF0F251D2700EA1D10 /* GraffleBezierViewController.m */,
+				FE74F3E50F251E4500EA1D10 /* BezierDrawView.h */,
+				FE74F3E60F251E4500EA1D10 /* BezierDrawView.m */,
+			);
+			path = GraffleViews;
+			sourceTree = "<group>";
+		};
+		FEE7BD970F24EB420056746F /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				FE2D8C720F659D710038D814 /* Export */,
+				FE74F31A0F2510EC00EA1D10 /* GraffleViews */,
+				FEE7BE790F24FFB40056746F /* GraffleBezierFactory */,
+				FEE7BD980F24EB8A0056746F /* GraffleDocument */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		FEE7BD980F24EB8A0056746F /* GraffleDocument */ = {
+			isa = PBXGroup;
+			children = (
+				2A37F4AEFDCFA73011CA2CEA /* GraffleDocument.h */,
+				2A37F4ACFDCFA73011CA2CEA /* GraffleDocument.m */,
+				FEE7BDC80F24F2CF0056746F /* GraffleWindowController.h */,
+				FEE7BDC90F24F2CF0056746F /* GraffleWindowController.m */,
+			);
+			path = GraffleDocument;
+			sourceTree = "<group>";
+		};
+		FEE7BDB50F24EFD80056746F /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				FEE7BDB60F24F0130056746F /* Regatta-Test.graffle */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		FEE7BE790F24FFB40056746F /* GraffleBezierFactory */ = {
+			isa = PBXGroup;
+			children = (
+				FEE7BE7A0F24FFFB0056746F /* GraffleBezierFactory.h */,
+				FEE7BE7B0F24FFFB0056746F /* GraffleBezierFactory.m */,
+			);
+			path = GraffleBezierFactory;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		8D15AC270486D014006FF6A4 /* GraffleReader */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C05733C708A9546B00998B17 /* Build configuration list for PBXNativeTarget "GraffleReader" */;
+			buildPhases = (
+				8D15AC2B0486D014006FF6A4 /* Resources */,
+				8D15AC300486D014006FF6A4 /* Sources */,
+				8D15AC330486D014006FF6A4 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = GraffleReader;
+			productInstallPath = "$(HOME)/Applications";
+			productName = GraffleReader;
+			productReference = 8D15AC370486D014006FF6A4 /* GraffleReader.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		2A37F4A9FDCFA73011CA2CEA /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = C05733CB08A9546B00998B17 /* Build configuration list for PBXProject "GraffleReader" */;
+			compatibilityVersion = "Xcode 3.1";
+			developmentRegion = English;
+			hasScannedForEncodings = 1;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 2A37F4AAFDCFA73011CA2CEA /* GraffleReader */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8D15AC270486D014006FF6A4 /* GraffleReader */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		8D15AC2B0486D014006FF6A4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8D15AC2C0486D014006FF6A4 /* Credits.rtf in Resources */,
+				8D15AC2F0486D014006FF6A4 /* InfoPlist.strings in Resources */,
+				1DDD582C0DA1D0D100B32029 /* GraffleDocument.xib in Resources */,
+				1DDD582D0DA1D0D100B32029 /* MainMenu.xib in Resources */,
+				FEE7BDB70F24F0130056746F /* Regatta-Test.graffle in Resources */,
+				FE74F2E00F2506D800EA1D10 /* PropertyInfoView.xib in Resources */,
+				FE74F3E20F251D8100EA1D10 /* GraffleBezierView.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8D15AC300486D014006FF6A4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8D15AC310486D014006FF6A4 /* GraffleDocument.m in Sources */,
+				8D15AC320486D014006FF6A4 /* main.m in Sources */,
+				FEE7BDCA0F24F2CF0056746F /* GraffleWindowController.m in Sources */,
+				FEE7BE7C0F24FFFB0056746F /* GraffleBezierFactory.m in Sources */,
+				FE74F31D0F25116C00EA1D10 /* PropertyInfoViewController.m in Sources */,
+				FE74F3E00F251D2700EA1D10 /* GraffleBezierViewController.m in Sources */,
+				FE74F3E70F251E4500EA1D10 /* BezierDrawView.m in Sources */,
+				FE74F51D0F2529C900EA1D10 /* TGZoomingScrollView.m in Sources */,
+				FE2D8C750F659DC40038D814 /* SimpleBezier.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		089C165FFE840EACC02AAC07 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				089C1660FE840EACC02AAC07 /* English */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		1DDD58280DA1D0D100B32029 /* GraffleDocument.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1DDD58290DA1D0D100B32029 /* English */,
+			);
+			name = GraffleDocument.xib;
+			sourceTree = "<group>";
+		};
+		1DDD582A0DA1D0D100B32029 /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1DDD582B0DA1D0D100B32029 /* English */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+		2A37F4B9FDCFA73011CA2CEA /* Credits.rtf */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2A37F4BAFDCFA73011CA2CEA /* English */,
+			);
+			name = Credits.rtf;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		C05733C808A9546B00998B17 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = GraffleReader_Prefix.pch;
+				INFOPLIST_FILE = Resources/Info.plist;
+				INSTALL_PATH = "$(HOME)/Applications";
+				PRODUCT_NAME = GraffleReader;
+			};
+			name = Debug;
+		};
+		C05733C908A9546B00998B17 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = GraffleReader_Prefix.pch;
+				INFOPLIST_FILE = Resources/Info.plist;
+				INSTALL_PATH = "$(HOME)/Applications";
+				PRODUCT_NAME = GraffleReader;
+			};
+			name = Release;
+		};
+		C05733CC08A9546B00998B17 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				ONLY_ACTIVE_ARCH = YES;
+				PREBINDING = NO;
+				SDKROOT = macosx10.7;
+			};
+			name = Debug;
+		};
+		C05733CD08A9546B00998B17 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				PREBINDING = NO;
+				SDKROOT = macosx10.7;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C05733C708A9546B00998B17 /* Build configuration list for PBXNativeTarget "GraffleReader" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C05733C808A9546B00998B17 /* Debug */,
+				C05733C908A9546B00998B17 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C05733CB08A9546B00998B17 /* Build configuration list for PBXProject "GraffleReader" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C05733CC08A9546B00998B17 /* Debug */,
+				C05733CD08A9546B00998B17 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 2A37F4A9FDCFA73011CA2CEA /* Project object */;
+}
