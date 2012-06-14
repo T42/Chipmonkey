@@ -28,8 +28,6 @@
 		93AFEA1815828FA1003A6382 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93AFEA1715828FA1003A6382 /* CoreGraphics.framework */; };
 		93AFEA1E15828FA1003A6382 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 93AFEA1C15828FA1003A6382 /* InfoPlist.strings */; };
 		93AFEA2015828FA1003A6382 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 93AFEA1F15828FA1003A6382 /* main.m */; };
-		93AFEA2415828FA1003A6382 /* CMAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 93AFEA2315828FA1003A6382 /* CMAppDelegate.m */; };
-		93AFEA2715828FA1003A6382 /* CMMarbleGameController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93AFEA2615828FA1003A6382 /* CMMarbleGameController.m */; };
 		93AFEA2A15828FA1003A6382 /* CMMarbleGameController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93AFEA2815828FA1003A6382 /* CMMarbleGameController.xib */; };
 		93AFEA78158290B2003A6382 /* libChipmunkPro-iPhone.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 93AFEA7615829097003A6382 /* libChipmunkPro-iPhone.a */; };
 		93AFEA7C1582968C003A6382 /* Marble_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 93AFEA7A1582968C003A6382 /* Marble_1.png */; };
@@ -40,6 +38,8 @@
 		93EE4E0F1589378D00B491DE /* CMSimpleLevel.m in Sources */ = {isa = PBXBuildFile; fileRef = 93EE4E0E1589378D00B491DE /* CMSimpleLevel.m */; };
 		93EE4E1315895A4000B491DE /* Level1Background.pxm in Resources */ = {isa = PBXBuildFile; fileRef = 93EE4E1115895A4000B491DE /* Level1Background.pxm */; };
 		93EE4E1415895A4000B491DE /* Level2.pxm in Resources */ = {isa = PBXBuildFile; fileRef = 93EE4E1215895A4000B491DE /* Level2.pxm */; };
+		93F664AE158A8782002B4E97 /* CMMarbleGameController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93F664AD158A8782002B4E97 /* CMMarbleGameController.m */; };
+		93F664B1158A87CE002B4E97 /* CMAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 93F664B0158A87CE002B4E97 /* CMAppDelegate.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -72,10 +72,6 @@
 		93AFEA1D15828FA1003A6382 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		93AFEA1F15828FA1003A6382 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		93AFEA2115828FA1003A6382 /* Chipmonkey-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Chipmonkey-Prefix.pch"; sourceTree = "<group>"; };
-		93AFEA2215828FA1003A6382 /* CMAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CMAppDelegate.h; path = ../CMAppDelegate.h; sourceTree = "<group>"; };
-		93AFEA2315828FA1003A6382 /* CMAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = CMAppDelegate.m; path = ../CMAppDelegate.m; sourceTree = "<group>"; };
-		93AFEA2515828FA1003A6382 /* CMMarbleGameController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CMMarbleGameController.h; path = ../CMMarbleGameController.h; sourceTree = "<group>"; };
-		93AFEA2615828FA1003A6382 /* CMMarbleGameController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = CMMarbleGameController.m; path = ../CMMarbleGameController.m; sourceTree = "<group>"; };
 		93AFEA2915828FA1003A6382 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/CMMarbleGameController.xib; sourceTree = "<group>"; };
 		93AFEA4D15829097003A6382 /* chipmunk.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = chipmunk.h; sourceTree = "<group>"; };
 		93AFEA4E15829097003A6382 /* chipmunk_ffi.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = chipmunk_ffi.h; sourceTree = "<group>"; };
@@ -129,6 +125,10 @@
 		93EE4E0E1589378D00B491DE /* CMSimpleLevel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMSimpleLevel.m; sourceTree = "<group>"; };
 		93EE4E1115895A4000B491DE /* Level1Background.pxm */ = {isa = PBXFileReference; lastKnownFileType = file; path = Level1Background.pxm; sourceTree = "<group>"; };
 		93EE4E1215895A4000B491DE /* Level2.pxm */ = {isa = PBXFileReference; lastKnownFileType = file; path = Level2.pxm; sourceTree = "<group>"; };
+		93F664AC158A8782002B4E97 /* CMMarbleGameController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMMarbleGameController.h; sourceTree = "<group>"; };
+		93F664AD158A8782002B4E97 /* CMMarbleGameController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMMarbleGameController.m; sourceTree = "<group>"; };
+		93F664AF158A87CE002B4E97 /* CMAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMAppDelegate.h; sourceTree = "<group>"; };
+		93F664B0158A87CE002B4E97 /* CMAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMAppDelegate.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,11 +151,10 @@
 		9312972C1582A23D00A2B556 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				93F664AF158A87CE002B4E97 /* CMAppDelegate.h */,
+				93F664B0158A87CE002B4E97 /* CMAppDelegate.m */,
+				93F664AA158A8707002B4E97 /* View Controller */,
 				932485731587E4520092E2FD /* HelperClasses */,
-				93AFEA2215828FA1003A6382 /* CMAppDelegate.h */,
-				93AFEA2315828FA1003A6382 /* CMAppDelegate.m */,
-				93AFEA2515828FA1003A6382 /* CMMarbleGameController.h */,
-				93AFEA2615828FA1003A6382 /* CMMarbleGameController.m */,
 				93AFEA2815828FA1003A6382 /* CMMarbleGameController.xib */,
 				9312972D1582A48400A2B556 /* CMMarbleSimulationView.h */,
 				9312972E1582A48400A2B556 /* CMMarbleSimulationView.m */,
@@ -352,6 +351,15 @@
 			path = "Original Artwork";
 			sourceTree = "<group>";
 		};
+		93F664AA158A8707002B4E97 /* View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				93F664AC158A8782002B4E97 /* CMMarbleGameController.h */,
+				93F664AD158A8782002B4E97 /* CMMarbleGameController.m */,
+			);
+			path = "View Controller";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -435,12 +443,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				93AFEA2015828FA1003A6382 /* main.m in Sources */,
-				93AFEA2415828FA1003A6382 /* CMAppDelegate.m in Sources */,
-				93AFEA2715828FA1003A6382 /* CMMarbleGameController.m in Sources */,
 				9312972F1582A48400A2B556 /* CMMarbleSimulationView.m in Sources */,
 				931297321582A5D700A2B556 /* CMMarbleLayer.m in Sources */,
 				932485761587E4870092E2FD /* CMSimpleShapeReader.m in Sources */,
 				93EE4E0F1589378D00B491DE /* CMSimpleLevel.m in Sources */,
+				93F664AE158A8782002B4E97 /* CMMarbleGameController.m in Sources */,
+				93F664B1158A87CE002B4E97 /* CMAppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
