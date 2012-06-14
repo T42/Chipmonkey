@@ -134,7 +134,6 @@
 		93F664B2158A8BC2002B4E97 /* CMMarbleMenuController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMMarbleMenuController.h; sourceTree = "<group>"; };
 		93F664B3158A8BC2002B4E97 /* CMMarbleMenuController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMMarbleMenuController.m; sourceTree = "<group>"; };
 		93F664B8158A8BE5002B4E97 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/CMMarbleMenuController.xib; sourceTree = "<group>"; };
-		93F664BC158A987A002B4E97 /* Functions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Functions.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -198,7 +197,6 @@
 				932485751587E4870092E2FD /* CMSimpleShapeReader.m */,
 				93EE4E0D1589378D00B491DE /* CMSimpleLevel.h */,
 				93EE4E0E1589378D00B491DE /* CMSimpleLevel.m */,
-				93F664BC158A987A002B4E97 /* Functions.h */,
 			);
 			path = HelperClasses;
 			sourceTree = "<group>";
