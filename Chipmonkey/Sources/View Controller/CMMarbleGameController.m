@@ -28,8 +28,10 @@
 @end
 
 static cpFloat frand_unit(){return 2.0f*((cpFloat)rand()/(cpFloat)RAND_MAX) - 1.0f;}
+
 @implementation CMMarbleGameController
-@synthesize playgroundView, marblePreview,finishView,startView,levelLabel,levelLimit,currentLevel,levels;
+
+@synthesize playgroundView, marblePreview,finishView,startView,levelLabel,levelLimit,currentLevel,levels,menuController;
 
 - (void)didReceiveMemoryWarning
 {
@@ -38,6 +40,78 @@ static cpFloat frand_unit(){return 2.0f*((cpFloat)rand()/(cpFloat)RAND_MAX) - 1.
 }
 
 #pragma mark - View lifecycle
+- (void)viewDidLoad
+{
+  [super viewDidLoad];
+	[self loadMarbleImages];
+	
+	self.marblePreview.image = [self freshImage];
+	// Do any additional setup after loading the view, typically from a nib.
+	self.playgroundView.layer.masksToBounds = YES;
+	[self.playgroundView startSimulation];
+	self.finishView.hidden = YES;
+	self.startView.hidden = YES;
+	[self configureDialogViews];
+	self.levelLimit = [CMSimpleLevel maxLevelIndex];
+	self.currentLevel = 0;
+	[self loadLevels];
+	[self prepareLevel:self.currentLevel];
+}
+
+- (void)viewDidUnload
+{
+	[super viewDidUnload];
+	// Release any retained subviews of the main view.
+	// e.g. self.myOutlet = nil;
+	[self->marbleImages release];
+	self->marbleImages = nil;
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+	[super viewWillAppear:animated];
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+	[super viewDidAppear:animated];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+	[super viewWillDisappear:animated];
+}
+
+- (void)viewDidDisappear:(BOOL)animated
+{
+	[super viewDidDisappear:animated];
+}
+
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
+{
+	// Return YES for supported orientations
+	return NO;
+}
+
+#pragma mark - Dialog preparation
+
+- (void) configureDialogViews
+{
+	self.startView.layer.borderColor = [[UIColor colorWithWhite:1.0 alpha:.6]CGColor];
+	self.startView.layer.cornerRadius = 15;
+	self.startView.layer.borderWidth = 2;
+	self.startView.layer.backgroundColor = [[UIColor colorWithWhite:0.1 alpha:.9]CGColor];
+	
+	self.finishView.layer.borderColor = [[UIColor colorWithWhite:1.0 alpha:.6]CGColor];
+	self.finishView.layer.cornerRadius = 15;
+	self.finishView.layer.borderWidth = 2;
+	self.finishView.layer.backgroundColor = [[UIColor colorWithWhite:0.1 alpha:.9]CGColor];
+}
+
+
+
+#pragma mark - Marble Image Handling
+
 
 - (void) loadMarbleImages
 {
@@ -64,18 +138,7 @@ static cpFloat frand_unit(){return 2.0f*((cpFloat)rand()/(cpFloat)RAND_MAX) - 1.
 	return newImage;	
 }
 
-- (void) configureDialogViews
-{
-	self.startView.layer.borderColor = [[UIColor colorWithWhite:1.0 alpha:.6]CGColor];
-	self.startView.layer.cornerRadius = 15;
-	self.startView.layer.borderWidth = 2;
-	self.startView.layer.backgroundColor = [[UIColor colorWithWhite:0.1 alpha:.6]CGColor];
-	
-	self.finishView.layer.borderColor = [[UIColor colorWithWhite:1.0 alpha:.6]CGColor];
-	self.finishView.layer.cornerRadius = 15;
-	self.finishView.layer.borderWidth = 2;
-	self.finishView.layer.backgroundColor = [[UIColor colorWithWhite:0.1 alpha:.9]CGColor];
-}
+#pragma mark - Levels
 
 - (void) loadLevels
 {
@@ -106,88 +169,7 @@ static cpFloat frand_unit(){return 2.0f*((cpFloat)rand()/(cpFloat)RAND_MAX) - 1.
 	self.levelLabel.text = [NSString stringWithFormat:@"Level - %d",levelIndex];
 }
 
-- (void)viewDidLoad
-{
-  [super viewDidLoad];
-	[self loadMarbleImages];
-	
-	self.marblePreview.image = [self freshImage];
-	// Do any additional setup after loading the view, typically from a nib.
-		self.playgroundView.layer.masksToBounds = YES;
-	[self.playgroundView startSimulation];
-	self.finishView.hidden = YES;
-	self.startView.hidden = YES;
-	[self configureDialogViews];
-	self.levelLimit = [CMSimpleLevel maxLevelIndex];
-	self.currentLevel = 0;
-	[self loadLevels];
-	[self prepareLevel:self.currentLevel];
-}
 
-- (void)viewDidUnload
-{
-    [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
-	[self->marbleImages release];
-	self->marbleImages = nil;
-}
-
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-}
-
-- (void)viewDidAppear:(BOOL)animated
-{
-    [super viewDidAppear:animated];
-}
-
-- (void)viewWillDisappear:(BOOL)animated
-{
-	[super viewWillDisappear:animated];
-}
-
-- (void)viewDidDisappear:(BOOL)animated
-{
-	[super viewDidDisappear:animated];
-}
-
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-{
-    // Return YES for supported orientations
-	return YES;
-}
-
-#pragma mark -
-#pragma mark Stupid Level handling
-//- (void) loadLevelImages:(NSString*) levelName
-//{
-//	self.playgroundView.levelForeground = [UIImage imageNamed:[NSString stringWithFormat:@"%@-Overlay",levelName]];
-//	self.playgroundView.levelBackground = [UIImage imageNamed:[NSString stringWithFormat:@"%@-Background",levelName]];
-//}
-//
-//- (void) loadLevelStaticBodies:(NSString*) levelName
-//{
-//	NSString *fileName = [NSString stringWithFormat:@"%@-StaticBodies",levelName];
-//	NSString *filePath = [[NSBundle mainBundle] pathForResource:fileName ofType:@"stb"];
-//	CMSimpleShapeReader *shapeReader = [[CMSimpleShapeReader alloc]initWithContentsOfFile:filePath];
-//	NSLog(@"Static Shapes: %@",shapeReader.shapes);
-//	
-//	ChipmunkBody *staticBody = self.playgroundView.space.staticBody;
-//	for (ChipmunkShape *shape in shapeReader.shapes) {
-//		shape.body = staticBody;
-//		[self.playgroundView.space add:shape];
-//	}
-//	[shapeReader release];
-//}
-//
-//- (void) loadLevel:(NSUInteger) count
-//{
-//	NSString *levelName = [NSString stringWithFormat:@"Level%d",count];
-//	[self loadLevelImages:levelName];
-//	[self loadLevelStaticBodies:levelName];
-//}
 
 #pragma mark -
 #pragma mark Actions
@@ -246,6 +228,13 @@ static cpFloat frand_unit(){return 2.0f*((cpFloat)rand()/(cpFloat)RAND_MAX) - 1.
 	self.startView.hidden = YES;
 	[self startSimulation:nil];
 }
+#pragma mark -
+
+- (IBAction)showMenuBar:(id)sender
+{
+	[self presentModalViewController:self.menuController animated:YES];
+}
+
 
 #pragma mark -
 #pragma mark CMMarbleImageSource
