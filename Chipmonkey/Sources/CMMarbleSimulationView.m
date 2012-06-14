@@ -42,6 +42,7 @@ static cpFloat frand_unit(){return 2.0f*((cpFloat)rand()/(cpFloat)RAND_MAX) - 1.
 	NSLog(@"Persistance: %u Bias: %f Slope: %f",self.space.collisionPersistence,self.space.collisionBias,self.space.collisionSlop);
   //	self.space.collisionPersistence = 120.0;
   self.space.collisionSlop = 0.01;
+	self.space.collisionBias=.01;
 	
 	[self.space addCollisionHandler:self typeA:[CMMarbleLayer class] typeB:[CMMarbleLayer class]
 														begin:@selector(beginMarbleCollision:space:) 
