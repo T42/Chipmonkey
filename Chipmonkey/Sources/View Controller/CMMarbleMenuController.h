@@ -7,11 +7,23 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <QuartzCore/QuartzCore.h>
+#import "CMPopoverContentController.h"
 
-@interface CMMarbleMenuController : UIViewController
+@class CMMarbleGameController;
 
+@interface CMMarbleMenuController : CMPopoverContentController
+{
+	@protected
+	CMMarbleGameController *gameController;
+	
+}
+@property(retain, nonatomic) IBOutlet CMMarbleGameController* gameController;
 - (IBAction)menuAction:(UISegmentedControl*)sender;
 - (IBAction) selectLevel:(id)sender;
 - (IBAction) openOptions:(id) sender;
 - (IBAction) resetProgress:(id)sender;
+- (IBAction)restartLevel:(id)sender;
+- (IBAction) nextLevel:(id)sender;
+- (IBAction)previousLevel:(id)sender;
 @end

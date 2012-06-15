@@ -10,6 +10,8 @@
 #import "CMMarbleSimulationView.h"
 #import "CMSimpleShapeReader.h"
 #import "CMSimpleLevel.h"
+#import "CMFunctions.h"
+#import "CMSimplePopoverBackground.h"
 #define MAX_MARBLE_IMAGES 9
 #define NUM_LEVEL_MARBLES 80
 
@@ -27,11 +29,11 @@
 
 @end
 
-static cpFloat frand_unit(){return 2.0f*((cpFloat)rand()/(cpFloat)RAND_MAX) - 1.0f;}
+
 
 @implementation CMMarbleGameController
 
-@synthesize playgroundView, marblePreview,finishView,startView,levelLabel,levelLimit,currentLevel,levels,menuController;
+@synthesize playgroundView, marblePreview,finishView,startView,levelLabel,levelLimit,currentLevel,levels,menuController,popoverController;
 
 - (void)didReceiveMemoryWarning
 {
@@ -90,7 +92,7 @@ static cpFloat frand_unit(){return 2.0f*((cpFloat)rand()/(cpFloat)RAND_MAX) - 1.
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
 	// Return YES for supported orientations
-	return NO;
+	return YES;
 }
 
 #pragma mark - Dialog preparation
@@ -169,6 +171,18 @@ static cpFloat frand_unit(){return 2.0f*((cpFloat)rand()/(cpFloat)RAND_MAX) - 1.
 	self.levelLabel.text = [NSString stringWithFormat:@"Level - %d",levelIndex];
 }
 
+#pragma mark - Properties
+
+- (void) setCurrentLevel:(NSUInteger)cLevel
+{
+	if (cLevel == -1) {
+		cLevel = [self.levels count]-1;
+	}
+	cLevel = cLevel % ([self.levels count]);
+	if(cLevel != self->currentLevel){
+		self->currentLevel = cLevel;
+	}
+}
 
 
 #pragma mark -
@@ -232,7 +246,16 @@ static cpFloat frand_unit(){return 2.0f*((cpFloat)rand()/(cpFloat)RAND_MAX) - 1.
 
 - (IBAction)showMenuBar:(id)sender
 {
-	[self presentModalViewController:self.menuController animated:YES];
+	if(!self.popoverController){
+		self.popoverController = [[[UIPopoverController alloc]initWithContentViewController:self.menuController]autorelease];
+	}
+//	[self presentModalViewController:self.menuController animated:YES];
+//	self.popoverController.popoverContentSize = CGSizeMake(1024, 160);
+	self.popoverController.popoverLayoutMargins = UIEdgeInsetsMake(0, 0, 0, 0);
+	self.popoverController.popoverBackgroundViewClass = [CMSimplePopoverBackground class];
+	self.menuController.popoverController=self.popoverController;
+	[self.popoverController presentPopoverFromRect:CGRectMake(0, 0, 1024, 60) inView:self.view permittedArrowDirections:(0) animated:YES];
+
 }
 
 

@@ -33,13 +33,20 @@
 				<string key="IBProxiedObjectIdentifier">IBFirstResponder</string>
 				<string key="targetRuntimeIdentifier">IBIPadFramework</string>
 			</object>
-			<object class="IBUIViewController" id="670538661">
+			<object class="IBUIViewController" id="576378382">
+				<string key="IBUITitle">Blubberlutsch</string>
 				<string key="IBUINibName">CMMarbleMenuController</string>
 				<object class="IBUISimulatedOrientationMetrics" key="IBUISimulatedOrientationMetrics">
 					<int key="IBUIInterfaceOrientation">3</int>
 					<int key="interfaceOrientation">3</int>
 				</object>
+				<object class="IBUISimulatedSizeMetrics" key="IBUISimulatedDestinationMetrics">
+					<string key="IBUISimulatedSizeMetricsClass">IBUISimulatedFreeformSizeMetricsSentinel</string>
+					<string key="IBUIDisplayName">Freeform</string>
+				</object>
+				<int key="IBUIModalTransitionStyle">2</int>
 				<int key="IBUIModalPresentationStyle">3</int>
+				<string key="IBUIContentSizeForViewHostedInPopover">{1024, 60}</string>
 				<string key="targetRuntimeIdentifier">IBIPadFramework</string>
 				<bool key="IBUIHorizontal">YES</bool>
 			</object>
@@ -52,7 +59,6 @@
 						<int key="NSvFlags">274</int>
 						<string key="NSFrameSize">{1024, 768}</string>
 						<reference key="NSSuperview" ref="766721923"/>
-						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="469035125"/>
 						<string key="NSReuseIdentifierKey">_NS:212</string>
 						<object class="NSColor" key="IBUIBackgroundColor">
@@ -70,8 +76,7 @@
 								<int key="NSvFlags">292</int>
 								<string key="NSFrame">{{5, 6}, {48, 48}}</string>
 								<reference key="NSSuperview" ref="469035125"/>
-								<reference key="NSWindow"/>
-								<reference key="NSNextKeyView" ref="695021126"/>
+								<reference key="NSNextKeyView" ref="468704662"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
 								<bool key="IBUIOpaque">NO</bool>
 								<string key="targetRuntimeIdentifier">IBIPadFramework</string>
@@ -104,12 +109,11 @@
 									<int key="NSfFlags">16</int>
 								</object>
 							</object>
-							<object class="IBUIButton" id="695021126">
+							<object class="IBUIButton" id="468704662">
 								<reference key="NSNextResponder" ref="469035125"/>
 								<int key="NSvFlags">292</int>
 								<string key="NSFrame">{{932, 11}, {72, 37}}</string>
 								<reference key="NSSuperview" ref="469035125"/>
-								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="870839051"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
 								<bool key="IBUIOpaque">NO</bool>
@@ -130,7 +134,6 @@
 						</array>
 						<string key="NSFrameSize">{1024, 60}</string>
 						<reference key="NSSuperview" ref="766721923"/>
-						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="180938787"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<object class="NSColor" key="IBUIBackgroundColor">
@@ -148,7 +151,6 @@
 								<int key="NSvFlags">292</int>
 								<string key="NSFrame">{{367, 173}, {122, 37}}</string>
 								<reference key="NSSuperview" ref="870839051"/>
-								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="112482611"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
 								<bool key="IBUIOpaque">NO</bool>
@@ -172,7 +174,6 @@
 								<int key="NSvFlags">292</int>
 								<string key="NSFrame">{{29, 173}, {122, 37}}</string>
 								<reference key="NSSuperview" ref="870839051"/>
-								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="10044744"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
 								<bool key="IBUIOpaque">NO</bool>
@@ -196,7 +197,6 @@
 								<int key="NSvFlags">292</int>
 								<string key="NSFrame">{{20, 69}, {481, 57}}</string>
 								<reference key="NSSuperview" ref="870839051"/>
-								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="245411597"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
 								<bool key="IBUIOpaque">NO</bool>
@@ -234,7 +234,6 @@
 						</array>
 						<string key="NSFrame">{{251, 269}, {521, 230}}</string>
 						<reference key="NSSuperview" ref="766721923"/>
-						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="664374870"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<object class="NSColor" key="IBUIBackgroundColor">
@@ -258,7 +257,6 @@
 								<int key="NSvFlags">292</int>
 								<string key="NSFrame">{{20, 20}, {324, 50}}</string>
 								<reference key="NSSuperview" ref="112482611"/>
-								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="572402441"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
 								<bool key="IBUIOpaque">NO</bool>
@@ -290,7 +288,6 @@
 								<int key="NSvFlags">292</int>
 								<string key="NSFrame">{{140, 133}, {84, 37}}</string>
 								<reference key="NSSuperview" ref="112482611"/>
-								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
 								<bool key="IBUIOpaque">NO</bool>
@@ -312,7 +309,6 @@
 						</array>
 						<string key="NSFrame">{{330, 265}, {364, 238}}</string>
 						<reference key="NSSuperview" ref="766721923"/>
-						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="471922550"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<object class="NSColor" key="IBUIBackgroundColor">
@@ -328,7 +324,6 @@
 				</array>
 				<string key="NSFrameSize">{1024, 768}</string>
 				<reference key="NSSuperview"/>
-				<reference key="NSWindow"/>
 				<reference key="NSNextKeyView" ref="82254823"/>
 				<object class="NSColor" key="IBUIBackgroundColor">
 					<int key="NSColorSpace">1</int>
@@ -409,6 +404,14 @@
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">menuController</string>
+						<reference key="source" ref="841351856"/>
+						<reference key="destination" ref="576378382"/>
+					</object>
+					<int key="connectionID">71</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
 						<string key="label">delegate</string>
 						<reference key="source" ref="82254823"/>
 						<reference key="destination" ref="841351856"/>
@@ -452,9 +455,17 @@
 					<int key="connectionID">63</int>
 				</object>
 				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">gameController</string>
+						<reference key="source" ref="576378382"/>
+						<reference key="destination" ref="841351856"/>
+					</object>
+					<int key="connectionID">72</int>
+				</object>
+				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchEventConnection" key="connection">
 						<string key="label">showMenuBar:</string>
-						<reference key="source" ref="695021126"/>
+						<reference key="source" ref="468704662"/>
 						<reference key="destination" ref="841351856"/>
 						<int key="IBEventType">7</int>
 					</object>
@@ -503,7 +514,7 @@
 						<reference key="object" ref="469035125"/>
 						<array class="NSMutableArray" key="children">
 							<reference ref="180938787"/>
-							<reference ref="695021126"/>
+							<reference ref="468704662"/>
 						</array>
 						<reference key="parent" ref="766721923"/>
 						<string key="objectName">Menu View</string>
@@ -561,12 +572,12 @@
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">68</int>
-						<reference key="object" ref="670538661"/>
+						<reference key="object" ref="576378382"/>
 						<reference key="parent" ref="0"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">69</int>
-						<reference key="object" ref="695021126"/>
+						<reference key="object" ref="468704662"/>
 						<reference key="parent" ref="469035125"/>
 					</object>
 				</array>
@@ -596,7 +607,7 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">70</int>
+			<int key="maxID">72</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -656,7 +667,9 @@
 						<string key="finishView">UIView</string>
 						<string key="levelLabel">UILabel</string>
 						<string key="marblePreview">UIButton</string>
+						<string key="menuController">CMMarbleMenuController</string>
 						<string key="playgroundView">CMMarbleSimulationView</string>
+						<string key="popoverController">UIPopoverController</string>
 						<string key="startView">UIView</string>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="toOneOutletInfosByName">
@@ -672,9 +685,17 @@
 							<string key="name">marblePreview</string>
 							<string key="candidateClassName">UIButton</string>
 						</object>
+						<object class="IBToOneOutletInfo" key="menuController">
+							<string key="name">menuController</string>
+							<string key="candidateClassName">CMMarbleMenuController</string>
+						</object>
 						<object class="IBToOneOutletInfo" key="playgroundView">
 							<string key="name">playgroundView</string>
 							<string key="candidateClassName">CMMarbleSimulationView</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="popoverController">
+							<string key="name">popoverController</string>
+							<string key="candidateClassName">UIPopoverController</string>
 						</object>
 						<object class="IBToOneOutletInfo" key="startView">
 							<string key="name">startView</string>
@@ -688,11 +709,12 @@
 				</object>
 				<object class="IBPartialClassDescription">
 					<string key="className">CMMarbleMenuController</string>
-					<string key="superclassName">UIViewController</string>
+					<string key="superclassName">CMPopoverContentController</string>
 					<dictionary class="NSMutableDictionary" key="actions">
 						<string key="menuAction:">UISegmentedControl</string>
 						<string key="openOptions:">id</string>
 						<string key="resetProgress:">id</string>
+						<string key="restartLevel:">id</string>
 						<string key="selectLevel:">id</string>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="actionInfosByName">
@@ -708,11 +730,26 @@
 							<string key="name">resetProgress:</string>
 							<string key="candidateClassName">id</string>
 						</object>
+						<object class="IBActionInfo" key="restartLevel:">
+							<string key="name">restartLevel:</string>
+							<string key="candidateClassName">id</string>
+						</object>
 						<object class="IBActionInfo" key="selectLevel:">
 							<string key="name">selectLevel:</string>
 							<string key="candidateClassName">id</string>
 						</object>
 					</dictionary>
+					<object class="NSMutableDictionary" key="outlets">
+						<string key="NS.key.0">gameController</string>
+						<string key="NS.object.0">CMMarbleGameController</string>
+					</object>
+					<object class="NSMutableDictionary" key="toOneOutletInfosByName">
+						<string key="NS.key.0">gameController</string>
+						<object class="IBToOneOutletInfo" key="NS.object.0">
+							<string key="name">gameController</string>
+							<string key="candidateClassName">CMMarbleGameController</string>
+						</object>
+					</object>
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">
 						<string key="majorKey">IBProjectSource</string>
 						<string key="minorKey">./Classes/CMMarbleMenuController.h</string>
@@ -746,6 +783,14 @@
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">
 						<string key="majorKey">IBProjectSource</string>
 						<string key="minorKey">./Classes/CMMarbleSimulationView.h</string>
+					</object>
+				</object>
+				<object class="IBPartialClassDescription">
+					<string key="className">CMPopoverContentController</string>
+					<string key="superclassName">UIViewController</string>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBProjectSource</string>
+						<string key="minorKey">./Classes/CMPopoverContentController.h</string>
 					</object>
 				</object>
 			</array>

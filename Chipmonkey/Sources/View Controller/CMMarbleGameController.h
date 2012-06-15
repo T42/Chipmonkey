@@ -11,6 +11,7 @@
 #import "CMMarbleSimulationView.h"
 #import "CMMarbleImageSource.h"
 #import "CMMarbleMenuController.h"
+
 @interface UIButton (CMMarbleGameHelper)
 @property (retain,nonatomic) UIImage* image;
 @end
@@ -29,6 +30,7 @@
 	NSMutableArray							*levels;
 	
 	CMMarbleMenuController			* menuController;
+	UIPopoverController					*popoverController;
 }
 @property(retain,nonatomic) IBOutlet UIView* finishView, *startView;;
 @property(retain,nonatomic) IBOutlet CMMarbleSimulationView *playgroundView;
@@ -36,7 +38,8 @@
 @property(retain,nonatomic) IBOutlet UILabel *levelLabel;
 @property(assign,nonatomic) NSUInteger levelLimit, currentLevel;
 @property(retain,nonatomic) NSMutableArray *levels;
-@property(retain,nonatomic) CMMarbleMenuController *menuController;
+@property(retain,nonatomic) IBOutlet CMMarbleMenuController *menuController;
+@property(retain,nonatomic) IBOutlet UIPopoverController *popoverController;
 
 - (IBAction) resetLevels:(id) sender; 	// Depricated 
 - (IBAction)startSimulation:(id)sender; // used internaly 
@@ -56,4 +59,5 @@
 // Menubar
 - (IBAction)showMenuBar:(id)sender;
 
+- (void) prepareLevel:(NSUInteger) levelIndex;
 @end

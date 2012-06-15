@@ -7,6 +7,7 @@
 //
 
 #import "CMMarbleSimulationView.h"
+#import "CMFunctions.h"
 #define MARBLE_RADIUS 20
 static NSString *borderType = @"borderType";
 
@@ -15,7 +16,7 @@ static NSString *borderType = @"borderType";
 #define SPACE_GRAVITY     981.0
 #define MARBLE_MASS       20.0
 
-static cpFloat frand_unit(){return 2.0f*((cpFloat)rand()/(cpFloat)RAND_MAX) - 1.0f;}
+
 @implementation CMMarbleSimulationView
 
 @synthesize space, displayLink, preparedLayer,simulatedLayers,touchingMarbles, delegate, fireTimer, levelBackground, levelForeground, foregroundLayer, backgroundLayer;

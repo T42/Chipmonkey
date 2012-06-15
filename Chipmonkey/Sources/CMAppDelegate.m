@@ -29,9 +29,6 @@
 	self.viewController = [[[CMMarbleGameController alloc] initWithNibName:@"CMMarbleGameController" bundle:nil] autorelease];
 	self.window.rootViewController = self.viewController;
     [self.window makeKeyAndVisible];
-	// starting Music
-	MPMusicPlayerController * controller = [MPMusicPlayerController applicationMusicPlayer];
-	[controller play];
     return YES;
 }
 

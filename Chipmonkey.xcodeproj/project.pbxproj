@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9311BE88158AA83C004E13F4 /* CMSimplePopoverBackground.m in Sources */ = {isa = PBXBuildFile; fileRef = 9311BE87158AA83C004E13F4 /* CMSimplePopoverBackground.m */; };
+		9311BE8C158AB0DC004E13F4 /* CMPopoverContentController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9311BE8B158AB0DC004E13F4 /* CMPopoverContentController.m */; };
 		9312972F1582A48400A2B556 /* CMMarbleSimulationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9312972E1582A48400A2B556 /* CMMarbleSimulationView.m */; };
 		931297321582A5D700A2B556 /* CMMarbleLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 931297311582A5D700A2B556 /* CMMarbleLayer.m */; };
 		9323A11B1584DBE3007E8F9A /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93AFEA7E15829AB9003A6382 /* QuartzCore.framework */; };
@@ -42,9 +44,14 @@
 		93F664B1158A87CE002B4E97 /* CMAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 93F664B0158A87CE002B4E97 /* CMAppDelegate.m */; };
 		93F664B5158A8BC2002B4E97 /* CMMarbleMenuController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93F664B3158A8BC2002B4E97 /* CMMarbleMenuController.m */; };
 		93F664B7158A8BE5002B4E97 /* CMMarbleMenuController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93F664B9158A8BE5002B4E97 /* CMMarbleMenuController.xib */; };
+		93F664BF158A98FF002B4E97 /* CMFunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = 93F664BE158A98FF002B4E97 /* CMFunctions.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9311BE86158AA83C004E13F4 /* CMSimplePopoverBackground.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMSimplePopoverBackground.h; sourceTree = "<group>"; };
+		9311BE87158AA83C004E13F4 /* CMSimplePopoverBackground.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMSimplePopoverBackground.m; sourceTree = "<group>"; };
+		9311BE8A158AB0DC004E13F4 /* CMPopoverContentController.h */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 2; lastKnownFileType = sourcecode.c.h; path = CMPopoverContentController.h; sourceTree = "<group>"; tabWidth = 2; usesTabs = 1; wrapsLines = 0; };
+		9311BE8B158AB0DC004E13F4 /* CMPopoverContentController.m */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 2; lastKnownFileType = sourcecode.c.objc; path = CMPopoverContentController.m; sourceTree = "<group>"; tabWidth = 2; usesTabs = 1; wrapsLines = 0; };
 		9312972D1582A48400A2B556 /* CMMarbleSimulationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMMarbleSimulationView.h; sourceTree = "<group>"; };
 		9312972E1582A48400A2B556 /* CMMarbleSimulationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMMarbleSimulationView.m; sourceTree = "<group>"; };
 		931297301582A5D700A2B556 /* CMMarbleLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMMarbleLayer.h; sourceTree = "<group>"; };
@@ -134,6 +141,8 @@
 		93F664B2158A8BC2002B4E97 /* CMMarbleMenuController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMMarbleMenuController.h; sourceTree = "<group>"; };
 		93F664B3158A8BC2002B4E97 /* CMMarbleMenuController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMMarbleMenuController.m; sourceTree = "<group>"; };
 		93F664B8158A8BE5002B4E97 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/CMMarbleMenuController.xib; sourceTree = "<group>"; };
+		93F664BD158A98E7002B4E97 /* CMFunctions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CMFunctions.h; sourceTree = "<group>"; };
+		93F664BE158A98FF002B4E97 /* CMFunctions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMFunctions.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -197,6 +206,8 @@
 				932485751587E4870092E2FD /* CMSimpleShapeReader.m */,
 				93EE4E0D1589378D00B491DE /* CMSimpleLevel.h */,
 				93EE4E0E1589378D00B491DE /* CMSimpleLevel.m */,
+				93F664BD158A98E7002B4E97 /* CMFunctions.h */,
+				93F664BE158A98FF002B4E97 /* CMFunctions.m */,
 			);
 			path = HelperClasses;
 			sourceTree = "<group>";
@@ -361,9 +372,13 @@
 				93AFEA2815828FA1003A6382 /* CMMarbleGameController.xib */,
 				93F664AC158A8782002B4E97 /* CMMarbleGameController.h */,
 				93F664AD158A8782002B4E97 /* CMMarbleGameController.m */,
+				9311BE8A158AB0DC004E13F4 /* CMPopoverContentController.h */,
+				9311BE8B158AB0DC004E13F4 /* CMPopoverContentController.m */,
 				93F664B9158A8BE5002B4E97 /* CMMarbleMenuController.xib */,
 				93F664B2158A8BC2002B4E97 /* CMMarbleMenuController.h */,
 				93F664B3158A8BC2002B4E97 /* CMMarbleMenuController.m */,
+				9311BE86158AA83C004E13F4 /* CMSimplePopoverBackground.h */,
+				9311BE87158AA83C004E13F4 /* CMSimplePopoverBackground.m */,
 			);
 			path = "View Controller";
 			sourceTree = "<group>";
@@ -459,6 +474,9 @@
 				93F664AE158A8782002B4E97 /* CMMarbleGameController.m in Sources */,
 				93F664B1158A87CE002B4E97 /* CMAppDelegate.m in Sources */,
 				93F664B5158A8BC2002B4E97 /* CMMarbleMenuController.m in Sources */,
+				93F664BF158A98FF002B4E97 /* CMFunctions.m in Sources */,
+				9311BE88158AA83C004E13F4 /* CMSimplePopoverBackground.m in Sources */,
+				9311BE8C158AB0DC004E13F4 /* CMPopoverContentController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
