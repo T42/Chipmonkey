@@ -69,6 +69,7 @@
 		932485751587E4870092E2FD /* CMSimpleShapeReader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMSimpleShapeReader.m; sourceTree = "<group>"; };
 		9340752A158CE8B300B92101 /* CMMenuPopoverBackground.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMMenuPopoverBackground.h; sourceTree = "<group>"; };
 		9340752B158CE8B300B92101 /* CMMenuPopoverBackground.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMMenuPopoverBackground.m; sourceTree = "<group>"; };
+		9340752D158CEB3F00B92101 /* Level3.pxm */ = {isa = PBXFileReference; lastKnownFileType = file; path = Level3.pxm; sourceTree = "<group>"; };
 		939682A61583E717007CD4FA /* Marble_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Marble_3.png; sourceTree = "<group>"; };
 		939682A71583E717007CD4FA /* Marble_4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Marble_4.png; sourceTree = "<group>"; };
 		939682A81583E717007CD4FA /* Marble_5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Marble_5.png; sourceTree = "<group>"; };
@@ -424,6 +425,7 @@
 		93EE4E1015895A1B00B491DE /* Original Artwork */ = {
 			isa = PBXGroup;
 			children = (
+				9340752D158CEB3F00B92101 /* Level3.pxm */,
 				93EE4E1115895A4000B491DE /* Level1.pxm */,
 				93EE4E1215895A4000B491DE /* Level2.pxm */,
 			);
