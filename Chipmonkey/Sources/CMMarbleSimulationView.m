@@ -7,6 +7,7 @@
 //
 
 #import "CMMarbleSimulationView.h"
+#import "CMFunctions.h"
 #define MARBLE_RADIUS 20
 static NSString *borderType = @"borderType";
 
@@ -15,7 +16,7 @@ static NSString *borderType = @"borderType";
 #define SPACE_GRAVITY     981.0
 #define MARBLE_MASS       20.0
 
-static cpFloat frand_unit(){return 2.0f*((cpFloat)rand()/(cpFloat)RAND_MAX) - 1.0f;}
+
 @implementation CMMarbleSimulationView
 
 @synthesize space, displayLink, preparedLayer,simulatedLayers,touchingMarbles, delegate, fireTimer, levelBackground, levelForeground, foregroundLayer, backgroundLayer;
@@ -39,11 +40,12 @@ static cpFloat frand_unit(){return 2.0f*((cpFloat)rand()/(cpFloat)RAND_MAX) - 1.
 	CGRect newBounds = 	CGRectInset(self.bounds, 0, 0);
 	[self.space addBounds:newBounds thickness:20.0 elasticity:BORDER_ELASTICITY friction:BORDER_FRICTION layers:CP_ALL_LAYERS group:CP_NO_GROUP collisionType:borderType];
 	self.space.gravity = cpv(0.0, SPACE_GRAVITY);
-	NSLog(@"Persistance: %u Bias: %f Slope: %f",self.space.collisionPersistence,self.space.collisionBias,self.space.collisionSlop);
+
+	NSLog(@"Persistance: %u Bias: %f Slope: %f,iterations %i",self.space.collisionPersistence,self.space.collisionBias,self.space.collisionSlop,self.space.iterations);
   //	self.space.collisionPersistence = 120.0;
   self.space.collisionSlop = 0.01;
-	self.space.collisionBias=.01;
-	
+//	self.space.collisionBias=.1;
+	self.space.iterations = 100;	
 	[self.space addCollisionHandler:self typeA:[CMMarbleLayer class] typeB:[CMMarbleLayer class]
 														begin:@selector(beginMarbleCollision:space:) 
 												 preSolve:nil 
@@ -359,7 +361,7 @@ static cpFloat frand_unit(){return 2.0f*((cpFloat)rand()/(cpFloat)RAND_MAX) - 1.
 - (void) startSimulation
 {
 	self.displayLink = [CADisplayLink displayLinkWithTarget:self selector:@selector(update)];
-	self.displayLink.frameInterval = 1.0;
+	self.displayLink.frameInterval = 1;
 	[self.displayLink addToRunLoop:[NSRunLoop mainRunLoop] forMode:NSDefaultRunLoopMode];
 	if(!preparedLayer){
 		[self createMarble:nil];

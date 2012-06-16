@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>PreferenceSpecifiers</key>
+	<array>
+		<dict>
+			<key>Type</key>
+			<string>PSTextFieldSpecifier</string>
+			<key>Title</key>
+			<string>Friction:</string>
+			<key>DefaultValue</key>
+			<string>1.0</string>
+			<key>Key</key>
+			<string>prefs_space_friction</string>
+		</dict>
+		<dict>
+			<key>DefaultValue</key>
+			<string>0.1</string>
+			<key>Type</key>
+			<string>PSTextFieldSpecifier</string>
+			<key>Title</key>
+			<string>Elasticity:</string>
+			<key>Key</key>
+			<string>prefs_space_elasticity</string>
+		</dict>
+	</array>
+	<key>Title</key>
+	<string>Static Bodies</string>
+	<key>StringsTable</key>
+	<string>Physics_StaticBodies</string>
+</dict>
+</plist>
