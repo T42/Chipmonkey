@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>PreferenceSpecifiers</key>
+	<array>
+		<dict>
+			<key>Type</key>
+			<string>PSGroupSpecifier</string>
+			<key>Title</key>
+			<string>Marble</string>
+		</dict>
+		<dict>
+			<key>IsSecure</key>
+			<false/>
+			<key>DefaultValue</key>
+			<string> 80</string>
+			<key>Type</key>
+			<string>PSTextFieldSpecifier</string>
+			<key>Title</key>
+			<string>Marbles per Level</string>
+			<key>Key</key>
+			<string>prevs_level_numMarbles</string>
+		</dict>
+		<dict>
+			<key>DefaultValue</key>
+			<string>18</string>
+			<key>Type</key>
+			<string>PSTextFieldSpecifier</string>
+			<key>Title</key>
+			<string>Radius [pt]:</string>
+			<key>Key</key>
+			<string>prefs_marble_size</string>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSGroupSpecifier</string>
+			<key>Title</key>
+			<string>Level</string>
+		</dict>
+		<dict>
+			<key>Titles</key>
+			<array>
+				<string>Level 0</string>
+				<string>Rainbow Hole</string>
+				<string>Night shine</string>
+			</array>
+			<key>Values</key>
+			<array>
+				<string>0</string>
+				<string>1</string>
+				<string>2</string>
+			</array>
+			<key>Type</key>
+			<string>PSMultiValueSpecifier</string>
+			<key>Title</key>
+			<string>Startlevel</string>
+			<key>Key</key>
+			<string>prevs_level_startLevel</string>
+			<key>DefaultValue</key>
+			<string>0</string>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSGroupSpecifier</string>
+			<key>Title</key>
+			<string>Player</string>
+		</dict>
+		<dict>
+			<key>DefaultValue</key>
+			<string>Player 1</string>
+			<key>Type</key>
+			<string>PSTextFieldSpecifier</string>
+			<key>Title</key>
+			<string>Name:</string>
+			<key>Key</key>
+			<string>prevs_player_name</string>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSGroupSpecifier</string>
+			<key>Title</key>
+			<string>Physics</string>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSChildPaneSpecifier</string>
+			<key>Title</key>
+			<string>Space</string>
+			<key>File</key>
+			<string>Physics_Space</string>
+		</dict>
+		<dict>
+			<key>File</key>
+			<string>Physics_Marble</string>
+			<key>Type</key>
+			<string>PSChildPaneSpecifier</string>
+			<key>Title</key>
+			<string>Marble</string>
+		</dict>
+		<dict>
+			<key>File</key>
+			<string>Physics_StaticBodies</string>
+			<key>Type</key>
+			<string>PSChildPaneSpecifier</string>
+			<key>Title</key>
+			<string>Static Bodies</string>
+		</dict>
+	</array>
+	<key>StringsTable</key>
+	<string>Root</string>
+</dict>
+</plist>

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Title</key>
+	<string>Space</string>
+	<key>StringsTable</key>
+	<string>Physics_Space</string>
+	<key>PreferenceSpecifiers</key>
+	<array>
+		<dict>
+			<key>Type</key>
+			<string>PSGroupSpecifier</string>
+			<key>Title</key>
+			<string>Gravity</string>
+		</dict>
+		<dict>
+			<key>DefaultValue</key>
+			<string></string>
+			<key>Type</key>
+			<string>PSTextFieldSpecifier</string>
+			<key>Title</key>
+			<string>X:</string>
+			<key>Key</key>
+			<string>prevs_space_gravityX</string>
+		</dict>
+		<dict>
+			<key>DefaultValue</key>
+			<string>981</string>
+			<key>Type</key>
+			<string>PSTextFieldSpecifier</string>
+			<key>Title</key>
+			<string>Y:</string>
+			<key>Key</key>
+			<string>prevs_space_gravityY</string>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSGroupSpecifier</string>
+			<key>Title</key>
+			<string></string>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSTextFieldSpecifier</string>
+			<key>Title</key>
+			<string>Damping [0 - 1]:</string>
+			<key>Key</key>
+			<string>prefs_space_damping</string>
+			<key>DefaultValue</key>
+			<string>0.0</string>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSTextFieldSpecifier</string>
+			<key>Title</key>
+			<string>Iterations [Int]:</string>
+			<key>Key</key>
+			<string>prefs_space_iterations</string>
+			<key>DefaultValue</key>
+			<string>10</string>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSTextFieldSpecifier</string>
+			<key>Title</key>
+			<string>Simulation Speed [Hz]:</string>
+			<key>Key</key>
+			<string>prefs_space_frequency</string>
+			<key>DefaultValue</key>
+			<string>60</string>
+		</dict>
+	</array>
+</dict>
+</plist>

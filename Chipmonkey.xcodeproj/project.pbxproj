@@ -34,6 +34,9 @@
 		93AFEA78158290B2003A6382 /* libChipmunkPro-iPhone.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 93AFEA7615829097003A6382 /* libChipmunkPro-iPhone.a */; };
 		93AFEA7C1582968C003A6382 /* Marble_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 93AFEA7A1582968C003A6382 /* Marble_1.png */; };
 		93AFEA7D1582968C003A6382 /* Marble_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 93AFEA7B1582968C003A6382 /* Marble_2.png */; };
+		93EBF3C6158BAEE1005D32BF /* CMOptionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93EBF3C4158BAEE1005D32BF /* CMOptionsViewController.m */; };
+		93EBF3C7158BAEE1005D32BF /* CMOptionsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93EBF3C5158BAEE1005D32BF /* CMOptionsViewController.xib */; };
+		93EBF3C9158BB311005D32BF /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 93EBF3C8158BB311005D32BF /* Settings.bundle */; };
 		93EE4E0A1589374900B491DE /* Level2-Background.png in Resources */ = {isa = PBXBuildFile; fileRef = 93EE4E071589374900B491DE /* Level2-Background.png */; };
 		93EE4E0B1589374900B491DE /* Level2-Overlay.png in Resources */ = {isa = PBXBuildFile; fileRef = 93EE4E081589374900B491DE /* Level2-Overlay.png */; };
 		93EE4E0C1589374900B491DE /* Level2-StaticBodies.stb in Resources */ = {isa = PBXBuildFile; fileRef = 93EE4E091589374900B491DE /* Level2-StaticBodies.stb */; };
@@ -127,6 +130,10 @@
 		93AFEA7A1582968C003A6382 /* Marble_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Marble_1.png; sourceTree = "<group>"; };
 		93AFEA7B1582968C003A6382 /* Marble_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Marble_2.png; sourceTree = "<group>"; };
 		93AFEA7E15829AB9003A6382 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		93EBF3C3158BAEE1005D32BF /* CMOptionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMOptionsViewController.h; sourceTree = "<group>"; };
+		93EBF3C4158BAEE1005D32BF /* CMOptionsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMOptionsViewController.m; sourceTree = "<group>"; };
+		93EBF3C5158BAEE1005D32BF /* CMOptionsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CMOptionsViewController.xib; sourceTree = "<group>"; };
+		93EBF3C8158BB311005D32BF /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		93EE4E071589374900B491DE /* Level2-Background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Level2-Background.png"; sourceTree = "<group>"; };
 		93EE4E081589374900B491DE /* Level2-Overlay.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Level2-Overlay.png"; sourceTree = "<group>"; };
 		93EE4E091589374900B491DE /* Level2-StaticBodies.stb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Level2-StaticBodies.stb"; sourceTree = "<group>"; };
@@ -353,8 +360,52 @@
 				939682AA1583E717007CD4FA /* Marble_7.png */,
 				939682AB1583E717007CD4FA /* Marble_8.png */,
 				939682AC1583E717007CD4FA /* Marble_9.png */,
+				93EBF3C8158BB311005D32BF /* Settings.bundle */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		93EBF3BE158BA3B5005D32BF /* MarbleGameController */ = {
+			isa = PBXGroup;
+			children = (
+				93AFEA2815828FA1003A6382 /* CMMarbleGameController.xib */,
+				93F664AC158A8782002B4E97 /* CMMarbleGameController.h */,
+				93F664AD158A8782002B4E97 /* CMMarbleGameController.m */,
+			);
+			name = MarbleGameController;
+			sourceTree = "<group>";
+		};
+		93EBF3C0158BA3C7005D32BF /* Popovers */ = {
+			isa = PBXGroup;
+			children = (
+				9311BE8A158AB0DC004E13F4 /* CMPopoverContentController.h */,
+				9311BE8B158AB0DC004E13F4 /* CMPopoverContentController.m */,
+				93EBF3C2158BA40A005D32BF /* Background */,
+				93EBF3C1158BA3F4005D32BF /* Main Menu */,
+				93EBF3C3158BAEE1005D32BF /* CMOptionsViewController.h */,
+				93EBF3C4158BAEE1005D32BF /* CMOptionsViewController.m */,
+				93EBF3C5158BAEE1005D32BF /* CMOptionsViewController.xib */,
+			);
+			name = Popovers;
+			sourceTree = "<group>";
+		};
+		93EBF3C1158BA3F4005D32BF /* Main Menu */ = {
+			isa = PBXGroup;
+			children = (
+				93F664B9158A8BE5002B4E97 /* CMMarbleMenuController.xib */,
+				93F664B2158A8BC2002B4E97 /* CMMarbleMenuController.h */,
+				93F664B3158A8BC2002B4E97 /* CMMarbleMenuController.m */,
+			);
+			name = "Main Menu";
+			sourceTree = "<group>";
+		};
+		93EBF3C2158BA40A005D32BF /* Background */ = {
+			isa = PBXGroup;
+			children = (
+				9311BE86158AA83C004E13F4 /* CMSimplePopoverBackground.h */,
+				9311BE87158AA83C004E13F4 /* CMSimplePopoverBackground.m */,
+			);
+			name = Background;
 			sourceTree = "<group>";
 		};
 		93EE4E1015895A1B00B491DE /* Original Artwork */ = {
@@ -369,16 +420,8 @@
 		93F664AA158A8707002B4E97 /* View Controller */ = {
 			isa = PBXGroup;
 			children = (
-				93AFEA2815828FA1003A6382 /* CMMarbleGameController.xib */,
-				93F664AC158A8782002B4E97 /* CMMarbleGameController.h */,
-				93F664AD158A8782002B4E97 /* CMMarbleGameController.m */,
-				9311BE8A158AB0DC004E13F4 /* CMPopoverContentController.h */,
-				9311BE8B158AB0DC004E13F4 /* CMPopoverContentController.m */,
-				93F664B9158A8BE5002B4E97 /* CMMarbleMenuController.xib */,
-				93F664B2158A8BC2002B4E97 /* CMMarbleMenuController.h */,
-				93F664B3158A8BC2002B4E97 /* CMMarbleMenuController.m */,
-				9311BE86158AA83C004E13F4 /* CMSimplePopoverBackground.h */,
-				9311BE87158AA83C004E13F4 /* CMSimplePopoverBackground.m */,
+				93EBF3C0158BA3C7005D32BF /* Popovers */,
+				93EBF3BE158BA3B5005D32BF /* MarbleGameController */,
 			);
 			path = "View Controller";
 			sourceTree = "<group>";
@@ -456,6 +499,8 @@
 				93EE4E1315895A4000B491DE /* Level1Background.pxm in Resources */,
 				93EE4E1415895A4000B491DE /* Level2.pxm in Resources */,
 				93F664B7158A8BE5002B4E97 /* CMMarbleMenuController.xib in Resources */,
+				93EBF3C7158BAEE1005D32BF /* CMOptionsViewController.xib in Resources */,
+				93EBF3C9158BB311005D32BF /* Settings.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -477,6 +522,7 @@
 				93F664BF158A98FF002B4E97 /* CMFunctions.m in Sources */,
 				9311BE88158AA83C004E13F4 /* CMSimplePopoverBackground.m in Sources */,
 				9311BE8C158AB0DC004E13F4 /* CMPopoverContentController.m in Sources */,
+				93EBF3C6158BAEE1005D32BF /* CMOptionsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

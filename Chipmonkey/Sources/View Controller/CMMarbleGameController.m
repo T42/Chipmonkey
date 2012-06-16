@@ -55,8 +55,9 @@
 	self.startView.hidden = YES;
 	[self configureDialogViews];
 	self.levelLimit = [CMSimpleLevel maxLevelIndex];
-	self.currentLevel = 0;
 	[self loadLevels];
+	self.currentLevel = 0;
+
 	[self prepareLevel:self.currentLevel];
 }
 

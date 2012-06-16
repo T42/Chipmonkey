@@ -30,7 +30,7 @@
 	for (NSUInteger i=0; i<ll; i++) {
 		ChipmunkSegmentShape *cs= [ChipmunkSegmentShape segmentWithBody:nil from:vertices[i] to:vertices[i+1] radius:3];
 		cs.friction = 1.0;
-		cs.elasticity = 0.1;
+		cs.elasticity = 0.51;
 		[result addObject:cs];
 	}
 	
