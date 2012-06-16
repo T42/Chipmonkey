@@ -10,7 +10,7 @@
 #import "CMMarbleSimulationView.h"
 #import "CMSimpleShapeReader.h"
 #import "CMSimpleLevel.h"
-#define MAX_MARBLE_IMAGES 9
+#define MAX_MARBLE_IMAGES 3
 #define NUM_LEVEL_MARBLES 80
 
 @implementation UIButton (CMMarbleGameHelper)
