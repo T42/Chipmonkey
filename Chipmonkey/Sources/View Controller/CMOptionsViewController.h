@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CMPopoverContentController.h"
 
-@interface CMOptionsViewController : UIViewController
+@interface CMOptionsViewController : CMPopoverContentController
+{
+	@protected
+}
 
+- (IBAction)doneAction:(id)sender;
 @end

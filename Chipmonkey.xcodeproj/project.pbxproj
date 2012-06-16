@@ -17,6 +17,7 @@
 		9324856C1587DAFD0092E2FD /* Level1-Background.png in Resources */ = {isa = PBXBuildFile; fileRef = 9324856A1587DAFD0092E2FD /* Level1-Background.png */; };
 		932485721587E3CB0092E2FD /* Level1-StaticBodies.stb in Resources */ = {isa = PBXBuildFile; fileRef = 932485711587E3CB0092E2FD /* Level1-StaticBodies.stb */; };
 		932485761587E4870092E2FD /* CMSimpleShapeReader.m in Sources */ = {isa = PBXBuildFile; fileRef = 932485751587E4870092E2FD /* CMSimpleShapeReader.m */; };
+		9340752C158CE8B300B92101 /* CMMenuPopoverBackground.m in Sources */ = {isa = PBXBuildFile; fileRef = 9340752B158CE8B300B92101 /* CMMenuPopoverBackground.m */; };
 		939682AD1583E717007CD4FA /* Marble_3.png in Resources */ = {isa = PBXBuildFile; fileRef = 939682A61583E717007CD4FA /* Marble_3.png */; };
 		939682AE1583E717007CD4FA /* Marble_4.png in Resources */ = {isa = PBXBuildFile; fileRef = 939682A71583E717007CD4FA /* Marble_4.png */; };
 		939682AF1583E717007CD4FA /* Marble_5.png in Resources */ = {isa = PBXBuildFile; fileRef = 939682A81583E717007CD4FA /* Marble_5.png */; };
@@ -41,7 +42,7 @@
 		93EE4E0B1589374900B491DE /* Level2-Overlay.png in Resources */ = {isa = PBXBuildFile; fileRef = 93EE4E081589374900B491DE /* Level2-Overlay.png */; };
 		93EE4E0C1589374900B491DE /* Level2-StaticBodies.stb in Resources */ = {isa = PBXBuildFile; fileRef = 93EE4E091589374900B491DE /* Level2-StaticBodies.stb */; };
 		93EE4E0F1589378D00B491DE /* CMSimpleLevel.m in Sources */ = {isa = PBXBuildFile; fileRef = 93EE4E0E1589378D00B491DE /* CMSimpleLevel.m */; };
-		93EE4E1315895A4000B491DE /* Level1Background.pxm in Resources */ = {isa = PBXBuildFile; fileRef = 93EE4E1115895A4000B491DE /* Level1Background.pxm */; };
+		93EE4E1315895A4000B491DE /* Level1.pxm in Resources */ = {isa = PBXBuildFile; fileRef = 93EE4E1115895A4000B491DE /* Level1.pxm */; };
 		93EE4E1415895A4000B491DE /* Level2.pxm in Resources */ = {isa = PBXBuildFile; fileRef = 93EE4E1215895A4000B491DE /* Level2.pxm */; };
 		93F664AE158A8782002B4E97 /* CMMarbleGameController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93F664AD158A8782002B4E97 /* CMMarbleGameController.m */; };
 		93F664B1158A87CE002B4E97 /* CMAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 93F664B0158A87CE002B4E97 /* CMAppDelegate.m */; };
@@ -66,6 +67,8 @@
 		932485711587E3CB0092E2FD /* Level1-StaticBodies.stb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Level1-StaticBodies.stb"; sourceTree = "<group>"; };
 		932485741587E4870092E2FD /* CMSimpleShapeReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMSimpleShapeReader.h; sourceTree = "<group>"; };
 		932485751587E4870092E2FD /* CMSimpleShapeReader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMSimpleShapeReader.m; sourceTree = "<group>"; };
+		9340752A158CE8B300B92101 /* CMMenuPopoverBackground.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMMenuPopoverBackground.h; sourceTree = "<group>"; };
+		9340752B158CE8B300B92101 /* CMMenuPopoverBackground.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMMenuPopoverBackground.m; sourceTree = "<group>"; };
 		939682A61583E717007CD4FA /* Marble_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Marble_3.png; sourceTree = "<group>"; };
 		939682A71583E717007CD4FA /* Marble_4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Marble_4.png; sourceTree = "<group>"; };
 		939682A81583E717007CD4FA /* Marble_5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Marble_5.png; sourceTree = "<group>"; };
@@ -139,7 +142,7 @@
 		93EE4E091589374900B491DE /* Level2-StaticBodies.stb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Level2-StaticBodies.stb"; sourceTree = "<group>"; };
 		93EE4E0D1589378D00B491DE /* CMSimpleLevel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMSimpleLevel.h; sourceTree = "<group>"; };
 		93EE4E0E1589378D00B491DE /* CMSimpleLevel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMSimpleLevel.m; sourceTree = "<group>"; };
-		93EE4E1115895A4000B491DE /* Level1Background.pxm */ = {isa = PBXFileReference; lastKnownFileType = file; path = Level1Background.pxm; sourceTree = "<group>"; };
+		93EE4E1115895A4000B491DE /* Level1.pxm */ = {isa = PBXFileReference; lastKnownFileType = file; path = Level1.pxm; sourceTree = "<group>"; };
 		93EE4E1215895A4000B491DE /* Level2.pxm */ = {isa = PBXFileReference; lastKnownFileType = file; path = Level2.pxm; sourceTree = "<group>"; };
 		93F664AC158A8782002B4E97 /* CMMarbleGameController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMMarbleGameController.h; sourceTree = "<group>"; };
 		93F664AD158A8782002B4E97 /* CMMarbleGameController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMMarbleGameController.m; sourceTree = "<group>"; };
@@ -217,6 +220,16 @@
 				93F664BE158A98FF002B4E97 /* CMFunctions.m */,
 			);
 			path = HelperClasses;
+			sourceTree = "<group>";
+		};
+		93407529158CD1C400B92101 /* Options */ = {
+			isa = PBXGroup;
+			children = (
+				93EBF3C3158BAEE1005D32BF /* CMOptionsViewController.h */,
+				93EBF3C4158BAEE1005D32BF /* CMOptionsViewController.m */,
+				93EBF3C5158BAEE1005D32BF /* CMOptionsViewController.xib */,
+			);
+			name = Options;
 			sourceTree = "<group>";
 		};
 		939682B915840617007CD4FA /* Helpers */ = {
@@ -380,11 +393,9 @@
 			children = (
 				9311BE8A158AB0DC004E13F4 /* CMPopoverContentController.h */,
 				9311BE8B158AB0DC004E13F4 /* CMPopoverContentController.m */,
-				93EBF3C2158BA40A005D32BF /* Background */,
 				93EBF3C1158BA3F4005D32BF /* Main Menu */,
-				93EBF3C3158BAEE1005D32BF /* CMOptionsViewController.h */,
-				93EBF3C4158BAEE1005D32BF /* CMOptionsViewController.m */,
-				93EBF3C5158BAEE1005D32BF /* CMOptionsViewController.xib */,
+				93407529158CD1C400B92101 /* Options */,
+				93EBF3C2158BA40A005D32BF /* Background */,
 			);
 			name = Popovers;
 			sourceTree = "<group>";
@@ -404,6 +415,8 @@
 			children = (
 				9311BE86158AA83C004E13F4 /* CMSimplePopoverBackground.h */,
 				9311BE87158AA83C004E13F4 /* CMSimplePopoverBackground.m */,
+				9340752A158CE8B300B92101 /* CMMenuPopoverBackground.h */,
+				9340752B158CE8B300B92101 /* CMMenuPopoverBackground.m */,
 			);
 			name = Background;
 			sourceTree = "<group>";
@@ -411,7 +424,7 @@
 		93EE4E1015895A1B00B491DE /* Original Artwork */ = {
 			isa = PBXGroup;
 			children = (
-				93EE4E1115895A4000B491DE /* Level1Background.pxm */,
+				93EE4E1115895A4000B491DE /* Level1.pxm */,
 				93EE4E1215895A4000B491DE /* Level2.pxm */,
 			);
 			path = "Original Artwork";
@@ -420,8 +433,8 @@
 		93F664AA158A8707002B4E97 /* View Controller */ = {
 			isa = PBXGroup;
 			children = (
-				93EBF3C0158BA3C7005D32BF /* Popovers */,
 				93EBF3BE158BA3B5005D32BF /* MarbleGameController */,
+				93EBF3C0158BA3C7005D32BF /* Popovers */,
 			);
 			path = "View Controller";
 			sourceTree = "<group>";
@@ -496,7 +509,7 @@
 				93EE4E0A1589374900B491DE /* Level2-Background.png in Resources */,
 				93EE4E0B1589374900B491DE /* Level2-Overlay.png in Resources */,
 				93EE4E0C1589374900B491DE /* Level2-StaticBodies.stb in Resources */,
-				93EE4E1315895A4000B491DE /* Level1Background.pxm in Resources */,
+				93EE4E1315895A4000B491DE /* Level1.pxm in Resources */,
 				93EE4E1415895A4000B491DE /* Level2.pxm in Resources */,
 				93F664B7158A8BE5002B4E97 /* CMMarbleMenuController.xib in Resources */,
 				93EBF3C7158BAEE1005D32BF /* CMOptionsViewController.xib in Resources */,
@@ -523,6 +536,7 @@
 				9311BE88158AA83C004E13F4 /* CMSimplePopoverBackground.m in Sources */,
 				9311BE8C158AB0DC004E13F4 /* CMPopoverContentController.m in Sources */,
 				93EBF3C6158BAEE1005D32BF /* CMOptionsViewController.m in Sources */,
+				9340752C158CE8B300B92101 /* CMMenuPopoverBackground.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

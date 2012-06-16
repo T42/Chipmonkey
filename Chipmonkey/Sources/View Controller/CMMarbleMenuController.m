@@ -8,28 +8,29 @@
 
 #import "CMMarbleMenuController.h"
 #import "CMMarbleGameController.h"
+#import "CMSimplePopoverBackground.h"
+#import "CMOptionsViewController.h"
 @interface CMMarbleMenuController ()
 
 @end
 
 @implementation CMMarbleMenuController
-@synthesize  gameController;
+@synthesize  gameController, optionsController;
+
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
+
     }
     return self;
 }
 
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	NSLog(@"ParentView: %@",self.view.superview);
-	self.view.layer.backgroundColor = [[UIColor colorWithWhite:.8 alpha:.6]CGColor];
-    // Do any additional setup after loading the view from its nib.
 }
 
 - (void)viewDidUnload
@@ -85,6 +86,14 @@
 {
 	NSLog(@"%@ %@",NSStringFromSelector(_cmd),sender);	
 	[self dismissAnimated:YES];
+	
+	if(!self.localPopoverController){
+		self.localPopoverController = [[[UIPopoverController alloc]initWithContentViewController:self.optionsController]autorelease];
+	}
+	self.localPopoverController.popoverLayoutMargins = UIEdgeInsetsMake(0, 0, 0, 0);
+	self.localPopoverController.popoverBackgroundViewClass = [CMSimplePopoverBackground class];
+	self.optionsController.parentPopoverController=self.localPopoverController;
+	[self.localPopoverController presentPopoverFromRect:CGRectMake(0, 0, 1024, 768) inView:self.view permittedArrowDirections:(0) animated:YES];
 }
 
 - (IBAction) resetProgress:(id) sender
@@ -126,7 +135,7 @@
 
 - (BOOL) isModalInPopover
 {
-	return YES;
+	return NO;
 }
 
 @end

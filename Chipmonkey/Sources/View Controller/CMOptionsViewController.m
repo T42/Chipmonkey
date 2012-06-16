@@ -26,6 +26,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+	self.view.backgroundColor = nil;
     // Do any additional setup after loading the view from its nib.
 }
 
@@ -39,6 +40,26 @@
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
 	return YES;
+}
+
+- (void) awakeFromNib
+{
+	//
+	
+	NSLog(@"Frame:%@",NSStringFromCGRect(self.view.frame));
+	NSLog(@"Bounds:%@",NSStringFromCGRect(self.view.bounds));
+}
+
+- (BOOL)isModalInPopover
+{
+return YES;
+}
+
+#pragma mark - Actions
+
+- (IBAction)doneAction:(id)sender
+{
+	[self dismissAnimated:YES];
 }
 
 @end

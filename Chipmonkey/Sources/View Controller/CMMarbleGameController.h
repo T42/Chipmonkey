@@ -30,7 +30,7 @@
 	NSMutableArray							*levels;
 	
 	CMMarbleMenuController			* menuController;
-	UIPopoverController					*popoverController;
+	UIPopoverController					*localPopoverController;
 }
 @property(retain,nonatomic) IBOutlet UIView* finishView, *startView;;
 @property(retain,nonatomic) IBOutlet CMMarbleSimulationView *playgroundView;
@@ -39,7 +39,7 @@
 @property(assign,nonatomic) NSUInteger levelLimit, currentLevel;
 @property(retain,nonatomic) NSMutableArray *levels;
 @property(retain,nonatomic) IBOutlet CMMarbleMenuController *menuController;
-@property(retain,nonatomic) IBOutlet UIPopoverController *popoverController;
+@property(retain,nonatomic) IBOutlet UIPopoverController *localPopoverController;
 
 - (IBAction) resetLevels:(id) sender; 	// Depricated 
 - (IBAction)startSimulation:(id)sender; // used internaly 

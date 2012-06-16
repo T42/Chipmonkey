@@ -12,6 +12,7 @@
 #import "CMSimpleLevel.h"
 #import "CMFunctions.h"
 #import "CMSimplePopoverBackground.h"
+#import "CMMenuPopoverBackground.h"
 #define MAX_MARBLE_IMAGES 9
 #define NUM_LEVEL_MARBLES 80
 
@@ -33,7 +34,7 @@
 
 @implementation CMMarbleGameController
 
-@synthesize playgroundView, marblePreview,finishView,startView,levelLabel,levelLimit,currentLevel,levels,menuController,popoverController;
+@synthesize playgroundView, marblePreview,finishView,startView,levelLabel,levelLimit,currentLevel,levels,menuController,localPopoverController;
 
 - (void)didReceiveMemoryWarning
 {
@@ -247,15 +248,13 @@
 
 - (IBAction)showMenuBar:(id)sender
 {
-	if(!self.popoverController){
-		self.popoverController = [[[UIPopoverController alloc]initWithContentViewController:self.menuController]autorelease];
+	if(!self.localPopoverController){
+		self.localPopoverController = [[[UIPopoverController alloc]initWithContentViewController:self.menuController]autorelease];
 	}
-//	[self presentModalViewController:self.menuController animated:YES];
-//	self.popoverController.popoverContentSize = CGSizeMake(1024, 160);
-	self.popoverController.popoverLayoutMargins = UIEdgeInsetsMake(0, 0, 0, 0);
-	self.popoverController.popoverBackgroundViewClass = [CMSimplePopoverBackground class];
-	self.menuController.popoverController=self.popoverController;
-	[self.popoverController presentPopoverFromRect:CGRectMake(0, 0, 1024, 60) inView:self.view permittedArrowDirections:(0) animated:YES];
+	self.localPopoverController.popoverLayoutMargins = UIEdgeInsetsMake(0, 0, 0, 0);
+	self.localPopoverController.popoverBackgroundViewClass = [CMMenuPopoverBackground class];
+	self.menuController.parentPopoverController=self.localPopoverController;
+	[self.localPopoverController presentPopoverFromRect:CGRectMake(0, 0, 1024, 60) inView:self.view permittedArrowDirections:(0) animated:YES];
 
 }
 
