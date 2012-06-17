@@ -15,7 +15,7 @@
 #import "CMMenuPopoverBackground.h"
 #import "CMGameControllerProtocol.h"
 
-#define MAX_MARBLE_IMAGES 1
+#define MAX_MARBLE_IMAGES 9
 #define NUM_LEVEL_MARBLES 80
 
 @implementation UIButton (CMMarbleGameHelper)
