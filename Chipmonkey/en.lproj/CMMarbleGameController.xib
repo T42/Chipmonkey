@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <archive type="com.apple.InterfaceBuilder3.CocoaTouch.iPad.XIB" version="8.00">
 	<data>
-		<int key="IBDocument.SystemTarget">1296</int>
+		<int key="IBDocument.SystemTarget">1280</int>
 		<string key="IBDocument.SystemVersion">11E53</string>
 		<string key="IBDocument.InterfaceBuilderVersion">2182</string>
 		<string key="IBDocument.AppKitVersion">1138.47</string>
@@ -34,7 +34,7 @@
 				<string key="targetRuntimeIdentifier">IBIPadFramework</string>
 			</object>
 			<object class="IBUIViewController" id="576378382">
-				<string key="IBUITitle">Blubberlutsch</string>
+				<string key="IBUITitle">Menu</string>
 				<string key="IBUINibName">CMMarbleMenuController</string>
 				<object class="IBUISimulatedOrientationMetrics" key="IBUISimulatedOrientationMetrics">
 					<int key="IBUIInterfaceOrientation">3</int>
@@ -52,7 +52,23 @@
 			</object>
 			<object class="IBUIViewController" id="223306761">
 				<bool key="IBUIAutoresizesArchivedViewToFullSize">NO</bool>
+				<string key="IBUITitle">Options</string>
 				<string key="IBUINibName">CMOptionsViewController</string>
+				<object class="IBUISimulatedOrientationMetrics" key="IBUISimulatedOrientationMetrics">
+					<int key="IBUIInterfaceOrientation">3</int>
+					<int key="interfaceOrientation">3</int>
+				</object>
+				<reference key="IBUISimulatedDestinationMetrics" ref="34455881"/>
+				<int key="IBUIModalTransitionStyle">1</int>
+				<int key="IBUIModalPresentationStyle">3</int>
+				<string key="IBUIContentSizeForViewHostedInPopover">{540, 288}</string>
+				<string key="targetRuntimeIdentifier">IBIPadFramework</string>
+				<bool key="IBUIHorizontal">YES</bool>
+			</object>
+			<object class="IBUIViewController" id="700182144">
+				<bool key="IBUIAutoresizesArchivedViewToFullSize">NO</bool>
+				<string key="IBUITitle">Debug</string>
+				<string key="IBUINibName">CMDebugViewController</string>
 				<object class="IBUISimulatedOrientationMetrics" key="IBUISimulatedOrientationMetrics">
 					<int key="IBUIInterfaceOrientation">3</int>
 					<int key="interfaceOrientation">3</int>
@@ -150,7 +166,6 @@
 						<string key="NSFrame">{{0, 708}, {1024, 60}}</string>
 						<reference key="NSSuperview" ref="766721923"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<object class="NSColor" key="IBUIBackgroundColor">
 							<int key="NSColorSpace">3</int>
@@ -528,6 +543,14 @@
 					<int key="connectionID">76</int>
 				</object>
 				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">debugController</string>
+						<reference key="source" ref="576378382"/>
+						<reference key="destination" ref="700182144"/>
+					</object>
+					<int key="connectionID">78</int>
+				</object>
+				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchEventConnection" key="connection">
 						<string key="label">showMenuBar:</string>
 						<reference key="source" ref="468704662"/>
@@ -614,6 +637,7 @@
 						<int key="objectID">68</int>
 						<reference key="object" ref="576378382"/>
 						<reference key="parent" ref="0"/>
+						<string key="objectName">Menu</string>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">73</int>
@@ -624,6 +648,7 @@
 						<int key="objectID">74</int>
 						<reference key="object" ref="223306761"/>
 						<reference key="parent" ref="0"/>
+						<string key="objectName">Options</string>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">28</int>
@@ -655,6 +680,12 @@
 						<reference key="object" ref="468704662"/>
 						<reference key="parent" ref="766721923"/>
 					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">77</int>
+						<reference key="object" ref="700182144"/>
+						<reference key="parent" ref="0"/>
+						<string key="objectName">Debug</string>
+					</object>
 				</array>
 			</object>
 			<dictionary class="NSMutableDictionary" key="flattenedProperties">
@@ -680,15 +711,25 @@
 				<string key="73.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="74.CustomClassName">CMOptionsViewController</string>
 				<string key="74.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
+				<string key="77.CustomClassName">CMDebugViewController</string>
+				<string key="77.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 			</dictionary>
 			<dictionary class="NSMutableDictionary" key="unlocalizedProperties"/>
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">76</int>
+			<int key="maxID">78</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
+				<object class="IBPartialClassDescription">
+					<string key="className">CMDebugViewController</string>
+					<string key="superclassName">CMPopoverContentController</string>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBProjectSource</string>
+						<string key="minorKey">./Classes/CMDebugViewController.h</string>
+					</object>
+				</object>
 				<object class="IBPartialClassDescription">
 					<string key="className">CMMarbleGameController</string>
 					<string key="superclassName">UIViewController</string>
@@ -789,6 +830,7 @@
 					<string key="className">CMMarbleMenuController</string>
 					<string key="superclassName">CMPopoverContentController</string>
 					<dictionary class="NSMutableDictionary" key="actions">
+						<string key="debugAction:">id</string>
 						<string key="menuAction:">UISegmentedControl</string>
 						<string key="nextLevel:">id</string>
 						<string key="openOptions:">id</string>
@@ -798,6 +840,10 @@
 						<string key="selectLevel:">id</string>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="actionInfosByName">
+						<object class="IBActionInfo" key="debugAction:">
+							<string key="name">debugAction:</string>
+							<string key="candidateClassName">id</string>
+						</object>
 						<object class="IBActionInfo" key="menuAction:">
 							<string key="name">menuAction:</string>
 							<string key="candidateClassName">UISegmentedControl</string>
@@ -828,10 +874,15 @@
 						</object>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="outlets">
+						<string key="debugController">CMDebugViewController</string>
 						<string key="gameController">CMMarbleGameController</string>
 						<string key="optionsController">CMOptionsViewController</string>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="toOneOutletInfosByName">
+						<object class="IBToOneOutletInfo" key="debugController">
+							<string key="name">debugController</string>
+							<string key="candidateClassName">CMDebugViewController</string>
+						</object>
 						<object class="IBToOneOutletInfo" key="gameController">
 							<string key="name">gameController</string>
 							<string key="candidateClassName">CMMarbleGameController</string>
@@ -907,10 +958,6 @@
 		</object>
 		<int key="IBDocument.localizationMode">0</int>
 		<string key="IBDocument.TargetRuntimeIdentifier">IBIPadFramework</string>
-		<object class="NSMutableDictionary" key="IBDocument.PluginDeclaredDependencyDefaults">
-			<string key="NS.key.0">com.apple.InterfaceBuilder.CocoaTouchPlugin.iPhoneOS</string>
-			<real value="1296" key="NS.object.0"/>
-		</object>
 		<bool key="IBDocument.PluginDeclaredDependenciesTrackSystemTargetVersion">YES</bool>
 		<int key="IBDocument.defaultPropertyAccessControl">3</int>
 		<object class="NSMutableDictionary" key="IBDocument.LastKnownImageSizes">

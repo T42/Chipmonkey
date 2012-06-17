@@ -57,7 +57,7 @@ levelBackground, levelForeground, foregroundLayer, backgroundLayer,accumulator,t
 	self->touchingMarbles = [[NSMutableDictionary dictionary]retain];	
 	self.layer.borderWidth =1.0;
 	self.layer.borderColor = [[UIColor blackColor]CGColor];
-  self.timeStep = 1.0 / 120.0;
+  self.timeStep = 1.0 / 80.0;
   self.timeScale = 1.0;
   self->accumulator = 0.0;
 }

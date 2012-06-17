@@ -15,7 +15,7 @@
 @end
 
 @implementation CMMarbleMenuController
-@synthesize  gameController, optionsController;
+@synthesize  gameController, optionsController,debugController;
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -71,7 +71,11 @@
 		case 5:
 			[self nextLevel:sender];
 			break;
-		default:
+		case 6:
+			[self debugAction:sender];
+			break;
+
+		default:			
 			break;
 	}
 }
@@ -126,6 +130,12 @@
 	[self.gameController prepareLevel:self.gameController.currentLevel];
 	[self dismissAnimated:YES];		
 }
+
+- (IBAction) debugAction:(id) sender
+{
+	
+}
+
 #pragma mark - Popover
 
 - (CGSize) contentSizeForViewInPopover
