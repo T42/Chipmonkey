@@ -171,7 +171,7 @@
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="5587063"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
-						<object class="NSColor" key="IBUIBackgroundColor" id="576134054">
+						<object class="NSColor" key="IBUIBackgroundColor" id="483964850">
 							<int key="NSColorSpace">1</int>
 							<bytes key="NSRGB">MC42IDAuNiAwLjYAA</bytes>
 						</object>
@@ -181,7 +181,7 @@
 						<int key="IBUIContentVerticalAlignment">0</int>
 						<string key="IBUIText">1</string>
 						<int key="IBUIBorderStyle">3</int>
-						<object class="NSColor" key="IBUITextColor" id="598059952">
+						<object class="NSColor" key="IBUITextColor" id="462947544">
 							<int key="NSColorSpace">1</int>
 							<bytes key="NSRGB">MCAwIDAAA</bytes>
 						</object>
@@ -249,14 +249,14 @@
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="286426095"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
-						<reference key="IBUIBackgroundColor" ref="576134054"/>
+						<reference key="IBUIBackgroundColor" ref="483964850"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClipsSubviews">YES</bool>
 						<string key="targetRuntimeIdentifier">IBIPadFramework</string>
 						<int key="IBUIContentVerticalAlignment">0</int>
 						<string key="IBUIText">1</string>
 						<int key="IBUIBorderStyle">3</int>
-						<reference key="IBUITextColor" ref="598059952"/>
+						<reference key="IBUITextColor" ref="462947544"/>
 						<bool key="IBUIAdjustsFontSizeToFit">YES</bool>
 						<float key="IBUIMinimumFontSize">17</float>
 						<object class="IBUITextInputTraits" key="IBUITextInputTraits">
@@ -313,14 +313,14 @@
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="360629401"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
-						<reference key="IBUIBackgroundColor" ref="576134054"/>
+						<reference key="IBUIBackgroundColor" ref="483964850"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClipsSubviews">YES</bool>
 						<string key="targetRuntimeIdentifier">IBIPadFramework</string>
 						<int key="IBUIContentVerticalAlignment">0</int>
 						<string key="IBUIText">1</string>
 						<int key="IBUIBorderStyle">3</int>
-						<reference key="IBUITextColor" ref="598059952"/>
+						<reference key="IBUITextColor" ref="462947544"/>
 						<bool key="IBUIAdjustsFontSizeToFit">YES</bool>
 						<float key="IBUIMinimumFontSize">17</float>
 						<object class="IBUITextInputTraits" key="IBUITextInputTraits">
@@ -330,7 +330,7 @@
 						<reference key="IBUIFont" ref="932438729"/>
 					</object>
 				</array>
-				<string key="NSFrameSize">{540, 288}</string>
+				<string key="NSFrameSize">{540, 424}</string>
 				<reference key="NSSuperview"/>
 				<reference key="NSWindow"/>
 				<reference key="NSNextKeyView" ref="924989040"/>

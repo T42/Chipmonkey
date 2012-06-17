@@ -44,7 +44,7 @@
 
 - (void) viewWillAppear:(BOOL) animated
 {
-  NSLog(@"view appears: %i",animated);
+  self.view.layer.superlayer.cornerRadius = 15;
 }
 - (void) awakeFromNib
 {
