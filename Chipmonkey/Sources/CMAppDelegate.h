@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CMGameControllerProtocol.h"
 
 @class CMMarbleGameController;
 
@@ -15,5 +16,7 @@
 @property (strong, nonatomic) UIWindow *window;
 
 @property (strong, nonatomic) CMMarbleGameController *viewController;
+
+@property(readonly,nonatomic) NSObject<CMGameControllerProtocol> *currentGamecontroller;
 
 @end

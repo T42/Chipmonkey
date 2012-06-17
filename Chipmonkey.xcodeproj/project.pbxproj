@@ -150,6 +150,7 @@
 		93F443FE158E23FF00D80BF1 /* CMDebugViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMDebugViewController.h; sourceTree = "<group>"; };
 		93F443FF158E23FF00D80BF1 /* CMDebugViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMDebugViewController.m; sourceTree = "<group>"; };
 		93F44400158E23FF00D80BF1 /* CMDebugViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CMDebugViewController.xib; sourceTree = "<group>"; };
+		93F44403158E42EC00D80BF1 /* CMGameControllerProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CMGameControllerProtocol.h; sourceTree = "<group>"; };
 		93F664AC158A8782002B4E97 /* CMMarbleGameController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMMarbleGameController.h; sourceTree = "<group>"; };
 		93F664AD158A8782002B4E97 /* CMMarbleGameController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMMarbleGameController.m; sourceTree = "<group>"; };
 		93F664AF158A87CE002B4E97 /* CMAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMAppDelegate.h; sourceTree = "<group>"; };
@@ -191,6 +192,7 @@
 				931297301582A5D700A2B556 /* CMMarbleLayer.h */,
 				931297311582A5D700A2B556 /* CMMarbleLayer.m */,
 				939682B41583F3E5007CD4FA /* CMMarbleImageSource.h */,
+				93F44403158E42EC00D80BF1 /* CMGameControllerProtocol.h */,
 			);
 			path = Sources;
 			sourceTree = "<group>";

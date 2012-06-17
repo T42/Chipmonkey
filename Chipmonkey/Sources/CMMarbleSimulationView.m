@@ -207,7 +207,7 @@ levelBackground, levelForeground, foregroundLayer, backgroundLayer,accumulator,t
     marble1Layer.position=CGPointMake(self.bounds.size.width/2.0, MARBLE_RADIUS+5);
     CGImageRef texture = [myImage CGImage];
     marble1Layer.contents = (id)texture;
-    return marble1Layer;
+    return [marble1Layer autorelease];
 }
 
 - (IBAction) createMarble:(id) sender
@@ -215,9 +215,8 @@ levelBackground, levelForeground, foregroundLayer, backgroundLayer,accumulator,t
 	UIImage *myImage = [self.delegate nextImage];
 	if (myImage) {
 		CMMarbleLayer *marble1Layer;
-        marble1Layer = [self createMarbleLayer:myImage];
+		marble1Layer = [self createMarbleLayer:myImage];
 		self.preparedLayer =marble1Layer;
-		[marble1Layer release];
 	}
 }
 
@@ -225,13 +224,17 @@ levelBackground, levelForeground, foregroundLayer, backgroundLayer,accumulator,t
 #pragma mark -
 #pragma mark Collision Handlers
 
+- (NSString*) keyFromLayer:(CMMarbleLayer*) layer
+{
+	return [NSString stringWithFormat:@"%li",layer];
+}
 
 - (NSMutableSet*) marbleSetFor:(CMMarbleLayer*)layer
 {
-	NSMutableSet *result = [self.touchingMarbles objectForKey:layer];
+	NSMutableSet *result = [self.touchingMarbles objectForKey:[self keyFromLayer:layer]];
 	if(!result){
 		result = [NSMutableSet set];
-		[self->touchingMarbles setObject:result forKey:layer];
+		[self->touchingMarbles setObject:result forKey:[self keyFromLayer:layer]];
 	}
 	return result;
 }
@@ -245,10 +248,10 @@ levelBackground, levelForeground, foregroundLayer, backgroundLayer,accumulator,t
 	[secondSet removeObject:first];
 	
 	if ([firstSet count]==0) {
-		[self->touchingMarbles removeObjectForKey:first];
+		[self->touchingMarbles removeObjectForKey:[self keyFromLayer:first]];
 	}
 	if([secondSet count]==0){
-		[self->touchingMarbles removeObjectForKey:second];
+		[self->touchingMarbles removeObjectForKey:[self keyFromLayer:second]];
 	}
 }
 
@@ -291,7 +294,7 @@ levelBackground, levelForeground, foregroundLayer, backgroundLayer,accumulator,t
 {
     for (CMMarbleLayer *aLayer in self.simulatedLayers) {
         [aLayer updatePosition];
-		if ([self.touchingMarbles objectForKey:aLayer]) {
+			if ([self.touchingMarbles objectForKey:[self keyFromLayer:aLayer]]) {
 			aLayer.borderColor=[[UIColor greenColor]CGColor];
             aLayer.borderWidth = 2.0;
 		}else{
@@ -317,7 +320,7 @@ levelBackground, levelForeground, foregroundLayer, backgroundLayer,accumulator,t
 - (void) filterSimulatedLayers
 {
 	BOOL hasRemovedMarbles = NO;
-	for (CMMarbleLayer *aLayer in [[[[self.touchingMarbles allKeys]copy]autorelease] 
+	for (NSString *aLayer in [[[[self.touchingMarbles allKeys]copy]autorelease] 
                                  sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2){
                                    NSUInteger a = [[self.touchingMarbles objectForKey:obj1]count];
                                    NSUInteger b = [[self.touchingMarbles objectForKey:obj2]count];
@@ -332,16 +335,17 @@ levelBackground, levelForeground, foregroundLayer, backgroundLayer,accumulator,t
                                    NSMutableSet *touchingSet = [self.touchingMarbles objectForKey:aLayer];
                                    if ([touchingSet count]>=2) {
                                      hasRemovedMarbles = YES;
-                                     for (CMMarbleLayer *depLayer in [touchingSet copy]) {
-                                       [self->touchingMarbles removeObjectForKey:depLayer];
+                                     for (CMMarbleLayer *depLayer in [[touchingSet copy]autorelease]) {
+                                       [self->touchingMarbles removeObjectForKey:[self keyFromLayer:depLayer]];
                                        [self.space remove:depLayer];
                                        [self->simulatedLayers removeObject:depLayer];
                                        depLayer.shouldDestroy = YES;
                                      }
                                      [self->touchingMarbles removeObjectForKey:aLayer];
-                                     [self.space remove:aLayer];
-                                     [self->simulatedLayers removeObject:aLayer];
-                                     aLayer.shouldDestroy = YES;
+																		 CMMarbleLayer *layer = (CMMarbleLayer*)[aLayer intValue];
+                                     [self.space remove:layer];
+                                     [self->simulatedLayers removeObject:layer];
+                                     layer.shouldDestroy = YES;
                                    }
                                  }
 	if (hasRemovedMarbles) {

@@ -14,7 +14,6 @@
 	@protected
 	ChipmunkBody *body;
 	ChipmunkShape *shape;
-	NSArray *chipmunkObjects;
 	CGFloat radius;
 	
 	NSUInteger touchedShapes;

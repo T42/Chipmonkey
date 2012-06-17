@@ -11,11 +11,12 @@
 #import "CMMarbleSimulationView.h"
 #import "CMMarbleImageSource.h"
 #import "CMMarbleMenuController.h"
+#import "CMGameControllerProtocol.h"
 
 @interface UIButton (CMMarbleGameHelper)
 @property (retain,nonatomic) UIImage* image;
 @end
-@interface CMMarbleGameController : UIViewController <CMMarbleImageSource>
+@interface CMMarbleGameController : UIViewController <CMMarbleImageSource,CMGameControllerProtocol>
 {
 	@protected
 	CMMarbleSimulationView			*playgroundView;
@@ -47,7 +48,7 @@
 @property(retain,nonatomic) IBOutlet CMMarbleMenuController *menuController;
 @property(retain,nonatomic) IBOutlet UIPopoverController *localPopoverController;
 
-- (IBAction) resetLevels:(id) sender; 	// Depricated 
+- (IBAction)resetLevels:(id) sender; 	// Depricated 
 - (IBAction)startSimulation:(id)sender; // used internaly 
 - (IBAction)stopSimulation:(id)sender;	// used internaly
 - (IBAction)resetSimulation:(id)sender; // used internaly

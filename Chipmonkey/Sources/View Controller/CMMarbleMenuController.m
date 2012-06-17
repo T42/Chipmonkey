@@ -10,12 +10,13 @@
 #import "CMMarbleGameController.h"
 #import "CMSimplePopoverBackground.h"
 #import "CMOptionsViewController.h"
+#import "CMDebugViewController.h"
 @interface CMMarbleMenuController ()
 
 @end
 
 @implementation CMMarbleMenuController
-@synthesize  gameController, optionsController,debugController;
+@synthesize  gameController, optionsController,debugController, menuControl;
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -31,6 +32,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+#if (DEBUG == 1)
+	NSUInteger p = [self.menuControl numberOfSegments];
+	[self.menuControl insertSegmentWithTitle:@"Debug" atIndex:p animated:YES];
+#endif
 }
 
 - (void)viewDidUnload
@@ -94,6 +99,7 @@
 	if(!self.localPopoverController){
 		self.localPopoverController = [[[UIPopoverController alloc]initWithContentViewController:self.optionsController]autorelease];
 	}
+	self.localPopoverController.contentViewController = self.optionsController;
 	self.localPopoverController.popoverLayoutMargins = UIEdgeInsetsMake(0, 0, 0, 0);
 	self.localPopoverController.popoverBackgroundViewClass = [CMSimplePopoverBackground class];
 	self.optionsController.parentPopoverController=self.localPopoverController;
@@ -133,6 +139,15 @@
 
 - (IBAction) debugAction:(id) sender
 {
+	[self dismissAnimated:YES];
+	if (!self.localPopoverController) {
+				self.localPopoverController = [[[UIPopoverController alloc]initWithContentViewController:self.debugController]autorelease];
+	}
+	self.localPopoverController.contentViewController = self.debugController;
+	self.localPopoverController.popoverLayoutMargins = UIEdgeInsetsMake(0, 0, 0, 0);
+	self.localPopoverController.popoverBackgroundViewClass = [CMSimplePopoverBackground class];
+	self.debugController.parentPopoverController=self.localPopoverController;
+	[self.localPopoverController presentPopoverFromRect:CGRectMake(0, 0, 1024,768) inView:self.view permittedArrowDirections:(0) animated:YES];
 	
 }
 

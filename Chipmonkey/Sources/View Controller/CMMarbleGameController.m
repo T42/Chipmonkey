@@ -13,7 +13,9 @@
 #import "CMFunctions.h"
 #import "CMSimplePopoverBackground.h"
 #import "CMMenuPopoverBackground.h"
-#define MAX_MARBLE_IMAGES 9
+#import "CMGameControllerProtocol.h"
+
+#define MAX_MARBLE_IMAGES 1
 #define NUM_LEVEL_MARBLES 80
 
 @implementation UIButton (CMMarbleGameHelper)
@@ -35,6 +37,8 @@
 @implementation CMMarbleGameController
 
 @synthesize playgroundView, marblePreview,finishView,startView,levelLabel,levelLimit,currentLevel,levels,menuController,localPopoverController,displayLink,lastDisplayTime;
+
+@synthesize timescale,framerate,simulationrate;
 
 - (void)didReceiveMemoryWarning
 {
@@ -186,6 +190,35 @@
 	if(cLevel != self->currentLevel){
 		self->currentLevel = cLevel;
 	}
+}
+
+- (void) setTimescale:(NSUInteger)tscale
+{
+	[self.playgroundView setTimeScale:1.0/tscale];
+}
+
+- (NSUInteger) timescale
+{
+	return 1.0/self.playgroundView.timeScale;
+}
+
+- (void) setFramerate:(NSUInteger)framerate
+{
+//	[self.playgroundView setF
+}
+- (NSUInteger) framerate
+{
+	return 1.0/self.displayLink.duration;
+}
+
+- (void) setSimulationrate:(NSUInteger)srate
+{
+	[self.playgroundView setTimeStep:1.0/srate];
+}
+
+- (NSUInteger) simulationrate
+{
+	return 1.0/self.playgroundView.timeStep;
 }
 
 #pragma mark - Animation

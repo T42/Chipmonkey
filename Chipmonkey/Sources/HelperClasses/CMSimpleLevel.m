@@ -76,7 +76,7 @@
 		[self->staticBodiesPath autorelease];
 		self->staticBodiesPath = [sBP retain];
 		if (self->staticBodiesPath) {
-			self.shapeReader = [[CMSimpleShapeReader alloc]initWithContentsOfFile:self->staticBodiesPath];
+			self.shapeReader = [[[CMSimpleShapeReader alloc]initWithContentsOfFile:self->staticBodiesPath]autorelease];
 		}else{
 			self.shapeReader = nil;
 		}
@@ -138,11 +138,11 @@
 
 + (NSUInteger) maxLevelIndex
 {
-	NSString *resourcePath = [[NSBundle mainBundle]resourcePath];
-	NSFileManager *fm = [NSFileManager defaultManager];
-	NSError *resultError = nil;
-	NSArray *allFiles = [fm contentsOfDirectoryAtPath:resourcePath error:&resultError];
-	allFiles = nil;
+//	NSString *resourcePath = [[NSBundle mainBundle]resourcePath];
+//	NSFileManager *fm = [NSFileManager defaultManager];
+//	NSError *resultError = nil;
+//	NSArray *allFiles = [fm contentsOfDirectoryAtPath:resourcePath error:&resultError];
+//	allFiles = nil;
 	// search for levels here
 	return 2;
 }

@@ -41,7 +41,6 @@
 						<string key="NSFrame">{{20, 15}, {984, 30}}</string>
 						<reference key="NSSuperview" ref="766721923"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="IBUIOpaque">NO</bool>
 						<string key="targetRuntimeIdentifier">IBIPadFramework</string>
@@ -127,6 +126,14 @@
 					<int key="connectionID">3</int>
 				</object>
 				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">menuControl</string>
+						<reference key="source" ref="841351856"/>
+						<reference key="destination" ref="714768595"/>
+					</object>
+					<int key="connectionID">7</int>
+				</object>
+				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchEventConnection" key="connection">
 						<string key="label">menuAction:</string>
 						<reference key="source" ref="714768595"/>
@@ -183,10 +190,29 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">6</int>
+			<int key="maxID">7</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
+				<object class="IBPartialClassDescription">
+					<string key="className">CMDebugViewController</string>
+					<string key="superclassName">CMPopoverContentController</string>
+					<object class="NSMutableDictionary" key="actions">
+						<string key="NS.key.0">doneAction:</string>
+						<string key="NS.object.0">id</string>
+					</object>
+					<object class="NSMutableDictionary" key="actionInfosByName">
+						<string key="NS.key.0">doneAction:</string>
+						<object class="IBActionInfo" key="NS.object.0">
+							<string key="name">doneAction:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+					</object>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBProjectSource</string>
+						<string key="minorKey">./Classes/CMDebugViewController.h</string>
+					</object>
+				</object>
 				<object class="IBPartialClassDescription">
 					<string key="className">CMMarbleGameController</string>
 					<string key="superclassName">UIViewController</string>
@@ -287,6 +313,7 @@
 					<string key="className">CMMarbleMenuController</string>
 					<string key="superclassName">CMPopoverContentController</string>
 					<dictionary class="NSMutableDictionary" key="actions">
+						<string key="debugAction:">id</string>
 						<string key="menuAction:">UISegmentedControl</string>
 						<string key="nextLevel:">id</string>
 						<string key="openOptions:">id</string>
@@ -296,6 +323,10 @@
 						<string key="selectLevel:">id</string>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="actionInfosByName">
+						<object class="IBActionInfo" key="debugAction:">
+							<string key="name">debugAction:</string>
+							<string key="candidateClassName">id</string>
+						</object>
 						<object class="IBActionInfo" key="menuAction:">
 							<string key="name">menuAction:</string>
 							<string key="candidateClassName">UISegmentedControl</string>
@@ -326,13 +357,23 @@
 						</object>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="outlets">
+						<string key="debugController">CMDebugViewController</string>
 						<string key="gameController">CMMarbleGameController</string>
+						<string key="menuControl">UISegmentedControl</string>
 						<string key="optionsController">CMOptionsViewController</string>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="toOneOutletInfosByName">
+						<object class="IBToOneOutletInfo" key="debugController">
+							<string key="name">debugController</string>
+							<string key="candidateClassName">CMDebugViewController</string>
+						</object>
 						<object class="IBToOneOutletInfo" key="gameController">
 							<string key="name">gameController</string>
 							<string key="candidateClassName">CMMarbleGameController</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="menuControl">
+							<string key="name">menuControl</string>
+							<string key="candidateClassName">UISegmentedControl</string>
 						</object>
 						<object class="IBToOneOutletInfo" key="optionsController">
 							<string key="name">optionsController</string>

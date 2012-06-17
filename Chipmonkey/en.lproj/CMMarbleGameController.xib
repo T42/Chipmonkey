@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <archive type="com.apple.InterfaceBuilder3.CocoaTouch.iPad.XIB" version="8.00">
 	<data>
-		<int key="IBDocument.SystemTarget">1280</int>
+		<int key="IBDocument.SystemTarget">1296</int>
 		<string key="IBDocument.SystemVersion">11E53</string>
 		<string key="IBDocument.InterfaceBuilderVersion">2182</string>
 		<string key="IBDocument.AppKitVersion">1138.47</string>
@@ -76,7 +76,7 @@
 				<reference key="IBUISimulatedDestinationMetrics" ref="34455881"/>
 				<int key="IBUIModalTransitionStyle">1</int>
 				<int key="IBUIModalPresentationStyle">3</int>
-				<string key="IBUIContentSizeForViewHostedInPopover">{540, 288}</string>
+				<string key="IBUIContentSizeForViewHostedInPopover">{540, 283}</string>
 				<string key="targetRuntimeIdentifier">IBIPadFramework</string>
 				<bool key="IBUIHorizontal">YES</bool>
 			</object>
@@ -162,8 +162,6 @@
 						<int key="NSvFlags">292</int>
 						<string key="NSFrame">{{0, 708}, {1024, 60}}</string>
 						<reference key="NSSuperview" ref="766721923"/>
-						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<object class="NSColor" key="IBUIBackgroundColor">
 							<int key="NSColorSpace">3</int>
@@ -709,244 +707,13 @@
 			<nil key="sourceID"/>
 			<int key="maxID">78</int>
 		</object>
-		<object class="IBClassDescriber" key="IBDocument.Classes">
-			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
-				<object class="IBPartialClassDescription">
-					<string key="className">CMDebugViewController</string>
-					<string key="superclassName">CMPopoverContentController</string>
-					<object class="IBClassDescriptionSource" key="sourceIdentifier">
-						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">./Classes/CMDebugViewController.h</string>
-					</object>
-				</object>
-				<object class="IBPartialClassDescription">
-					<string key="className">CMMarbleGameController</string>
-					<string key="superclassName">UIViewController</string>
-					<dictionary class="NSMutableDictionary" key="actions">
-						<string key="cancelLevel:">id</string>
-						<string key="fireMarbles:">id</string>
-						<string key="resetLevels:">id</string>
-						<string key="resetSimulation:">id</string>
-						<string key="showMenuBar:">id</string>
-						<string key="startLevel:">id</string>
-						<string key="startSimulation:">id</string>
-						<string key="stopSimulation:">id</string>
-						<string key="thanksAction:">id</string>
-					</dictionary>
-					<dictionary class="NSMutableDictionary" key="actionInfosByName">
-						<object class="IBActionInfo" key="cancelLevel:">
-							<string key="name">cancelLevel:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBActionInfo" key="fireMarbles:">
-							<string key="name">fireMarbles:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBActionInfo" key="resetLevels:">
-							<string key="name">resetLevels:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBActionInfo" key="resetSimulation:">
-							<string key="name">resetSimulation:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBActionInfo" key="showMenuBar:">
-							<string key="name">showMenuBar:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBActionInfo" key="startLevel:">
-							<string key="name">startLevel:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBActionInfo" key="startSimulation:">
-							<string key="name">startSimulation:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBActionInfo" key="stopSimulation:">
-							<string key="name">stopSimulation:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBActionInfo" key="thanksAction:">
-							<string key="name">thanksAction:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-					</dictionary>
-					<dictionary class="NSMutableDictionary" key="outlets">
-						<string key="finishView">UIView</string>
-						<string key="levelLabel">UILabel</string>
-						<string key="localPopoverController">UIPopoverController</string>
-						<string key="marblePreview">UIButton</string>
-						<string key="menuController">CMMarbleMenuController</string>
-						<string key="playgroundView">CMMarbleSimulationView</string>
-						<string key="startView">UIView</string>
-					</dictionary>
-					<dictionary class="NSMutableDictionary" key="toOneOutletInfosByName">
-						<object class="IBToOneOutletInfo" key="finishView">
-							<string key="name">finishView</string>
-							<string key="candidateClassName">UIView</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="levelLabel">
-							<string key="name">levelLabel</string>
-							<string key="candidateClassName">UILabel</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="localPopoverController">
-							<string key="name">localPopoverController</string>
-							<string key="candidateClassName">UIPopoverController</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="marblePreview">
-							<string key="name">marblePreview</string>
-							<string key="candidateClassName">UIButton</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="menuController">
-							<string key="name">menuController</string>
-							<string key="candidateClassName">CMMarbleMenuController</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="playgroundView">
-							<string key="name">playgroundView</string>
-							<string key="candidateClassName">CMMarbleSimulationView</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="startView">
-							<string key="name">startView</string>
-							<string key="candidateClassName">UIView</string>
-						</object>
-					</dictionary>
-					<object class="IBClassDescriptionSource" key="sourceIdentifier">
-						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">./Classes/CMMarbleGameController.h</string>
-					</object>
-				</object>
-				<object class="IBPartialClassDescription">
-					<string key="className">CMMarbleMenuController</string>
-					<string key="superclassName">CMPopoverContentController</string>
-					<dictionary class="NSMutableDictionary" key="actions">
-						<string key="debugAction:">id</string>
-						<string key="menuAction:">UISegmentedControl</string>
-						<string key="nextLevel:">id</string>
-						<string key="openOptions:">id</string>
-						<string key="previousLevel:">id</string>
-						<string key="resetProgress:">id</string>
-						<string key="restartLevel:">id</string>
-						<string key="selectLevel:">id</string>
-					</dictionary>
-					<dictionary class="NSMutableDictionary" key="actionInfosByName">
-						<object class="IBActionInfo" key="debugAction:">
-							<string key="name">debugAction:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBActionInfo" key="menuAction:">
-							<string key="name">menuAction:</string>
-							<string key="candidateClassName">UISegmentedControl</string>
-						</object>
-						<object class="IBActionInfo" key="nextLevel:">
-							<string key="name">nextLevel:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBActionInfo" key="openOptions:">
-							<string key="name">openOptions:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBActionInfo" key="previousLevel:">
-							<string key="name">previousLevel:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBActionInfo" key="resetProgress:">
-							<string key="name">resetProgress:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBActionInfo" key="restartLevel:">
-							<string key="name">restartLevel:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBActionInfo" key="selectLevel:">
-							<string key="name">selectLevel:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-					</dictionary>
-					<dictionary class="NSMutableDictionary" key="outlets">
-						<string key="debugController">CMDebugViewController</string>
-						<string key="gameController">CMMarbleGameController</string>
-						<string key="optionsController">CMOptionsViewController</string>
-					</dictionary>
-					<dictionary class="NSMutableDictionary" key="toOneOutletInfosByName">
-						<object class="IBToOneOutletInfo" key="debugController">
-							<string key="name">debugController</string>
-							<string key="candidateClassName">CMDebugViewController</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="gameController">
-							<string key="name">gameController</string>
-							<string key="candidateClassName">CMMarbleGameController</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="optionsController">
-							<string key="name">optionsController</string>
-							<string key="candidateClassName">CMOptionsViewController</string>
-						</object>
-					</dictionary>
-					<object class="IBClassDescriptionSource" key="sourceIdentifier">
-						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">./Classes/CMMarbleMenuController.h</string>
-					</object>
-				</object>
-				<object class="IBPartialClassDescription">
-					<string key="className">CMMarbleSimulationView</string>
-					<string key="superclassName">UIView</string>
-					<object class="NSMutableDictionary" key="actions">
-						<string key="NS.key.0">createMarble:</string>
-						<string key="NS.object.0">id</string>
-					</object>
-					<object class="NSMutableDictionary" key="actionInfosByName">
-						<string key="NS.key.0">createMarble:</string>
-						<object class="IBActionInfo" key="NS.object.0">
-							<string key="name">createMarble:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-					</object>
-					<object class="NSMutableDictionary" key="outlets">
-						<string key="NS.key.0">delegate</string>
-						<string key="NS.object.0">id</string>
-					</object>
-					<object class="NSMutableDictionary" key="toOneOutletInfosByName">
-						<string key="NS.key.0">delegate</string>
-						<object class="IBToOneOutletInfo" key="NS.object.0">
-							<string key="name">delegate</string>
-							<string key="candidateClassName">id</string>
-						</object>
-					</object>
-					<object class="IBClassDescriptionSource" key="sourceIdentifier">
-						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">./Classes/CMMarbleSimulationView.h</string>
-					</object>
-				</object>
-				<object class="IBPartialClassDescription">
-					<string key="className">CMOptionsViewController</string>
-					<string key="superclassName">CMPopoverContentController</string>
-					<object class="NSMutableDictionary" key="actions">
-						<string key="NS.key.0">doneAction:</string>
-						<string key="NS.object.0">id</string>
-					</object>
-					<object class="NSMutableDictionary" key="actionInfosByName">
-						<string key="NS.key.0">doneAction:</string>
-						<object class="IBActionInfo" key="NS.object.0">
-							<string key="name">doneAction:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-					</object>
-					<object class="IBClassDescriptionSource" key="sourceIdentifier">
-						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">./Classes/CMOptionsViewController.h</string>
-					</object>
-				</object>
-				<object class="IBPartialClassDescription">
-					<string key="className">CMPopoverContentController</string>
-					<string key="superclassName">UIViewController</string>
-					<object class="IBClassDescriptionSource" key="sourceIdentifier">
-						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">./Classes/CMPopoverContentController.h</string>
-					</object>
-				</object>
-			</array>
-		</object>
+		<object class="IBClassDescriber" key="IBDocument.Classes"/>
 		<int key="IBDocument.localizationMode">0</int>
 		<string key="IBDocument.TargetRuntimeIdentifier">IBIPadFramework</string>
+		<object class="NSMutableDictionary" key="IBDocument.PluginDeclaredDependencyDefaults">
+			<string key="NS.key.0">com.apple.InterfaceBuilder.CocoaTouchPlugin.iPhoneOS</string>
+			<real value="1296" key="NS.object.0"/>
+		</object>
 		<bool key="IBDocument.PluginDeclaredDependenciesTrackSystemTargetVersion">YES</bool>
 		<int key="IBDocument.defaultPropertyAccessControl">3</int>
 		<object class="NSMutableDictionary" key="IBDocument.LastKnownImageSizes">

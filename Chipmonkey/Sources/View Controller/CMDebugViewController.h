@@ -8,10 +8,22 @@
 
 #import "CMPopoverContentController.h"
 
-@interface CMDebugViewController : CMPopoverContentController
+@interface CMDebugViewController : CMPopoverContentController <UITextFieldDelegate>
 
-{
-	@protected
-}
+
+@property(retain,nonatomic) IBOutlet UITextField* framerateText;
+@property(retain,nonatomic) IBOutlet UITextField*simulationrateText;
+@property(retain,nonatomic) IBOutlet UITextField*timescaleText;
+
+@property(retain,nonatomic) IBOutlet UISlider* framerateSlider;
+@property(retain,nonatomic) IBOutlet UISlider *simulationrateSlider;
+
+@property(retain,nonatomic) IBOutlet UIStepper *timescaleStepper;
+
+
+- (IBAction)textFieldAction:(UITextField*)sender;
+- (IBAction)sliderAction:(UISlider*)sender;
+- (IBAction)stepperAction:(UIStepper*)sender;
+
 - (IBAction)doneAction:(id)sender;
 @end

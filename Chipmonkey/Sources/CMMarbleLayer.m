@@ -35,7 +35,6 @@
 	[self setRadius:1.0];
 	[self setBody:[self circleBodyWithMass:1.0 andRadius:self.radius]];
 	[self setShape:[self circleShapeWithBody:self.body andRadius:self.radius]];
-	[self removeAllAnimations];
 	self.borderWidth = 2;
 	self.borderColor = [[UIColor redColor]CGColor];
 }
@@ -51,14 +50,12 @@
 - (id) initWithMass:(CGFloat) mass andRadius:(CGFloat) r
 {
 	if ((self = [super init])) {
-		[self removeAllAnimations];
 		[self setRadius:r];
 		[self setBody:[self circleBodyWithMass:mass andRadius:self.radius]];
 		[self setShape:[self circleShapeWithBody:self.body andRadius:self.radius]];
 		self.borderColor = [[UIColor redColor]CGColor];
 		self.borderWidth = 2;
     self.cornerRadius=self.radius;
-		[self removeAllAnimations];
 	}
 	return self;
 }
@@ -66,8 +63,10 @@
 - (void) dealloc
 {
 	[self setBody:nil];
+	self.shape.body = nil;
 	[self setShape:nil];
-	[self setChipmunkObjects:nil];
+	[self->chipmunkObjects release];
+//	[self setChipmunkObjects:nil];
 
 	[super dealloc];	
 }
@@ -110,13 +109,13 @@
 	}
 }
 
-- (void) setChipmunkObjects:(NSArray *)cO
-{
+//- (void) setChipmunkObjects:(NSArray *)cO
+//{
 //	if (self->chipmunkObjects != cO) {
 //		[self->chipmunkObjects autorelease];
 //		self->chipmunkObjects = [cO retain];
 //	}
-}
+//}
 
 
 - (void) setShouldDestroy:(BOOL)sD

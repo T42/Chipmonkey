@@ -71,4 +71,9 @@
 	 */
 }
 
+- (NSObject<CMGameControllerProtocol>*) currentGamecontroller
+{
+	return self.viewController;
+}
+
 @end
