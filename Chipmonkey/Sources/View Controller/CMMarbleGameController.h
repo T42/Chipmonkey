@@ -35,10 +35,12 @@
   
   // game time
   CADisplayLink               *displayLink;
-  NSTimeInterval              lastDisplayTime;
+  NSTimeInterval              lastSimulationTime;
+	NSTimeInterval							lastDisplayTime;
+	NSTimeInterval							frameTime;											
 }
 @property(retain,nonatomic) CADisplayLink *displayLink;
-@property(assign,nonatomic) NSTimeInterval lastDisplayTime;
+@property(assign,nonatomic) NSTimeInterval lastSimulationTime,lastDisplayTime,frameTime;
 @property(retain,nonatomic) IBOutlet UIView* finishView, *startView;;
 @property(retain,nonatomic) IBOutlet CMMarbleSimulationView *playgroundView;
 @property(retain,nonatomic) IBOutlet UIButton* marblePreview;

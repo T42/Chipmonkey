@@ -36,7 +36,7 @@
 
 @implementation CMMarbleGameController
 
-@synthesize playgroundView, marblePreview,finishView,startView,levelLabel,levelLimit,currentLevel,levels,menuController,localPopoverController,displayLink,lastDisplayTime;
+@synthesize playgroundView, marblePreview,finishView,startView,levelLabel,levelLimit,currentLevel,levels,menuController,localPopoverController,displayLink,lastSimulationTime,lastDisplayTime,frameTime;
 
 @synthesize timescale,framerate,simulationrate;
 
@@ -62,6 +62,7 @@
 	self.levelLimit = [CMSimpleLevel maxLevelIndex];
 	[self loadLevels];
 	self.currentLevel = 0;
+	self.frameTime = 1.0/60;
 
 	[self prepareLevel:self.currentLevel];
 }
@@ -202,13 +203,14 @@
 	return 1.0/self.playgroundView.timeScale;
 }
 
-- (void) setFramerate:(NSUInteger)framerate
+- (void) setFramerate:(NSUInteger)frate
 {
-//	[self.playgroundView setF
+	[self setFrameTime:1.0/frate];
+	//	[self.playgroundView setF
 }
 - (NSUInteger) framerate
 {
-	return 1.0/self.displayLink.duration;
+	return 1.0/self.frameTime;
 }
 
 - (void) setSimulationrate:(NSUInteger)srate
@@ -222,20 +224,25 @@
 }
 
 #pragma mark - Animation
-#define MAX_DT (1.0/15.0)
+#define MAX_DT_SIMULATION (1.0/15.0)
+#define MAX_DT_FRAMERATE (1.0/10.0)
 - (void) displayTick:(CADisplayLink*) link
 {
   //  cpFloat dt = link.duration*link.frameInterval;
   NSTimeInterval time = link.timestamp;
 	
-	NSTimeInterval dt = MIN(time - self.lastDisplayTime, MAX_DT);
-  self.lastDisplayTime = time;
+	NSTimeInterval dt = MIN(time - self.lastSimulationTime, MAX_DT_SIMULATION);
+  [self.playgroundView update:dt];
+	[self.playgroundView filterSimulatedLayers];
+  self.lastSimulationTime = time;
+
+  NSTimeInterval k = MIN(time - self.lastDisplayTime,MAX_DT_FRAMERATE);
+	if (k>=self.frameTime) {
+		[self.playgroundView updateLayerPositions];
+		self.lastDisplayTime = time;
+	}
 
   
-  [self.playgroundView update:dt];
-  
-  [self.playgroundView filterSimulatedLayers];
-  [self.playgroundView updateLayerPositions];
 }
 
 #pragma mark -
