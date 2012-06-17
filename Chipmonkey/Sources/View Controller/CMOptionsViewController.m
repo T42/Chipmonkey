@@ -26,7 +26,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	self.view.backgroundColor = nil;
+    self.view.backgroundColor = nil;
     // Do any additional setup after loading the view from its nib.
 }
 
@@ -42,17 +42,22 @@
 	return YES;
 }
 
+- (void) viewWillAppear:(BOOL) animated
+{
+  NSLog(@"view appears: %i",animated);
+}
 - (void) awakeFromNib
 {
 	//
-	
+	self.view.backgroundColor = nil;
+  self.view.opaque = NO;
 	NSLog(@"Frame:%@",NSStringFromCGRect(self.view.frame));
 	NSLog(@"Bounds:%@",NSStringFromCGRect(self.view.bounds));
 }
 
 - (BOOL)isModalInPopover
 {
-return YES;
+  return YES;
 }
 
 #pragma mark - Actions

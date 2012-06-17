@@ -24,11 +24,17 @@
 	NSTimer *fireTimer;
 	NSUInteger marblesToFire;
 	
+  
 	// special images for foreground and background layers
 	UIImage	*levelBackground;
 	UIImage *levelForeground;
 	CALayer *foregroundLayer, *backgroundLayer;
 	
+  
+  // simulation timing
+  NSTimeInterval  accumulator;
+  CGFloat         timeScale;
+  NSTimeInterval  timeStep;
 	
 }
 @property (retain, nonatomic) UIImage* levelBackground, *levelForeground;
@@ -43,6 +49,11 @@
 @property (retain, nonatomic) CMMarbleLayer *preparedLayer;
 @property (assign, nonatomic) NSArray* staticShapes;
 
+@property(nonatomic, readonly) NSTimeInterval accumulator;
+@property(nonatomic, assign) cpFloat timeScale;
+//@property(nonatomic, readonly) NSTimeInterval preferredTimeStep;
+@property(nonatomic, assign) NSTimeInterval timeStep;
+
 
 - (IBAction)createMarble:(id)sender;
 - (void) startSimulation;
@@ -50,4 +61,7 @@
 - (void) stopSimulation;
 - (void) resetSimulation;
 - (void) removeLevelData;
+- (void) update:(NSTimeInterval)dt;
+- (void) filterSimulatedLayers;
+- (void) updateLayerPositions;
 @end

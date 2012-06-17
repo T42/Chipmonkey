@@ -31,7 +31,13 @@
 	
 	CMMarbleMenuController			* menuController;
 	UIPopoverController					*localPopoverController;
+  
+  // game time
+  CADisplayLink               *displayLink;
+  NSTimeInterval              lastDisplayTime;
 }
+@property(retain,nonatomic) CADisplayLink *displayLink;
+@property(assign,nonatomic) NSTimeInterval lastDisplayTime;
 @property(retain,nonatomic) IBOutlet UIView* finishView, *startView;;
 @property(retain,nonatomic) IBOutlet CMMarbleSimulationView *playgroundView;
 @property(retain,nonatomic) IBOutlet UIButton* marblePreview;

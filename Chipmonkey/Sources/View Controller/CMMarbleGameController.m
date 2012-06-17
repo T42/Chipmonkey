@@ -34,7 +34,7 @@
 
 @implementation CMMarbleGameController
 
-@synthesize playgroundView, marblePreview,finishView,startView,levelLabel,levelLimit,currentLevel,levels,menuController,localPopoverController;
+@synthesize playgroundView, marblePreview,finishView,startView,levelLabel,levelLimit,currentLevel,levels,menuController,localPopoverController,displayLink,lastDisplayTime;
 
 - (void)didReceiveMemoryWarning
 {
@@ -93,8 +93,10 @@
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
-	// Return YES for supported orientations
-	return YES;
+	if(interfaceOrientation == UIInterfaceOrientationLandscapeLeft || interfaceOrientation == UIInterfaceOrientationLandscapeRight)
+		return YES;
+	return NO;
+
 }
 
 #pragma mark - Dialog preparation
@@ -102,12 +104,12 @@
 - (void) configureDialogViews
 {
 	self.startView.layer.borderColor = [[UIColor colorWithWhite:1.0 alpha:.6]CGColor];
-	self.startView.layer.cornerRadius = 15;
+	self.startView.layer.cornerRadius = 5;
 	self.startView.layer.borderWidth = 2;
 	self.startView.layer.backgroundColor = [[UIColor colorWithWhite:0.1 alpha:.9]CGColor];
 	
 	self.finishView.layer.borderColor = [[UIColor colorWithWhite:1.0 alpha:.6]CGColor];
-	self.finishView.layer.cornerRadius = 15;
+	self.finishView.layer.cornerRadius = 5;
 	self.finishView.layer.borderWidth = 2;
 	self.finishView.layer.backgroundColor = [[UIColor colorWithWhite:0.1 alpha:.9]CGColor];
 }
@@ -186,6 +188,22 @@
 	}
 }
 
+#pragma mark - Animation
+#define MAX_DT (1.0/15.0)
+- (void) displayTick:(CADisplayLink*) link
+{
+  //  cpFloat dt = link.duration*link.frameInterval;
+  NSTimeInterval time = link.timestamp;
+	
+	NSTimeInterval dt = MIN(time - self.lastDisplayTime, MAX_DT);
+  self.lastDisplayTime = time;
+
+  
+  [self.playgroundView update:dt];
+  
+  [self.playgroundView filterSimulatedLayers];
+  [self.playgroundView updateLayerPositions];
+}
 
 #pragma mark -
 #pragma mark Actions
@@ -193,12 +211,17 @@
 
 - (IBAction)stopSimulation:(id)sender
 {
-	[self.playgroundView stopSimulation];
+  self.displayLink = nil;
+  [self.playgroundView stopSimulation];
+ 	[self.playgroundView updateLayerPositions];
 }
 
 - (IBAction)startSimulation:(id)sender
 {
-	[self.playgroundView startSimulation];
+  self.displayLink = [CADisplayLink displayLinkWithTarget:self selector:@selector(displayTick:)];
+	self.displayLink.frameInterval = 1;
+	[self.displayLink addToRunLoop:[NSRunLoop mainRunLoop] forMode:NSDefaultRunLoopMode];
+  [self.playgroundView startSimulation];
 }
 
 - (IBAction)resetLevels:(id)sender
@@ -210,12 +233,12 @@
 
 - (IBAction)resetSimulation:(id)sender
 {
-	[self.playgroundView stopSimulation];
+  [self stopSimulation:nil];
 	[self.playgroundView resetSimulation];
 	[self loadMarbleImages];
 	self.marblePreview.image = [self freshImage];
 	[self.playgroundView removeLevelData];
-	[self.playgroundView startSimulation];
+	[self startSimulation:nil];
 }
 
 - (IBAction)fireMarbles:(id)sender

@@ -178,6 +178,7 @@
 			children = (
 				93F664AF158A87CE002B4E97 /* CMAppDelegate.h */,
 				93F664B0158A87CE002B4E97 /* CMAppDelegate.m */,
+				93EBF3BE158BA3B5005D32BF /* MarbleGameController */,
 				93F664AA158A8707002B4E97 /* View Controller */,
 				932485731587E4520092E2FD /* HelperClasses */,
 				9312972D1582A48400A2B556 /* CMMarbleSimulationView.h */,
@@ -387,6 +388,7 @@
 				93F664AD158A8782002B4E97 /* CMMarbleGameController.m */,
 			);
 			name = MarbleGameController;
+			path = "View Controller";
 			sourceTree = "<group>";
 		};
 		93EBF3C0158BA3C7005D32BF /* Popovers */ = {
@@ -435,7 +437,6 @@
 		93F664AA158A8707002B4E97 /* View Controller */ = {
 			isa = PBXGroup;
 			children = (
-				93EBF3BE158BA3B5005D32BF /* MarbleGameController */,
 				93EBF3C0158BA3C7005D32BF /* Popovers */,
 			);
 			path = "View Controller";

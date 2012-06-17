@@ -45,11 +45,11 @@
 	return YES;
 }
 
-- (CGSize) contentSizeForViewInPopover
-{
-	NSLog(@"ContentInPopOver: %@",NSStringFromCGSize(self.view.bounds.size));
-	return self.view.bounds.size;
-}
+//- (CGSize) contentSizeForViewInPopover
+//{
+//	NSLog(@"ContentInPopOver: %@",NSStringFromCGSize(self.view.bounds.size));
+//	return self.view.bounds.size;
+//}
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {

@@ -19,7 +19,8 @@ static NSString *borderType = @"borderType";
 
 @implementation CMMarbleSimulationView
 
-@synthesize space, displayLink, preparedLayer,simulatedLayers,touchingMarbles, delegate, fireTimer, levelBackground, levelForeground, foregroundLayer, backgroundLayer;
+@synthesize space, displayLink, preparedLayer,simulatedLayers,touchingMarbles, delegate, fireTimer, 
+levelBackground, levelForeground, foregroundLayer, backgroundLayer,accumulator,timeStep,timeScale;
 
 
 - (void) createDecorationLayers
@@ -45,7 +46,7 @@ static NSString *borderType = @"borderType";
   //	self.space.collisionPersistence = 120.0;
   self.space.collisionSlop = 0.01;
 //	self.space.collisionBias=.1;
-	self.space.iterations = 100;	
+	self.space.iterations = 10;	
 	[self.space addCollisionHandler:self typeA:[CMMarbleLayer class] typeB:[CMMarbleLayer class]
 														begin:@selector(beginMarbleCollision:space:) 
 												 preSolve:nil 
@@ -56,6 +57,9 @@ static NSString *borderType = @"borderType";
 	self->touchingMarbles = [[NSMutableDictionary dictionary]retain];	
 	self.layer.borderWidth =1.0;
 	self.layer.borderColor = [[UIColor blackColor]CGColor];
+  self.timeStep = 1.0 / 120.0;
+  self.timeScale = 1.0;
+  self->accumulator = 0.0;
 }
 
 - (id)initWithFrame:(CGRect)frame
@@ -149,74 +153,7 @@ static NSString *borderType = @"borderType";
 	return self.space.staticBody.shapes;
 }
 
-- (void) removeLevelData
-{
-	self.levelBackground = nil;
-	self.levelForeground = nil;
-	for (NSObject<ChipmunkObject> *data in self.space.staticBody.shapes) {
-    [self.space remove:data];
-	}
-[self.space addBounds:self.bounds thickness:20.0 elasticity:BORDER_ELASTICITY friction:BORDER_FRICTION layers:CP_ALL_LAYERS group:CP_NO_GROUP collisionType:borderType];
-}
 
-
-- (void) filterSimulatedLayers
-{
-	BOOL hasRemovedMarbles = NO;
-	for (CMMarbleLayer *aLayer in [[[[self.touchingMarbles allKeys]copy]autorelease] 
-																	 sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2){
-																		 NSUInteger a = [[self.touchingMarbles objectForKey:obj1]count];
-																		 NSUInteger b = [[self.touchingMarbles objectForKey:obj2]count];
-																		 if (a<b) {
-																			 return NSOrderedDescending;
-																		 }else if(a>b){
-																			 return NSOrderedAscending;
-																		 }else {
-																			 return NSOrderedSame;
-																		 }
-																	 }]){
-    NSMutableSet *touchingSet = [self.touchingMarbles objectForKey:aLayer];
-		if ([touchingSet count]>=2) {
-			hasRemovedMarbles = YES;
-			for (CMMarbleLayer *depLayer in [touchingSet copy]) {
-				[self->touchingMarbles removeObjectForKey:depLayer];
-				[self.space remove:depLayer];
-				[self->simulatedLayers removeObject:depLayer];
-				depLayer.shouldDestroy = YES;
-			}
-			[self->touchingMarbles removeObjectForKey:aLayer];
-			[self.space remove:aLayer];
-			[self->simulatedLayers removeObject:aLayer];
-			aLayer.shouldDestroy = YES;
-		}
-	}
-	if (hasRemovedMarbles) {
-		NSMutableSet *imageSet = [NSMutableSet set];
-		for (CMMarbleLayer *aLayer in self.simulatedLayers) {
-			[imageSet addObject:aLayer.contents];
-		}
-		[self.delegate imagesOnField:imageSet];
-	}
-	
-}
-
-- (void) update
-{
-	cpFloat dt = displayLink.duration*displayLink.frameInterval;
-	[space step:dt];
-	[self filterSimulatedLayers];
-	for (CMMarbleLayer *aLayer in self.simulatedLayers) {
-    [aLayer updatePosition];
-		if ([self.touchingMarbles objectForKey:aLayer]) {
-			aLayer.borderColor=[[UIColor greenColor]CGColor];
-      aLayer.borderWidth = 2.0;
-		}else{
-      
-      aLayer.borderWidth = 0.0;
-		
-		}
-	}
-}
 
 #pragma mark -
 #pragma mark Marbles
@@ -231,7 +168,7 @@ static NSString *borderType = @"borderType";
   CABasicAnimation *an = [CABasicAnimation animationWithKeyPath:@"opacity"];
   an.fromValue = [NSNumber numberWithFloat: 0.0];
   an.toValue = [NSNumber numberWithFloat:1.0];
-  an.duration = duration;
+  an.duration = duration/self.timeScale;
   an.delegate = self;
   [layer addAnimation:an forKey:@"shouldDestroy"];
   layer.opacity = 1.0;
@@ -239,7 +176,7 @@ static NSString *borderType = @"borderType";
   CABasicAnimation *na = [CABasicAnimation animationWithKeyPath:@"transform.scale"];
   na.fromValue = [NSNumber numberWithFloat:0.010];
   na.toValue = [NSNumber numberWithFloat:1.0];
-  na.duration = duration;
+  na.duration = duration/self.timeScale;
   na.delegate = self;
   [layer addAnimation:na forKey:@"shouldDestroy2"];
   [layer setValue:[NSNumber numberWithFloat:1.0] forKeyPath:@"transform.scale"];
@@ -254,7 +191,7 @@ static NSString *borderType = @"borderType";
 		[self->preparedLayer removeFromSuperlayer];
 		self->preparedLayer = [pL retain];
 		[self.layer addSublayer:self->preparedLayer];
-		self.preparedLayer.position=CGPointMake(self.bounds.size.width/2.0, 40);
+		self.preparedLayer.position=CGPointMake(self.bounds.size.width/2.0, 30);
     [self createAnimations:self.preparedLayer];
 	}
 }
@@ -350,6 +287,73 @@ static NSString *borderType = @"borderType";
 #pragma mark -
 #pragma mark Simulation
 
+- (void)updateLayerPositions
+{
+    for (CMMarbleLayer *aLayer in self.simulatedLayers) {
+        [aLayer updatePosition];
+		if ([self.touchingMarbles objectForKey:aLayer]) {
+			aLayer.borderColor=[[UIColor greenColor]CGColor];
+            aLayer.borderWidth = 2.0;
+		}else{
+            
+            aLayer.borderWidth = 0.0;
+            
+		}
+	}
+}
+
+- (void) update:(NSTimeInterval) dt
+{
+  //	
+	NSTimeInterval fixed_dt = self.timeStep;
+	
+	self->accumulator += dt*self.timeScale;
+	while(self.accumulator > fixed_dt){
+    [space step:fixed_dt];
+		self->accumulator -= fixed_dt;
+	}
+}
+
+- (void) filterSimulatedLayers
+{
+	BOOL hasRemovedMarbles = NO;
+	for (CMMarbleLayer *aLayer in [[[[self.touchingMarbles allKeys]copy]autorelease] 
+                                 sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2){
+                                   NSUInteger a = [[self.touchingMarbles objectForKey:obj1]count];
+                                   NSUInteger b = [[self.touchingMarbles objectForKey:obj2]count];
+                                   if (a<b) {
+                                     return NSOrderedDescending;
+                                   }else if(a>b){
+                                     return NSOrderedAscending;
+                                   }else {
+                                     return NSOrderedSame;
+                                   }
+                                 }]){
+                                   NSMutableSet *touchingSet = [self.touchingMarbles objectForKey:aLayer];
+                                   if ([touchingSet count]>=2) {
+                                     hasRemovedMarbles = YES;
+                                     for (CMMarbleLayer *depLayer in [touchingSet copy]) {
+                                       [self->touchingMarbles removeObjectForKey:depLayer];
+                                       [self.space remove:depLayer];
+                                       [self->simulatedLayers removeObject:depLayer];
+                                       depLayer.shouldDestroy = YES;
+                                     }
+                                     [self->touchingMarbles removeObjectForKey:aLayer];
+                                     [self.space remove:aLayer];
+                                     [self->simulatedLayers removeObject:aLayer];
+                                     aLayer.shouldDestroy = YES;
+                                   }
+                                 }
+	if (hasRemovedMarbles) {
+		NSMutableSet *imageSet = [NSMutableSet set];
+		for (CMMarbleLayer *aLayer in self.simulatedLayers) {
+			[imageSet addObject:aLayer.contents];
+		}
+		[self.delegate imagesOnField:imageSet];
+	}
+}
+
+
 - (void)simulateLayer:(CMMarbleLayer *)localLayer
 {
 	[self.space add:localLayer];
@@ -360,16 +364,13 @@ static NSString *borderType = @"borderType";
 
 - (void) startSimulation
 {
-	self.displayLink = [CADisplayLink displayLinkWithTarget:self selector:@selector(update)];
-	self.displayLink.frameInterval = 1;
-	[self.displayLink addToRunLoop:[NSRunLoop mainRunLoop] forMode:NSDefaultRunLoopMode];
 	if(!preparedLayer){
 		[self createMarble:nil];
 	}
 }
 - (void) stopSimulation
 {
-	self.displayLink = nil;
+
 	self.preparedLayer = nil;
 }
 
@@ -385,6 +386,17 @@ static NSString *borderType = @"borderType";
 	[self->simulatedLayers removeAllObjects];
 }
 
+- (void) removeLevelData
+{
+	self.levelBackground = nil;
+	self.levelForeground = nil;
+	for (NSObject<ChipmunkObject> *data in self.space.staticBody.shapes) {
+    [self.space remove:data];
+	}
+  [self.space addBounds:self.bounds thickness:20.0 elasticity:BORDER_ELASTICITY friction:BORDER_FRICTION layers:CP_ALL_LAYERS group:CP_NO_GROUP collisionType:borderType];
+}
+
+
 #pragma mark -
 #pragma mark Marble Canon
 
@@ -397,7 +409,7 @@ static NSString *borderType = @"borderType";
 	CGFloat velX = frand_unit() * 1000;
 	CGFloat velY = -fabs(frand_unit() * 1000);
 	marbleLayer.body.vel = cpv(velX,velY);
-	marbleLayer.position = CGPointMake(self.bounds.size.width/2.0, self.bounds.size.height/3.0);
+	marbleLayer.position = CGPointMake(self.bounds.size.width/2.0, 200);
 	self->marblesToFire--;
 	if (marblesToFire == 0) {
 		[aTimer invalidate];
@@ -414,7 +426,6 @@ static NSString *borderType = @"borderType";
 		NSTimer *marbleTimer = [NSTimer scheduledTimerWithTimeInterval:marbleCadenz target:self selector:@selector(fireSingleMarble:) userInfo:nil repeats:YES];
 		self.fireTimer = marbleTimer;	
 	}
-	
 }
 
 

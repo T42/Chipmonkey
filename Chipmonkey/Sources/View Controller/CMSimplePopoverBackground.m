@@ -39,16 +39,19 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
+      self.alpha = 1.0;
 			self.backgroundColor = nil;
 			self.layer.borderColor = [[UIColor colorWithWhite:1.0 alpha:.6]CGColor];
-			self.layer.cornerRadius = 15;
+			self.layer.cornerRadius = 5;
 			self.layer.borderWidth = 2;
-			self.layer.backgroundColor = [[UIColor colorWithWhite:0.1 alpha:.9]CGColor];
+			self.layer.backgroundColor = [[UIColor colorWithWhite:0.1 alpha:.96]CGColor];
 			self.layer.masksToBounds = YES;
-
+      self.layer.shadowPath = nil;
+      self.layer.shadowColor =nil;
     }
     return self;
 }
+
 
 /*
 // Only override drawRect: if you perform custom drawing.

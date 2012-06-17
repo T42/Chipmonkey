@@ -93,7 +93,7 @@
 	self.localPopoverController.popoverLayoutMargins = UIEdgeInsetsMake(0, 0, 0, 0);
 	self.localPopoverController.popoverBackgroundViewClass = [CMSimplePopoverBackground class];
 	self.optionsController.parentPopoverController=self.localPopoverController;
-	[self.localPopoverController presentPopoverFromRect:CGRectMake(0, 0, 1024, 768) inView:self.view permittedArrowDirections:(0) animated:YES];
+	[self.localPopoverController presentPopoverFromRect:CGRectMake(0, 0, 1024,768) inView:self.view permittedArrowDirections:(0) animated:YES];
 }
 
 - (IBAction) resetProgress:(id) sender
