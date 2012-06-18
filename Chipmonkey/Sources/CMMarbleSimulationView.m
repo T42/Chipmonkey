@@ -464,7 +464,7 @@ levelBackground, levelForeground, foregroundLayer, backgroundLayer,accumulator,t
 		self.preparedLayer.position = p;
 
 		cpVect ll =  self.preparedLayer.body.vel;
-		ll.x = (p.x - p0.x)*10.;
+		ll.x = (p.x - p0.x)*12.;
 		self.preparedLayer.body.vel = ll;
 	}
 	

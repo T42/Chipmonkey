@@ -109,12 +109,12 @@
 - (void) configureDialogViews
 {
 	self.startView.layer.borderColor = [[UIColor colorWithWhite:1.0 alpha:.6]CGColor];
-	self.startView.layer.cornerRadius = 5;
+	self.startView.layer.cornerRadius = 15;
 	self.startView.layer.borderWidth = 2;
 	self.startView.layer.backgroundColor = [[UIColor colorWithWhite:0.1 alpha:.9]CGColor];
 	
 	self.finishView.layer.borderColor = [[UIColor colorWithWhite:1.0 alpha:.6]CGColor];
-	self.finishView.layer.cornerRadius = 5;
+	self.finishView.layer.cornerRadius = 15;
 	self.finishView.layer.borderWidth = 2;
 	self.finishView.layer.backgroundColor = [[UIColor colorWithWhite:0.1 alpha:.9]CGColor];
 }
