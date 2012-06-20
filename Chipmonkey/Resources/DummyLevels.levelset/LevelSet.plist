@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>levels</key>
+	<array>
+		<dict>
+			<key>levelName</key>
+			<string>Empty Space</string>
+			<key>numOfMarbles</key>
+			<integer>30</integer>
+			<key>physics</key>
+			<dict/>
+			<key>graphics</key>
+			<dict>
+				<key>staticBodiesFilename</key>
+				<string></string>
+				<key>overlayFilename</key>
+				<string></string>
+				<key>backgroundFilename</key>
+				<string></string>
+			</dict>
+			<key>audio</key>
+			<dict/>
+		</dict>
+		<dict>
+			<key>graphics</key>
+			<dict>
+				<key>staticBodiesFilename</key>
+				<string>Level1-StaticBodies</string>
+				<key>overlayFilename</key>
+				<string>Level1-Overlay</string>
+				<key>backgroundFilename</key>
+				<string>Level1-Background</string>
+			</dict>
+			<key>physics</key>
+			<dict/>
+			<key>audio</key>
+			<dict/>
+			<key>numOfMarbles</key>
+			<integer>60</integer>
+			<key>levelName</key>
+			<string>Bouncy Bounce</string>
+		</dict>
+		<dict>
+			<key>graphics</key>
+			<dict>
+				<key>staticBodiesFilename</key>
+				<string>Level2-StaticBodies</string>
+				<key>overlayFilename</key>
+				<string>Level2-Overlay</string>
+				<key>backgroundFilename</key>
+				<string>Level2-Background</string>
+			</dict>
+			<key>physics</key>
+			<dict/>
+			<key>audio</key>
+			<dict/>
+			<key>numOfMarbles</key>
+			<integer>60</integer>
+			<key>levelName</key>
+			<string>Bouncy Bounce</string>
+		</dict>
+	</array>
+	<key>physics</key>
+	<dict/>
+	<key>audio</key>
+	<dict/>
+</dict>
+</plist>

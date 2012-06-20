@@ -53,7 +53,7 @@
     NSLog(@"Got: %@",line);
 		if([line hasPrefix:@"*"]){ // start of an shape
 			line = [line stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"*"]];
-			numOfLinesInShape = [line intValue];
+			numOfLinesInShape = (NSUInteger)[line integerValue];
 			NSRange aRange = NSMakeRange(i+1, numOfLinesInShape);
 			NSArray *shapeArray = [dataLines subarrayWithRange:aRange];
 			shapeArray = [self createShapeFromArray:shapeArray inSize:CGSizeMake(1024, 768)];

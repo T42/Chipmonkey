@@ -11,10 +11,10 @@
 #define MARBLE_RADIUS 20
 static NSString *borderType = @"borderType";
 
-#define BORDER_FRICTION   1.0
-#define BORDER_ELASTICITY 0.1
-#define SPACE_GRAVITY     981.0
-#define MARBLE_MASS       20.0
+#define BORDER_FRICTION   1.0f
+#define BORDER_ELASTICITY 0.1f
+#define SPACE_GRAVITY     981.0f
+#define MARBLE_MASS       20.0f
 
 
 @implementation CMMarbleSimulationView
@@ -43,10 +43,11 @@ levelBackground, levelForeground, foregroundLayer, backgroundLayer,accumulator,t
 	self.space.gravity = cpv(0.0, SPACE_GRAVITY);
 
 	NSLog(@"Persistance: %u Bias: %f Slope: %f,iterations %i",self.space.collisionPersistence,self.space.collisionBias,self.space.collisionSlop,self.space.iterations);
-  //	self.space.collisionPersistence = 120.0;
-  self.space.collisionSlop = 0.01;
+//  self.space.collisionPersistence = 10.0;
+//  self.space.collisionSlop = 0.01;
 //	self.space.collisionBias=.1;
-	self.space.iterations = 10;	
+//	self.space.iterations = 10;	
+	self.space.sleepTimeThreshold = .50;
 	[self.space addCollisionHandler:self typeA:[CMMarbleLayer class] typeB:[CMMarbleLayer class]
 														begin:@selector(beginMarbleCollision:space:) 
 												 preSolve:nil 
@@ -159,7 +160,7 @@ levelBackground, levelForeground, foregroundLayer, backgroundLayer,accumulator,t
 #pragma mark Marbles
 -(void) createAnimations:(CMMarbleLayer*) layer
 {
-	[self createAnimations:layer duration:0.8];
+	[self createAnimations:layer duration:0.8f];
 }
 
 -(void) createAnimations:(CMMarbleLayer*) layer duration:(CGFloat) duration
@@ -224,9 +225,10 @@ levelBackground, levelForeground, foregroundLayer, backgroundLayer,accumulator,t
 #pragma mark -
 #pragma mark Collision Handlers
 
-- (NSString*) keyFromLayer:(CMMarbleLayer*) layer
+- (id) keyFromLayer:(CMMarbleLayer*) layer
 {
-	return [NSString stringWithFormat:@"%li",layer];
+//	return [NSString stringWithFormat:@"%li",layer];
+	return layer;
 }
 
 - (NSMutableSet*) marbleSetFor:(CMMarbleLayer*)layer
@@ -312,7 +314,7 @@ levelBackground, levelForeground, foregroundLayer, backgroundLayer,accumulator,t
 	
 	self->accumulator += dt*self.timeScale;
 	while(self.accumulator > fixed_dt){
-    [space step:fixed_dt];
+    [space step:(CGFloat)fixed_dt];
 		self->accumulator -= fixed_dt;
 	}
 }
@@ -320,7 +322,7 @@ levelBackground, levelForeground, foregroundLayer, backgroundLayer,accumulator,t
 - (void) filterSimulatedLayers
 {
 	BOOL hasRemovedMarbles = NO;
-	for (NSString *aLayer in [[[[self.touchingMarbles allKeys]copy]autorelease] 
+	for (id aLayer in [[[[self.touchingMarbles allKeys]copy]autorelease] 
                                  sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2){
                                    NSUInteger a = [[self.touchingMarbles objectForKey:obj1]count];
                                    NSUInteger b = [[self.touchingMarbles objectForKey:obj2]count];
@@ -342,7 +344,7 @@ levelBackground, levelForeground, foregroundLayer, backgroundLayer,accumulator,t
                                        depLayer.shouldDestroy = YES;
                                      }
                                      [self->touchingMarbles removeObjectForKey:aLayer];
-																		 CMMarbleLayer *layer = (CMMarbleLayer*)[aLayer intValue];
+																		 CMMarbleLayer *layer = aLayer;//(CMMarbleLayer*)[aLayer intValue];
                                      [self.space remove:layer];
                                      [self->simulatedLayers removeObject:layer];
                                      layer.shouldDestroy = YES;
@@ -409,9 +411,9 @@ levelBackground, levelForeground, foregroundLayer, backgroundLayer,accumulator,t
 
 	UIImage *marbleImage = [self.delegate nextImage];
 	CMMarbleLayer *marbleLayer = [self createMarbleLayer:marbleImage];
-	[self createAnimations:marbleLayer duration: 0.3];
+	[self createAnimations:marbleLayer duration: 0.3f];
 	CGFloat velX = frand_unit() * 1000;
-	CGFloat velY = -fabs(frand_unit() * 1000);
+	CGFloat velY = (CGFloat)-fabs(frand_unit() * 1000);
 	marbleLayer.body.vel = cpv(velX,velY);
 	marbleLayer.position = CGPointMake(self.bounds.size.width/2.0, 200);
 	self->marblesToFire--;
@@ -464,7 +466,7 @@ levelBackground, levelForeground, foregroundLayer, backgroundLayer,accumulator,t
 		self.preparedLayer.position = p;
 
 		cpVect ll =  self.preparedLayer.body.vel;
-		ll.x = (p.x - p0.x)*12.;
+		ll.x = (p.x - p0.x)*12.0f;
 		self.preparedLayer.body.vel = ll;
 	}
 	
