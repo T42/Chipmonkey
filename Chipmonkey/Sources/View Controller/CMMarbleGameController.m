@@ -35,11 +35,19 @@
 
 @end
 
+@interface CMMarbleGameController ()
+- (void) popupViewController:(CMPopoverContentController*)controller withBackgroundClass:(Class) backgroundClass andRect:(CGRect) rect;
+- (void) popupViewController:(CMPopoverContentController*)controller withBackgroundClass:(Class) backgroundClass;
+@end
+
 
 
 @implementation CMMarbleGameController
 
-@synthesize playgroundView, marblePreview,finishView,startView,levelLabel,currentLevel,levelSet,menuController,localPopoverController,displayLink,lastSimulationTime,lastDisplayTime,frameTime;
+@synthesize playgroundView, marblePreview,
+levelLabel,currentLevel,levelSet,
+menuController,localPopoverController, levelEndController, levelStartController,
+displayLink,lastSimulationTime,lastDisplayTime,frameTime;
 
 @synthesize timescale,framerate,simulationrate;
 
@@ -59,16 +67,14 @@
 	// Do any additional setup after loading the view, typically from a nib.
 	self.playgroundView.layer.masksToBounds = YES;
 	[self.playgroundView startSimulation];
-	self.finishView.hidden = YES;
-	self.startView.hidden = YES;
-	[self configureDialogViews];
+
 	[self loadLevels];
 
 
 	self.currentLevel = 0;
 	self.frameTime = 1.0/60;
 
-	[self prepareLevel:self.currentLevel];
+
 }
 
 - (void)viewDidUnload
@@ -87,6 +93,7 @@
 
 - (void)viewDidAppear:(BOOL)animated
 {
+	[self prepareLevel:self.currentLevel];
 	[super viewDidAppear:animated];
 }
 
@@ -105,28 +112,9 @@
 	if(interfaceOrientation == UIInterfaceOrientationLandscapeLeft || interfaceOrientation == UIInterfaceOrientationLandscapeRight)
 		return YES;
 	return NO;
-
 }
-
-#pragma mark - Dialog preparation
-
-- (void) configureDialogViews
-{
-	self.startView.layer.borderColor = [[UIColor colorWithWhite:1.0 alpha:.6]CGColor];
-	self.startView.layer.cornerRadius = 15;
-	self.startView.layer.borderWidth = 2;
-	self.startView.layer.backgroundColor = [[UIColor colorWithWhite:0.1 alpha:.9]CGColor];
-	
-	self.finishView.layer.borderColor = [[UIColor colorWithWhite:1.0 alpha:.6]CGColor];
-	self.finishView.layer.cornerRadius = 15;
-	self.finishView.layer.borderWidth = 2;
-	self.finishView.layer.backgroundColor = [[UIColor colorWithWhite:0.1 alpha:.9]CGColor];
-}
-
-
 
 #pragma mark - Marble Image Handling
-
 
 - (void) loadMarbleImages
 {
@@ -174,9 +162,8 @@
 		self.playgroundView.levelForeground = currentL.overlayImage;
 		self.playgroundView.staticShapes = currentL.shapeReader.shapes;
 	}
-	self.startView.hidden = NO;
-	self.levelLabel.text = [NSString stringWithFormat:@"Level - %d",levelIndex];
-
+  self.levelStartController.levelname.text =[NSString stringWithFormat:@"Level - %d",levelIndex];
+  [self popupViewController:self.levelStartController withBackgroundClass:[CMSimplePopoverBackground class]];
 }
 
 #pragma mark - Properties
@@ -286,16 +273,15 @@
 
 #pragma mark -
 
-- (IBAction)thanksAction:(id)sender
+- (IBAction)finishLevel:(id)sender
 {
-	self.finishView.hidden = YES;
+  self.localPopoverController = nil;
 	self.currentLevel = (self.currentLevel +1)%([self.levelSet.levelList count]+1);
 	[self prepareLevel:self.currentLevel];
 }
 
 - (IBAction)cancelLevel:(id)sender
 {
-	self.startView.hidden = YES;
 	[self resetSimulation:nil];
 	[self startSimulation:nil];
 	self.currentLevel = 0;
@@ -303,23 +289,34 @@
 
 - (IBAction)startLevel:(id)sender
 {
-	self.startView.hidden = YES;
+  //	self.startView.hidden = YES;
+  //  self.localPopoverController = nil;
 	[self startSimulation:nil];
 	CMMarbleLevel *currentL = [self.levelSet.levelList objectAtIndex:self.currentLevel];
 	[self.playgroundView fireMarbles:currentL.numberOfMarbles inTime:10.0];
+
 }
 #pragma mark -
 
+- (void) popupViewController:(CMPopoverContentController*)controller withBackgroundClass:(Class) backgroundClass andRect:(CGRect)rect
+{
+//	if(!self.localPopoverController){
+		self.localPopoverController = [[[UIPopoverController alloc]initWithContentViewController:controller]autorelease];
+//	}
+  self.localPopoverController.contentViewController = controller;
+	self.localPopoverController.popoverLayoutMargins = UIEdgeInsetsMake(0, 0, 0, 0);
+	self.localPopoverController.popoverBackgroundViewClass = backgroundClass;
+	controller.parentPopoverController=self.localPopoverController;
+ 	[self.localPopoverController presentPopoverFromRect:rect inView:self.view permittedArrowDirections:(0) animated:YES];
+}
+- (void) popupViewController:(CMPopoverContentController*)controller withBackgroundClass:(Class) backgroundClass
+{
+  [self popupViewController:controller withBackgroundClass:backgroundClass andRect:CGRectMake(0, 0, 1024, 768)];
+}
+
 - (IBAction)showMenuBar:(id)sender
 {
-	if(!self.localPopoverController){
-		self.localPopoverController = [[[UIPopoverController alloc]initWithContentViewController:self.menuController]autorelease];
-	}
-	self.localPopoverController.popoverLayoutMargins = UIEdgeInsetsMake(0, 0, 0, 0);
-	self.localPopoverController.popoverBackgroundViewClass = [CMMenuPopoverBackground class];
-	self.menuController.parentPopoverController=self.localPopoverController;
-	[self.localPopoverController presentPopoverFromRect:CGRectMake(0, 0, 1024, 60) inView:self.view permittedArrowDirections:(0) animated:YES];
-
+  [self popupViewController:self.menuController withBackgroundClass:[CMMenuPopoverBackground class] andRect:CGRectMake(0, 0, 1024, 60)];
 }
 
 
@@ -371,9 +368,7 @@
 		[self loadMarbleImages];
 		self.marblePreview = [self freshImage];
 //		[self resetSimulation:nil];
-		self.finishView.hidden = NO;
-		[self.view addSubview:self.finishView];
-		self.finishView.layer.zPosition = 10;
+    [self popupViewController:self.levelEndController withBackgroundClass:[CMSimplePopoverBackground class]];
 	}
 }
 

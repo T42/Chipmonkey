@@ -39,17 +39,32 @@
 		self->parentPopoverController = [ppc retain];
 	}
 }
+- (void) viewWillAppear:(BOOL) animated
+{
+	[super viewWillAppear:animated];
+	CALayer *myLayer = self.view.layer;
+  NSArray *superContent = myLayer.superlayer.sublayers;
+	// remove all sublayers from my sibilling.
+	for (CALayer *a in superContent) {
+    if (a!=myLayer) {
+			for (CALayer *b in [[a.sublayers copy]autorelease]) {
+				[b removeFromSuperlayer];
+			}
+		}
+	}
+	self.view.backgroundColor = nil;
+}
 
 - (BOOL) isModalInPopover
 {
 	return YES;
 }
 
-//- (CGSize) contentSizeForViewInPopover
-//{
-//	NSLog(@"ContentInPopOver: %@",NSStringFromCGSize(self.view.bounds.size));
-//	return self.view.bounds.size;
-//}
+- (CGSize) contentSizeForViewInPopover
+{
+	//	NSLog(@"ContentInPopOver: %@",NSStringFromCGSize(self.view.bounds.size));
+	return self.view.bounds.size;
+}
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {

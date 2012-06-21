@@ -76,6 +76,10 @@
 		93F664B5158A8BC2002B4E97 /* CMMarbleMenuController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93F664B3158A8BC2002B4E97 /* CMMarbleMenuController.m */; };
 		93F664B7158A8BE5002B4E97 /* CMMarbleMenuController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93F664B9158A8BE5002B4E97 /* CMMarbleMenuController.xib */; };
 		93F664BF158A98FF002B4E97 /* CMFunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = 93F664BE158A98FF002B4E97 /* CMFunctions.m */; };
+		FE2E161E15937995005CF4A4 /* CMMarbleLevelStartController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE2E161C15937995005CF4A4 /* CMMarbleLevelStartController.m */; };
+		FE2E161F15937995005CF4A4 /* CMMarbleLevelStartController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE2E161D15937995005CF4A4 /* CMMarbleLevelStartController.xib */; };
+		FE2E162315937ABD005CF4A4 /* CMMarbleLevelEndController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE2E162115937ABD005CF4A4 /* CMMarbleLevelEndController.m */; };
+		FE2E162415937ABD005CF4A4 /* CMMarbleLevelEndController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE2E162215937ABD005CF4A4 /* CMMarbleLevelEndController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -239,7 +243,7 @@
 		93F443FE158E23FF00D80BF1 /* CMDebugViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMDebugViewController.h; sourceTree = "<group>"; };
 		93F443FF158E23FF00D80BF1 /* CMDebugViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMDebugViewController.m; sourceTree = "<group>"; };
 		93F44400158E23FF00D80BF1 /* CMDebugViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CMDebugViewController.xib; sourceTree = "<group>"; };
-		93F44403158E42EC00D80BF1 /* CMGameControllerProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CMGameControllerProtocol.h; sourceTree = "<group>"; };
+		93F44403158E42EC00D80BF1 /* CMGameControllerProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CMGameControllerProtocol.h; path = ../CMGameControllerProtocol.h; sourceTree = "<group>"; };
 		93F664AC158A8782002B4E97 /* CMMarbleGameController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMMarbleGameController.h; sourceTree = "<group>"; };
 		93F664AD158A8782002B4E97 /* CMMarbleGameController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMMarbleGameController.m; sourceTree = "<group>"; };
 		93F664AF158A87CE002B4E97 /* CMAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMAppDelegate.h; sourceTree = "<group>"; };
@@ -249,6 +253,12 @@
 		93F664B8158A8BE5002B4E97 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/CMMarbleMenuController.xib; sourceTree = "<group>"; };
 		93F664BD158A98E7002B4E97 /* CMFunctions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CMFunctions.h; sourceTree = "<group>"; };
 		93F664BE158A98FF002B4E97 /* CMFunctions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMFunctions.m; sourceTree = "<group>"; };
+		FE2E161B15937995005CF4A4 /* CMMarbleLevelStartController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMMarbleLevelStartController.h; sourceTree = "<group>"; };
+		FE2E161C15937995005CF4A4 /* CMMarbleLevelStartController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMMarbleLevelStartController.m; sourceTree = "<group>"; };
+		FE2E161D15937995005CF4A4 /* CMMarbleLevelStartController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CMMarbleLevelStartController.xib; sourceTree = "<group>"; };
+		FE2E162015937ABD005CF4A4 /* CMMarbleLevelEndController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMMarbleLevelEndController.h; sourceTree = "<group>"; };
+		FE2E162115937ABD005CF4A4 /* CMMarbleLevelEndController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMMarbleLevelEndController.m; sourceTree = "<group>"; };
+		FE2E162215937ABD005CF4A4 /* CMMarbleLevelEndController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CMMarbleLevelEndController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -285,7 +295,6 @@
 				93F664AF158A87CE002B4E97 /* CMAppDelegate.h */,
 				93F664B0158A87CE002B4E97 /* CMAppDelegate.m */,
 				939682B41583F3E5007CD4FA /* CMMarbleImageSource.h */,
-				93F44403158E42EC00D80BF1 /* CMGameControllerProtocol.h */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -605,6 +614,7 @@
 			isa = PBXGroup;
 			children = (
 				93AFEA2815828FA1003A6382 /* CMMarbleGameController.xib */,
+				93F44403158E42EC00D80BF1 /* CMGameControllerProtocol.h */,
 				93F664AC158A8782002B4E97 /* CMMarbleGameController.h */,
 				93F664AD158A8782002B4E97 /* CMMarbleGameController.m */,
 			);
@@ -615,6 +625,7 @@
 		93EBF3C0158BA3C7005D32BF /* Popovers */ = {
 			isa = PBXGroup;
 			children = (
+				FE2E161915937917005CF4A4 /* Level Dialogs */,
 				9311BE8A158AB0DC004E13F4 /* CMPopoverContentController.h */,
 				9311BE8B158AB0DC004E13F4 /* CMPopoverContentController.m */,
 				93EBF3C1158BA3F4005D32BF /* Main Menu */,
@@ -680,6 +691,19 @@
 				93EBF3C0158BA3C7005D32BF /* Popovers */,
 			);
 			path = "View Controller";
+			sourceTree = "<group>";
+		};
+		FE2E161915937917005CF4A4 /* Level Dialogs */ = {
+			isa = PBXGroup;
+			children = (
+				FE2E161B15937995005CF4A4 /* CMMarbleLevelStartController.h */,
+				FE2E161C15937995005CF4A4 /* CMMarbleLevelStartController.m */,
+				FE2E161D15937995005CF4A4 /* CMMarbleLevelStartController.xib */,
+				FE2E162015937ABD005CF4A4 /* CMMarbleLevelEndController.h */,
+				FE2E162115937ABD005CF4A4 /* CMMarbleLevelEndController.m */,
+				FE2E162215937ABD005CF4A4 /* CMMarbleLevelEndController.xib */,
+			);
+			name = "Level Dialogs";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -753,6 +777,8 @@
 				93ED3CC9158FD65400E753DD /* marbleKlick.aif in Resources */,
 				932527BA1592569900A8D98F /* LICENSE.ObjectAL.txt in Resources */,
 				932527F715926DE500A8D98F /* DummyLevels.levelset in Resources */,
+				FE2E161F15937995005CF4A4 /* CMMarbleLevelStartController.xib in Resources */,
+				FE2E162415937ABD005CF4A4 /* CMMarbleLevelEndController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -804,6 +830,8 @@
 				932527CB1592569900A8D98F /* OALAudioFile.m in Sources */,
 				932527CC1592569900A8D98F /* OALTools.m in Sources */,
 				932527F51592670600A8D98F /* CMMarbleLevelSet.m in Sources */,
+				FE2E161E15937995005CF4A4 /* CMMarbleLevelStartController.m in Sources */,
+				FE2E162315937ABD005CF4A4 /* CMMarbleLevelEndController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -858,7 +886,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
-				SDKROOT = iphoneos;
+				SDKROOT = iphoneos5.1;
 				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Debug;
@@ -877,7 +905,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
-				SDKROOT = iphoneos;
+				SDKROOT = iphoneos5.1;
 				TARGETED_DEVICE_FAMILY = 2;
 				VALIDATE_PRODUCT = YES;
 			};

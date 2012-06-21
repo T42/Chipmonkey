@@ -14,6 +14,10 @@
 @protocol CMGameControllerProtocol <NSObject>
 
 @property (assign,nonatomic) NSUInteger framerate,simulationrate,timescale;
+
+- (IBAction)startLevel:(id)sender;
+- (IBAction)cancelLevel:(id)sender;
+- (IBAction)finishLevel:(id)sender;
 @end
 
 

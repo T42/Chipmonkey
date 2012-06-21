@@ -37,15 +37,6 @@
     // e.g. self.myOutlet = nil;
 }
 
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-{
-	return YES;
-}
-
-- (void) viewWillAppear:(BOOL) animated
-{
-  self.view.layer.superlayer.cornerRadius = 15;
-}
 - (void) awakeFromNib
 {
 	//
@@ -55,10 +46,6 @@
 	NSLog(@"Bounds:%@",NSStringFromCGRect(self.view.bounds));
 }
 
-- (BOOL)isModalInPopover
-{
-  return YES;
-}
 
 #pragma mark - Actions
 

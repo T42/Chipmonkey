@@ -44,6 +44,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+
     // Do any additional setup after loading the view from its nib.
 }
 
@@ -61,7 +62,8 @@
 
 - (void) viewWillAppear:(BOOL) animated
 {
-  self.view.layer.superlayer.cornerRadius = 15;
+  [super viewWillAppear:animated];
+
 	NSObject<CMGameControllerProtocol> *currentGamecontroller = 			[(CMAppDelegate*)[UIApplication sharedApplication].delegate currentGamecontroller];
 	self.framerateSlider.value = currentGamecontroller.framerate;
 	self.framerateText.text = [NSString stringWithFormat:@"%i",currentGamecontroller.framerate];
@@ -73,10 +75,6 @@
 	self.timescaleText.text = [NSString stringWithFormat:@"%i",currentGamecontroller.timescale];
 }
 
-- (BOOL) isModalInPopover
-{
-	return YES;
-}
 
 - (void) setDebugValue:(CGFloat)value forTag:(NSInteger) tag
 {
@@ -131,7 +129,7 @@
 	[self dismissAnimated:YES];
 }
 
-#pragma mark - UITExtFieldDelegate
+#pragma mark - UITextFieldDelegate
 
 - (BOOL) textFieldShouldReturn:(UITextField *)textField
 {

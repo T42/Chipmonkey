@@ -45,6 +45,7 @@
 			self.layer.cornerRadius = 15;
 			self.layer.borderWidth = 2;
 			self.layer.backgroundColor = [[UIColor colorWithWhite:0.1 alpha:.96]CGColor];
+      //      self.layer.backgroundColor = [[UIColor redColor]CGColor];
 			self.layer.masksToBounds = YES;
       self.layer.shadowPath = nil;
       self.layer.shadowColor =nil;

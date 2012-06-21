@@ -45,12 +45,6 @@
     // e.g. self.myOutlet = nil;
 }
 
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-{
-	if(interfaceOrientation == UIInterfaceOrientationLandscapeLeft || interfaceOrientation == UIInterfaceOrientationLandscapeRight)
-		return YES;
-	return NO;
-}
 
 #pragma mark -
 #pragma mark Actions
@@ -152,11 +146,6 @@
 }
 
 #pragma mark - Popover
-
-- (CGSize) contentSizeForViewInPopover
-{
-	return CGSizeMake(1024, 60);
-}
 
 - (BOOL) isModalInPopover
 {
