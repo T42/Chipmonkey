@@ -57,9 +57,9 @@
 			<key>audio</key>
 			<dict/>
 			<key>numOfMarbles</key>
-			<integer>60</integer>
+			<integer>80</integer>
 			<key>levelName</key>
-			<string>Bouncy Bounce</string>
+			<string>Hurpzel Purzel</string>
 		</dict>
 	</array>
 	<key>physics</key>
