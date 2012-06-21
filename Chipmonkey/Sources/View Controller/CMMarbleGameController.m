@@ -241,8 +241,6 @@
 		[self.playgroundView updateLayerPositions];
 		self.lastDisplayTime = time;
 	}
-
-  
 }
 
 #pragma mark -
@@ -294,6 +292,7 @@
 	self.currentLevel = (self.currentLevel +1)%(self.levelLimit+1);
 	[self prepareLevel:self.currentLevel];
 }
+
 - (IBAction)cancelLevel:(id)sender
 {
 	self.startView.hidden = YES;

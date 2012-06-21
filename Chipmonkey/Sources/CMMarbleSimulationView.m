@@ -298,9 +298,7 @@ levelBackground, levelForeground, foregroundLayer, backgroundLayer,accumulator,t
 			aLayer.borderColor=[[UIColor greenColor]CGColor];
             aLayer.borderWidth = 2.0;
 		}else{
-            
             aLayer.borderWidth = 0.0;
-            
 		}
 	}
 }
@@ -406,7 +404,6 @@ levelBackground, levelForeground, foregroundLayer, backgroundLayer,accumulator,t
 
 - (void) fireSingleMarble:(NSTimer*) aTimer
 {
-
 	UIImage *marbleImage = [self.delegate nextImage];
 	CMMarbleLayer *marbleLayer = [self createMarbleLayer:marbleImage];
 	[self createAnimations:marbleLayer duration: 0.3];
