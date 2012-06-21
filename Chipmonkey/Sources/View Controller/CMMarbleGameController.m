@@ -9,13 +9,16 @@
 #import "CMMarbleGameController.h"
 #import "CMMarbleSimulationView.h"
 #import "CMSimpleShapeReader.h"
-#import "CMSimpleLevel.h"
 #import "CMFunctions.h"
 #import "CMSimplePopoverBackground.h"
 #import "CMMenuPopoverBackground.h"
 #import "CMGameControllerProtocol.h"
+#import "CMAppDelegate.h"
+#import "CMMarbleLevelSet.h"
+#import "CMMarbleLevel.h"
 
 #define MAX_MARBLE_IMAGES 9
+
 #define NUM_LEVEL_MARBLES 80
 
 @implementation UIButton (CMMarbleGameHelper)
@@ -36,7 +39,7 @@
 
 @implementation CMMarbleGameController
 
-@synthesize playgroundView, marblePreview,finishView,startView,levelLabel,levelLimit,currentLevel,levels,menuController,localPopoverController,displayLink,lastSimulationTime,lastDisplayTime,frameTime;
+@synthesize playgroundView, marblePreview,finishView,startView,levelLabel,currentLevel,levelSet,menuController,localPopoverController,displayLink,lastSimulationTime,lastDisplayTime,frameTime;
 
 @synthesize timescale,framerate,simulationrate;
 
@@ -52,15 +55,16 @@
   [super viewDidLoad];
 	[self loadMarbleImages];
 	
-	self.marblePreview.image = [self freshImage];
+	self.marblePreview = [self freshImage];
 	// Do any additional setup after loading the view, typically from a nib.
 	self.playgroundView.layer.masksToBounds = YES;
 	[self.playgroundView startSimulation];
 	self.finishView.hidden = YES;
 	self.startView.hidden = YES;
 	[self configureDialogViews];
-	self.levelLimit = [CMSimpleLevel maxLevelIndex];
 	[self loadLevels];
+
+
 	self.currentLevel = 0;
 	self.frameTime = 1.0/60;
 
@@ -153,22 +157,16 @@
 
 - (void) loadLevels
 {
-	if(!self.levels){
-		self.levels = [NSMutableArray array];
-	}
-	
-	for (NSUInteger i=0; i<(self.levelLimit+1); i++) {
-		CMSimpleLevel *sl = [[[CMSimpleLevel alloc]initWithLevelNumber:i]autorelease];
-		if (sl) {
-			[self.levels addObject:sl];
-		}
+	if(!self.levelSet){
+		CMAppDelegate *myAppDel= [[UIApplication sharedApplication] delegate];
+		self.levelSet = [myAppDel currentLevelSet];
 	}
 }
 
 - (void) prepareLevel:(NSUInteger) levelIndex
 {
 	[self resetSimulation:nil];
-	CMSimpleLevel *currentL = [self.levels objectAtIndex:levelIndex];
+	CMMarbleLevel *currentL = [self.levelSet.levelList objectAtIndex:levelIndex];
 	if (!currentL.backgroundImage) {
 		[self.playgroundView removeLevelData];
 	}else{
@@ -178,6 +176,7 @@
 	}
 	self.startView.hidden = NO;
 	self.levelLabel.text = [NSString stringWithFormat:@"Level - %d",levelIndex];
+
 }
 
 #pragma mark - Properties
@@ -185,9 +184,9 @@
 - (void) setCurrentLevel:(NSUInteger)cLevel
 {
 	if (cLevel == -1) {
-		cLevel = [self.levels count]-1;
+		cLevel = [self.levelSet.levelList count]-1;
 	}
-	cLevel = cLevel % ([self.levels count]);
+	cLevel = cLevel % ([self.levelSet.levelList count]);
 	if(cLevel != self->currentLevel){
 		self->currentLevel = cLevel;
 	}
@@ -233,11 +232,12 @@
 	
 	NSTimeInterval dt = MIN(time - self.lastSimulationTime, MAX_DT_SIMULATION);
   [self.playgroundView update:dt];
-	[self.playgroundView filterSimulatedLayers];
+
   self.lastSimulationTime = time;
 
   NSTimeInterval k = MIN(time - self.lastDisplayTime,MAX_DT_FRAMERATE);
 	if (k>=self.frameTime) {
+		[self.playgroundView filterSimulatedLayers];
 		[self.playgroundView updateLayerPositions];
 		self.lastDisplayTime = time;
 	}
@@ -274,7 +274,7 @@
   [self stopSimulation:nil];
 	[self.playgroundView resetSimulation];
 	[self loadMarbleImages];
-	self.marblePreview.image = [self freshImage];
+	self.marblePreview = [self freshImage];
 	[self.playgroundView removeLevelData];
 	[self startSimulation:nil];
 }
@@ -289,7 +289,7 @@
 - (IBAction)thanksAction:(id)sender
 {
 	self.finishView.hidden = YES;
-	self.currentLevel = (self.currentLevel +1)%(self.levelLimit+1);
+	self.currentLevel = (self.currentLevel +1)%([self.levelSet.levelList count]+1);
 	[self prepareLevel:self.currentLevel];
 }
 
@@ -305,6 +305,8 @@
 {
 	self.startView.hidden = YES;
 	[self startSimulation:nil];
+	CMMarbleLevel *currentL = [self.levelSet.levelList objectAtIndex:self.currentLevel];
+	[self.playgroundView fireMarbles:currentL.numberOfMarbles inTime:10.0];
 }
 #pragma mark -
 
@@ -326,8 +328,8 @@
 
 - (UIImage*) nextImage
 {
-	UIImage *marbleImage = self.marblePreview.image;
-	self.marblePreview.image = [self freshImage];;
+	UIImage *marbleImage = self.marblePreview;
+	self.marblePreview= [self freshImage];;
 	return marbleImage;
 }
 
@@ -361,13 +363,13 @@
 		}
 	}
 	
-	if(![self->marbleImages containsObject:self.marblePreview.image]){
-		self.marblePreview.image = [self freshImage];
+	if(![self->marbleImages containsObject:self.marblePreview]){
+		self.marblePreview = [self freshImage];
 	}
 	if (![self->marbleImages count]) {
 		[self stopSimulation:nil];
 		[self loadMarbleImages];
-		self.marblePreview.image = [self freshImage];
+		self.marblePreview = [self freshImage];
 //		[self resetSimulation:nil];
 		self.finishView.hidden = NO;
 		[self.view addSubview:self.finishView];

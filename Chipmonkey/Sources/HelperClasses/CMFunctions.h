@@ -11,6 +11,6 @@
 
 #import <Foundation/Foundation.h>
 
-extern CGFloat frand_unit();
+CGFloat frand_unit(void);
 
 #endif

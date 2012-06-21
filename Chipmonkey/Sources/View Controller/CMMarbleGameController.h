@@ -16,19 +16,20 @@
 @interface UIButton (CMMarbleGameHelper)
 @property (retain,nonatomic) UIImage* image;
 @end
+
+@class CMMarbleLevelSet;
 @interface CMMarbleGameController : UIViewController <CMMarbleImageSource,CMGameControllerProtocol>
 {
 	@protected
 	CMMarbleSimulationView			*playgroundView;
 	NSMutableArray							*marbleImages;
-	UIButton										*marblePreview;
+	UIImage										*marblePreview;
 	NSMutableArray							*nextMarbleImages;
 	UIView											*finishView;
 	UIView											*startView;
 	UILabel											*levelLabel;
-	NSUInteger									levelLimit;
 	NSUInteger									currentLevel;
-	NSMutableArray							*levels;
+	CMMarbleLevelSet						*levelSet;
 	
 	CMMarbleMenuController			* menuController;
 	UIPopoverController					*localPopoverController;
@@ -43,10 +44,11 @@
 @property(assign,nonatomic) NSTimeInterval lastSimulationTime,lastDisplayTime,frameTime;
 @property(retain,nonatomic) IBOutlet UIView* finishView, *startView;;
 @property(retain,nonatomic) IBOutlet CMMarbleSimulationView *playgroundView;
-@property(retain,nonatomic) IBOutlet UIButton* marblePreview;
+@property(retain,nonatomic) UIImage* marblePreview;
 @property(retain,nonatomic) IBOutlet UILabel *levelLabel;
-@property(assign,nonatomic) NSUInteger levelLimit, currentLevel;
-@property(retain,nonatomic) NSMutableArray *levels;
+
+@property(assign,nonatomic) NSUInteger currentLevel;
+@property(retain,nonatomic) CMMarbleLevelSet *levelSet;
 @property(retain,nonatomic) IBOutlet CMMarbleMenuController *menuController;
 @property(retain,nonatomic) IBOutlet UIPopoverController *localPopoverController;
 

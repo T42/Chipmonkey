@@ -9,14 +9,19 @@
 #import <UIKit/UIKit.h>
 #import "CMGameControllerProtocol.h"
 
-@class CMMarbleGameController;
+@class CMMarbleGameController, CMMarbleLevelSet;
 
 @interface CMAppDelegate : UIResponder <UIApplicationDelegate>
+{
+	CMMarbleLevelSet *currentLevelSet;
+}
 
 @property (strong, nonatomic) UIWindow *window;
 
 @property (strong, nonatomic) CMMarbleGameController *viewController;
 
 @property(readonly,nonatomic) NSObject<CMGameControllerProtocol> *currentGamecontroller;
+
+-(CMMarbleLevelSet*) currentLevelSet;
 
 @end

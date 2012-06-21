@@ -10,6 +10,7 @@
 #import "ObjectiveChipmunk.h"
 #import "CMMarbleLayer.h"
 #import "CMMarbleImageSource.h"
+@class AVAudioPlayer;
 @interface CMMarbleSimulationView : UIView
 	
 {
@@ -35,6 +36,8 @@
   NSTimeInterval  accumulator;
   CGFloat         timeScale;
   NSTimeInterval  timeStep;
+	
+	AVAudioPlayer		*marbleSound;
 	
 }
 @property (retain, nonatomic) UIImage* levelBackground, *levelForeground;

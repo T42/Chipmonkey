@@ -136,7 +136,7 @@
 		na.duration = .3;
 		na.delegate = self;
 		[self addAnimation:na forKey:@"shouldDestroy2"];
-		[self setValue:[NSNumber numberWithFloat:0.010] forKeyPath:@"transform.scale"];
+		[self setValue:[NSNumber numberWithFloat:0.010f] forKeyPath:@"transform.scale"];
 	
 	}
 }
@@ -153,11 +153,11 @@
 	//self.affineTransform = CGAffineTransformTranslate(self.body.affineTransform,0,0);
 	self.position = self.body.pos;
 //	NSLog(@"Position: %@,%@",NSStringFromCGPoint(self.position),NSStringFromCGPoint(self.body.pos));
-	CGFloat angle = (self.body.angle*180.0/M_PI);
+	CGFloat angle = (CGFloat)(self.body.angle*180.0/M_PI);
 	NSInteger t = (int)angle % 360;
 //	NSLog(@"%i",t);
 	
-	CGAffineTransform trans = CGAffineTransformMakeRotation(t*M_PI/180.0);
+	CGAffineTransform trans = CGAffineTransformMakeRotation((CGFloat)(t*M_PI/180.0));
 	self.affineTransform = trans;
 }
 
