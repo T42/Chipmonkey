@@ -8,6 +8,8 @@
 
 #import "CMMarbleSimulationView.h"
 #import "CMFunctions.h"
+#import "ObjectAL.h"
+
 #define MARBLE_RADIUS 20
 static NSString *borderType = @"borderType";
 
@@ -15,12 +17,12 @@ static NSString *borderType = @"borderType";
 #define BORDER_ELASTICITY 0.1f
 #define SPACE_GRAVITY     981.0f
 #define MARBLE_MASS       20.0f
-
+#define MARBLE_SOUND @"marbleKlick.mp3"
 
 @implementation CMMarbleSimulationView
 
 @synthesize space, displayLink, preparedLayer,simulatedLayers,touchingMarbles, delegate, fireTimer, 
-levelBackground, levelForeground, foregroundLayer, backgroundLayer,accumulator,timeStep,timeScale;
+levelBackground, levelForeground, foregroundLayer, backgroundLayer,accumulator,timeStep,timeScale,lastMarbleSoundTime;
 
 
 - (void) createDecorationLayers
@@ -31,6 +33,12 @@ levelBackground, levelForeground, foregroundLayer, backgroundLayer,accumulator,t
 	self.foregroundLayer.frame = self.bounds;
 	self.foregroundLayer.zPosition = 1.0;
 	[self.layer addSublayer:self.foregroundLayer];
+}
+- (void) setupAudio
+{
+	// This loads the sound effects into memory so that
+	// there's no delay when we tell it to play them.
+	[[OALSimpleAudio sharedInstance] preloadEffect:MARBLE_SOUND];
 }
 
 - (void) initDefaults
@@ -51,7 +59,7 @@ levelBackground, levelForeground, foregroundLayer, backgroundLayer,accumulator,t
 	[self.space addCollisionHandler:self typeA:[CMMarbleLayer class] typeB:[CMMarbleLayer class]
 														begin:@selector(beginMarbleCollision:space:) 
 												 preSolve:nil 
-												postSolve:nil 
+												postSolve:@selector(postMarbleCollision:space:)
 												 separate:@selector(separateMarbleCollision:space:)];
 	
 	self->simulatedLayers = [[NSMutableArray array]retain];
@@ -275,7 +283,33 @@ levelBackground, levelForeground, foregroundLayer, backgroundLayer,accumulator,t
 	if (firstMarbleLayer.contents == secondMarbleLayer.contents) {
 		[self marble:firstMarbleLayer touching:secondMarbleLayer];
 	}
+
 	return TRUE;
+}
+
+- (void) postMarbleCollision:(cpArbiter*)arbiter space:(ChipmunkSpace*)sp
+{
+	if (!self.delegate.playSound) {
+		return;
+	}
+	NSTimeInterval currentTime = [NSDate timeIntervalSinceReferenceDate];
+	if ((currentTime -self.lastMarbleSoundTime)<(1.0f/10.0f)) {
+		return;
+	}
+	cpFloat impulse = cpvlength(cpArbiterTotalImpulseWithFriction(arbiter));
+	if (impulse<2500.00) {
+		return;
+	}
+
+//	NSLog(@"%f,%f,(%f)",self.lastMarbleSoundTime,currentTime,currentTime-self.lastMarbleSoundTime);
+	float volume = MIN(impulse/8000.0f, 1.0f);
+	volume *= self.delegate.soundVolume;
+	if(volume > 0.05f){
+		[[OALSimpleAudio sharedInstance] playEffect:MARBLE_SOUND volume:volume pitch:1.0 pan:1.0 loop:NO];
+		self.lastMarbleSoundTime = [NSDate timeIntervalSinceReferenceDate];
+		//		[SimpleSound playSoundWithVolume:volume];
+	}
+
 }
 
 - (void) separateMarbleCollision:(cpArbiter*)arbiter space:(ChipmunkSpace*)space

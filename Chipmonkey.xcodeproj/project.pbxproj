@@ -68,7 +68,6 @@
 		93EBF3C6158BAEE1005D32BF /* CMOptionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93EBF3C4158BAEE1005D32BF /* CMOptionsViewController.m */; };
 		93EBF3C7158BAEE1005D32BF /* CMOptionsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93EBF3C5158BAEE1005D32BF /* CMOptionsViewController.xib */; };
 		93EBF3C9158BB311005D32BF /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 93EBF3C8158BB311005D32BF /* Settings.bundle */; };
-		93ED3CC9158FD65400E753DD /* marbleKlick.aif in Resources */ = {isa = PBXBuildFile; fileRef = 93ED3CC8158FD65400E753DD /* marbleKlick.aif */; };
 		93F44401158E23FF00D80BF1 /* CMDebugViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93F443FF158E23FF00D80BF1 /* CMDebugViewController.m */; };
 		93F44402158E23FF00D80BF1 /* CMDebugViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93F44400158E23FF00D80BF1 /* CMDebugViewController.xib */; };
 		93F664AE158A8782002B4E97 /* CMMarbleGameController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93F664AD158A8782002B4E97 /* CMMarbleGameController.m */; };
@@ -76,6 +75,7 @@
 		93F664B5158A8BC2002B4E97 /* CMMarbleMenuController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93F664B3158A8BC2002B4E97 /* CMMarbleMenuController.m */; };
 		93F664B7158A8BE5002B4E97 /* CMMarbleMenuController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93F664B9158A8BE5002B4E97 /* CMMarbleMenuController.xib */; };
 		93F664BF158A98FF002B4E97 /* CMFunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = 93F664BE158A98FF002B4E97 /* CMFunctions.m */; };
+		93FE06841593CEF3000EBB92 /* marbleKlick.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 93FE06831593CEF3000EBB92 /* marbleKlick.mp3 */; };
 		FE2E161E15937995005CF4A4 /* CMMarbleLevelStartController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE2E161C15937995005CF4A4 /* CMMarbleLevelStartController.m */; };
 		FE2E161F15937995005CF4A4 /* CMMarbleLevelStartController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE2E161D15937995005CF4A4 /* CMMarbleLevelStartController.xib */; };
 		FE2E162315937ABD005CF4A4 /* CMMarbleLevelEndController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE2E162115937ABD005CF4A4 /* CMMarbleLevelEndController.m */; };
@@ -235,7 +235,6 @@
 		93EBF3C4158BAEE1005D32BF /* CMOptionsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMOptionsViewController.m; sourceTree = "<group>"; };
 		93EBF3C5158BAEE1005D32BF /* CMOptionsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CMOptionsViewController.xib; sourceTree = "<group>"; };
 		93EBF3C8158BB311005D32BF /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
-		93ED3CC8158FD65400E753DD /* marbleKlick.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = marbleKlick.aif; sourceTree = "<group>"; };
 		93EE4E0D1589378D00B491DE /* CMSimpleLevel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMSimpleLevel.h; sourceTree = "<group>"; };
 		93EE4E0E1589378D00B491DE /* CMSimpleLevel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMSimpleLevel.m; sourceTree = "<group>"; };
 		93EE4E1115895A4000B491DE /* Level1.pxm */ = {isa = PBXFileReference; lastKnownFileType = file; path = Level1.pxm; sourceTree = "<group>"; };
@@ -253,6 +252,7 @@
 		93F664B8158A8BE5002B4E97 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/CMMarbleMenuController.xib; sourceTree = "<group>"; };
 		93F664BD158A98E7002B4E97 /* CMFunctions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CMFunctions.h; sourceTree = "<group>"; };
 		93F664BE158A98FF002B4E97 /* CMFunctions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMFunctions.m; sourceTree = "<group>"; };
+		93FE06831593CEF3000EBB92 /* marbleKlick.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = marbleKlick.mp3; sourceTree = "<group>"; };
 		FE2E161B15937995005CF4A4 /* CMMarbleLevelStartController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMMarbleLevelStartController.h; sourceTree = "<group>"; };
 		FE2E161C15937995005CF4A4 /* CMMarbleLevelStartController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMMarbleLevelStartController.m; sourceTree = "<group>"; };
 		FE2E161D15937995005CF4A4 /* CMMarbleLevelStartController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CMMarbleLevelStartController.xib; sourceTree = "<group>"; };
@@ -660,7 +660,7 @@
 		93ED3CC4158FD4DB00E753DD /* Sounds */ = {
 			isa = PBXGroup;
 			children = (
-				93ED3CC8158FD65400E753DD /* marbleKlick.aif */,
+				93FE06831593CEF3000EBB92 /* marbleKlick.mp3 */,
 			);
 			path = Sounds;
 			sourceTree = "<group>";
@@ -774,11 +774,11 @@
 				93EBF3C7158BAEE1005D32BF /* CMOptionsViewController.xib in Resources */,
 				93EBF3C9158BB311005D32BF /* Settings.bundle in Resources */,
 				93F44402158E23FF00D80BF1 /* CMDebugViewController.xib in Resources */,
-				93ED3CC9158FD65400E753DD /* marbleKlick.aif in Resources */,
 				932527BA1592569900A8D98F /* LICENSE.ObjectAL.txt in Resources */,
 				932527F715926DE500A8D98F /* DummyLevels.levelset in Resources */,
 				FE2E161F15937995005CF4A4 /* CMMarbleLevelStartController.xib in Resources */,
 				FE2E162415937ABD005CF4A4 /* CMMarbleLevelEndController.xib in Resources */,
+				93FE06841593CEF3000EBB92 /* marbleKlick.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

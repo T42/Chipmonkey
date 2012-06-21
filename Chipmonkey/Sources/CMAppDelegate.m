@@ -10,6 +10,7 @@
 #import <MediaPlayer/MediaPlayer.h>
 #import "CMMarbleGameController.h"
 #import "CMMarbleLevelSet.h"
+#import "ObjectAL.h"
 
 @interface CMAppDelegate ()
 @property (retain, nonatomic) CMMarbleLevelSet * currentLevelSet;
@@ -19,6 +20,12 @@
 @synthesize currentLevelSet;
 @synthesize window = _window;
 @synthesize viewController = _viewController;
+
+- (void) setupAudio
+{
+	[OALSimpleAudio sharedInstance].allowIpod = NO;
+	[OALSimpleAudio sharedInstance].honorSilentSwitch = YES;
+}
 
 - (void)dealloc
 {
@@ -43,6 +50,7 @@
 	self.viewController = [[[CMMarbleGameController alloc] initWithNibName:@"CMMarbleGameController" bundle:nil] autorelease];
 	self.window.rootViewController = self.viewController;
 	[self.window makeKeyAndVisible];
+	[self setupAudio];
 	return YES;
 }
 

@@ -16,8 +16,10 @@
 #import "CMAppDelegate.h"
 #import "CMMarbleLevelSet.h"
 #import "CMMarbleLevel.h"
+#import "ObjectAL.h"
 
 #define MAX_MARBLE_IMAGES 9
+
 
 #define NUM_LEVEL_MARBLES 80
 
@@ -48,7 +50,8 @@
 levelLabel,currentLevel,levelSet, playerScoreLabel, levelTimeLabel, scoreView,
 playerScore, levelTime,
 menuController,localPopoverController, levelEndController, levelStartController,
-displayLink,lastSimulationTime,lastDisplayTime,frameTime;
+displayLink,lastSimulationTime,lastDisplayTime,frameTime,
+playMusic,playSound,musicVolume,soundVolume;
 
 @synthesize timescale,framerate,simulationrate;
 
@@ -72,18 +75,18 @@ displayLink,lastSimulationTime,lastDisplayTime,frameTime;
   [super viewDidLoad];
 	[self initScoreAndTime];
 	[self loadMarbleImages];
-	
 	self.marblePreview = [self freshImage];
 	// Do any additional setup after loading the view, typically from a nib.
 	self.playgroundView.layer.masksToBounds = YES;
 	[self.playgroundView startSimulation];
-
 	[self loadLevels];
-
-
 	self.currentLevel = 0;
 	self.frameTime = 1.0/60;
 	self->scoreView.hidden = YES;
+	self.playSound = YES;
+	self.playMusic = YES;
+	self.soundVolume = 1.0;
+	self.musicVolume = 1.0;
 
 }
 
@@ -327,7 +330,7 @@ displayLink,lastSimulationTime,lastDisplayTime,frameTime;
 	self.scoreView.hidden = NO;
 	[self startSimulation:nil];
 	CMMarbleLevel *currentL = [self.levelSet.levelList objectAtIndex:self.currentLevel];
-	[self.playgroundView fireMarbles:currentL.numberOfMarbles inTime:10.0];
+//	[self.playgroundView fireMarbles:currentL.numberOfMarbles inTime:10.0];
 
 }
 #pragma mark -

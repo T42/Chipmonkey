@@ -10,6 +10,7 @@
 #import "ObjectiveChipmunk.h"
 #import "CMMarbleLayer.h"
 #import "CMMarbleImageSource.h"
+#import "CMGameControllerProtocol.h"
 @class AVAudioPlayer;
 @interface CMMarbleSimulationView : UIView
 	
@@ -21,7 +22,7 @@
 	CADisplayLink *displayLink;
 	
 	CMMarbleLayer *preparedLayer;
-	id <CMMarbleImageSource> delegate;
+	NSObject<CMMarbleImageSource,CMGameControllerProtocol> *delegate;
 	NSTimer *fireTimer;
 	NSUInteger marblesToFire;
 	
@@ -37,14 +38,16 @@
   CGFloat         timeScale;
   NSTimeInterval  timeStep;
 	
+	CGFloat 				soundVolume;
 	AVAudioPlayer		*marbleSound;
+	NSTimeInterval  lastMarbleSoundTime;
 	
 }
 @property (retain, nonatomic) UIImage* levelBackground, *levelForeground;
 @property (retain, nonatomic) CALayer* foregroundLayer, *backgroundLayer;
 
 @property (retain, nonatomic) NSTimer *fireTimer;
-@property (assign, nonatomic) IBOutlet id <CMMarbleImageSource> delegate;
+@property (assign, nonatomic) IBOutlet NSObject <CMMarbleImageSource,CMGameControllerProtocol> *delegate;
 @property (readonly, nonatomic) NSDictionary *touchingMarbles;
 @property (readonly, nonatomic) NSArray *simulatedLayers;
 @property (retain, nonatomic) ChipmunkSpace *space;
@@ -56,6 +59,7 @@
 @property(nonatomic, assign) cpFloat timeScale;
 //@property(nonatomic, readonly) NSTimeInterval preferredTimeStep;
 @property(nonatomic, assign) NSTimeInterval timeStep;
+@property(nonatomic, assign) NSTimeInterval lastMarbleSoundTime;
 
 
 - (IBAction)createMarble:(id)sender;

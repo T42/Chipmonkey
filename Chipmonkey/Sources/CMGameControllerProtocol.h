@@ -14,6 +14,8 @@
 @protocol CMGameControllerProtocol <NSObject>
 
 @property (assign,nonatomic) NSUInteger framerate,simulationrate,timescale;
+@property (assign,nonatomic) BOOL playMusic, playSound;
+@property (assign,nonatomic) CGFloat musicVolume, soundVolume;
 
 - (IBAction)startLevel:(id)sender;
 - (IBAction)cancelLevel:(id)sender;

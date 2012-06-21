@@ -50,7 +50,7 @@
 	for(NSUInteger i=0;i<[dataLines count];i++){
 		NSString *line = [dataLines objectAtIndex:i];		
 
-    NSLog(@"Got: %@",line);
+//    NSLog(@"Got: %@",line);
 		if([line hasPrefix:@"*"]){ // start of an shape
 			line = [line stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"*"]];
 			numOfLinesInShape = (NSUInteger)[line integerValue];

@@ -51,6 +51,10 @@
 	// properties for the Current Score and time etc. These properties will move to a player class some day
 	NSUInteger									playerScore;
 	NSTimeInterval							levelTime;
+	
+	// audio Properties
+	CGFloat											soundVolume,musicVolume;
+	BOOL												playSound, playMusic;
 }
 @property(retain,nonatomic) CADisplayLink *displayLink;
 @property(assign,nonatomic) NSTimeInterval lastSimulationTime,lastDisplayTime,frameTime;
@@ -70,6 +74,10 @@
 @property(retain,nonatomic) IBOutlet UIPopoverController *localPopoverController;
 @property(assign,nonatomic) NSUInteger playerScore;
 @property(assign,nonatomic) NSTimeInterval levelTime;
+
+@property(assign, nonatomic) BOOL playSound, playMusic;
+@property(assign, nonatomic) CGFloat soundVolume, musicVolume;
+
 - (IBAction)resetLevels:(id) sender; 	// Depricated 
 - (IBAction)startSimulation:(id)sender; // used internaly 
 - (IBAction)stopSimulation:(id)sender;	// used internaly
