@@ -45,7 +45,8 @@
 @implementation CMMarbleGameController
 
 @synthesize playgroundView, marblePreview,
-levelLabel,currentLevel,levelSet,
+levelLabel,currentLevel,levelSet, playerScoreLabel, levelTimeLabel, scoreView,
+playerScore, levelTime,
 menuController,localPopoverController, levelEndController, levelStartController,
 displayLink,lastSimulationTime,lastDisplayTime,frameTime;
 
@@ -58,9 +59,18 @@ displayLink,lastSimulationTime,lastDisplayTime,frameTime;
 }
 
 #pragma mark - View lifecycle
+- (void) initScoreAndTime
+{
+	self.playerScore = 1;
+	self.playerScore = 0;
+	self.levelTime = 0.0;
+}
+
+
 - (void)viewDidLoad
 {
   [super viewDidLoad];
+	[self initScoreAndTime];
 	[self loadMarbleImages];
 	
 	self.marblePreview = [self freshImage];
@@ -73,7 +83,7 @@ displayLink,lastSimulationTime,lastDisplayTime,frameTime;
 
 	self.currentLevel = 0;
 	self.frameTime = 1.0/60;
-
+	self->scoreView.hidden = YES;
 
 }
 
@@ -84,6 +94,7 @@ displayLink,lastSimulationTime,lastDisplayTime,frameTime;
 	// e.g. self.myOutlet = nil;
 	[self->marbleImages release];
 	self->marbleImages = nil;
+
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -162,8 +173,8 @@ displayLink,lastSimulationTime,lastDisplayTime,frameTime;
 		self.playgroundView.levelForeground = currentL.overlayImage;
 		self.playgroundView.staticShapes = currentL.shapeReader.shapes;
 	}
-  self.levelStartController.levelname.text =[NSString stringWithFormat:@"Level - %d",levelIndex];
   [self popupViewController:self.levelStartController withBackgroundClass:[CMSimplePopoverBackground class]];
+  self.levelStartController.levelname.text =currentL.name;//[NSString stringWithFormat:@"Level - %d",levelIndex];
 }
 
 #pragma mark - Properties
@@ -209,6 +220,24 @@ displayLink,lastSimulationTime,lastDisplayTime,frameTime;
 	return 1.0/self.playgroundView.timeStep;
 }
 
+- (void) setPlayerScore:(NSUInteger) score
+{
+	if (self->playerScore != score) {
+		self->playerScore = score;
+		self.playerScoreLabel.text = [NSString stringWithFormat:@"%d",self->playerScore];
+	}
+}
+
+- (void) setLevelTime:(NSTimeInterval)lTime
+{
+	if (self->levelTime != lTime) {
+		self->levelTime = lTime;
+		NSInteger min = (NSInteger)(lTime / 60.0);
+		NSInteger sec = ((NSInteger)lTime) % 60;
+		self->levelTimeLabel.text = [NSString stringWithFormat:@"%2d:%02d",min,sec];
+	}
+}
+
 #pragma mark - Animation
 #define MAX_DT_SIMULATION (1.0/15.0)
 #define MAX_DT_FRAMERATE (1.0/10.0)
@@ -216,7 +245,7 @@ displayLink,lastSimulationTime,lastDisplayTime,frameTime;
 {
   //  cpFloat dt = link.duration*link.frameInterval;
   NSTimeInterval time = link.timestamp;
-	
+
 	NSTimeInterval dt = MIN(time - self.lastSimulationTime, MAX_DT_SIMULATION);
   [self.playgroundView update:dt];
 
@@ -224,9 +253,11 @@ displayLink,lastSimulationTime,lastDisplayTime,frameTime;
 
   NSTimeInterval k = MIN(time - self.lastDisplayTime,MAX_DT_FRAMERATE);
 	if (k>=self.frameTime) {
-		[self.playgroundView filterSimulatedLayers];
+		NSUInteger minusMarbles = [self.playgroundView filterSimulatedLayers];
 		[self.playgroundView updateLayerPositions];
+		self.levelTime += (time - self.lastDisplayTime);
 		self.lastDisplayTime = time;
+		self.playerScore += minusMarbles;
 	}
 }
 
@@ -254,6 +285,7 @@ displayLink,lastSimulationTime,lastDisplayTime,frameTime;
 	[self resetSimulation:sender];
 	self.currentLevel = 0;
 	[self prepareLevel:self.currentLevel];
+	[self initScoreAndTime];
 }
 
 - (IBAction)resetSimulation:(id)sender
@@ -291,6 +323,8 @@ displayLink,lastSimulationTime,lastDisplayTime,frameTime;
 {
   //	self.startView.hidden = YES;
   //  self.localPopoverController = nil;
+	self.levelTime = 0.0;
+	self.scoreView.hidden = NO;
 	[self startSimulation:nil];
 	CMMarbleLevel *currentL = [self.levelSet.levelList objectAtIndex:self.currentLevel];
 	[self.playgroundView fireMarbles:currentL.numberOfMarbles inTime:10.0];
@@ -309,6 +343,7 @@ displayLink,lastSimulationTime,lastDisplayTime,frameTime;
 	controller.parentPopoverController=self.localPopoverController;
  	[self.localPopoverController presentPopoverFromRect:rect inView:self.view permittedArrowDirections:(0) animated:YES];
 }
+
 - (void) popupViewController:(CMPopoverContentController*)controller withBackgroundClass:(Class) backgroundClass
 {
   [self popupViewController:controller withBackgroundClass:backgroundClass andRect:CGRectMake(0, 0, 1024, 768)];
@@ -364,6 +399,7 @@ displayLink,lastSimulationTime,lastDisplayTime,frameTime;
 		self.marblePreview = [self freshImage];
 	}
 	if (![self->marbleImages count]) {
+		self.scoreView.hidden = YES;
 		[self stopSimulation:nil];
 		[self loadMarbleImages];
 		self.marblePreview = [self freshImage];

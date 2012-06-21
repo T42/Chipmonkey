@@ -43,7 +43,7 @@ levelBackground, levelForeground, foregroundLayer, backgroundLayer,accumulator,t
 	self.space.gravity = cpv(0.0, SPACE_GRAVITY);
 
 	NSLog(@"Persistance: %u Bias: %f Slope: %f,iterations %i",self.space.collisionPersistence,self.space.collisionBias,self.space.collisionSlop,self.space.iterations);
-//  self.space.collisionPersistence = 10.0;
+  self.space.collisionPersistence = 10.0;
 //  self.space.collisionSlop = 0.01;
 //	self.space.collisionBias=.1;
 //	self.space.iterations = 10;	
@@ -317,37 +317,41 @@ levelBackground, levelForeground, foregroundLayer, backgroundLayer,accumulator,t
 	}
 }
 
-- (void) filterSimulatedLayers
+- (NSUInteger) filterSimulatedLayers
 {
 	BOOL hasRemovedMarbles = NO;
+	NSUInteger numberOfRemovedMarbles=0;
 	for (id aLayer in [[[[self.touchingMarbles allKeys]copy]autorelease] 
-                                 sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2){
-                                   NSUInteger a = [[self.touchingMarbles objectForKey:obj1]count];
-                                   NSUInteger b = [[self.touchingMarbles objectForKey:obj2]count];
-                                   if (a<b) {
-                                     return NSOrderedDescending;
-                                   }else if(a>b){
-                                     return NSOrderedAscending;
-                                   }else {
-                                     return NSOrderedSame;
-                                   }
-                                 }]){
-                                   NSMutableSet *touchingSet = [self.touchingMarbles objectForKey:aLayer];
-                                   if ([touchingSet count]>=2) {
-                                     hasRemovedMarbles = YES;
-                                     for (CMMarbleLayer *depLayer in [[touchingSet copy]autorelease]) {
-                                       [self->touchingMarbles removeObjectForKey:[self keyFromLayer:depLayer]];
-                                       [self.space remove:depLayer];
-                                       [self->simulatedLayers removeObject:depLayer];
-                                       depLayer.shouldDestroy = YES;
-                                     }
-                                     [self->touchingMarbles removeObjectForKey:aLayer];
-																		 CMMarbleLayer *layer = aLayer;//(CMMarbleLayer*)[aLayer intValue];
-                                     [self.space remove:layer];
-                                     [self->simulatedLayers removeObject:layer];
-                                     layer.shouldDestroy = YES;
-                                   }
-                                 }
+										 sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2){
+											 NSUInteger a = [[self.touchingMarbles objectForKey:obj1]count];
+											 NSUInteger b = [[self.touchingMarbles objectForKey:obj2]count];
+											 if (a<b) {
+												 return NSOrderedDescending;
+											 }else if(a>b){
+												 return NSOrderedAscending;
+											 }else {
+												 return NSOrderedSame;
+											 }
+										 }])
+	{
+		NSMutableSet *touchingSet = [self.touchingMarbles objectForKey:aLayer];
+		if ([touchingSet count]>=2) {
+			hasRemovedMarbles = YES;
+			for (CMMarbleLayer *depLayer in [[touchingSet copy]autorelease]) {
+				[self->touchingMarbles removeObjectForKey:[self keyFromLayer:depLayer]];
+				[self.space remove:depLayer];
+				numberOfRemovedMarbles ++;
+				[self->simulatedLayers removeObject:depLayer];
+				depLayer.shouldDestroy = YES;
+			}
+			[self->touchingMarbles removeObjectForKey:aLayer];
+			CMMarbleLayer *layer = aLayer;//(CMMarbleLayer*)[aLayer intValue];
+			[self.space remove:layer];
+			numberOfRemovedMarbles++;
+			[self->simulatedLayers removeObject:layer];
+			layer.shouldDestroy = YES;
+		}
+	}
 	if (hasRemovedMarbles) {
 		NSMutableSet *imageSet = [NSMutableSet set];
 		for (CMMarbleLayer *aLayer in self.simulatedLayers) {
@@ -355,6 +359,7 @@ levelBackground, levelForeground, foregroundLayer, backgroundLayer,accumulator,t
 		}
 		[self.delegate imagesOnField:imageSet];
 	}
+	return numberOfRemovedMarbles;
 }
 
 
@@ -397,7 +402,9 @@ levelBackground, levelForeground, foregroundLayer, backgroundLayer,accumulator,t
 	for (NSObject<ChipmunkObject> *data in self.space.staticBody.shapes) {
     [self.space remove:data];
 	}
-  [self.space addBounds:self.bounds thickness:20.0 elasticity:BORDER_ELASTICITY friction:BORDER_FRICTION layers:CP_ALL_LAYERS group:CP_NO_GROUP collisionType:borderType];
+	CGRect b = self.bounds;
+	b.size.height -=60;
+  [self.space addBounds:b thickness:20.0 elasticity:BORDER_ELASTICITY friction:BORDER_FRICTION layers:CP_ALL_LAYERS group:CP_NO_GROUP collisionType:borderType];
 }
 
 

@@ -470,7 +470,6 @@
 		93AFEA0415828FA1003A6382 = {
 			isa = PBXGroup;
 			children = (
-				932527D1159257A300A8D98F /* AudioToolbox.framework */,
 				9324856E1587E28E0092E2FD /* Scripts */,
 				939682B915840617007CD4FA /* Helpers */,
 				93AFEA1915828FA1003A6382 /* Chipmonkey */,
@@ -490,6 +489,7 @@
 		93AFEA1215828FA1003A6382 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				932527D1159257A300A8D98F /* AudioToolbox.framework */,
 				932527CF1592578300A8D98F /* OpenAL.framework */,
 				932527CD1592577300A8D98F /* AVFoundation.framework */,
 				93AFEA7E15829AB9003A6382 /* QuartzCore.framework */,

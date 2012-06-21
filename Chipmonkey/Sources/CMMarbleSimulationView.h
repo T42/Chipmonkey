@@ -65,6 +65,6 @@
 - (void) resetSimulation;
 - (void) removeLevelData;
 - (void) update:(NSTimeInterval)dt;
-- (void) filterSimulatedLayers;
+- (NSUInteger) filterSimulatedLayers;
 - (void) updateLayerPositions;
 @end

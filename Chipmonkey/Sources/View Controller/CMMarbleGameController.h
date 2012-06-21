@@ -27,12 +27,10 @@
 	NSMutableArray                  *marbleImages;
 	UIImage                         *marblePreview;
 	NSMutableArray                  *nextMarbleImages;
-  //	UIView                          *finishView;
-  //	UIView                          *startView;
 	UILabel                         *levelLabel;
 	NSUInteger                      currentLevel;
 	CMMarbleLevelSet                *levelSet;
-	
+	UIView													*scoreView;	
 	CMMarbleMenuController          * menuController;
   CMMarbleLevelStartController    *levelStartController;
   CMMarbleLevelEndController      *levelEndController;
@@ -43,11 +41,20 @@
   CADisplayLink               *displayLink;
   NSTimeInterval              lastSimulationTime;
 	NSTimeInterval							lastDisplayTime;
-	NSTimeInterval							frameTime;											
+	NSTimeInterval							frameTime;
+	
+	// score and time Elements
+	UILabel											*levelTimeLabel;
+	UILabel											*playerScoreLabel;
+
+	
+	// properties for the Current Score and time etc. These properties will move to a player class some day
+	NSUInteger									playerScore;
+	NSTimeInterval							levelTime;
 }
 @property(retain,nonatomic) CADisplayLink *displayLink;
 @property(assign,nonatomic) NSTimeInterval lastSimulationTime,lastDisplayTime,frameTime;
-//@property(retain,nonatomic) IBOutlet UIView* finishView, *startView;;
+
 @property(retain,nonatomic) IBOutlet CMMarbleSimulationView *playgroundView;
 @property(retain,nonatomic) UIImage* marblePreview;
 @property(retain,nonatomic) IBOutlet UILabel *levelLabel;
@@ -57,8 +64,12 @@
 @property(retain,nonatomic) IBOutlet CMMarbleMenuController *menuController;
 @property(retain,nonatomic) IBOutlet CMMarbleLevelEndController *levelEndController;
 @property(retain,nonatomic) IBOutlet CMMarbleLevelStartController *levelStartController;
-@property(retain,nonatomic) IBOutlet UIPopoverController *localPopoverController;
+@property(retain,nonatomic) IBOutlet UILabel* levelTimeLabel, *playerScoreLabel;
+@property(retain,nonatomic) IBOutlet UIView* scoreView;
 
+@property(retain,nonatomic) IBOutlet UIPopoverController *localPopoverController;
+@property(assign,nonatomic) NSUInteger playerScore;
+@property(assign,nonatomic) NSTimeInterval levelTime;
 - (IBAction)resetLevels:(id) sender; 	// Depricated 
 - (IBAction)startSimulation:(id)sender; // used internaly 
 - (IBAction)stopSimulation:(id)sender;	// used internaly
