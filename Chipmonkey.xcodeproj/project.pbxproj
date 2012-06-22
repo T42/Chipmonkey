@@ -76,6 +76,7 @@
 		93F664B7158A8BE5002B4E97 /* CMMarbleMenuController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93F664B9158A8BE5002B4E97 /* CMMarbleMenuController.xib */; };
 		93F664BF158A98FF002B4E97 /* CMFunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = 93F664BE158A98FF002B4E97 /* CMFunctions.m */; };
 		93FE06841593CEF3000EBB92 /* marbleKlick.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 93FE06831593CEF3000EBB92 /* marbleKlick.mp3 */; };
+		93FE06861593F300000EBB92 /* Level0-StaticBodies.stb in Resources */ = {isa = PBXBuildFile; fileRef = 93FE06851593F300000EBB92 /* Level0-StaticBodies.stb */; };
 		FE2E161E15937995005CF4A4 /* CMMarbleLevelStartController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE2E161C15937995005CF4A4 /* CMMarbleLevelStartController.m */; };
 		FE2E161F15937995005CF4A4 /* CMMarbleLevelStartController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE2E161D15937995005CF4A4 /* CMMarbleLevelStartController.xib */; };
 		FE2E162315937ABD005CF4A4 /* CMMarbleLevelEndController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE2E162115937ABD005CF4A4 /* CMMarbleLevelEndController.m */; };
@@ -253,6 +254,7 @@
 		93F664BD158A98E7002B4E97 /* CMFunctions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CMFunctions.h; sourceTree = "<group>"; };
 		93F664BE158A98FF002B4E97 /* CMFunctions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMFunctions.m; sourceTree = "<group>"; };
 		93FE06831593CEF3000EBB92 /* marbleKlick.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = marbleKlick.mp3; sourceTree = "<group>"; };
+		93FE06851593F300000EBB92 /* Level0-StaticBodies.stb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "Level0-StaticBodies.stb"; path = "Chipmonkey/Resources/DummyLevels.levelset/Level0-StaticBodies.stb"; sourceTree = "<group>"; };
 		FE2E161B15937995005CF4A4 /* CMMarbleLevelStartController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMMarbleLevelStartController.h; sourceTree = "<group>"; };
 		FE2E161C15937995005CF4A4 /* CMMarbleLevelStartController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMMarbleLevelStartController.m; sourceTree = "<group>"; };
 		FE2E161D15937995005CF4A4 /* CMMarbleLevelStartController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CMMarbleLevelStartController.xib; sourceTree = "<group>"; };
@@ -470,6 +472,7 @@
 		93AFEA0415828FA1003A6382 = {
 			isa = PBXGroup;
 			children = (
+				93FE06851593F300000EBB92 /* Level0-StaticBodies.stb */,
 				9324856E1587E28E0092E2FD /* Scripts */,
 				939682B915840617007CD4FA /* Helpers */,
 				93AFEA1915828FA1003A6382 /* Chipmonkey */,
@@ -779,6 +782,7 @@
 				FE2E161F15937995005CF4A4 /* CMMarbleLevelStartController.xib in Resources */,
 				FE2E162415937ABD005CF4A4 /* CMMarbleLevelEndController.xib in Resources */,
 				93FE06841593CEF3000EBB92 /* marbleKlick.mp3 in Resources */,
+				93FE06861593F300000EBB92 /* Level0-StaticBodies.stb in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -169,13 +169,13 @@ playMusic,playSound,musicVolume,soundVolume;
 {
 	[self resetSimulation:nil];
 	CMMarbleLevel *currentL = [self.levelSet.levelList objectAtIndex:levelIndex];
-	if (!currentL.backgroundImage) {
-		[self.playgroundView removeLevelData];
-	}else{
+//	if (!currentL.backgroundImage) {
+//		[self.playgroundView removeLevelData];
+//	}else{
 		self.playgroundView.levelBackground = currentL.backgroundImage;
 		self.playgroundView.levelForeground = currentL.overlayImage;
 		self.playgroundView.staticShapes = currentL.shapeReader.shapes;
-	}
+//	}
   [self popupViewController:self.levelStartController withBackgroundClass:[CMSimplePopoverBackground class]];
   self.levelStartController.levelname.text =currentL.name;//[NSString stringWithFormat:@"Level - %d",levelIndex];
 }
@@ -330,7 +330,7 @@ playMusic,playSound,musicVolume,soundVolume;
 	self.scoreView.hidden = NO;
 	[self startSimulation:nil];
 	CMMarbleLevel *currentL = [self.levelSet.levelList objectAtIndex:self.currentLevel];
-//	[self.playgroundView fireMarbles:currentL.numberOfMarbles inTime:10.0];
+	[self.playgroundView fireMarbles:currentL.numberOfMarbles inTime:10.0];
 
 }
 #pragma mark -

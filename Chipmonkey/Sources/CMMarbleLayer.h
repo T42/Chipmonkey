@@ -18,6 +18,7 @@
 	
 	NSUInteger touchedShapes;
 	BOOL shouldDestroy;
+	NSTimeInterval lastSoundTime;
 }
 @property (assign, nonatomic) BOOL shouldDestroy;
 @property (nonatomic) NSUInteger touchedShapes;
@@ -25,6 +26,7 @@
 @property (readonly,nonatomic) ChipmunkBody *body;
 @property (readonly, nonatomic) ChipmunkShape *shape;
 @property (readonly,nonatomic) CGFloat radius;
+@property (assign, nonatomic) NSTimeInterval lastSoundTime;
 - (id) initWithMass:(CGFloat) mass andRadius:(CGFloat) radius;
 - (void) updatePosition;
 - (void) destroy;

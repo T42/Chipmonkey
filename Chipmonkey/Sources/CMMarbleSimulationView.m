@@ -55,6 +55,7 @@ levelBackground, levelForeground, foregroundLayer, backgroundLayer,accumulator,t
 //  self.space.collisionSlop = 0.01;
 //	self.space.collisionBias=.1;
 //	self.space.iterations = 10;	
+//	self.space.damping=0.7;
 	self.space.sleepTimeThreshold = .50;
 	[self.space addCollisionHandler:self typeA:[CMMarbleLayer class] typeB:[CMMarbleLayer class]
 														begin:@selector(beginMarbleCollision:space:) 
@@ -292,6 +293,14 @@ levelBackground, levelForeground, foregroundLayer, backgroundLayer,accumulator,t
 	if (!self.delegate.playSound) {
 		return;
 	}
+	
+	CHIPMUNK_ARBITER_GET_SHAPES(arbiter, firstMarble, secondMarble);
+	CMMarbleLayer *firstMarbleLayer = firstMarble.data;
+	CMMarbleLayer *secondMarbleLayer = secondMarble.data;
+	if ((self.lastMarbleSoundTime - firstMarbleLayer.lastSoundTime) < 1/2) {
+		return;
+	}
+	
 	NSTimeInterval currentTime = [NSDate timeIntervalSinceReferenceDate];
 	if ((currentTime -self.lastMarbleSoundTime)<(1.0f/10.0f)) {
 		return;
@@ -307,6 +316,8 @@ levelBackground, levelForeground, foregroundLayer, backgroundLayer,accumulator,t
 	if(volume > 0.05f){
 		[[OALSimpleAudio sharedInstance] playEffect:MARBLE_SOUND volume:volume pitch:1.0 pan:1.0 loop:NO];
 		self.lastMarbleSoundTime = [NSDate timeIntervalSinceReferenceDate];
+		firstMarbleLayer.lastSoundTime = self.lastMarbleSoundTime;
+		secondMarbleLayer.lastSoundTime = self.lastMarbleSoundTime;
 		//		[SimpleSound playSoundWithVolume:volume];
 	}
 
@@ -437,7 +448,7 @@ levelBackground, levelForeground, foregroundLayer, backgroundLayer,accumulator,t
     [self.space remove:data];
 	}
 	CGRect b = self.bounds;
-	b.size.height -=60;
+//	b.size.height -=60;
   [self.space addBounds:b thickness:20.0 elasticity:BORDER_ELASTICITY friction:BORDER_FRICTION layers:CP_ALL_LAYERS group:CP_NO_GROUP collisionType:borderType];
 }
 

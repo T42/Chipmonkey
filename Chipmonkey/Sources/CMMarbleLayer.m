@@ -12,7 +12,7 @@
 
 @implementation CMMarbleLayer
 
-@synthesize chipmunkObjects, body, shape, radius ,touchedShapes, shouldDestroy;
+@synthesize chipmunkObjects, body, shape, radius ,touchedShapes, shouldDestroy,lastSoundTime;
 
 - (ChipmunkShape *) circleShapeWithBody:(ChipmunkBody*) b andRadius:(CGFloat) r
 {
