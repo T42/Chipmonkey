@@ -65,6 +65,7 @@
 		93AFEA78158290B2003A6382 /* libChipmunkPro-iPhone.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 93AFEA7615829097003A6382 /* libChipmunkPro-iPhone.a */; };
 		93AFEA7C1582968C003A6382 /* Marble_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 93AFEA7A1582968C003A6382 /* Marble_1.png */; };
 		93AFEA7D1582968C003A6382 /* Marble_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 93AFEA7B1582968C003A6382 /* Marble_2.png */; };
+		93C0389D1596616200F0637E /* CMMarbleLevelStatistics.m in Sources */ = {isa = PBXBuildFile; fileRef = 93C0389C1596616200F0637E /* CMMarbleLevelStatistics.m */; };
 		93EBF3C6158BAEE1005D32BF /* CMOptionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93EBF3C4158BAEE1005D32BF /* CMOptionsViewController.m */; };
 		93EBF3C7158BAEE1005D32BF /* CMOptionsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93EBF3C5158BAEE1005D32BF /* CMOptionsViewController.xib */; };
 		93EBF3C9158BB311005D32BF /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 93EBF3C8158BB311005D32BF /* Settings.bundle */; };
@@ -233,6 +234,8 @@
 		93AFEA7A1582968C003A6382 /* Marble_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Marble_1.png; sourceTree = "<group>"; };
 		93AFEA7B1582968C003A6382 /* Marble_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Marble_2.png; sourceTree = "<group>"; };
 		93AFEA7E15829AB9003A6382 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		93C0389B1596616200F0637E /* CMMarbleLevelStatistics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMMarbleLevelStatistics.h; sourceTree = "<group>"; };
+		93C0389C1596616200F0637E /* CMMarbleLevelStatistics.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMMarbleLevelStatistics.m; sourceTree = "<group>"; };
 		93EBF3C3158BAEE1005D32BF /* CMOptionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMOptionsViewController.h; sourceTree = "<group>"; };
 		93EBF3C4158BAEE1005D32BF /* CMOptionsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMOptionsViewController.m; sourceTree = "<group>"; };
 		93EBF3C5158BAEE1005D32BF /* CMOptionsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CMOptionsViewController.xib; sourceTree = "<group>"; };
@@ -334,6 +337,8 @@
 				93252768159254DB00A8D98F /* CMMarbleLevel.m */,
 				932527F31592670600A8D98F /* CMMarbleLevelSet.h */,
 				932527F41592670600A8D98F /* CMMarbleLevelSet.m */,
+				93C0389B1596616200F0637E /* CMMarbleLevelStatistics.h */,
+				93C0389C1596616200F0637E /* CMMarbleLevelStatistics.m */,
 			);
 			path = Level;
 			sourceTree = "<group>";
@@ -842,6 +847,7 @@
 				FE2E161E15937995005CF4A4 /* CMMarbleLevelStartController.m in Sources */,
 				FE2E162315937ABD005CF4A4 /* CMMarbleLevelEndController.m in Sources */,
 				93FE068915961CE6000EBB92 /* CMMarbleCollisionCollector.m in Sources */,
+				93C0389D1596616200F0637E /* CMMarbleLevelStatistics.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

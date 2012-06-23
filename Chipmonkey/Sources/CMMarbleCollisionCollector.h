@@ -24,5 +24,6 @@
 - (void) removeObject:(id<NSCopying>)obj;
 /// returns an NSArray of NSSets, one for each collision
 - (NSArray*) collisionSetsWithMinMembers:(NSUInteger) minCollisions;
-
+- (void) reset;
+- (NSArray*) activeObjects;
 @end

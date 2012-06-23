@@ -18,7 +18,7 @@
 	@protected
 	NSMutableArray *simulatedLayers;
 	
-	NSMutableDictionary *touchingMarbles;
+
 	
 	CMMarbleCollisionCollector *collisionCollector;
 	
@@ -53,7 +53,7 @@
 
 @property (retain, nonatomic) NSTimer *fireTimer;
 @property (assign, nonatomic) IBOutlet NSObject <CMMarbleImageSource,CMGameControllerProtocol> *delegate;
-@property (readonly, nonatomic) NSDictionary *touchingMarbles;
+
 @property (readonly, nonatomic) NSArray *simulatedLayers;
 @property (retain, nonatomic) ChipmunkSpace *space;
 @property (retain, nonatomic) CADisplayLink *displayLink;

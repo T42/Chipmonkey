@@ -24,7 +24,7 @@ static NSString *borderType = @"borderType";
 
 @implementation CMMarbleSimulationView
 
-@synthesize space, displayLink, preparedLayer, simulatedLayers, touchingMarbles, collisionCollector, delegate, fireTimer, 
+@synthesize space, displayLink, preparedLayer, simulatedLayers, collisionCollector, delegate, fireTimer, 
 levelBackground, levelForeground, foregroundLayer, backgroundLayer,accumulator,timeStep,timeScale,
 lastMarbleSoundTime;
 
@@ -68,7 +68,6 @@ lastMarbleSoundTime;
 												 separate:@selector(separateMarbleCollision:space:)];
 	
 	self->simulatedLayers = [[NSMutableArray array]retain];
-	self->touchingMarbles = [[NSMutableDictionary dictionary]retain];	
 	self.layer.borderWidth =1.0;
 	self.layer.borderColor = [[UIColor blackColor]CGColor];
   self.timeStep = 1.0 / 80.0;
@@ -90,7 +89,7 @@ lastMarbleSoundTime;
 {
 	[self stopSimulation];
 	[self->simulatedLayers release];self->simulatedLayers = nil;
-	[self->touchingMarbles release];self->touchingMarbles = nil;
+
 	self.space = nil;
 	self.displayLink = nil;
 	self.preparedLayer = nil;
@@ -240,43 +239,6 @@ lastMarbleSoundTime;
 #pragma mark -
 #pragma mark Collision Handlers
 
-#if !USE_NEW_COLLISION_DETECTOR
-
-- (NSMutableSet*) marbleSetFor:(CMMarbleLayer*)layer
-{
-	NSMutableSet *result = [self.touchingMarbles objectForKey:layer];
-	if(!result){
-		result = [NSMutableSet set];
-		[self->touchingMarbles setObject:result forKey:layer];
-	}
-	return result;
-}
-
-- (void) marble:(CMMarbleLayer*)first releasing:(CMMarbleLayer*) second
-{
-	NSMutableSet *firstSet = [self marbleSetFor:first];
-	NSMutableSet *secondSet = [self marbleSetFor:second];
-	
-	[firstSet removeObject:second];
-	[secondSet removeObject:first];
-	
-	if ([firstSet count]==0) {
-		[self->touchingMarbles removeObjectForKey:first];
-	}
-	if([secondSet count]==0){
-		[self->touchingMarbles removeObjectForKey:second];
-	}
-}
-
-- (void) marble:(CMMarbleLayer*)first touching:(CMMarbleLayer*)second
-{
-	NSMutableSet *firstArray = [self marbleSetFor:first];
-	NSMutableSet *secondArray= [self marbleSetFor:second];
-	
-	[firstArray addObject:second];
-	[secondArray addObject:first];
-}
-#endif
 
 - (bool) beginMarbleCollision:(cpArbiter*)arbiter space:(ChipmunkSpace*)space
 {
@@ -350,13 +312,14 @@ lastMarbleSoundTime;
 
 - (void)updateLayerPositions
 {
-    for (CMMarbleLayer *aLayer in self.simulatedLayers) {
-        [aLayer updatePosition];
-			if ([self.touchingMarbles objectForKey:aLayer]) {
+	NSArray *touchingMarbles = [self.collisionCollector activeObjects]; 
+	for (CMMarbleLayer *aLayer in self.simulatedLayers) {
+		[aLayer updatePosition];
+		if ([touchingMarbles containsObject:aLayer]) {
 			aLayer.borderColor=[[UIColor greenColor]CGColor];
-            aLayer.borderWidth = 2.0;
+			aLayer.borderWidth = 2.0;
 		}else{
-            aLayer.borderWidth = 0.0;
+			aLayer.borderWidth = 0.0;
 		}
 	}
 }
@@ -373,7 +336,7 @@ lastMarbleSoundTime;
 	}
 }
 
-#if USE_NEW_COLLISION_DETECTOR
+
 - (NSUInteger) filterSimulatedLayers
 {
 	NSUInteger removedMarbles=0;
@@ -417,53 +380,7 @@ lastMarbleSoundTime;
 
 	return removedMarbles;
 }
-#else
 
-- (NSUInteger) filterSimulatedLayers
-{
-	BOOL hasRemovedMarbles = NO;
-	NSUInteger numberOfRemovedMarbles=0;
-	for (id aLayer in [[[[self.touchingMarbles allKeys]copy]autorelease] 
-										 sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2){
-											 NSUInteger a = [[self.touchingMarbles objectForKey:obj1]count];
-											 NSUInteger b = [[self.touchingMarbles objectForKey:obj2]count];
-											 if (a<b) {
-												 return NSOrderedDescending;
-											 }else if(a>b){
-												 return NSOrderedAscending;
-											 }else {
-												 return NSOrderedSame;
-											 }
-										 }])
-	{
-		NSMutableSet *touchingSet = [self.touchingMarbles objectForKey:aLayer];
-		if ([touchingSet count]>=2) {
-			hasRemovedMarbles = YES;
-			for (CMMarbleLayer *depLayer in [[touchingSet copy]autorelease]) {
-				[self->touchingMarbles removeObjectForKey:depLayer];
-				[self.space remove:depLayer];
-				numberOfRemovedMarbles ++;
-				[self->simulatedLayers removeObject:depLayer];
-				depLayer.shouldDestroy = YES;
-			}
-			[self->touchingMarbles removeObjectForKey:aLayer];
-			CMMarbleLayer *layer = aLayer;//(CMMarbleLayer*)[aLayer intValue];
-			[self.space remove:layer];
-			numberOfRemovedMarbles++;
-			[self->simulatedLayers removeObject:layer];
-			layer.shouldDestroy = YES;
-		}
-	}
-	if (hasRemovedMarbles) {
-		NSMutableSet *imageSet = [NSMutableSet set];
-		for (CMMarbleLayer *aLayer in self.simulatedLayers) {
-			[imageSet addObject:aLayer.contents];
-		}
-		[self.delegate imagesOnField:imageSet];
-	}
-	return numberOfRemovedMarbles;
-}
-#endif
 
 - (void)simulateLayer:(CMMarbleLayer *)localLayer
 {
@@ -488,7 +405,7 @@ lastMarbleSoundTime;
 - (void) resetSimulation
 {
 	[self stopSimulation];
-	[self->touchingMarbles removeAllObjects];
+	[self.collisionCollector reset];
 	for (CMMarbleLayer * aLAyer in [[self.simulatedLayers copy]autorelease]) {
     [self.space remove:aLAyer];
 		[aLAyer removeFromSuperlayer];

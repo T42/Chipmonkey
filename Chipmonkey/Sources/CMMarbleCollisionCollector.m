@@ -64,6 +64,11 @@ NSString *currentCollisionKey = @"currenrCollision";
 	return [dict objectForKey:formerCollisionsKey];
 }
 
+- (NSUInteger) countCollisionsFor:(id<NSCopying>)obj
+{
+	return [[self currentCollisionsFor:obj]count] + [[self formerCollisionsFor:obj]count];
+}
+
 - (void) object:(id<NSCopying>)first touching:(id<NSCopying>)second
 {
 	NSMutableArray * firstCollisions = [self currentCollisionsFor:first];
@@ -118,19 +123,43 @@ NSString *currentCollisionKey = @"currenrCollision";
 	}
 }
 
+- (NSMutableSet*) collectCollision:(NSMutableSet*) currentCollisions forObject:(id<NSCopying>) obj processed:(NSMutableSet*) proccessed
+{
+	if (!proccessed) {
+		proccessed = [NSMutableSet set];
+	}
+	
+	NSMutableSet *result = [NSMutableSet setWithSet:currentCollisions];
+	[result addObject:obj];
+	[proccessed addObject:obj];
+	for (id<NSCopying>  k in currentCollisions) {
+    if (![proccessed containsObject:k]) {
+			NSMutableSet *currentK = [NSMutableSet setWithArray:[self currentCollisionsFor:k]];
+			[currentK addObjectsFromArray: [[self formerCollisionsFor:k]allKeys]];
+			[result addObjectsFromArray:[[self collectCollision:currentK forObject:k processed:proccessed]allObjects]];
+
+		}
+	}
+	return result;
+}
+
 - (NSArray*) collisionSetsWithMinMembers:(NSUInteger)minMembers
 {
 	NSMutableArray * result = [NSMutableArray array];
 	NSMutableSet *processed = [NSMutableSet set];
 	for (id<NSCopying> k in [self.collisionData allKeys]) {
-    NSMutableArray *current = [self currentCollisionsFor:k];
-		NSMutableDictionary *former = [self formerCollisionsFor:k];
-		NSInteger total = [current count] + [[former allKeys]count]+1;
-		if (total >= minMembers) {
-			NSMutableSet *colSet = [NSMutableSet setWithArray:current];
-			[colSet addObjectsFromArray:[former allKeys]];
-			[colSet addObject:k];
-			[result addObject:colSet];
+		if (![processed containsObject:k]) {
+			NSMutableSet *resultSet = [NSMutableSet set];
+			NSMutableSet *currentK = [NSMutableSet setWithArray:[self currentCollisionsFor:k]];
+			[currentK addObjectsFromArray:[[self formerCollisionsFor:k]allKeys]];
+			resultSet = [self collectCollision:currentK forObject:k processed:processed];			
+			
+			NSInteger total = [resultSet count];
+			if (total >= minMembers) {
+				[result addObject:resultSet];
+
+			}
+
 		}
 	}
 	return result;
@@ -146,5 +175,21 @@ NSString *currentCollisionKey = @"currenrCollision";
 		[current removeObject:obj];
 		[former removeObjectForKey:obj];
 	}
+}
+
+- (void) reset
+{
+	self.collisionData = [NSMutableDictionary dictionary];
+}
+
+- (NSArray*) activeObjects
+{
+	NSMutableArray *result = [NSMutableArray array];
+	for (id<NSCopying> obj in [self.collisionData allKeys]) {
+		if ([self countCollisionsFor:obj]) {
+			[result addObject:obj];
+		}
+	}
+	return result;
 }
 @end
