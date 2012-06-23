@@ -83,8 +83,8 @@ playMusic,playSound,musicVolume,soundVolume;
 	self.currentLevel = 0;
 	self.frameTime = 1.0/60;
 	self->scoreView.hidden = YES;
-	self.playSound = YES;
-	self.playMusic = YES;
+	self.playSound = NO;
+	self.playMusic = NO;
 	self.soundVolume = 1.0;
 	self.musicVolume = 1.0;
 

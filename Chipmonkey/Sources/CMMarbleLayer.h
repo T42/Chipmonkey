@@ -9,7 +9,7 @@
 #import <QuartzCore/QuartzCore.h>
 #import "ObjectiveChipmunk.h"
 
-@interface CMMarbleLayer : CALayer <ChipmunkObject>
+@interface CMMarbleLayer : CALayer <ChipmunkObject,NSCopying>
 {
 	@protected
 	ChipmunkBody *body;

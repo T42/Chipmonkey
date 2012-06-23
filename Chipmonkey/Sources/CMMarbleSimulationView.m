@@ -7,6 +7,7 @@
 //
 
 #import "CMMarbleSimulationView.h"
+#import "CMMarbleCollisionCollector.h"
 #import "CMFunctions.h"
 #import "ObjectAL.h"
 
@@ -19,10 +20,13 @@ static NSString *borderType = @"borderType";
 #define MARBLE_MASS       20.0f
 #define MARBLE_SOUND @"marbleKlick.mp3"
 
+#define USE_NEW_COLLISION_DETECTOR 1
+
 @implementation CMMarbleSimulationView
 
-@synthesize space, displayLink, preparedLayer,simulatedLayers,touchingMarbles, delegate, fireTimer, 
-levelBackground, levelForeground, foregroundLayer, backgroundLayer,accumulator,timeStep,timeScale,lastMarbleSoundTime;
+@synthesize space, displayLink, preparedLayer, simulatedLayers, touchingMarbles, collisionCollector, delegate, fireTimer, 
+levelBackground, levelForeground, foregroundLayer, backgroundLayer,accumulator,timeStep,timeScale,
+lastMarbleSoundTime;
 
 
 - (void) createDecorationLayers
@@ -51,7 +55,7 @@ levelBackground, levelForeground, foregroundLayer, backgroundLayer,accumulator,t
 	self.space.gravity = cpv(0.0, SPACE_GRAVITY);
 
 	NSLog(@"Persistance: %u Bias: %f Slope: %f,iterations %i",self.space.collisionPersistence,self.space.collisionBias,self.space.collisionSlop,self.space.iterations);
-  self.space.collisionPersistence = 10.0;
+//  self.space.collisionPersistence = 10;
 //  self.space.collisionSlop = 0.01;
 //	self.space.collisionBias=.1;
 //	self.space.iterations = 10;	
@@ -70,6 +74,8 @@ levelBackground, levelForeground, foregroundLayer, backgroundLayer,accumulator,t
   self.timeStep = 1.0 / 80.0;
   self.timeScale = 1.0;
   self->accumulator = 0.0;
+	self.collisionCollector = [[[CMMarbleCollisionCollector alloc] init]autorelease];
+	self.collisionCollector.collisionDelay = 0.2;
 }
 
 - (id)initWithFrame:(CGRect)frame
@@ -234,18 +240,14 @@ levelBackground, levelForeground, foregroundLayer, backgroundLayer,accumulator,t
 #pragma mark -
 #pragma mark Collision Handlers
 
-- (id) keyFromLayer:(CMMarbleLayer*) layer
-{
-//	return [NSString stringWithFormat:@"%li",layer];
-	return layer;
-}
+#if !USE_NEW_COLLISION_DETECTOR
 
 - (NSMutableSet*) marbleSetFor:(CMMarbleLayer*)layer
 {
-	NSMutableSet *result = [self.touchingMarbles objectForKey:[self keyFromLayer:layer]];
+	NSMutableSet *result = [self.touchingMarbles objectForKey:layer];
 	if(!result){
 		result = [NSMutableSet set];
-		[self->touchingMarbles setObject:result forKey:[self keyFromLayer:layer]];
+		[self->touchingMarbles setObject:result forKey:layer];
 	}
 	return result;
 }
@@ -259,10 +261,10 @@ levelBackground, levelForeground, foregroundLayer, backgroundLayer,accumulator,t
 	[secondSet removeObject:first];
 	
 	if ([firstSet count]==0) {
-		[self->touchingMarbles removeObjectForKey:[self keyFromLayer:first]];
+		[self->touchingMarbles removeObjectForKey:first];
 	}
 	if([secondSet count]==0){
-		[self->touchingMarbles removeObjectForKey:[self keyFromLayer:second]];
+		[self->touchingMarbles removeObjectForKey:second];
 	}
 }
 
@@ -274,6 +276,7 @@ levelBackground, levelForeground, foregroundLayer, backgroundLayer,accumulator,t
 	[firstArray addObject:second];
 	[secondArray addObject:first];
 }
+#endif
 
 - (bool) beginMarbleCollision:(cpArbiter*)arbiter space:(ChipmunkSpace*)space
 {
@@ -282,7 +285,11 @@ levelBackground, levelForeground, foregroundLayer, backgroundLayer,accumulator,t
 	CMMarbleLayer *secondMarbleLayer = secondMarble.data;
 	
 	if (firstMarbleLayer.contents == secondMarbleLayer.contents) {
-		[self marble:firstMarbleLayer touching:secondMarbleLayer];
+#if USE_NEW_COLLISION_DETECTOR
+				[self.collisionCollector object:firstMarbleLayer touching:secondMarbleLayer];
+#else
+				[self marble:firstMarbleLayer touching:secondMarbleLayer];
+#endif
 	}
 
 	return TRUE;
@@ -330,7 +337,11 @@ levelBackground, levelForeground, foregroundLayer, backgroundLayer,accumulator,t
 	CMMarbleLayer *secondMarbleLayer = secondMarble.data;
 	
 	if (firstMarbleLayer.contents == secondMarbleLayer.contents) {
-		[self marble:firstMarbleLayer releasing:secondMarbleLayer];
+#if USE_NEW_COLLISION_DETECTOR
+				[self.collisionCollector object:firstMarbleLayer releasing:secondMarbleLayer];
+#else
+				[self marble:firstMarbleLayer releasing:secondMarbleLayer];
+#endif
 	}
 
 }
@@ -341,7 +352,7 @@ levelBackground, levelForeground, foregroundLayer, backgroundLayer,accumulator,t
 {
     for (CMMarbleLayer *aLayer in self.simulatedLayers) {
         [aLayer updatePosition];
-			if ([self.touchingMarbles objectForKey:[self keyFromLayer:aLayer]]) {
+			if ([self.touchingMarbles objectForKey:aLayer]) {
 			aLayer.borderColor=[[UIColor greenColor]CGColor];
             aLayer.borderWidth = 2.0;
 		}else{
@@ -361,6 +372,52 @@ levelBackground, levelForeground, foregroundLayer, backgroundLayer,accumulator,t
 		self->accumulator -= fixed_dt;
 	}
 }
+
+#if USE_NEW_COLLISION_DETECTOR
+- (NSUInteger) filterSimulatedLayers
+{
+	NSUInteger removedMarbles=0;
+	NSArray *collisionSets = [self.collisionCollector collisionSetsWithMinMembers:3];
+	NSMutableSet *alreadyRemoved = [NSMutableSet set];
+	for (NSSet *colSet in [collisionSets sortedArrayUsingComparator:
+												 ^NSComparisonResult(id obj1, id obj2){
+													 NSUInteger a = [obj1 count];
+													 NSUInteger b = [obj2 count];
+													 
+													 if(a<b){return NSOrderedAscending;}
+													 if(a>b){return NSOrderedDescending;}
+													 return NSOrderedSame;
+												 }])
+	{
+		NSLog(@"Length: %d",[colSet count]);
+		for (CMMarbleLayer* layer in colSet) {
+			if (![alreadyRemoved containsObject:layer]) {
+				[alreadyRemoved addObject:layer];
+//				NSLog(@"Remove: %@",layer);
+				[self.space remove:layer];
+				removedMarbles++;
+				[self->simulatedLayers removeObject:layer];
+				layer.shouldDestroy = YES;
+				[self.collisionCollector removeObject:layer];
+			}else {
+				NSLog(@"Possible 4");
+			}
+		}
+	}
+	if (removedMarbles) {
+		NSMutableSet *imageSet = [NSMutableSet set];
+		for (CMMarbleLayer *aLayer in self.simulatedLayers) {
+			[imageSet addObject:aLayer.contents];
+		}
+		[self.delegate imagesOnField:imageSet];
+			NSLog(@"---\r");
+	}
+	
+	[self.collisionCollector cleanupFormerCollisions];
+
+	return removedMarbles;
+}
+#else
 
 - (NSUInteger) filterSimulatedLayers
 {
@@ -383,7 +440,7 @@ levelBackground, levelForeground, foregroundLayer, backgroundLayer,accumulator,t
 		if ([touchingSet count]>=2) {
 			hasRemovedMarbles = YES;
 			for (CMMarbleLayer *depLayer in [[touchingSet copy]autorelease]) {
-				[self->touchingMarbles removeObjectForKey:[self keyFromLayer:depLayer]];
+				[self->touchingMarbles removeObjectForKey:depLayer];
 				[self.space remove:depLayer];
 				numberOfRemovedMarbles ++;
 				[self->simulatedLayers removeObject:depLayer];
@@ -406,7 +463,7 @@ levelBackground, levelForeground, foregroundLayer, backgroundLayer,accumulator,t
 	}
 	return numberOfRemovedMarbles;
 }
-
+#endif
 
 - (void)simulateLayer:(CMMarbleLayer *)localLayer
 {

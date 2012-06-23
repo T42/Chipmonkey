@@ -77,6 +77,7 @@
 		93F664BF158A98FF002B4E97 /* CMFunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = 93F664BE158A98FF002B4E97 /* CMFunctions.m */; };
 		93FE06841593CEF3000EBB92 /* marbleKlick.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 93FE06831593CEF3000EBB92 /* marbleKlick.mp3 */; };
 		93FE06861593F300000EBB92 /* Level0-StaticBodies.stb in Resources */ = {isa = PBXBuildFile; fileRef = 93FE06851593F300000EBB92 /* Level0-StaticBodies.stb */; };
+		93FE068915961CE6000EBB92 /* CMMarbleCollisionCollector.m in Sources */ = {isa = PBXBuildFile; fileRef = 93FE068815961CE6000EBB92 /* CMMarbleCollisionCollector.m */; };
 		FE2E161E15937995005CF4A4 /* CMMarbleLevelStartController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE2E161C15937995005CF4A4 /* CMMarbleLevelStartController.m */; };
 		FE2E161F15937995005CF4A4 /* CMMarbleLevelStartController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE2E161D15937995005CF4A4 /* CMMarbleLevelStartController.xib */; };
 		FE2E162315937ABD005CF4A4 /* CMMarbleLevelEndController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE2E162115937ABD005CF4A4 /* CMMarbleLevelEndController.m */; };
@@ -255,6 +256,8 @@
 		93F664BE158A98FF002B4E97 /* CMFunctions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMFunctions.m; sourceTree = "<group>"; };
 		93FE06831593CEF3000EBB92 /* marbleKlick.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = marbleKlick.mp3; sourceTree = "<group>"; };
 		93FE06851593F300000EBB92 /* Level0-StaticBodies.stb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "Level0-StaticBodies.stb"; path = "Chipmonkey/Resources/DummyLevels.levelset/Level0-StaticBodies.stb"; sourceTree = "<group>"; };
+		93FE068715961CE6000EBB92 /* CMMarbleCollisionCollector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMMarbleCollisionCollector.h; sourceTree = "<group>"; };
+		93FE068815961CE6000EBB92 /* CMMarbleCollisionCollector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMMarbleCollisionCollector.m; sourceTree = "<group>"; };
 		FE2E161B15937995005CF4A4 /* CMMarbleLevelStartController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMMarbleLevelStartController.h; sourceTree = "<group>"; };
 		FE2E161C15937995005CF4A4 /* CMMarbleLevelStartController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMMarbleLevelStartController.m; sourceTree = "<group>"; };
 		FE2E161D15937995005CF4A4 /* CMMarbleLevelStartController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CMMarbleLevelStartController.xib; sourceTree = "<group>"; };
@@ -297,6 +300,8 @@
 				93F664AF158A87CE002B4E97 /* CMAppDelegate.h */,
 				93F664B0158A87CE002B4E97 /* CMAppDelegate.m */,
 				939682B41583F3E5007CD4FA /* CMMarbleImageSource.h */,
+				93FE068715961CE6000EBB92 /* CMMarbleCollisionCollector.h */,
+				93FE068815961CE6000EBB92 /* CMMarbleCollisionCollector.m */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -836,6 +841,7 @@
 				932527F51592670600A8D98F /* CMMarbleLevelSet.m in Sources */,
 				FE2E161E15937995005CF4A4 /* CMMarbleLevelStartController.m in Sources */,
 				FE2E162315937ABD005CF4A4 /* CMMarbleLevelEndController.m in Sources */,
+				93FE068915961CE6000EBB92 /* CMMarbleCollisionCollector.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

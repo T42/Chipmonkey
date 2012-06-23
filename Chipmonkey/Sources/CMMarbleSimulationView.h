@@ -11,13 +11,17 @@
 #import "CMMarbleLayer.h"
 #import "CMMarbleImageSource.h"
 #import "CMGameControllerProtocol.h"
-@class AVAudioPlayer;
+@class AVAudioPlayer, CMMarbleCollisionCollector;
 @interface CMMarbleSimulationView : UIView
 	
 {
 	@protected
 	NSMutableArray *simulatedLayers;
+	
 	NSMutableDictionary *touchingMarbles;
+	
+	CMMarbleCollisionCollector *collisionCollector;
+	
 	ChipmunkSpace *space;
 	CADisplayLink *displayLink;
 	
@@ -43,6 +47,7 @@
 	NSTimeInterval  lastMarbleSoundTime;
 	
 }
+@property (retain, nonatomic) CMMarbleCollisionCollector* collisionCollector;
 @property (retain, nonatomic) UIImage* levelBackground, *levelForeground;
 @property (retain, nonatomic) CALayer* foregroundLayer, *backgroundLayer;
 
