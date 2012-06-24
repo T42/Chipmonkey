@@ -15,7 +15,7 @@
 @end
 
 @implementation CMMarbleLevelStatistics
-@synthesize clearedMarbles, removedMarblesForImages, marblesInLevel, removedMarbles;
+@synthesize clearedMarbles, removedMarblesForImages, marblesInLevel, removedMarbles, score, time;
 
 - (void) initDefaults
 {
@@ -23,6 +23,8 @@
 	self.removedMarbles = 0;
 	self.clearedMarbles = [NSMutableArray array];
 	self.removedMarblesForImages = [NSMutableDictionary dictionary];
+	self.score = 0;
+	self.time =0.0;
 }
 
 - (id) init
@@ -52,6 +54,12 @@
 	return self.clearedMarbles;
 }
 
+- (void) setTime:(NSTimeInterval)t
+{
+	if (self->time != t){
+		self->time = t;
+	}
+}
 #pragma mark - methods
 
 - (void) reset

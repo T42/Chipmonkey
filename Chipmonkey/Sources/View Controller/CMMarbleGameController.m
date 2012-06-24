@@ -17,6 +17,7 @@
 #import "CMMarbleLevelSet.h"
 #import "CMMarbleLevel.h"
 #import "ObjectAL.h"
+#import "CMMarbleLevelStatistics.h"
 
 #define MAX_MARBLE_IMAGES 9
 
@@ -51,7 +52,8 @@ levelLabel,currentLevel,levelSet, playerScoreLabel, levelTimeLabel, scoreView,
 playerScore, levelTime,
 menuController,localPopoverController, levelEndController, levelStartController,
 displayLink,lastSimulationTime,lastDisplayTime,frameTime,
-playMusic,playSound,musicVolume,soundVolume;
+playMusic,playSound,musicVolume,soundVolume,
+levelStatistics,currentStatistics,comboMarkerView,fourMarkerView,comboHits;
 
 @synthesize timescale,framerate,simulationrate;
 
@@ -62,23 +64,16 @@ playMusic,playSound,musicVolume,soundVolume;
 }
 
 #pragma mark - View lifecycle
-- (void) initScoreAndTime
-{
-	self.playerScore = 1;
-	self.playerScore = 0;
-	self.levelTime = 0.0;
-}
 
 
 - (void)viewDidLoad
 {
   [super viewDidLoad];
-	[self initScoreAndTime];
+
 	[self loadMarbleImages];
 	self.marblePreview = [self freshImage];
 	// Do any additional setup after loading the view, typically from a nib.
 	self.playgroundView.layer.masksToBounds = YES;
-	[self.playgroundView startSimulation];
 	[self loadLevels];
 	self.currentLevel = 0;
 	self.frameTime = 1.0/60;
@@ -87,6 +82,7 @@ playMusic,playSound,musicVolume,soundVolume;
 	self.playMusic = NO;
 	self.soundVolume = 1.0;
 	self.musicVolume = 1.0;
+	self.levelStatistics = [NSMutableDictionary dictionary];
 
 }
 
@@ -157,6 +153,16 @@ playMusic,playSound,musicVolume,soundVolume;
 
 #pragma mark - Levels
 
+- (CMMarbleLevelStatistics*) statisticsForLevel:(NSString*) levelName
+{
+	CMMarbleLevelStatistics *result = [self.levelStatistics objectForKey:levelName];
+	if (!result) {
+		result = [[[CMMarbleLevelStatistics alloc]init]autorelease];
+		[self.levelStatistics setObject:result forKey:levelName];
+	}
+	return result;
+}
+
 - (void) loadLevels
 {
 	if(!self.levelSet){
@@ -176,6 +182,8 @@ playMusic,playSound,musicVolume,soundVolume;
 		self.playgroundView.levelForeground = currentL.overlayImage;
 		self.playgroundView.staticShapes = currentL.shapeReader.shapes;
 //	}
+	self.currentStatistics = [self statisticsForLevel:currentL.name];
+	[self.currentStatistics reset];
   [self popupViewController:self.levelStartController withBackgroundClass:[CMSimplePopoverBackground class]];
   self.levelStartController.levelname.text =currentL.name;//[NSString stringWithFormat:@"Level - %d",levelIndex];
 }
@@ -241,9 +249,43 @@ playMusic,playSound,musicVolume,soundVolume;
 	}
 }
 
+- (void) setDisplayLink:(CADisplayLink *)dLink
+{
+	if (self->displayLink != dLink) {
+		[self->displayLink invalidate];
+		[self->displayLink autorelease];
+		self->displayLink = [dLink retain];
+	}
+}
+
 #pragma mark - Animation
 #define MAX_DT_SIMULATION (1.0/15.0)
 #define MAX_DT_FRAMERATE (1.0/10.0)
+
+- (void) markerTimerCallback:(NSTimer*) someTimer
+{
+	UIView *dataView = [someTimer userInfo];
+	dataView.hidden = YES;
+}
+
+
+- (void) marbleThrown
+{
+	if (self.comboHits>1) {
+	}
+	self.comboHits = 0;	
+}
+
+- (void) updateStatisticsView
+{
+	self.playerScoreLabel.text = [NSString stringWithFormat:@"%d",self.currentStatistics.score];
+	
+	NSInteger min = (NSInteger)(self.currentStatistics.time / 60.0);
+	NSInteger sec = ((NSInteger)self.currentStatistics.time) % 60;
+	self->levelTimeLabel.text = [NSString stringWithFormat:@"%2d:%02d",min,sec];
+	
+}
+
 - (void) displayTick:(CADisplayLink*) link
 {
   //  cpFloat dt = link.duration*link.frameInterval;
@@ -256,11 +298,55 @@ playMusic,playSound,musicVolume,soundVolume;
 
   NSTimeInterval k = MIN(time - self.lastDisplayTime,MAX_DT_FRAMERATE);
 	if (k>=self.frameTime) {
-		NSUInteger minusMarbles = [self.playgroundView filterSimulatedLayers];
+
+		__block NSUInteger normalHits = 0;
+		__block NSUInteger multiHits = 0;
+		NSArray *removedMarbles = [self.playgroundView removeCollisionSets];
+		[removedMarbles enumerateObjectsUsingBlock:
+		 ^(id obj, NSUInteger idx, BOOL* stop){
+			 if ([obj count]==3) {
+				 normalHits ++;
+			 }else if ([obj count]>3) {
+				 multiHits ++;
+			 }
+		 }];
+		if (multiHits) {
+			self.fourMarkerView.hidden=NO;
+			[NSTimer scheduledTimerWithTimeInterval:5 
+																			 target:self 
+																		 selector:@selector(markerTimerCallback:) 
+																		 userInfo:self.fourMarkerView 
+																			repeats:NO];
+		}
+		self.comboHits += [removedMarbles count];
+		if (self.comboHits) {
+					NSLog(@"Combo: %d",self.comboHits);
+		}
+		
+		if (self.comboHits>1) {
+			if (self.comboMarkerView.hidden) {
+				self.comboMarkerView.hidden = NO;
+				[NSTimer scheduledTimerWithTimeInterval:5 
+																				 target:self 
+																			 selector:@selector(markerTimerCallback:) 
+																			 userInfo:self.comboMarkerView 
+																				repeats:NO];
+
+			}
+			self.currentStatistics.score += self.comboHits*10;
+			self.comboHits --;
+		}
+
+		//		NSUInteger minusMarbles = [self.playgroundView filterSimulatedLayers];
 		[self.playgroundView updateLayerPositions];
-		self.levelTime += (time - self.lastDisplayTime);
-		self.lastDisplayTime = time;
-		self.playerScore += minusMarbles;
+		if (self.lastDisplayTime) {
+			self.currentStatistics.time+= (time - self.lastDisplayTime);
+		}
+
+		self.currentStatistics.score += (normalHits*3) + (multiHits*6);
+		[self updateStatisticsView];
+		self.lastDisplayTime = time;		
+
 	}
 }
 
@@ -288,7 +374,7 @@ playMusic,playSound,musicVolume,soundVolume;
 	[self resetSimulation:sender];
 	self.currentLevel = 0;
 	[self prepareLevel:self.currentLevel];
-	[self initScoreAndTime];
+
 }
 
 - (IBAction)resetSimulation:(id)sender
@@ -327,6 +413,7 @@ playMusic,playSound,musicVolume,soundVolume;
   //	self.startView.hidden = YES;
   //  self.localPopoverController = nil;
 	self.levelTime = 0.0;
+	self.currentStatistics.time = 0.0;
 	self.scoreView.hidden = NO;
 	[self startSimulation:nil];
 	CMMarbleLevel *currentL = [self.levelSet.levelList objectAtIndex:self.currentLevel];
@@ -390,6 +477,7 @@ playMusic,playSound,musicVolume,soundVolume;
 	}
 	for (UIImage * anImage in mySet) {
     [self->marbleImages removeObject:anImage];
+		[self.currentStatistics marbleCleared:anImage];
 	}
 	if(self.playgroundView.preparedLayer){
 		UIImage *t = [self marbleImageForCGImage:(CGImageRef)self.playgroundView.preparedLayer.contents];

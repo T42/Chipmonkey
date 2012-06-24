@@ -20,6 +20,8 @@
 - (IBAction)startLevel:(id)sender;
 - (IBAction)cancelLevel:(id)sender;
 - (IBAction)finishLevel:(id)sender;
+
+- (void) marbleThrown;
 @end
 
 

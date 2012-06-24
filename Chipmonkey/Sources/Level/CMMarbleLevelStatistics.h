@@ -11,14 +11,18 @@
 @interface CMMarbleLevelStatistics : NSObject
 {
 	@protected
-	NSUInteger 					marblesInLevel;				///< number of marbles in level
-	NSUInteger 					removedMarbles;				///< total number of marbles removed
-	NSMutableArray 			*clearedMarbles;			///< UIImages of the cleared marble colors
-	NSMutableDictionary	*removedMarblesForImages; ///< key:= UIImage Value: removed marbles of this color
+	NSUInteger 					marblesInLevel;								///< number of marbles in level
+	NSUInteger 					removedMarbles;								///< total number of marbles removed
+	NSMutableArray 			*clearedMarbles;							///< UIImages of the cleared marble colors
+	NSMutableDictionary	*removedMarblesForImages; 		///< key:= UIImage Value: removed marbles of this color
+	NSUInteger					score;												///< Score reached in this level
+	NSTimeInterval			time;													///< time used to clear this level
 }
 
 @property (assign, nonatomic) NSUInteger marblesInLevel;
 @property (assign, nonatomic) NSUInteger removedMarbles;
+@property (assign, nonatomic) NSUInteger score;
+@property (assign, nonatomic) NSTimeInterval time;
 @property (readonly, nonatomic) NSArray* clearedMarbleImages;
 @property (readonly, nonatomic) NSDictionary *removedMarblesPerImage;
 

@@ -335,19 +335,15 @@ lastMarbleSoundTime;
 		self->accumulator -= fixed_dt;
 	}
 }
-
-
-- (NSUInteger) filterSimulatedLayers
+- (NSArray*) removeCollisionSets
 {
-	NSUInteger removedMarbles=0;
 	NSArray *collisionSets = [self.collisionCollector collisionSetsWithMinMembers:3];
 	NSMutableSet *alreadyRemoved = [NSMutableSet set];
 	for (NSSet *colSet in [collisionSets sortedArrayUsingComparator:
 												 ^NSComparisonResult(id obj1, id obj2){
 													 NSUInteger a = [obj1 count];
 													 NSUInteger b = [obj2 count];
-													 
-													 if(a<b){return NSOrderedAscending;}
+													if(a<b){return NSOrderedAscending;}
 													 if(a>b){return NSOrderedDescending;}
 													 return NSOrderedSame;
 												 }])
@@ -356,9 +352,9 @@ lastMarbleSoundTime;
 		for (CMMarbleLayer* layer in colSet) {
 			if (![alreadyRemoved containsObject:layer]) {
 				[alreadyRemoved addObject:layer];
-//				NSLog(@"Remove: %@",layer);
+				//				NSLog(@"Remove: %@",layer);
 				[self.space remove:layer];
-				removedMarbles++;
+
 				[self->simulatedLayers removeObject:layer];
 				layer.shouldDestroy = YES;
 				[self.collisionCollector removeObject:layer];
@@ -367,17 +363,32 @@ lastMarbleSoundTime;
 			}
 		}
 	}
-	if (removedMarbles) {
+	if ([alreadyRemoved count]) {
 		NSMutableSet *imageSet = [NSMutableSet set];
 		for (CMMarbleLayer *aLayer in self.simulatedLayers) {
 			[imageSet addObject:aLayer.contents];
 		}
 		[self.delegate imagesOnField:imageSet];
-			NSLog(@"---\r");
+		NSLog(@"---\r");
 	}
 	
 	[self.collisionCollector cleanupFormerCollisions];
+	return collisionSets;
+}
 
+- (NSUInteger) filterSimulatedLayers
+{
+	NSUInteger removedMarbles=0;
+	NSArray *p = [self removeCollisionSets];
+	NSMutableSet *testSet  = [NSMutableSet set];
+	for (NSSet *t in p) {
+    [testSet addObjectsFromArray:[t allObjects]];
+		removedMarbles += [t count];
+	}
+	
+	if (removedMarbles != [testSet count]) {
+		NSLog(@"Count missmatch (double hits) sets: %d, test:%d",removedMarbles,[testSet count]);
+	}
 	return removedMarbles;
 }
 
@@ -503,6 +514,7 @@ lastMarbleSoundTime;
 		self.preparedLayer = nil;
 		[self simulateLayer:localLayer];	
     [self createMarble:nil];
+		[self.delegate marbleThrown];
 
 	}
 }

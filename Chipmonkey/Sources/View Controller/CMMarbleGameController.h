@@ -15,11 +15,12 @@
 #import "CMMarbleLevelStartController.h"
 #import "CMMarbleLevelEndController.h"
 
+
 @interface UIButton (CMMarbleGameHelper)
 @property (retain,nonatomic) UIImage* image;
 @end
 
-@class CMMarbleLevelSet;
+@class CMMarbleLevelSet,CMMarbleLevelStatistics;
 @interface CMMarbleGameController : UIViewController <CMMarbleImageSource,CMGameControllerProtocol>
 {
 	@protected
@@ -28,14 +29,22 @@
 	UIImage                         *marblePreview;
 	NSMutableArray                  *nextMarbleImages;
 	UILabel                         *levelLabel;
-	NSUInteger                      currentLevel;
-	CMMarbleLevelSet                *levelSet;
 	UIView													*scoreView;	
 	CMMarbleMenuController          * menuController;
   CMMarbleLevelStartController    *levelStartController;
   CMMarbleLevelEndController      *levelEndController;
 	UIPopoverController             *localPopoverController;
-  
+
+	// score view Elements
+	UILabel											*levelTimeLabel;
+	UILabel											*playerScoreLabel;
+	UIView											*comboMarkerView;
+	UIView											*fourMarkerView;	
+	
+	NSUInteger                      currentLevel;
+	CMMarbleLevelSet                *levelSet;
+	NSMutableDictionary							*levelStatistics;
+	CMMarbleLevelStatistics					*currentStatistics;
   
   // game time
   CADisplayLink               *displayLink;
@@ -43,10 +52,6 @@
 	NSTimeInterval							lastDisplayTime;
 	NSTimeInterval							frameTime;
 	
-	// score and time Elements
-	UILabel											*levelTimeLabel;
-	UILabel											*playerScoreLabel;
-
 	
 	// properties for the Current Score and time etc. These properties will move to a player class some day
 	NSUInteger									playerScore;
@@ -55,28 +60,38 @@
 	// audio Properties
 	CGFloat											soundVolume,musicVolume;
 	BOOL												playSound, playMusic;
+	
+	// combo Helper
+	NSUInteger					comboHits;
 }
-@property(retain,nonatomic) CADisplayLink *displayLink;
-@property(assign,nonatomic) NSTimeInterval lastSimulationTime,lastDisplayTime,frameTime;
-
 @property(retain,nonatomic) IBOutlet CMMarbleSimulationView *playgroundView;
 @property(retain,nonatomic) UIImage* marblePreview;
 @property(retain,nonatomic) IBOutlet UILabel *levelLabel;
+@property(retain,nonatomic) IBOutlet UIView* scoreView;
+@property(retain,nonatomic) IBOutlet CMMarbleMenuController *menuController;
+@property(retain,nonatomic) IBOutlet CMMarbleLevelStartController *levelStartController;
+@property(retain,nonatomic) IBOutlet CMMarbleLevelEndController *levelEndController;
+@property(retain,nonatomic) IBOutlet UIPopoverController *localPopoverController;
+@property(retain,nonatomic) IBOutlet UIView *comboMarkerView;
+@property(retain,nonatomic) IBOutlet UIView *fourMarkerView;
+@property(retain,nonatomic) IBOutlet UILabel* levelTimeLabel;
+@property(retain,nonatomic) IBOutlet UILabel* playerScoreLabel;
 
 @property(assign,nonatomic) NSUInteger currentLevel;
 @property(retain,nonatomic) CMMarbleLevelSet *levelSet;
-@property(retain,nonatomic) IBOutlet CMMarbleMenuController *menuController;
-@property(retain,nonatomic) IBOutlet CMMarbleLevelEndController *levelEndController;
-@property(retain,nonatomic) IBOutlet CMMarbleLevelStartController *levelStartController;
-@property(retain,nonatomic) IBOutlet UILabel* levelTimeLabel, *playerScoreLabel;
-@property(retain,nonatomic) IBOutlet UIView* scoreView;
+@property(retain, nonatomic) NSMutableDictionary *levelStatistics;
+@property(assign, nonatomic) CMMarbleLevelStatistics *currentStatistics;
 
-@property(retain,nonatomic) IBOutlet UIPopoverController *localPopoverController;
+@property(retain,nonatomic) CADisplayLink *displayLink;
+@property(assign,nonatomic) NSTimeInterval lastSimulationTime,lastDisplayTime,frameTime;
+
 @property(assign,nonatomic) NSUInteger playerScore;
 @property(assign,nonatomic) NSTimeInterval levelTime;
 
-@property(assign, nonatomic) BOOL playSound, playMusic;
 @property(assign, nonatomic) CGFloat soundVolume, musicVolume;
+@property(assign, nonatomic) BOOL playSound, playMusic;
+
+@property(assign, nonatomic) NSUInteger comboHits;
 
 - (IBAction)resetLevels:(id) sender; 	// Depricated 
 - (IBAction)startSimulation:(id)sender; // used internaly 
