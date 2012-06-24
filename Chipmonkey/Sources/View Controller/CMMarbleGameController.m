@@ -271,8 +271,6 @@ levelStatistics,currentStatistics,comboMarkerView,fourMarkerView,comboHits;
 
 - (void) marbleThrown
 {
-	if (self.comboHits>1) {
-	}
 	self.comboHits = 0;	
 }
 
@@ -319,9 +317,9 @@ levelStatistics,currentStatistics,comboMarkerView,fourMarkerView,comboHits;
 																			repeats:NO];
 		}
 		self.comboHits += [removedMarbles count];
-		if (self.comboHits) {
-					NSLog(@"Combo: %d",self.comboHits);
-		}
+//		if (self.comboHits) {
+//					NSLog(@"Combo: %d",self.comboHits);
+//		}
 		
 		if (self.comboHits>1) {
 			if (self.comboMarkerView.hidden) {
