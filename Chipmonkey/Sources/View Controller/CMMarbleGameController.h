@@ -16,6 +16,7 @@
 #import "CMMarbleLevelEndController.h"
 
 #define USE_BILLARD_IMAGES 1
+#define USE_BILLARD_IMAGES 0
 
 
 @interface UIButton (CMMarbleGameHelper)
