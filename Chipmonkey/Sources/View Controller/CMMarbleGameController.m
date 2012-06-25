@@ -24,7 +24,7 @@
 #if USE_BILLARD_IMAGES
 #define MARBLE_IMAGE_PREFIX @"Ball"
 #else
-#define MARBLE_IMAGE_PREFIX @"Marble"
+#define MARBLE_IMAGE_PREFIX @"wmarble"
 #endif
 
 #define NUM_LEVEL_MARBLES 80

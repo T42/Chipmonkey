@@ -7,6 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		16947DE11598FF4C003C482F /* wmarble_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 16947DD81598FF4B003C482F /* wmarble_1.png */; };
+		16947DE21598FF4C003C482F /* wmarble_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 16947DD91598FF4B003C482F /* wmarble_2.png */; };
+		16947DE31598FF4C003C482F /* wmarble_3.png in Resources */ = {isa = PBXBuildFile; fileRef = 16947DDA1598FF4B003C482F /* wmarble_3.png */; };
+		16947DE41598FF4C003C482F /* wmarble_4.png in Resources */ = {isa = PBXBuildFile; fileRef = 16947DDB1598FF4B003C482F /* wmarble_4.png */; };
+		16947DE51598FF4C003C482F /* wmarble_5.png in Resources */ = {isa = PBXBuildFile; fileRef = 16947DDC1598FF4B003C482F /* wmarble_5.png */; };
+		16947DE61598FF4C003C482F /* wmarble_6.png in Resources */ = {isa = PBXBuildFile; fileRef = 16947DDD1598FF4B003C482F /* wmarble_6.png */; };
+		16947DE71598FF4C003C482F /* wmarble_7.png in Resources */ = {isa = PBXBuildFile; fileRef = 16947DDE1598FF4C003C482F /* wmarble_7.png */; };
+		16947DE81598FF4C003C482F /* wmarble_8.png in Resources */ = {isa = PBXBuildFile; fileRef = 16947DDF1598FF4C003C482F /* wmarble_8.png */; };
+		16947DE91598FF4C003C482F /* wmarble_9.png in Resources */ = {isa = PBXBuildFile; fileRef = 16947DE01598FF4C003C482F /* wmarble_9.png */; };
+		16947DEC1599012C003C482F /* wmarble_overlay.png in Resources */ = {isa = PBXBuildFile; fileRef = 16947DEB1599012C003C482F /* wmarble_overlay.png */; };
 		9311BE88158AA83C004E13F4 /* CMSimplePopoverBackground.m in Sources */ = {isa = PBXBuildFile; fileRef = 9311BE87158AA83C004E13F4 /* CMSimplePopoverBackground.m */; };
 		9311BE8C158AB0DC004E13F4 /* CMPopoverContentController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9311BE8B158AB0DC004E13F4 /* CMPopoverContentController.m */; };
 		9312972F1582A48400A2B556 /* CMMarbleSimulationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9312972E1582A48400A2B556 /* CMMarbleSimulationView.m */; };
@@ -97,6 +107,16 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		16947DD81598FF4B003C482F /* wmarble_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = wmarble_1.png; path = Chipmonkey/Resources/wmarble_1.png; sourceTree = SOURCE_ROOT; };
+		16947DD91598FF4B003C482F /* wmarble_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = wmarble_2.png; path = Chipmonkey/Resources/wmarble_2.png; sourceTree = SOURCE_ROOT; };
+		16947DDA1598FF4B003C482F /* wmarble_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = wmarble_3.png; path = Chipmonkey/Resources/wmarble_3.png; sourceTree = SOURCE_ROOT; };
+		16947DDB1598FF4B003C482F /* wmarble_4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = wmarble_4.png; path = Chipmonkey/Resources/wmarble_4.png; sourceTree = SOURCE_ROOT; };
+		16947DDC1598FF4B003C482F /* wmarble_5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = wmarble_5.png; path = Chipmonkey/Resources/wmarble_5.png; sourceTree = SOURCE_ROOT; };
+		16947DDD1598FF4B003C482F /* wmarble_6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = wmarble_6.png; path = Chipmonkey/Resources/wmarble_6.png; sourceTree = SOURCE_ROOT; };
+		16947DDE1598FF4C003C482F /* wmarble_7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = wmarble_7.png; path = Chipmonkey/Resources/wmarble_7.png; sourceTree = SOURCE_ROOT; };
+		16947DDF1598FF4C003C482F /* wmarble_8.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = wmarble_8.png; path = Chipmonkey/Resources/wmarble_8.png; sourceTree = SOURCE_ROOT; };
+		16947DE01598FF4C003C482F /* wmarble_9.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = wmarble_9.png; path = Chipmonkey/Resources/wmarble_9.png; sourceTree = SOURCE_ROOT; };
+		16947DEB1599012C003C482F /* wmarble_overlay.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wmarble_overlay.png; sourceTree = "<group>"; };
 		9311BE86158AA83C004E13F4 /* CMSimplePopoverBackground.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMSimplePopoverBackground.h; sourceTree = "<group>"; };
 		9311BE87158AA83C004E13F4 /* CMSimplePopoverBackground.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMSimplePopoverBackground.m; sourceTree = "<group>"; };
 		9311BE8A158AB0DC004E13F4 /* CMPopoverContentController.h */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 2; lastKnownFileType = sourcecode.c.h; path = CMPopoverContentController.h; sourceTree = "<group>"; tabWidth = 2; usesTabs = 1; wrapsLines = 0; };
@@ -630,6 +650,16 @@
 		93AFEA7915829669003A6382 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				16947DEB1599012C003C482F /* wmarble_overlay.png */,
+				16947DD81598FF4B003C482F /* wmarble_1.png */,
+				16947DD91598FF4B003C482F /* wmarble_2.png */,
+				16947DDA1598FF4B003C482F /* wmarble_3.png */,
+				16947DDB1598FF4B003C482F /* wmarble_4.png */,
+				16947DDC1598FF4B003C482F /* wmarble_5.png */,
+				16947DDD1598FF4B003C482F /* wmarble_6.png */,
+				16947DDE1598FF4C003C482F /* wmarble_7.png */,
+				16947DDF1598FF4C003C482F /* wmarble_8.png */,
+				16947DE01598FF4C003C482F /* wmarble_9.png */,
 				932527F615926DE500A8D98F /* DummyLevels.levelset */,
 				93ED3CC4158FD4DB00E753DD /* Sounds */,
 				939682C115841956007CD4FA /* Icon.png */,
@@ -837,6 +867,16 @@
 				9380D0E315975F410001D608 /* Ball_8.png in Resources */,
 				9380D0E415975F410001D608 /* Ball_9.png in Resources */,
 				9380D0F6159789C70001D608 /* Ball_Overlay.png in Resources */,
+				16947DE11598FF4C003C482F /* wmarble_1.png in Resources */,
+				16947DE21598FF4C003C482F /* wmarble_2.png in Resources */,
+				16947DE31598FF4C003C482F /* wmarble_3.png in Resources */,
+				16947DE41598FF4C003C482F /* wmarble_4.png in Resources */,
+				16947DE51598FF4C003C482F /* wmarble_5.png in Resources */,
+				16947DE61598FF4C003C482F /* wmarble_6.png in Resources */,
+				16947DE71598FF4C003C482F /* wmarble_7.png in Resources */,
+				16947DE81598FF4C003C482F /* wmarble_8.png in Resources */,
+				16947DE91598FF4C003C482F /* wmarble_9.png in Resources */,
+				16947DEC1599012C003C482F /* wmarble_overlay.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
