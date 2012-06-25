@@ -11,37 +11,91 @@
 #import "CMMarbleSimulationView.h"
 #import "CMMarbleImageSource.h"
 #import "CMMarbleMenuController.h"
+#import "CMGameControllerProtocol.h"
+#import "CMMarbleLevelStartController.h"
+#import "CMMarbleLevelEndController.h"
+
+#define USE_BILLARD_IMAGES 1
+
 
 @interface UIButton (CMMarbleGameHelper)
 @property (retain,nonatomic) UIImage* image;
 @end
-@interface CMMarbleGameController : UIViewController <CMMarbleImageSource>
+
+@class CMMarbleLevelSet,CMMarbleLevelStatistics;
+@interface CMMarbleGameController : UIViewController <CMMarbleImageSource,CMGameControllerProtocol>
 {
 	@protected
-	CMMarbleSimulationView			*playgroundView;
-	NSMutableArray							*marbleImages;
-	UIButton										*marblePreview;
-	NSMutableArray							*nextMarbleImages;
-	UIView											*finishView;
-	UIView											*startView;
-	UILabel											*levelLabel;
-	NSUInteger									levelLimit;
-	NSUInteger									currentLevel;
-	NSMutableArray							*levels;
-	
-	CMMarbleMenuController			* menuController;
-	UIPopoverController					*popoverController;
-}
-@property(retain,nonatomic) IBOutlet UIView* finishView, *startView;;
-@property(retain,nonatomic) IBOutlet CMMarbleSimulationView *playgroundView;
-@property(retain,nonatomic) IBOutlet UIButton* marblePreview;
-@property(retain,nonatomic) IBOutlet UILabel *levelLabel;
-@property(assign,nonatomic) NSUInteger levelLimit, currentLevel;
-@property(retain,nonatomic) NSMutableArray *levels;
-@property(retain,nonatomic) IBOutlet CMMarbleMenuController *menuController;
-@property(retain,nonatomic) IBOutlet UIPopoverController *popoverController;
+	CMMarbleSimulationView          *playgroundView;
+	NSMutableArray                  *marbleImages;
+	UIImage                         *marblePreview;
+	NSMutableArray                  *nextMarbleImages;
+	UILabel                         *levelLabel;
+	UIView													*scoreView;	
+	CMMarbleMenuController          * menuController;
+  CMMarbleLevelStartController    *levelStartController;
+  CMMarbleLevelEndController      *levelEndController;
+	UIPopoverController             *localPopoverController;
 
-- (IBAction) resetLevels:(id) sender; 	// Depricated 
+	// score view Elements
+	UILabel											*levelTimeLabel;
+	UILabel											*playerScoreLabel;
+	UIView											*comboMarkerView;
+	UIView											*fourMarkerView;	
+	
+	NSUInteger                      currentLevel;
+	CMMarbleLevelSet                *levelSet;
+	NSMutableDictionary							*levelStatistics;
+	CMMarbleLevelStatistics					*currentStatistics;
+  
+  // game time
+  CADisplayLink               *displayLink;
+  NSTimeInterval              lastSimulationTime;
+	NSTimeInterval							lastDisplayTime;
+	NSTimeInterval							frameTime;
+	
+	
+	// properties for the Current Score and time etc. These properties will move to a player class some day
+	NSUInteger									playerScore;
+	NSTimeInterval							levelTime;
+	
+	// audio Properties
+	CGFloat											soundVolume,musicVolume;
+	BOOL												playSound, playMusic;
+	
+	// combo Helper
+	NSUInteger					comboHits;
+}
+@property(retain,nonatomic) IBOutlet CMMarbleSimulationView *playgroundView;
+@property(retain,nonatomic) UIImage* marblePreview;
+@property(retain,nonatomic) IBOutlet UILabel *levelLabel;
+@property(retain,nonatomic) IBOutlet UIView* scoreView;
+@property(retain,nonatomic) IBOutlet CMMarbleMenuController *menuController;
+@property(retain,nonatomic) IBOutlet CMMarbleLevelStartController *levelStartController;
+@property(retain,nonatomic) IBOutlet CMMarbleLevelEndController *levelEndController;
+@property(retain,nonatomic) IBOutlet UIPopoverController *localPopoverController;
+@property(retain,nonatomic) IBOutlet UIView *comboMarkerView;
+@property(retain,nonatomic) IBOutlet UIView *fourMarkerView;
+@property(retain,nonatomic) IBOutlet UILabel* levelTimeLabel;
+@property(retain,nonatomic) IBOutlet UILabel* playerScoreLabel;
+
+@property(assign,nonatomic) NSUInteger currentLevel;
+@property(retain,nonatomic) CMMarbleLevelSet *levelSet;
+@property(retain, nonatomic) NSMutableDictionary *levelStatistics;
+@property(assign, nonatomic) CMMarbleLevelStatistics *currentStatistics;
+
+@property(retain,nonatomic) CADisplayLink *displayLink;
+@property(assign,nonatomic) NSTimeInterval lastSimulationTime,lastDisplayTime,frameTime;
+
+@property(assign,nonatomic) NSUInteger playerScore;
+@property(assign,nonatomic) NSTimeInterval levelTime;
+
+@property(assign, nonatomic) CGFloat soundVolume, musicVolume;
+@property(assign, nonatomic) BOOL playSound, playMusic;
+
+@property(assign, nonatomic) NSUInteger comboHits;
+
+- (IBAction)resetLevels:(id) sender; 	// Depricated 
 - (IBAction)startSimulation:(id)sender; // used internaly 
 - (IBAction)stopSimulation:(id)sender;	// used internaly
 - (IBAction)resetSimulation:(id)sender; // used internaly
@@ -54,7 +108,7 @@
 - (IBAction)startLevel:(id)sender;			
 
 //From Level Finished Dialog
-- (IBAction)thanksAction:(id)sender;
+- (IBAction)finishLevel:(id)sender;
 
 // Menubar
 - (IBAction)showMenuBar:(id)sender;

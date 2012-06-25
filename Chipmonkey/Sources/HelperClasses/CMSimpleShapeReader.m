@@ -30,7 +30,7 @@
 	for (NSUInteger i=0; i<ll; i++) {
 		ChipmunkSegmentShape *cs= [ChipmunkSegmentShape segmentWithBody:nil from:vertices[i] to:vertices[i+1] radius:3];
 		cs.friction = 1.0;
-		cs.elasticity = 0.1;
+		cs.elasticity = 0.51;
 		[result addObject:cs];
 	}
 	
@@ -50,10 +50,10 @@
 	for(NSUInteger i=0;i<[dataLines count];i++){
 		NSString *line = [dataLines objectAtIndex:i];		
 
-    NSLog(@"Got: %@",line);
+//    NSLog(@"Got: %@",line);
 		if([line hasPrefix:@"*"]){ // start of an shape
 			line = [line stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"*"]];
-			numOfLinesInShape = [line intValue];
+			numOfLinesInShape = (NSUInteger)[line integerValue];
 			NSRange aRange = NSMakeRange(i+1, numOfLinesInShape);
 			NSArray *shapeArray = [dataLines subarrayWithRange:aRange];
 			shapeArray = [self createShapeFromArray:shapeArray inSize:CGSizeMake(1024, 768)];

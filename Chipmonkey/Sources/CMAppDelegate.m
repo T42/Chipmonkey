@@ -9,27 +9,50 @@
 #import "CMAppDelegate.h"
 #import <MediaPlayer/MediaPlayer.h>
 #import "CMMarbleGameController.h"
+#import "CMMarbleLevelSet.h"
+#import "ObjectAL.h"
+
+@interface CMAppDelegate ()
+@property (retain, nonatomic) CMMarbleLevelSet * currentLevelSet;
+@end
 
 @implementation CMAppDelegate
-
+@synthesize currentLevelSet;
 @synthesize window = _window;
 @synthesize viewController = _viewController;
+
+- (void) setupAudio
+{
+	[OALSimpleAudio sharedInstance].allowIpod = NO;
+	[OALSimpleAudio sharedInstance].honorSilentSwitch = YES;
+}
 
 - (void)dealloc
 {
 	[_window release];
 	[_viewController release];
-    [super dealloc];
+	[currentLevelSet release];
+	self->currentLevelSet = nil;
+	[super dealloc];
 }
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
-    // Override point for customization after application launch.
+	// find the current Levelset - this time we only search for the 
+	NSBundle *myBundle = [NSBundle mainBundle];
+	NSURL *levelSetURL  = [myBundle URLForResource:@"DummyLevels" withExtension:@"levelset"]; 
+	CMMarbleLevelSet *levelSet = [[[CMMarbleLevelSet alloc] initWithURL:levelSetURL]autorelease];
+	self.currentLevelSet = levelSet;
+
+	
+	self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
+	// Override point for customization after application launch.
 	self.viewController = [[[CMMarbleGameController alloc] initWithNibName:@"CMMarbleGameController" bundle:nil] autorelease];
 	self.window.rootViewController = self.viewController;
-    [self.window makeKeyAndVisible];
-    return YES;
+	[self.window makeKeyAndVisible];
+	[self setupAudio];
+	NSLog(@"FilterNames: %@",[CIFilter filterNamesInCategories:nil]);
+	return YES;
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application
@@ -70,5 +93,12 @@
 	 See also applicationDidEnterBackground:.
 	 */
 }
+
+- (NSObject<CMGameControllerProtocol>*) currentGamecontroller
+{
+	return self.viewController;
+}
+
+
 
 @end

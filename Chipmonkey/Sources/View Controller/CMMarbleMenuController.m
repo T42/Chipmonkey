@@ -8,28 +8,34 @@
 
 #import "CMMarbleMenuController.h"
 #import "CMMarbleGameController.h"
+#import "CMSimplePopoverBackground.h"
+#import "CMOptionsViewController.h"
+#import "CMDebugViewController.h"
 @interface CMMarbleMenuController ()
 
 @end
 
 @implementation CMMarbleMenuController
-@synthesize  gameController;
+@synthesize  gameController, optionsController,debugController, menuControl;
+
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
+
     }
     return self;
 }
 
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	NSLog(@"ParentView: %@",self.view.superview);
-	self.view.layer.backgroundColor = [[UIColor colorWithWhite:.8 alpha:.6]CGColor];
-    // Do any additional setup after loading the view from its nib.
+#if (DEBUG == 1)
+	NSUInteger p = [self.menuControl numberOfSegments];
+	[self.menuControl insertSegmentWithTitle:@"Debug" atIndex:p animated:YES];
+#endif
 }
 
 - (void)viewDidUnload
@@ -39,12 +45,6 @@
     // e.g. self.myOutlet = nil;
 }
 
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-{
-	if(interfaceOrientation == UIInterfaceOrientationLandscapeLeft || interfaceOrientation == UIInterfaceOrientationLandscapeRight)
-		return YES;
-	return NO;
-}
 
 #pragma mark -
 #pragma mark Actions
@@ -70,7 +70,11 @@
 		case 5:
 			[self nextLevel:sender];
 			break;
-		default:
+		case 6:
+			[self debugAction:sender];
+			break;
+
+		default:			
 			break;
 	}
 }
@@ -85,6 +89,15 @@
 {
 	NSLog(@"%@ %@",NSStringFromSelector(_cmd),sender);	
 	[self dismissAnimated:YES];
+	
+	if(!self.localPopoverController){
+		self.localPopoverController = [[[UIPopoverController alloc]initWithContentViewController:self.optionsController]autorelease];
+	}
+	self.localPopoverController.contentViewController = self.optionsController;
+	self.localPopoverController.popoverLayoutMargins = UIEdgeInsetsMake(0, 0, 0, 0);
+	self.localPopoverController.popoverBackgroundViewClass = [CMSimplePopoverBackground class];
+	self.optionsController.parentPopoverController=self.localPopoverController;
+	[self.localPopoverController presentPopoverFromRect:CGRectMake(0, 0, 1024,768) inView:self.view permittedArrowDirections:(0) animated:YES];
 }
 
 - (IBAction) resetProgress:(id) sender
@@ -117,16 +130,26 @@
 	[self.gameController prepareLevel:self.gameController.currentLevel];
 	[self dismissAnimated:YES];		
 }
-#pragma mark - Popover
 
-- (CGSize) contentSizeForViewInPopover
+- (IBAction) debugAction:(id) sender
 {
-	return CGSizeMake(1024, 60);
+	[self dismissAnimated:YES];
+	if (!self.localPopoverController) {
+				self.localPopoverController = [[[UIPopoverController alloc]initWithContentViewController:self.debugController]autorelease];
+	}
+	self.localPopoverController.contentViewController = self.debugController;
+	self.localPopoverController.popoverLayoutMargins = UIEdgeInsetsMake(0, 0, 0, 0);
+	self.localPopoverController.popoverBackgroundViewClass = [CMSimplePopoverBackground class];
+	self.debugController.parentPopoverController=self.localPopoverController;
+	[self.localPopoverController presentPopoverFromRect:CGRectMake(0, 0, 1024,768) inView:self.view permittedArrowDirections:(0) animated:YES];
+	
 }
+
+#pragma mark - Popover
 
 - (BOOL) isModalInPopover
 {
-	return YES;
+	return NO;
 }
 
 @end

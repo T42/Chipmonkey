@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>PreferenceSpecifiers</key>
+	<array>
+		<dict>
+			<key>Type</key>
+			<string>PSTextFieldSpecifier</string>
+			<key>Title</key>
+			<string>Mass:</string>
+			<key>Key</key>
+			<string>prefs_marble_mass</string>
+			<key>DefaultValue</key>
+			<string>50</string>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSTextFieldSpecifier</string>
+			<key>Title</key>
+			<string>Friction:</string>
+			<key>Key</key>
+			<string>prefs_marble_friction</string>
+			<key>DefaultValue</key>
+			<string>0.6</string>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSTextFieldSpecifier</string>
+			<key>Title</key>
+			<string>Elasticity:</string>
+			<key>Key</key>
+			<string>prefs_marble_elasticity</string>
+			<key>DefaultValue</key>
+			<string>0.1</string>
+		</dict>
+	</array>
+	<key>Title</key>
+	<string>Marble</string>
+	<key>StringsTable</key>
+	<string>Physics_Marble</string>
+</dict>
+</plist>
