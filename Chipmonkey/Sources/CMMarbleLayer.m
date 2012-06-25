@@ -58,12 +58,9 @@
 		self.borderColor = [[UIColor redColor]CGColor];
 		self.borderWidth = 2;
     self.cornerRadius=self.radius;
-    
-
-//    CALayer *mOverlayLayer = [CALayer layer];
-//    CIFilter *f =[CIFilter filterWithName:@"CIHardLightBlendMode"];
-//    mOverlayLayer.compositingFilter = f;
-//    self.overlayLayer = mOverlayLayer;
+    CALayer *mOverlayLayer = [CALayer layer];
+    mOverlayLayer.anchorPoint = CGPointMake(0.5, 0.5);
+    self.overlayLayer = mOverlayLayer;
 	}
 	return self;
 }
@@ -177,10 +174,11 @@
 //	NSLog(@"Position: %@,%@",NSStringFromCGPoint(self.position),NSStringFromCGPoint(self.body.pos));
 	CGFloat angle = (CGFloat)(self.body.angle*180.0/M_PI);
 	NSInteger t = (int)angle % 360;
-//	NSLog(@"%i",t);
+  //  NSLog(@"%i",t);
+
+  self.transform = CATransform3DMakeRotation((CGFloat)(t*M_PI/180.0), 0.0, 0.0, 1.0);
+  self.sublayerTransform = CATransform3DMakeRotation(-(CGFloat)(t*M_PI/180.0), 0.0, 0.0, 1.0);
 	
-	CGAffineTransform trans = CGAffineTransformMakeRotation((CGFloat)(t*M_PI/180.0));
-	self.affineTransform = trans;
 }
 
 - (id <CAAction>) actionForKey:(NSString *)event

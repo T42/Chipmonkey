@@ -134,7 +134,9 @@ levelStatistics,currentStatistics,comboMarkerView,fourMarkerView,comboHits;
 - (void) loadMarbleImages
 {
 	NSMutableArray *array = [NSMutableArray array];
-	for (NSInteger i=1; i<MAX_MARBLE_IMAGES+1; i++) {
+  NSUInteger currentLoadIndex = 0;
+	for (NSInteger i=9; (i>=1) && (currentLoadIndex < MAX_MARBLE_IMAGES); i--) {
+    currentLoadIndex ++;
 		NSString *imageName = [NSString stringWithFormat:@"%@_%i",MARBLE_IMAGE_PREFIX,i];
 		UIImage *myImage = [UIImage imageNamed:imageName];
 		if (myImage) {
@@ -301,6 +303,7 @@ levelStatistics,currentStatistics,comboMarkerView,fourMarkerView,comboHits;
 
   NSTimeInterval k = MIN(time - self.lastDisplayTime,MAX_DT_FRAMERATE);
 	if (k>=self.frameTime) {
+		[self.playgroundView updateLayerPositions];
 		__block NSUInteger normalHits = 0;
 		__block NSUInteger multiHits = 0;
 		NSArray *removedMarbles = [self.playgroundView removeCollisionSets];
@@ -337,7 +340,7 @@ levelStatistics,currentStatistics,comboMarkerView,fourMarkerView,comboHits;
 		}
 
 		//		NSUInteger minusMarbles = [self.playgroundView filterSimulatedLayers];
-		[self.playgroundView updateLayerPositions];
+
 		if (self.lastDisplayTime) {
 			self.currentStatistics.time+= (time - self.lastDisplayTime);
 		}
@@ -416,7 +419,7 @@ levelStatistics,currentStatistics,comboMarkerView,fourMarkerView,comboHits;
 	self.scoreView.hidden = NO;
 	[self startSimulation:nil];
 	CMMarbleLevel *currentL = [self.levelSet.levelList objectAtIndex:self.currentLevel];
-	[self.playgroundView fireMarbles:currentL.numberOfMarbles inTime:10.0];
+  //	[self.playgroundView fireMarbles:currentL.numberOfMarbles inTime:10.0];
 
 }
 #pragma mark -
@@ -456,7 +459,7 @@ levelStatistics,currentStatistics,comboMarkerView,fourMarkerView,comboHits;
 
 - (UIImage*) marbleGlossImage
 {
-  return [UIImage imageNamed:@"Ball_Overlay"];
+  return [UIImage imageNamed:@"wmarble_overlay"];
 }
 - (UIImage*) marbleImageForCGImage:(CGImageRef) imageRef
 {
