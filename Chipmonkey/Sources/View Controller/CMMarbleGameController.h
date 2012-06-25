@@ -15,6 +15,8 @@
 #import "CMMarbleLevelStartController.h"
 #import "CMMarbleLevelEndController.h"
 
+#define USE_BILLARD_IMAGES 0
+
 
 @interface UIButton (CMMarbleGameHelper)
 @property (retain,nonatomic) UIImage* image;

@@ -48,6 +48,17 @@
 		932527F51592670600A8D98F /* CMMarbleLevelSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 932527F41592670600A8D98F /* CMMarbleLevelSet.m */; };
 		932527F715926DE500A8D98F /* DummyLevels.levelset in Resources */ = {isa = PBXBuildFile; fileRef = 932527F615926DE500A8D98F /* DummyLevels.levelset */; };
 		9340752C158CE8B300B92101 /* CMMenuPopoverBackground.m in Sources */ = {isa = PBXBuildFile; fileRef = 9340752B158CE8B300B92101 /* CMMenuPopoverBackground.m */; };
+		9380D0DC15975F410001D608 /* Ball_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 9380D0D315975F410001D608 /* Ball_1.png */; };
+		9380D0DD15975F410001D608 /* Ball_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 9380D0D415975F410001D608 /* Ball_2.png */; };
+		9380D0DE15975F410001D608 /* Ball_3.png in Resources */ = {isa = PBXBuildFile; fileRef = 9380D0D515975F410001D608 /* Ball_3.png */; };
+		9380D0DF15975F410001D608 /* Ball_4.png in Resources */ = {isa = PBXBuildFile; fileRef = 9380D0D615975F410001D608 /* Ball_4.png */; };
+		9380D0E015975F410001D608 /* Ball_5.png in Resources */ = {isa = PBXBuildFile; fileRef = 9380D0D715975F410001D608 /* Ball_5.png */; };
+		9380D0E115975F410001D608 /* Ball_6.png in Resources */ = {isa = PBXBuildFile; fileRef = 9380D0D815975F410001D608 /* Ball_6.png */; };
+		9380D0E215975F410001D608 /* Ball_7.png in Resources */ = {isa = PBXBuildFile; fileRef = 9380D0D915975F410001D608 /* Ball_7.png */; };
+		9380D0E315975F410001D608 /* Ball_8.png in Resources */ = {isa = PBXBuildFile; fileRef = 9380D0DA15975F410001D608 /* Ball_8.png */; };
+		9380D0E415975F410001D608 /* Ball_9.png in Resources */ = {isa = PBXBuildFile; fileRef = 9380D0DB15975F410001D608 /* Ball_9.png */; };
+		9380D0EF159785D70001D608 /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9380D0EE159785D70001D608 /* CoreImage.framework */; };
+		9380D0F6159789C70001D608 /* Ball_Overlay.png in Resources */ = {isa = PBXBuildFile; fileRef = 9380D0F5159789C70001D608 /* Ball_Overlay.png */; };
 		939682AD1583E717007CD4FA /* Marble_3.png in Resources */ = {isa = PBXBuildFile; fileRef = 939682A61583E717007CD4FA /* Marble_3.png */; };
 		939682AE1583E717007CD4FA /* Marble_4.png in Resources */ = {isa = PBXBuildFile; fileRef = 939682A71583E717007CD4FA /* Marble_4.png */; };
 		939682AF1583E717007CD4FA /* Marble_5.png in Resources */ = {isa = PBXBuildFile; fileRef = 939682A81583E717007CD4FA /* Marble_5.png */; };
@@ -170,6 +181,17 @@
 		9340752A158CE8B300B92101 /* CMMenuPopoverBackground.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMMenuPopoverBackground.h; sourceTree = "<group>"; };
 		9340752B158CE8B300B92101 /* CMMenuPopoverBackground.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMMenuPopoverBackground.m; sourceTree = "<group>"; };
 		9340752D158CEB3F00B92101 /* Level3.pxm */ = {isa = PBXFileReference; lastKnownFileType = file; path = Level3.pxm; sourceTree = "<group>"; };
+		9380D0D315975F410001D608 /* Ball_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Ball_1.png; sourceTree = "<group>"; };
+		9380D0D415975F410001D608 /* Ball_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Ball_2.png; sourceTree = "<group>"; };
+		9380D0D515975F410001D608 /* Ball_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Ball_3.png; sourceTree = "<group>"; };
+		9380D0D615975F410001D608 /* Ball_4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Ball_4.png; sourceTree = "<group>"; };
+		9380D0D715975F410001D608 /* Ball_5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Ball_5.png; sourceTree = "<group>"; };
+		9380D0D815975F410001D608 /* Ball_6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Ball_6.png; sourceTree = "<group>"; };
+		9380D0D915975F410001D608 /* Ball_7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Ball_7.png; sourceTree = "<group>"; };
+		9380D0DA15975F410001D608 /* Ball_8.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Ball_8.png; sourceTree = "<group>"; };
+		9380D0DB15975F410001D608 /* Ball_9.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Ball_9.png; sourceTree = "<group>"; };
+		9380D0EE159785D70001D608 /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
+		9380D0F5159789C70001D608 /* Ball_Overlay.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Ball_Overlay.png; sourceTree = "<group>"; };
 		939682A61583E717007CD4FA /* Marble_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Marble_3.png; sourceTree = "<group>"; };
 		939682A71583E717007CD4FA /* Marble_4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Marble_4.png; sourceTree = "<group>"; };
 		939682A81583E717007CD4FA /* Marble_5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Marble_5.png; sourceTree = "<group>"; };
@@ -274,6 +296,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9380D0EF159785D70001D608 /* CoreImage.framework in Frameworks */,
 				932527D2159257A300A8D98F /* AudioToolbox.framework in Frameworks */,
 				932527D01592578300A8D98F /* OpenAL.framework in Frameworks */,
 				932527CE1592577300A8D98F /* AVFoundation.framework in Frameworks */,
@@ -482,6 +505,7 @@
 		93AFEA0415828FA1003A6382 = {
 			isa = PBXGroup;
 			children = (
+				9380D0EE159785D70001D608 /* CoreImage.framework */,
 				93FE06851593F300000EBB92 /* Level0-StaticBodies.stb */,
 				9324856E1587E28E0092E2FD /* Scripts */,
 				939682B915840617007CD4FA /* Helpers */,
@@ -609,6 +633,16 @@
 				932527F615926DE500A8D98F /* DummyLevels.levelset */,
 				93ED3CC4158FD4DB00E753DD /* Sounds */,
 				939682C115841956007CD4FA /* Icon.png */,
+				9380D0D315975F410001D608 /* Ball_1.png */,
+				9380D0D415975F410001D608 /* Ball_2.png */,
+				9380D0D515975F410001D608 /* Ball_3.png */,
+				9380D0D615975F410001D608 /* Ball_4.png */,
+				9380D0D715975F410001D608 /* Ball_5.png */,
+				9380D0D815975F410001D608 /* Ball_6.png */,
+				9380D0D915975F410001D608 /* Ball_7.png */,
+				9380D0DA15975F410001D608 /* Ball_8.png */,
+				9380D0DB15975F410001D608 /* Ball_9.png */,
+				9380D0F5159789C70001D608 /* Ball_Overlay.png */,
 				93AFEA7A1582968C003A6382 /* Marble_1.png */,
 				93AFEA7B1582968C003A6382 /* Marble_2.png */,
 				939682A61583E717007CD4FA /* Marble_3.png */,
@@ -793,6 +827,16 @@
 				FE2E162415937ABD005CF4A4 /* CMMarbleLevelEndController.xib in Resources */,
 				93FE06841593CEF3000EBB92 /* marbleKlick.mp3 in Resources */,
 				93FE06861593F300000EBB92 /* Level0-StaticBodies.stb in Resources */,
+				9380D0DC15975F410001D608 /* Ball_1.png in Resources */,
+				9380D0DD15975F410001D608 /* Ball_2.png in Resources */,
+				9380D0DE15975F410001D608 /* Ball_3.png in Resources */,
+				9380D0DF15975F410001D608 /* Ball_4.png in Resources */,
+				9380D0E015975F410001D608 /* Ball_5.png in Resources */,
+				9380D0E115975F410001D608 /* Ball_6.png in Resources */,
+				9380D0E215975F410001D608 /* Ball_7.png in Resources */,
+				9380D0E315975F410001D608 /* Ball_8.png in Resources */,
+				9380D0E415975F410001D608 /* Ball_9.png in Resources */,
+				9380D0F6159789C70001D608 /* Ball_Overlay.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

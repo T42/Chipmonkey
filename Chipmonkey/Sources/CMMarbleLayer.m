@@ -12,7 +12,7 @@
 
 @implementation CMMarbleLayer
 
-@synthesize chipmunkObjects, body, shape, radius ,touchedShapes, shouldDestroy,lastSoundTime;
+@synthesize chipmunkObjects, body, shape, radius ,touchedShapes, shouldDestroy,lastSoundTime, overlayLayer;
 
 - (ChipmunkShape *) circleShapeWithBody:(ChipmunkBody*) b andRadius:(CGFloat) r
 {
@@ -53,6 +53,7 @@
 		[self setRadius:r];
 		[self setBody:[self circleBodyWithMass:mass andRadius:self.radius]];
 		[self setShape:[self circleShapeWithBody:self.body andRadius:self.radius]];
+		
 		self.borderColor = [[UIColor redColor]CGColor];
 		self.borderWidth = 2;
     self.cornerRadius=self.radius;
@@ -144,6 +145,8 @@
 {
 	[super layoutSublayers];
 	self.body.pos = cpv(self.position.x,self.position.y);
+	self.overlayLayer.bounds = self.bounds;
+	self.overlayLayer.frame = CGRectMake(0, 0, self.bounds.size.width, self.bounds.size.height);
   //	NSLog(@"Layout called");
 }
 

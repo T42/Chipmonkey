@@ -12,15 +12,17 @@
 @interface CMMarbleLayer : CALayer <ChipmunkObject,NSCopying>
 {
 	@protected
-	ChipmunkBody *body;
-	ChipmunkShape *shape;
-	CGFloat radius;
+	ChipmunkBody 				*body;
+	ChipmunkShape 			*shape;
+	CGFloat 						radius;
 	
-	NSUInteger touchedShapes;
-	BOOL shouldDestroy;
-	NSTimeInterval lastSoundTime;
+	NSUInteger 					touchedShapes;
+	BOOL 								shouldDestroy;
+	NSTimeInterval 			lastSoundTime;
+	CALayer							*overlayLayer;
 }
 @property (assign, nonatomic) BOOL shouldDestroy;
+@property (retain, nonatomic) CALayer * overlayLayer;
 @property (nonatomic) NSUInteger touchedShapes;
 @property (readonly,nonatomic) NSArray *chipmunkObjects;
 @property (readonly,nonatomic) ChipmunkBody *body;

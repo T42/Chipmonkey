@@ -21,6 +21,11 @@
 
 #define MAX_MARBLE_IMAGES 9
 
+#if USE_BILLARD_IMAGES
+#define MARBLE_IMAGE_PREFIX @"Ball"
+#else
+#define MARBLE_IMAGE_PREFIX @"Marble"
+#endif
 
 #define NUM_LEVEL_MARBLES 80
 
@@ -130,7 +135,7 @@ levelStatistics,currentStatistics,comboMarkerView,fourMarkerView,comboHits;
 {
 	NSMutableArray *array = [NSMutableArray array];
 	for (NSInteger i=1; i<MAX_MARBLE_IMAGES+1; i++) {
-		NSString *imageName = [NSString stringWithFormat:@"Marble_%i",i];
+		NSString *imageName = [NSString stringWithFormat:@"%@_%i",MARBLE_IMAGE_PREFIX,i];
 		UIImage *myImage = [UIImage imageNamed:imageName];
 		if (myImage) {
 			[array addObject:myImage];
