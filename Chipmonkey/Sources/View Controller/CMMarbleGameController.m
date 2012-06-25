@@ -301,7 +301,6 @@ levelStatistics,currentStatistics,comboMarkerView,fourMarkerView,comboHits;
 
   NSTimeInterval k = MIN(time - self.lastDisplayTime,MAX_DT_FRAMERATE);
 	if (k>=self.frameTime) {
-
 		__block NSUInteger normalHits = 0;
 		__block NSUInteger multiHits = 0;
 		NSArray *removedMarbles = [self.playgroundView removeCollisionSets];
@@ -322,9 +321,6 @@ levelStatistics,currentStatistics,comboMarkerView,fourMarkerView,comboHits;
 																			repeats:NO];
 		}
 		self.comboHits += [removedMarbles count];
-//		if (self.comboHits) {
-//					NSLog(@"Combo: %d",self.comboHits);
-//		}
 		
 		if (self.comboHits>1) {
 			if (self.comboMarkerView.hidden) {
@@ -458,6 +454,10 @@ levelStatistics,currentStatistics,comboMarkerView,fourMarkerView,comboHits;
 	return marbleImage;
 }
 
+- (UIImage*) marbleGlossImage
+{
+  return [UIImage imageNamed:@"Ball_Overlay"];
+}
 - (UIImage*) marbleImageForCGImage:(CGImageRef) imageRef
 {
 	UIImage *result = nil;

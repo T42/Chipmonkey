@@ -37,6 +37,7 @@
 	[self setShape:[self circleShapeWithBody:self.body andRadius:self.radius]];
 	self.borderWidth = 2;
 	self.borderColor = [[UIColor redColor]CGColor];
+  self.overlayLayer = [CALayer layer];
 }
 
 - (id) init
@@ -57,6 +58,12 @@
 		self.borderColor = [[UIColor redColor]CGColor];
 		self.borderWidth = 2;
     self.cornerRadius=self.radius;
+    
+
+//    CALayer *mOverlayLayer = [CALayer layer];
+//    CIFilter *f =[CIFilter filterWithName:@"CIHardLightBlendMode"];
+//    mOverlayLayer.compositingFilter = f;
+//    self.overlayLayer = mOverlayLayer;
 	}
 	return self;
 }
@@ -141,6 +148,18 @@
 	
 	}
 }
+- (void) setOverlayLayer:(CALayer *)oLayer
+{
+  if (oLayer != self->overlayLayer) {
+    [self->overlayLayer removeFromSuperlayer];
+    [self->overlayLayer autorelease];
+    self->overlayLayer = [oLayer retain];
+    self.overlayLayer.frame = CGRectMake(0.0, 0.0, self.bounds.size.width, self.bounds.size.height);
+    [self addSublayer:self->overlayLayer];
+  }
+}
+
+#pragma mark - Layer
 - (void) layoutSublayers
 {
 	[super layoutSublayers];
