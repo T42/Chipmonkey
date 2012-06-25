@@ -1,0 +1,25 @@
+<?xml version="1.0" standalone="no" ?>
+<!DOCTYPE project PUBLIC "-//audacityproject-1.3.0//DTD//EN" "http://audacity.sourceforge.net/xml/audacityproject-1.3.0.dtd" >
+<project xmlns="http://audacity.sourceforge.net/xml/" projname="marbleKlick_data" version="1.3.0" audacityversion="2.0.0" sel0="0.0226632000" sel1="0.0472150000" vpos="0" h="0.0000000000" zoom="4765.4347135444" rate="48000.0">
+	<tags/>
+	<wavetrack name="marbleKlick" channel="0" linked="1" mute="0" solo="0" height="150" minimized="0" rate="48000" gain="1.0" pan="0.0">
+		<waveclip offset="0.00000000">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="18886">
+				<waveblock start="0">
+					<simpleblockfile filename="e000016c.au" len="18886" min="-0.396022" max="0.382248" rms="0.005561"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="marbleKlick" channel="1" linked="0" mute="0" solo="0" height="150" minimized="0" rate="48000" gain="1.0" pan="0.0">
+		<waveclip offset="0.00000000">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="18886">
+				<waveblock start="0">
+					<simpleblockfile filename="e00009fc.au" len="18886" min="-0.501187" max="0.297995" rms="0.00501"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+</project>

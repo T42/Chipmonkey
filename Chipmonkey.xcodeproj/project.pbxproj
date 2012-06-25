@@ -13,10 +13,52 @@
 		931297321582A5D700A2B556 /* CMMarbleLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 931297311582A5D700A2B556 /* CMMarbleLayer.m */; };
 		9323A11B1584DBE3007E8F9A /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93AFEA7E15829AB9003A6382 /* QuartzCore.framework */; };
 		9323A11C1584DBE6007E8F9A /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9323A1181584DB9A007E8F9A /* MediaPlayer.framework */; };
-		9324856B1587DAFD0092E2FD /* Level1-Overlay.png in Resources */ = {isa = PBXBuildFile; fileRef = 932485691587DAFD0092E2FD /* Level1-Overlay.png */; };
-		9324856C1587DAFD0092E2FD /* Level1-Background.png in Resources */ = {isa = PBXBuildFile; fileRef = 9324856A1587DAFD0092E2FD /* Level1-Background.png */; };
-		932485721587E3CB0092E2FD /* Level1-StaticBodies.stb in Resources */ = {isa = PBXBuildFile; fileRef = 932485711587E3CB0092E2FD /* Level1-StaticBodies.stb */; };
 		932485761587E4870092E2FD /* CMSimpleShapeReader.m in Sources */ = {isa = PBXBuildFile; fileRef = 932485751587E4870092E2FD /* CMSimpleShapeReader.m */; };
+		93252769159254DB00A8D98F /* CMMarbleLevel.m in Sources */ = {isa = PBXBuildFile; fileRef = 93252768159254DB00A8D98F /* CMMarbleLevel.m */; };
+		932527B21592569900A8D98F /* OALAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 932527731592569900A8D98F /* OALAction.m */; };
+		932527B31592569900A8D98F /* OALActionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 932527751592569900A8D98F /* OALActionManager.m */; };
+		932527B41592569900A8D98F /* OALAudioActions.m in Sources */ = {isa = PBXBuildFile; fileRef = 932527771592569900A8D98F /* OALAudioActions.m */; };
+		932527B51592569900A8D98F /* OALFunction.m in Sources */ = {isa = PBXBuildFile; fileRef = 932527791592569900A8D98F /* OALFunction.m */; };
+		932527B61592569900A8D98F /* OALUtilityActions.m in Sources */ = {isa = PBXBuildFile; fileRef = 9325277B1592569900A8D98F /* OALUtilityActions.m */; };
+		932527B71592569900A8D98F /* OALAudioTrack.m in Sources */ = {isa = PBXBuildFile; fileRef = 9325277E1592569900A8D98F /* OALAudioTrack.m */; };
+		932527B81592569900A8D98F /* OALAudioTrackNotifications.m in Sources */ = {isa = PBXBuildFile; fileRef = 932527801592569900A8D98F /* OALAudioTrackNotifications.m */; };
+		932527B91592569900A8D98F /* OALAudioTracks.m in Sources */ = {isa = PBXBuildFile; fileRef = 932527821592569900A8D98F /* OALAudioTracks.m */; };
+		932527BA1592569900A8D98F /* LICENSE.ObjectAL.txt in Resources */ = {isa = PBXBuildFile; fileRef = 932527831592569900A8D98F /* LICENSE.ObjectAL.txt */; };
+		932527BB1592569900A8D98F /* OALSimpleAudio.m in Sources */ = {isa = PBXBuildFile; fileRef = 932527851592569900A8D98F /* OALSimpleAudio.m */; };
+		932527BC1592569900A8D98F /* ALBuffer.m in Sources */ = {isa = PBXBuildFile; fileRef = 9325278A1592569900A8D98F /* ALBuffer.m */; };
+		932527BD1592569900A8D98F /* ALCaptureDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 9325278C1592569900A8D98F /* ALCaptureDevice.m */; };
+		932527BE1592569900A8D98F /* ALChannelSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 9325278E1592569900A8D98F /* ALChannelSource.m */; };
+		932527BF1592569900A8D98F /* ALContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 932527901592569900A8D98F /* ALContext.m */; };
+		932527C01592569900A8D98F /* ALDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 932527921592569900A8D98F /* ALDevice.m */; };
+		932527C11592569900A8D98F /* ALListener.m in Sources */ = {isa = PBXBuildFile; fileRef = 932527941592569900A8D98F /* ALListener.m */; };
+		932527C21592569900A8D98F /* ALSoundSourcePool.m in Sources */ = {isa = PBXBuildFile; fileRef = 932527971592569900A8D98F /* ALSoundSourcePool.m */; };
+		932527C31592569900A8D98F /* ALSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 932527991592569900A8D98F /* ALSource.m */; };
+		932527C41592569900A8D98F /* ALWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 9325279C1592569900A8D98F /* ALWrapper.m */; };
+		932527C51592569900A8D98F /* OpenALManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9325279E1592569900A8D98F /* OpenALManager.m */; };
+		932527C61592569900A8D98F /* OALAudioSession.m in Sources */ = {isa = PBXBuildFile; fileRef = 932527A11592569900A8D98F /* OALAudioSession.m */; };
+		932527C71592569900A8D98F /* OALSuspendHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 932527A31592569900A8D98F /* OALSuspendHandler.m */; };
+		932527C81592569900A8D98F /* IOSVersion.m in Sources */ = {isa = PBXBuildFile; fileRef = 932527A61592569900A8D98F /* IOSVersion.m */; };
+		932527C91592569900A8D98F /* mach_timing.c in Sources */ = {isa = PBXBuildFile; fileRef = 932527A71592569900A8D98F /* mach_timing.c */; };
+		932527CA1592569900A8D98F /* NSMutableArray+WeakReferences.m in Sources */ = {isa = PBXBuildFile; fileRef = 932527AA1592569900A8D98F /* NSMutableArray+WeakReferences.m */; };
+		932527CB1592569900A8D98F /* OALAudioFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 932527AC1592569900A8D98F /* OALAudioFile.m */; };
+		932527CC1592569900A8D98F /* OALTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 932527AF1592569900A8D98F /* OALTools.m */; };
+		932527CE1592577300A8D98F /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 932527CD1592577300A8D98F /* AVFoundation.framework */; };
+		932527D01592578300A8D98F /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 932527CF1592578300A8D98F /* OpenAL.framework */; };
+		932527D2159257A300A8D98F /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 932527D1159257A300A8D98F /* AudioToolbox.framework */; };
+		932527F51592670600A8D98F /* CMMarbleLevelSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 932527F41592670600A8D98F /* CMMarbleLevelSet.m */; };
+		932527F715926DE500A8D98F /* DummyLevels.levelset in Resources */ = {isa = PBXBuildFile; fileRef = 932527F615926DE500A8D98F /* DummyLevels.levelset */; };
+		9340752C158CE8B300B92101 /* CMMenuPopoverBackground.m in Sources */ = {isa = PBXBuildFile; fileRef = 9340752B158CE8B300B92101 /* CMMenuPopoverBackground.m */; };
+		9380D0DC15975F410001D608 /* Ball_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 9380D0D315975F410001D608 /* Ball_1.png */; };
+		9380D0DD15975F410001D608 /* Ball_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 9380D0D415975F410001D608 /* Ball_2.png */; };
+		9380D0DE15975F410001D608 /* Ball_3.png in Resources */ = {isa = PBXBuildFile; fileRef = 9380D0D515975F410001D608 /* Ball_3.png */; };
+		9380D0DF15975F410001D608 /* Ball_4.png in Resources */ = {isa = PBXBuildFile; fileRef = 9380D0D615975F410001D608 /* Ball_4.png */; };
+		9380D0E015975F410001D608 /* Ball_5.png in Resources */ = {isa = PBXBuildFile; fileRef = 9380D0D715975F410001D608 /* Ball_5.png */; };
+		9380D0E115975F410001D608 /* Ball_6.png in Resources */ = {isa = PBXBuildFile; fileRef = 9380D0D815975F410001D608 /* Ball_6.png */; };
+		9380D0E215975F410001D608 /* Ball_7.png in Resources */ = {isa = PBXBuildFile; fileRef = 9380D0D915975F410001D608 /* Ball_7.png */; };
+		9380D0E315975F410001D608 /* Ball_8.png in Resources */ = {isa = PBXBuildFile; fileRef = 9380D0DA15975F410001D608 /* Ball_8.png */; };
+		9380D0E415975F410001D608 /* Ball_9.png in Resources */ = {isa = PBXBuildFile; fileRef = 9380D0DB15975F410001D608 /* Ball_9.png */; };
+		9380D0EF159785D70001D608 /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9380D0EE159785D70001D608 /* CoreImage.framework */; };
+		9380D0F6159789C70001D608 /* Ball_Overlay.png in Resources */ = {isa = PBXBuildFile; fileRef = 9380D0F5159789C70001D608 /* Ball_Overlay.png */; };
 		939682AD1583E717007CD4FA /* Marble_3.png in Resources */ = {isa = PBXBuildFile; fileRef = 939682A61583E717007CD4FA /* Marble_3.png */; };
 		939682AE1583E717007CD4FA /* Marble_4.png in Resources */ = {isa = PBXBuildFile; fileRef = 939682A71583E717007CD4FA /* Marble_4.png */; };
 		939682AF1583E717007CD4FA /* Marble_5.png in Resources */ = {isa = PBXBuildFile; fileRef = 939682A81583E717007CD4FA /* Marble_5.png */; };
@@ -34,17 +76,24 @@
 		93AFEA78158290B2003A6382 /* libChipmunkPro-iPhone.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 93AFEA7615829097003A6382 /* libChipmunkPro-iPhone.a */; };
 		93AFEA7C1582968C003A6382 /* Marble_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 93AFEA7A1582968C003A6382 /* Marble_1.png */; };
 		93AFEA7D1582968C003A6382 /* Marble_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 93AFEA7B1582968C003A6382 /* Marble_2.png */; };
-		93EE4E0A1589374900B491DE /* Level2-Background.png in Resources */ = {isa = PBXBuildFile; fileRef = 93EE4E071589374900B491DE /* Level2-Background.png */; };
-		93EE4E0B1589374900B491DE /* Level2-Overlay.png in Resources */ = {isa = PBXBuildFile; fileRef = 93EE4E081589374900B491DE /* Level2-Overlay.png */; };
-		93EE4E0C1589374900B491DE /* Level2-StaticBodies.stb in Resources */ = {isa = PBXBuildFile; fileRef = 93EE4E091589374900B491DE /* Level2-StaticBodies.stb */; };
-		93EE4E0F1589378D00B491DE /* CMSimpleLevel.m in Sources */ = {isa = PBXBuildFile; fileRef = 93EE4E0E1589378D00B491DE /* CMSimpleLevel.m */; };
-		93EE4E1315895A4000B491DE /* Level1Background.pxm in Resources */ = {isa = PBXBuildFile; fileRef = 93EE4E1115895A4000B491DE /* Level1Background.pxm */; };
-		93EE4E1415895A4000B491DE /* Level2.pxm in Resources */ = {isa = PBXBuildFile; fileRef = 93EE4E1215895A4000B491DE /* Level2.pxm */; };
+		93C0389D1596616200F0637E /* CMMarbleLevelStatistics.m in Sources */ = {isa = PBXBuildFile; fileRef = 93C0389C1596616200F0637E /* CMMarbleLevelStatistics.m */; };
+		93EBF3C6158BAEE1005D32BF /* CMOptionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93EBF3C4158BAEE1005D32BF /* CMOptionsViewController.m */; };
+		93EBF3C7158BAEE1005D32BF /* CMOptionsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93EBF3C5158BAEE1005D32BF /* CMOptionsViewController.xib */; };
+		93EBF3C9158BB311005D32BF /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 93EBF3C8158BB311005D32BF /* Settings.bundle */; };
+		93F44401158E23FF00D80BF1 /* CMDebugViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93F443FF158E23FF00D80BF1 /* CMDebugViewController.m */; };
+		93F44402158E23FF00D80BF1 /* CMDebugViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93F44400158E23FF00D80BF1 /* CMDebugViewController.xib */; };
 		93F664AE158A8782002B4E97 /* CMMarbleGameController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93F664AD158A8782002B4E97 /* CMMarbleGameController.m */; };
 		93F664B1158A87CE002B4E97 /* CMAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 93F664B0158A87CE002B4E97 /* CMAppDelegate.m */; };
 		93F664B5158A8BC2002B4E97 /* CMMarbleMenuController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93F664B3158A8BC2002B4E97 /* CMMarbleMenuController.m */; };
 		93F664B7158A8BE5002B4E97 /* CMMarbleMenuController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93F664B9158A8BE5002B4E97 /* CMMarbleMenuController.xib */; };
 		93F664BF158A98FF002B4E97 /* CMFunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = 93F664BE158A98FF002B4E97 /* CMFunctions.m */; };
+		93FE06841593CEF3000EBB92 /* marbleKlick.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 93FE06831593CEF3000EBB92 /* marbleKlick.mp3 */; };
+		93FE06861593F300000EBB92 /* Level0-StaticBodies.stb in Resources */ = {isa = PBXBuildFile; fileRef = 93FE06851593F300000EBB92 /* Level0-StaticBodies.stb */; };
+		93FE068915961CE6000EBB92 /* CMMarbleCollisionCollector.m in Sources */ = {isa = PBXBuildFile; fileRef = 93FE068815961CE6000EBB92 /* CMMarbleCollisionCollector.m */; };
+		FE2E161E15937995005CF4A4 /* CMMarbleLevelStartController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE2E161C15937995005CF4A4 /* CMMarbleLevelStartController.m */; };
+		FE2E161F15937995005CF4A4 /* CMMarbleLevelStartController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE2E161D15937995005CF4A4 /* CMMarbleLevelStartController.xib */; };
+		FE2E162315937ABD005CF4A4 /* CMMarbleLevelEndController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE2E162115937ABD005CF4A4 /* CMMarbleLevelEndController.m */; };
+		FE2E162415937ABD005CF4A4 /* CMMarbleLevelEndController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE2E162215937ABD005CF4A4 /* CMMarbleLevelEndController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -57,12 +106,92 @@
 		931297301582A5D700A2B556 /* CMMarbleLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMMarbleLayer.h; sourceTree = "<group>"; };
 		931297311582A5D700A2B556 /* CMMarbleLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMMarbleLayer.m; sourceTree = "<group>"; };
 		9323A1181584DB9A007E8F9A /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
-		932485691587DAFD0092E2FD /* Level1-Overlay.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Level1-Overlay.png"; sourceTree = "<group>"; };
-		9324856A1587DAFD0092E2FD /* Level1-Background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Level1-Background.png"; sourceTree = "<group>"; };
 		9324856F1587E2C80092E2FD /* CompileLevels.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = CompileLevels.sh; sourceTree = "<group>"; };
-		932485711587E3CB0092E2FD /* Level1-StaticBodies.stb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Level1-StaticBodies.stb"; sourceTree = "<group>"; };
 		932485741587E4870092E2FD /* CMSimpleShapeReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMSimpleShapeReader.h; sourceTree = "<group>"; };
 		932485751587E4870092E2FD /* CMSimpleShapeReader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMSimpleShapeReader.m; sourceTree = "<group>"; };
+		93252767159254DB00A8D98F /* CMMarbleLevel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMMarbleLevel.h; sourceTree = "<group>"; };
+		93252768159254DB00A8D98F /* CMMarbleLevel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMMarbleLevel.m; sourceTree = "<group>"; };
+		932527711592569900A8D98F /* OALAction+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "OALAction+Private.h"; sourceTree = "<group>"; };
+		932527721592569900A8D98F /* OALAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OALAction.h; sourceTree = "<group>"; };
+		932527731592569900A8D98F /* OALAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OALAction.m; sourceTree = "<group>"; };
+		932527741592569900A8D98F /* OALActionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OALActionManager.h; sourceTree = "<group>"; };
+		932527751592569900A8D98F /* OALActionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OALActionManager.m; sourceTree = "<group>"; };
+		932527761592569900A8D98F /* OALAudioActions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OALAudioActions.h; sourceTree = "<group>"; };
+		932527771592569900A8D98F /* OALAudioActions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OALAudioActions.m; sourceTree = "<group>"; };
+		932527781592569900A8D98F /* OALFunction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OALFunction.h; sourceTree = "<group>"; };
+		932527791592569900A8D98F /* OALFunction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OALFunction.m; sourceTree = "<group>"; };
+		9325277A1592569900A8D98F /* OALUtilityActions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OALUtilityActions.h; sourceTree = "<group>"; };
+		9325277B1592569900A8D98F /* OALUtilityActions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OALUtilityActions.m; sourceTree = "<group>"; };
+		9325277D1592569900A8D98F /* OALAudioTrack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OALAudioTrack.h; sourceTree = "<group>"; };
+		9325277E1592569900A8D98F /* OALAudioTrack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OALAudioTrack.m; sourceTree = "<group>"; };
+		9325277F1592569900A8D98F /* OALAudioTrackNotifications.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OALAudioTrackNotifications.h; sourceTree = "<group>"; };
+		932527801592569900A8D98F /* OALAudioTrackNotifications.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OALAudioTrackNotifications.m; sourceTree = "<group>"; };
+		932527811592569900A8D98F /* OALAudioTracks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OALAudioTracks.h; sourceTree = "<group>"; };
+		932527821592569900A8D98F /* OALAudioTracks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OALAudioTracks.m; sourceTree = "<group>"; };
+		932527831592569900A8D98F /* LICENSE.ObjectAL.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE.ObjectAL.txt; sourceTree = "<group>"; };
+		932527841592569900A8D98F /* OALSimpleAudio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OALSimpleAudio.h; sourceTree = "<group>"; };
+		932527851592569900A8D98F /* OALSimpleAudio.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OALSimpleAudio.m; sourceTree = "<group>"; };
+		932527861592569900A8D98F /* ObjectAL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObjectAL.h; sourceTree = "<group>"; };
+		932527871592569900A8D98F /* ObjectALConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObjectALConfig.h; sourceTree = "<group>"; };
+		932527891592569900A8D98F /* ALBuffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALBuffer.h; sourceTree = "<group>"; };
+		9325278A1592569900A8D98F /* ALBuffer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALBuffer.m; sourceTree = "<group>"; };
+		9325278B1592569900A8D98F /* ALCaptureDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALCaptureDevice.h; sourceTree = "<group>"; };
+		9325278C1592569900A8D98F /* ALCaptureDevice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALCaptureDevice.m; sourceTree = "<group>"; };
+		9325278D1592569900A8D98F /* ALChannelSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALChannelSource.h; sourceTree = "<group>"; };
+		9325278E1592569900A8D98F /* ALChannelSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALChannelSource.m; sourceTree = "<group>"; };
+		9325278F1592569900A8D98F /* ALContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALContext.h; sourceTree = "<group>"; };
+		932527901592569900A8D98F /* ALContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALContext.m; sourceTree = "<group>"; };
+		932527911592569900A8D98F /* ALDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALDevice.h; sourceTree = "<group>"; };
+		932527921592569900A8D98F /* ALDevice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALDevice.m; sourceTree = "<group>"; };
+		932527931592569900A8D98F /* ALListener.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALListener.h; sourceTree = "<group>"; };
+		932527941592569900A8D98F /* ALListener.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALListener.m; sourceTree = "<group>"; };
+		932527951592569900A8D98F /* ALSoundSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALSoundSource.h; sourceTree = "<group>"; };
+		932527961592569900A8D98F /* ALSoundSourcePool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALSoundSourcePool.h; sourceTree = "<group>"; };
+		932527971592569900A8D98F /* ALSoundSourcePool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALSoundSourcePool.m; sourceTree = "<group>"; };
+		932527981592569900A8D98F /* ALSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALSource.h; sourceTree = "<group>"; };
+		932527991592569900A8D98F /* ALSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALSource.m; sourceTree = "<group>"; };
+		9325279A1592569900A8D98F /* ALTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALTypes.h; sourceTree = "<group>"; };
+		9325279B1592569900A8D98F /* ALWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALWrapper.h; sourceTree = "<group>"; };
+		9325279C1592569900A8D98F /* ALWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALWrapper.m; sourceTree = "<group>"; };
+		9325279D1592569900A8D98F /* OpenALManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenALManager.h; sourceTree = "<group>"; };
+		9325279E1592569900A8D98F /* OpenALManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OpenALManager.m; sourceTree = "<group>"; };
+		932527A01592569900A8D98F /* OALAudioSession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OALAudioSession.h; sourceTree = "<group>"; };
+		932527A11592569900A8D98F /* OALAudioSession.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OALAudioSession.m; sourceTree = "<group>"; };
+		932527A21592569900A8D98F /* OALSuspendHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OALSuspendHandler.h; sourceTree = "<group>"; };
+		932527A31592569900A8D98F /* OALSuspendHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OALSuspendHandler.m; sourceTree = "<group>"; };
+		932527A51592569900A8D98F /* IOSVersion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IOSVersion.h; sourceTree = "<group>"; };
+		932527A61592569900A8D98F /* IOSVersion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IOSVersion.m; sourceTree = "<group>"; };
+		932527A71592569900A8D98F /* mach_timing.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = mach_timing.c; sourceTree = "<group>"; };
+		932527A81592569900A8D98F /* mach_timing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mach_timing.h; sourceTree = "<group>"; };
+		932527A91592569900A8D98F /* NSMutableArray+WeakReferences.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+WeakReferences.h"; sourceTree = "<group>"; };
+		932527AA1592569900A8D98F /* NSMutableArray+WeakReferences.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+WeakReferences.m"; sourceTree = "<group>"; };
+		932527AB1592569900A8D98F /* OALAudioFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OALAudioFile.h; sourceTree = "<group>"; };
+		932527AC1592569900A8D98F /* OALAudioFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OALAudioFile.m; sourceTree = "<group>"; };
+		932527AD1592569900A8D98F /* OALNotifications.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OALNotifications.h; sourceTree = "<group>"; };
+		932527AE1592569900A8D98F /* OALTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OALTools.h; sourceTree = "<group>"; };
+		932527AF1592569900A8D98F /* OALTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OALTools.m; sourceTree = "<group>"; };
+		932527B01592569900A8D98F /* ObjectALMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObjectALMacros.h; sourceTree = "<group>"; };
+		932527B11592569900A8D98F /* SynthesizeSingleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SynthesizeSingleton.h; sourceTree = "<group>"; };
+		932527CD1592577300A8D98F /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		932527CF1592578300A8D98F /* OpenAL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenAL.framework; path = System/Library/Frameworks/OpenAL.framework; sourceTree = SDKROOT; };
+		932527D1159257A300A8D98F /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		932527F31592670600A8D98F /* CMMarbleLevelSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMMarbleLevelSet.h; sourceTree = "<group>"; };
+		932527F41592670600A8D98F /* CMMarbleLevelSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMMarbleLevelSet.m; sourceTree = "<group>"; };
+		932527F615926DE500A8D98F /* DummyLevels.levelset */ = {isa = PBXFileReference; lastKnownFileType = folder; path = DummyLevels.levelset; sourceTree = "<group>"; };
+		9340752A158CE8B300B92101 /* CMMenuPopoverBackground.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMMenuPopoverBackground.h; sourceTree = "<group>"; };
+		9340752B158CE8B300B92101 /* CMMenuPopoverBackground.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMMenuPopoverBackground.m; sourceTree = "<group>"; };
+		9340752D158CEB3F00B92101 /* Level3.pxm */ = {isa = PBXFileReference; lastKnownFileType = file; path = Level3.pxm; sourceTree = "<group>"; };
+		9380D0D315975F410001D608 /* Ball_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Ball_1.png; sourceTree = "<group>"; };
+		9380D0D415975F410001D608 /* Ball_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Ball_2.png; sourceTree = "<group>"; };
+		9380D0D515975F410001D608 /* Ball_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Ball_3.png; sourceTree = "<group>"; };
+		9380D0D615975F410001D608 /* Ball_4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Ball_4.png; sourceTree = "<group>"; };
+		9380D0D715975F410001D608 /* Ball_5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Ball_5.png; sourceTree = "<group>"; };
+		9380D0D815975F410001D608 /* Ball_6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Ball_6.png; sourceTree = "<group>"; };
+		9380D0D915975F410001D608 /* Ball_7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Ball_7.png; sourceTree = "<group>"; };
+		9380D0DA15975F410001D608 /* Ball_8.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Ball_8.png; sourceTree = "<group>"; };
+		9380D0DB15975F410001D608 /* Ball_9.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Ball_9.png; sourceTree = "<group>"; };
+		9380D0EE159785D70001D608 /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
+		9380D0F5159789C70001D608 /* Ball_Overlay.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Ball_Overlay.png; sourceTree = "<group>"; };
 		939682A61583E717007CD4FA /* Marble_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Marble_3.png; sourceTree = "<group>"; };
 		939682A71583E717007CD4FA /* Marble_4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Marble_4.png; sourceTree = "<group>"; };
 		939682A81583E717007CD4FA /* Marble_5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Marble_5.png; sourceTree = "<group>"; };
@@ -127,13 +256,20 @@
 		93AFEA7A1582968C003A6382 /* Marble_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Marble_1.png; sourceTree = "<group>"; };
 		93AFEA7B1582968C003A6382 /* Marble_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Marble_2.png; sourceTree = "<group>"; };
 		93AFEA7E15829AB9003A6382 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		93EE4E071589374900B491DE /* Level2-Background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Level2-Background.png"; sourceTree = "<group>"; };
-		93EE4E081589374900B491DE /* Level2-Overlay.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Level2-Overlay.png"; sourceTree = "<group>"; };
-		93EE4E091589374900B491DE /* Level2-StaticBodies.stb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Level2-StaticBodies.stb"; sourceTree = "<group>"; };
+		93C0389B1596616200F0637E /* CMMarbleLevelStatistics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMMarbleLevelStatistics.h; sourceTree = "<group>"; };
+		93C0389C1596616200F0637E /* CMMarbleLevelStatistics.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMMarbleLevelStatistics.m; sourceTree = "<group>"; };
+		93EBF3C3158BAEE1005D32BF /* CMOptionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMOptionsViewController.h; sourceTree = "<group>"; };
+		93EBF3C4158BAEE1005D32BF /* CMOptionsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMOptionsViewController.m; sourceTree = "<group>"; };
+		93EBF3C5158BAEE1005D32BF /* CMOptionsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CMOptionsViewController.xib; sourceTree = "<group>"; };
+		93EBF3C8158BB311005D32BF /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		93EE4E0D1589378D00B491DE /* CMSimpleLevel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMSimpleLevel.h; sourceTree = "<group>"; };
 		93EE4E0E1589378D00B491DE /* CMSimpleLevel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMSimpleLevel.m; sourceTree = "<group>"; };
-		93EE4E1115895A4000B491DE /* Level1Background.pxm */ = {isa = PBXFileReference; lastKnownFileType = file; path = Level1Background.pxm; sourceTree = "<group>"; };
+		93EE4E1115895A4000B491DE /* Level1.pxm */ = {isa = PBXFileReference; lastKnownFileType = file; path = Level1.pxm; sourceTree = "<group>"; };
 		93EE4E1215895A4000B491DE /* Level2.pxm */ = {isa = PBXFileReference; lastKnownFileType = file; path = Level2.pxm; sourceTree = "<group>"; };
+		93F443FE158E23FF00D80BF1 /* CMDebugViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMDebugViewController.h; sourceTree = "<group>"; };
+		93F443FF158E23FF00D80BF1 /* CMDebugViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMDebugViewController.m; sourceTree = "<group>"; };
+		93F44400158E23FF00D80BF1 /* CMDebugViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CMDebugViewController.xib; sourceTree = "<group>"; };
+		93F44403158E42EC00D80BF1 /* CMGameControllerProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CMGameControllerProtocol.h; path = ../CMGameControllerProtocol.h; sourceTree = "<group>"; };
 		93F664AC158A8782002B4E97 /* CMMarbleGameController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMMarbleGameController.h; sourceTree = "<group>"; };
 		93F664AD158A8782002B4E97 /* CMMarbleGameController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMMarbleGameController.m; sourceTree = "<group>"; };
 		93F664AF158A87CE002B4E97 /* CMAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMAppDelegate.h; sourceTree = "<group>"; };
@@ -143,6 +279,16 @@
 		93F664B8158A8BE5002B4E97 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/CMMarbleMenuController.xib; sourceTree = "<group>"; };
 		93F664BD158A98E7002B4E97 /* CMFunctions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CMFunctions.h; sourceTree = "<group>"; };
 		93F664BE158A98FF002B4E97 /* CMFunctions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMFunctions.m; sourceTree = "<group>"; };
+		93FE06831593CEF3000EBB92 /* marbleKlick.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = marbleKlick.mp3; sourceTree = "<group>"; };
+		93FE06851593F300000EBB92 /* Level0-StaticBodies.stb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "Level0-StaticBodies.stb"; path = "Chipmonkey/Resources/DummyLevels.levelset/Level0-StaticBodies.stb"; sourceTree = "<group>"; };
+		93FE068715961CE6000EBB92 /* CMMarbleCollisionCollector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMMarbleCollisionCollector.h; sourceTree = "<group>"; };
+		93FE068815961CE6000EBB92 /* CMMarbleCollisionCollector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMMarbleCollisionCollector.m; sourceTree = "<group>"; };
+		FE2E161B15937995005CF4A4 /* CMMarbleLevelStartController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMMarbleLevelStartController.h; sourceTree = "<group>"; };
+		FE2E161C15937995005CF4A4 /* CMMarbleLevelStartController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMMarbleLevelStartController.m; sourceTree = "<group>"; };
+		FE2E161D15937995005CF4A4 /* CMMarbleLevelStartController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CMMarbleLevelStartController.xib; sourceTree = "<group>"; };
+		FE2E162015937ABD005CF4A4 /* CMMarbleLevelEndController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMMarbleLevelEndController.h; sourceTree = "<group>"; };
+		FE2E162115937ABD005CF4A4 /* CMMarbleLevelEndController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMMarbleLevelEndController.m; sourceTree = "<group>"; };
+		FE2E162215937ABD005CF4A4 /* CMMarbleLevelEndController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CMMarbleLevelEndController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,6 +296,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9380D0EF159785D70001D608 /* CoreImage.framework in Frameworks */,
+				932527D2159257A300A8D98F /* AudioToolbox.framework in Frameworks */,
+				932527D01592578300A8D98F /* OpenAL.framework in Frameworks */,
+				932527CE1592577300A8D98F /* AVFoundation.framework in Frameworks */,
 				9323A11C1584DBE6007E8F9A /* MediaPlayer.framework in Frameworks */,
 				9323A11B1584DBE3007E8F9A /* QuartzCore.framework in Frameworks */,
 				93AFEA1415828FA1003A6382 /* UIKit.framework in Frameworks */,
@@ -165,30 +315,21 @@
 		9312972C1582A23D00A2B556 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				93F664AF158A87CE002B4E97 /* CMAppDelegate.h */,
-				93F664B0158A87CE002B4E97 /* CMAppDelegate.m */,
+				93252764159253B800A8D98F /* Level */,
+				93EBF3BE158BA3B5005D32BF /* MarbleGameController */,
 				93F664AA158A8707002B4E97 /* View Controller */,
 				932485731587E4520092E2FD /* HelperClasses */,
 				9312972D1582A48400A2B556 /* CMMarbleSimulationView.h */,
 				9312972E1582A48400A2B556 /* CMMarbleSimulationView.m */,
 				931297301582A5D700A2B556 /* CMMarbleLayer.h */,
 				931297311582A5D700A2B556 /* CMMarbleLayer.m */,
+				93F664AF158A87CE002B4E97 /* CMAppDelegate.h */,
+				93F664B0158A87CE002B4E97 /* CMAppDelegate.m */,
 				939682B41583F3E5007CD4FA /* CMMarbleImageSource.h */,
+				93FE068715961CE6000EBB92 /* CMMarbleCollisionCollector.h */,
+				93FE068815961CE6000EBB92 /* CMMarbleCollisionCollector.m */,
 			);
 			path = Sources;
-			sourceTree = "<group>";
-		};
-		932485681587DAD80092E2FD /* Levels */ = {
-			isa = PBXGroup;
-			children = (
-				93EE4E091589374900B491DE /* Level2-StaticBodies.stb */,
-				93EE4E071589374900B491DE /* Level2-Background.png */,
-				93EE4E081589374900B491DE /* Level2-Overlay.png */,
-				932485711587E3CB0092E2FD /* Level1-StaticBodies.stb */,
-				9324856A1587DAFD0092E2FD /* Level1-Background.png */,
-				932485691587DAFD0092E2FD /* Level1-Overlay.png */,
-			);
-			path = Levels;
 			sourceTree = "<group>";
 		};
 		9324856E1587E28E0092E2FD /* Scripts */ = {
@@ -212,6 +353,147 @@
 			path = HelperClasses;
 			sourceTree = "<group>";
 		};
+		93252764159253B800A8D98F /* Level */ = {
+			isa = PBXGroup;
+			children = (
+				93252767159254DB00A8D98F /* CMMarbleLevel.h */,
+				93252768159254DB00A8D98F /* CMMarbleLevel.m */,
+				932527F31592670600A8D98F /* CMMarbleLevelSet.h */,
+				932527F41592670600A8D98F /* CMMarbleLevelSet.m */,
+				93C0389B1596616200F0637E /* CMMarbleLevelStatistics.h */,
+				93C0389C1596616200F0637E /* CMMarbleLevelStatistics.m */,
+			);
+			path = Level;
+			sourceTree = "<group>";
+		};
+		9325276E159255D900A8D98F /* Thirdparty */ = {
+			isa = PBXGroup;
+			children = (
+				9325276F1592569900A8D98F /* ObjectAL */,
+				93AFEA4B15829097003A6382 /* ChipmunkPro-iPhone-Trial */,
+			);
+			name = Thirdparty;
+			path = thirdparty;
+			sourceTree = "<group>";
+		};
+		9325276F1592569900A8D98F /* ObjectAL */ = {
+			isa = PBXGroup;
+			children = (
+				932527701592569900A8D98F /* Actions */,
+				9325277C1592569900A8D98F /* AudioTrack */,
+				932527831592569900A8D98F /* LICENSE.ObjectAL.txt */,
+				932527841592569900A8D98F /* OALSimpleAudio.h */,
+				932527851592569900A8D98F /* OALSimpleAudio.m */,
+				932527861592569900A8D98F /* ObjectAL.h */,
+				932527871592569900A8D98F /* ObjectALConfig.h */,
+				932527881592569900A8D98F /* OpenAL */,
+				9325279F1592569900A8D98F /* Session */,
+				932527A41592569900A8D98F /* Support */,
+			);
+			path = ObjectAL;
+			sourceTree = "<group>";
+		};
+		932527701592569900A8D98F /* Actions */ = {
+			isa = PBXGroup;
+			children = (
+				932527711592569900A8D98F /* OALAction+Private.h */,
+				932527721592569900A8D98F /* OALAction.h */,
+				932527731592569900A8D98F /* OALAction.m */,
+				932527741592569900A8D98F /* OALActionManager.h */,
+				932527751592569900A8D98F /* OALActionManager.m */,
+				932527761592569900A8D98F /* OALAudioActions.h */,
+				932527771592569900A8D98F /* OALAudioActions.m */,
+				932527781592569900A8D98F /* OALFunction.h */,
+				932527791592569900A8D98F /* OALFunction.m */,
+				9325277A1592569900A8D98F /* OALUtilityActions.h */,
+				9325277B1592569900A8D98F /* OALUtilityActions.m */,
+			);
+			path = Actions;
+			sourceTree = "<group>";
+		};
+		9325277C1592569900A8D98F /* AudioTrack */ = {
+			isa = PBXGroup;
+			children = (
+				9325277D1592569900A8D98F /* OALAudioTrack.h */,
+				9325277E1592569900A8D98F /* OALAudioTrack.m */,
+				9325277F1592569900A8D98F /* OALAudioTrackNotifications.h */,
+				932527801592569900A8D98F /* OALAudioTrackNotifications.m */,
+				932527811592569900A8D98F /* OALAudioTracks.h */,
+				932527821592569900A8D98F /* OALAudioTracks.m */,
+			);
+			path = AudioTrack;
+			sourceTree = "<group>";
+		};
+		932527881592569900A8D98F /* OpenAL */ = {
+			isa = PBXGroup;
+			children = (
+				932527891592569900A8D98F /* ALBuffer.h */,
+				9325278A1592569900A8D98F /* ALBuffer.m */,
+				9325278B1592569900A8D98F /* ALCaptureDevice.h */,
+				9325278C1592569900A8D98F /* ALCaptureDevice.m */,
+				9325278D1592569900A8D98F /* ALChannelSource.h */,
+				9325278E1592569900A8D98F /* ALChannelSource.m */,
+				9325278F1592569900A8D98F /* ALContext.h */,
+				932527901592569900A8D98F /* ALContext.m */,
+				932527911592569900A8D98F /* ALDevice.h */,
+				932527921592569900A8D98F /* ALDevice.m */,
+				932527931592569900A8D98F /* ALListener.h */,
+				932527941592569900A8D98F /* ALListener.m */,
+				932527951592569900A8D98F /* ALSoundSource.h */,
+				932527961592569900A8D98F /* ALSoundSourcePool.h */,
+				932527971592569900A8D98F /* ALSoundSourcePool.m */,
+				932527981592569900A8D98F /* ALSource.h */,
+				932527991592569900A8D98F /* ALSource.m */,
+				9325279A1592569900A8D98F /* ALTypes.h */,
+				9325279B1592569900A8D98F /* ALWrapper.h */,
+				9325279C1592569900A8D98F /* ALWrapper.m */,
+				9325279D1592569900A8D98F /* OpenALManager.h */,
+				9325279E1592569900A8D98F /* OpenALManager.m */,
+			);
+			path = OpenAL;
+			sourceTree = "<group>";
+		};
+		9325279F1592569900A8D98F /* Session */ = {
+			isa = PBXGroup;
+			children = (
+				932527A01592569900A8D98F /* OALAudioSession.h */,
+				932527A11592569900A8D98F /* OALAudioSession.m */,
+				932527A21592569900A8D98F /* OALSuspendHandler.h */,
+				932527A31592569900A8D98F /* OALSuspendHandler.m */,
+			);
+			path = Session;
+			sourceTree = "<group>";
+		};
+		932527A41592569900A8D98F /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				932527A51592569900A8D98F /* IOSVersion.h */,
+				932527A61592569900A8D98F /* IOSVersion.m */,
+				932527A71592569900A8D98F /* mach_timing.c */,
+				932527A81592569900A8D98F /* mach_timing.h */,
+				932527A91592569900A8D98F /* NSMutableArray+WeakReferences.h */,
+				932527AA1592569900A8D98F /* NSMutableArray+WeakReferences.m */,
+				932527AB1592569900A8D98F /* OALAudioFile.h */,
+				932527AC1592569900A8D98F /* OALAudioFile.m */,
+				932527AD1592569900A8D98F /* OALNotifications.h */,
+				932527AE1592569900A8D98F /* OALTools.h */,
+				932527AF1592569900A8D98F /* OALTools.m */,
+				932527B01592569900A8D98F /* ObjectALMacros.h */,
+				932527B11592569900A8D98F /* SynthesizeSingleton.h */,
+			);
+			path = Support;
+			sourceTree = "<group>";
+		};
+		93407529158CD1C400B92101 /* Options */ = {
+			isa = PBXGroup;
+			children = (
+				93EBF3C3158BAEE1005D32BF /* CMOptionsViewController.h */,
+				93EBF3C4158BAEE1005D32BF /* CMOptionsViewController.m */,
+				93EBF3C5158BAEE1005D32BF /* CMOptionsViewController.xib */,
+			);
+			name = Options;
+			sourceTree = "<group>";
+		};
 		939682B915840617007CD4FA /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
@@ -223,6 +505,8 @@
 		93AFEA0415828FA1003A6382 = {
 			isa = PBXGroup;
 			children = (
+				9380D0EE159785D70001D608 /* CoreImage.framework */,
+				93FE06851593F300000EBB92 /* Level0-StaticBodies.stb */,
 				9324856E1587E28E0092E2FD /* Scripts */,
 				939682B915840617007CD4FA /* Helpers */,
 				93AFEA1915828FA1003A6382 /* Chipmonkey */,
@@ -242,6 +526,9 @@
 		93AFEA1215828FA1003A6382 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				932527D1159257A300A8D98F /* AudioToolbox.framework */,
+				932527CF1592578300A8D98F /* OpenAL.framework */,
+				932527CD1592577300A8D98F /* AVFoundation.framework */,
 				93AFEA7E15829AB9003A6382 /* QuartzCore.framework */,
 				9323A1181584DB9A007E8F9A /* MediaPlayer.framework */,
 				93AFEA1315828FA1003A6382 /* UIKit.framework */,
@@ -257,8 +544,8 @@
 				93EE4E1015895A1B00B491DE /* Original Artwork */,
 				9312972C1582A23D00A2B556 /* Sources */,
 				93AFEA7915829669003A6382 /* Resources */,
-				93AFEA4B15829097003A6382 /* ChipmunkPro-iPhone-Trial */,
 				93AFEA1A15828FA1003A6382 /* Supporting Files */,
+				9325276E159255D900A8D98F /* Thirdparty */,
 			);
 			path = Chipmonkey;
 			sourceTree = "<group>";
@@ -296,7 +583,8 @@
 				93AFEA7615829097003A6382 /* libChipmunkPro-iPhone.a */,
 				93AFEA7715829097003A6382 /* ObjectiveChipmunk.h */,
 			);
-			path = "ChipmunkPro-iPhone-Trial";
+			name = "ChipmunkPro-iPhone-Trial";
+			path = "../ChipmunkPro-iPhone-Trial";
 			sourceTree = "<group>";
 		};
 		93AFEA4C15829097003A6382 /* chipmunk */ = {
@@ -342,8 +630,19 @@
 		93AFEA7915829669003A6382 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				932485681587DAD80092E2FD /* Levels */,
+				932527F615926DE500A8D98F /* DummyLevels.levelset */,
+				93ED3CC4158FD4DB00E753DD /* Sounds */,
 				939682C115841956007CD4FA /* Icon.png */,
+				9380D0D315975F410001D608 /* Ball_1.png */,
+				9380D0D415975F410001D608 /* Ball_2.png */,
+				9380D0D515975F410001D608 /* Ball_3.png */,
+				9380D0D615975F410001D608 /* Ball_4.png */,
+				9380D0D715975F410001D608 /* Ball_5.png */,
+				9380D0D815975F410001D608 /* Ball_6.png */,
+				9380D0D915975F410001D608 /* Ball_7.png */,
+				9380D0DA15975F410001D608 /* Ball_8.png */,
+				9380D0DB15975F410001D608 /* Ball_9.png */,
+				9380D0F5159789C70001D608 /* Ball_Overlay.png */,
 				93AFEA7A1582968C003A6382 /* Marble_1.png */,
 				93AFEA7B1582968C003A6382 /* Marble_2.png */,
 				939682A61583E717007CD4FA /* Marble_3.png */,
@@ -353,34 +652,105 @@
 				939682AA1583E717007CD4FA /* Marble_7.png */,
 				939682AB1583E717007CD4FA /* Marble_8.png */,
 				939682AC1583E717007CD4FA /* Marble_9.png */,
+				93EBF3C8158BB311005D32BF /* Settings.bundle */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		93EBF3BE158BA3B5005D32BF /* MarbleGameController */ = {
+			isa = PBXGroup;
+			children = (
+				93AFEA2815828FA1003A6382 /* CMMarbleGameController.xib */,
+				93F44403158E42EC00D80BF1 /* CMGameControllerProtocol.h */,
+				93F664AC158A8782002B4E97 /* CMMarbleGameController.h */,
+				93F664AD158A8782002B4E97 /* CMMarbleGameController.m */,
+			);
+			name = MarbleGameController;
+			path = "View Controller";
+			sourceTree = "<group>";
+		};
+		93EBF3C0158BA3C7005D32BF /* Popovers */ = {
+			isa = PBXGroup;
+			children = (
+				FE2E161915937917005CF4A4 /* Level Dialogs */,
+				9311BE8A158AB0DC004E13F4 /* CMPopoverContentController.h */,
+				9311BE8B158AB0DC004E13F4 /* CMPopoverContentController.m */,
+				93EBF3C1158BA3F4005D32BF /* Main Menu */,
+				93407529158CD1C400B92101 /* Options */,
+				93F443FC158E23A600D80BF1 /* Debug */,
+				93EBF3C2158BA40A005D32BF /* Background */,
+			);
+			name = Popovers;
+			sourceTree = "<group>";
+		};
+		93EBF3C1158BA3F4005D32BF /* Main Menu */ = {
+			isa = PBXGroup;
+			children = (
+				93F664B9158A8BE5002B4E97 /* CMMarbleMenuController.xib */,
+				93F664B2158A8BC2002B4E97 /* CMMarbleMenuController.h */,
+				93F664B3158A8BC2002B4E97 /* CMMarbleMenuController.m */,
+			);
+			name = "Main Menu";
+			sourceTree = "<group>";
+		};
+		93EBF3C2158BA40A005D32BF /* Background */ = {
+			isa = PBXGroup;
+			children = (
+				9311BE86158AA83C004E13F4 /* CMSimplePopoverBackground.h */,
+				9311BE87158AA83C004E13F4 /* CMSimplePopoverBackground.m */,
+				9340752A158CE8B300B92101 /* CMMenuPopoverBackground.h */,
+				9340752B158CE8B300B92101 /* CMMenuPopoverBackground.m */,
+			);
+			name = Background;
+			sourceTree = "<group>";
+		};
+		93ED3CC4158FD4DB00E753DD /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				93FE06831593CEF3000EBB92 /* marbleKlick.mp3 */,
+			);
+			path = Sounds;
 			sourceTree = "<group>";
 		};
 		93EE4E1015895A1B00B491DE /* Original Artwork */ = {
 			isa = PBXGroup;
 			children = (
-				93EE4E1115895A4000B491DE /* Level1Background.pxm */,
+				9340752D158CEB3F00B92101 /* Level3.pxm */,
+				93EE4E1115895A4000B491DE /* Level1.pxm */,
 				93EE4E1215895A4000B491DE /* Level2.pxm */,
 			);
 			path = "Original Artwork";
 			sourceTree = "<group>";
 		};
+		93F443FC158E23A600D80BF1 /* Debug */ = {
+			isa = PBXGroup;
+			children = (
+				93F443FE158E23FF00D80BF1 /* CMDebugViewController.h */,
+				93F443FF158E23FF00D80BF1 /* CMDebugViewController.m */,
+				93F44400158E23FF00D80BF1 /* CMDebugViewController.xib */,
+			);
+			name = Debug;
+			sourceTree = "<group>";
+		};
 		93F664AA158A8707002B4E97 /* View Controller */ = {
 			isa = PBXGroup;
 			children = (
-				93AFEA2815828FA1003A6382 /* CMMarbleGameController.xib */,
-				93F664AC158A8782002B4E97 /* CMMarbleGameController.h */,
-				93F664AD158A8782002B4E97 /* CMMarbleGameController.m */,
-				9311BE8A158AB0DC004E13F4 /* CMPopoverContentController.h */,
-				9311BE8B158AB0DC004E13F4 /* CMPopoverContentController.m */,
-				93F664B9158A8BE5002B4E97 /* CMMarbleMenuController.xib */,
-				93F664B2158A8BC2002B4E97 /* CMMarbleMenuController.h */,
-				93F664B3158A8BC2002B4E97 /* CMMarbleMenuController.m */,
-				9311BE86158AA83C004E13F4 /* CMSimplePopoverBackground.h */,
-				9311BE87158AA83C004E13F4 /* CMSimplePopoverBackground.m */,
+				93EBF3C0158BA3C7005D32BF /* Popovers */,
 			);
 			path = "View Controller";
+			sourceTree = "<group>";
+		};
+		FE2E161915937917005CF4A4 /* Level Dialogs */ = {
+			isa = PBXGroup;
+			children = (
+				FE2E161B15937995005CF4A4 /* CMMarbleLevelStartController.h */,
+				FE2E161C15937995005CF4A4 /* CMMarbleLevelStartController.m */,
+				FE2E161D15937995005CF4A4 /* CMMarbleLevelStartController.xib */,
+				FE2E162015937ABD005CF4A4 /* CMMarbleLevelEndController.h */,
+				FE2E162115937ABD005CF4A4 /* CMMarbleLevelEndController.m */,
+				FE2E162215937ABD005CF4A4 /* CMMarbleLevelEndController.xib */,
+			);
+			name = "Level Dialogs";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -447,15 +817,26 @@
 				939682B21583E717007CD4FA /* Marble_8.png in Resources */,
 				939682B31583E717007CD4FA /* Marble_9.png in Resources */,
 				939682C215841956007CD4FA /* Icon.png in Resources */,
-				9324856B1587DAFD0092E2FD /* Level1-Overlay.png in Resources */,
-				9324856C1587DAFD0092E2FD /* Level1-Background.png in Resources */,
-				932485721587E3CB0092E2FD /* Level1-StaticBodies.stb in Resources */,
-				93EE4E0A1589374900B491DE /* Level2-Background.png in Resources */,
-				93EE4E0B1589374900B491DE /* Level2-Overlay.png in Resources */,
-				93EE4E0C1589374900B491DE /* Level2-StaticBodies.stb in Resources */,
-				93EE4E1315895A4000B491DE /* Level1Background.pxm in Resources */,
-				93EE4E1415895A4000B491DE /* Level2.pxm in Resources */,
 				93F664B7158A8BE5002B4E97 /* CMMarbleMenuController.xib in Resources */,
+				93EBF3C7158BAEE1005D32BF /* CMOptionsViewController.xib in Resources */,
+				93EBF3C9158BB311005D32BF /* Settings.bundle in Resources */,
+				93F44402158E23FF00D80BF1 /* CMDebugViewController.xib in Resources */,
+				932527BA1592569900A8D98F /* LICENSE.ObjectAL.txt in Resources */,
+				932527F715926DE500A8D98F /* DummyLevels.levelset in Resources */,
+				FE2E161F15937995005CF4A4 /* CMMarbleLevelStartController.xib in Resources */,
+				FE2E162415937ABD005CF4A4 /* CMMarbleLevelEndController.xib in Resources */,
+				93FE06841593CEF3000EBB92 /* marbleKlick.mp3 in Resources */,
+				93FE06861593F300000EBB92 /* Level0-StaticBodies.stb in Resources */,
+				9380D0DC15975F410001D608 /* Ball_1.png in Resources */,
+				9380D0DD15975F410001D608 /* Ball_2.png in Resources */,
+				9380D0DE15975F410001D608 /* Ball_3.png in Resources */,
+				9380D0DF15975F410001D608 /* Ball_4.png in Resources */,
+				9380D0E015975F410001D608 /* Ball_5.png in Resources */,
+				9380D0E115975F410001D608 /* Ball_6.png in Resources */,
+				9380D0E215975F410001D608 /* Ball_7.png in Resources */,
+				9380D0E315975F410001D608 /* Ball_8.png in Resources */,
+				9380D0E415975F410001D608 /* Ball_9.png in Resources */,
+				9380D0F6159789C70001D608 /* Ball_Overlay.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -470,13 +851,47 @@
 				9312972F1582A48400A2B556 /* CMMarbleSimulationView.m in Sources */,
 				931297321582A5D700A2B556 /* CMMarbleLayer.m in Sources */,
 				932485761587E4870092E2FD /* CMSimpleShapeReader.m in Sources */,
-				93EE4E0F1589378D00B491DE /* CMSimpleLevel.m in Sources */,
 				93F664AE158A8782002B4E97 /* CMMarbleGameController.m in Sources */,
 				93F664B1158A87CE002B4E97 /* CMAppDelegate.m in Sources */,
 				93F664B5158A8BC2002B4E97 /* CMMarbleMenuController.m in Sources */,
 				93F664BF158A98FF002B4E97 /* CMFunctions.m in Sources */,
 				9311BE88158AA83C004E13F4 /* CMSimplePopoverBackground.m in Sources */,
 				9311BE8C158AB0DC004E13F4 /* CMPopoverContentController.m in Sources */,
+				93EBF3C6158BAEE1005D32BF /* CMOptionsViewController.m in Sources */,
+				9340752C158CE8B300B92101 /* CMMenuPopoverBackground.m in Sources */,
+				93F44401158E23FF00D80BF1 /* CMDebugViewController.m in Sources */,
+				93252769159254DB00A8D98F /* CMMarbleLevel.m in Sources */,
+				932527B21592569900A8D98F /* OALAction.m in Sources */,
+				932527B31592569900A8D98F /* OALActionManager.m in Sources */,
+				932527B41592569900A8D98F /* OALAudioActions.m in Sources */,
+				932527B51592569900A8D98F /* OALFunction.m in Sources */,
+				932527B61592569900A8D98F /* OALUtilityActions.m in Sources */,
+				932527B71592569900A8D98F /* OALAudioTrack.m in Sources */,
+				932527B81592569900A8D98F /* OALAudioTrackNotifications.m in Sources */,
+				932527B91592569900A8D98F /* OALAudioTracks.m in Sources */,
+				932527BB1592569900A8D98F /* OALSimpleAudio.m in Sources */,
+				932527BC1592569900A8D98F /* ALBuffer.m in Sources */,
+				932527BD1592569900A8D98F /* ALCaptureDevice.m in Sources */,
+				932527BE1592569900A8D98F /* ALChannelSource.m in Sources */,
+				932527BF1592569900A8D98F /* ALContext.m in Sources */,
+				932527C01592569900A8D98F /* ALDevice.m in Sources */,
+				932527C11592569900A8D98F /* ALListener.m in Sources */,
+				932527C21592569900A8D98F /* ALSoundSourcePool.m in Sources */,
+				932527C31592569900A8D98F /* ALSource.m in Sources */,
+				932527C41592569900A8D98F /* ALWrapper.m in Sources */,
+				932527C51592569900A8D98F /* OpenALManager.m in Sources */,
+				932527C61592569900A8D98F /* OALAudioSession.m in Sources */,
+				932527C71592569900A8D98F /* OALSuspendHandler.m in Sources */,
+				932527C81592569900A8D98F /* IOSVersion.m in Sources */,
+				932527C91592569900A8D98F /* mach_timing.c in Sources */,
+				932527CA1592569900A8D98F /* NSMutableArray+WeakReferences.m in Sources */,
+				932527CB1592569900A8D98F /* OALAudioFile.m in Sources */,
+				932527CC1592569900A8D98F /* OALTools.m in Sources */,
+				932527F51592670600A8D98F /* CMMarbleLevelSet.m in Sources */,
+				FE2E161E15937995005CF4A4 /* CMMarbleLevelStartController.m in Sources */,
+				FE2E162315937ABD005CF4A4 /* CMMarbleLevelEndController.m in Sources */,
+				93FE068915961CE6000EBB92 /* CMMarbleCollisionCollector.m in Sources */,
+				93C0389D1596616200F0637E /* CMMarbleLevelStatistics.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -531,7 +946,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
-				SDKROOT = iphoneos;
+				SDKROOT = iphoneos5.1;
 				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Debug;
@@ -550,7 +965,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
-				SDKROOT = iphoneos;
+				SDKROOT = iphoneos5.1;
 				TARGETED_DEVICE_FAMILY = 2;
 				VALIDATE_PRODUCT = YES;
 			};

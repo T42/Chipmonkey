@@ -9,23 +9,26 @@
 #import <QuartzCore/QuartzCore.h>
 #import "ObjectiveChipmunk.h"
 
-@interface CMMarbleLayer : CALayer <ChipmunkObject>
+@interface CMMarbleLayer : CALayer <ChipmunkObject,NSCopying>
 {
 	@protected
-	ChipmunkBody *body;
-	ChipmunkShape *shape;
-	NSArray *chipmunkObjects;
-	CGFloat radius;
+	ChipmunkBody 				*body;
+	ChipmunkShape 			*shape;
+	CGFloat 						radius;
 	
-	NSUInteger touchedShapes;
-	BOOL shouldDestroy;
+	NSUInteger 					touchedShapes;
+	BOOL 								shouldDestroy;
+	NSTimeInterval 			lastSoundTime;
+	CALayer							*overlayLayer;
 }
 @property (assign, nonatomic) BOOL shouldDestroy;
+@property (retain, nonatomic) CALayer * overlayLayer;
 @property (nonatomic) NSUInteger touchedShapes;
 @property (readonly,nonatomic) NSArray *chipmunkObjects;
 @property (readonly,nonatomic) ChipmunkBody *body;
 @property (readonly, nonatomic) ChipmunkShape *shape;
 @property (readonly,nonatomic) CGFloat radius;
+@property (assign, nonatomic) NSTimeInterval lastSoundTime;
 - (id) initWithMass:(CGFloat) mass andRadius:(CGFloat) radius;
 - (void) updatePosition;
 - (void) destroy;
