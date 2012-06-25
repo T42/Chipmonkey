@@ -214,15 +214,16 @@ lastMarbleSoundTime;
 
 - (CMMarbleLayer *)createMarbleLayer:(UIImage *)myImage
 {
-    CMMarbleLayer *marble1Layer = [[CMMarbleLayer alloc] initWithMass:MARBLE_MASS andRadius:MARBLE_RADIUS];
-    CGRect layerRect = CGRectMake(0, 0, MARBLE_RADIUS*2.0, MARBLE_RADIUS*2.0);
-    marble1Layer.bounds = layerRect;
-    marble1Layer.frame = layerRect;
-    marble1Layer.anchorPoint=CGPointMake(0.5, .5);
-    marble1Layer.position=CGPointMake(self.bounds.size.width/2.0, MARBLE_RADIUS+5);
-    CGImageRef texture = [myImage CGImage];
-    marble1Layer.contents = (id)texture;
-    return [marble1Layer autorelease];
+  CMMarbleLayer *marble1Layer = [[CMMarbleLayer alloc] initWithMass:MARBLE_MASS andRadius:MARBLE_RADIUS];
+  CGRect layerRect = CGRectMake(0, 0, MARBLE_RADIUS*2.0, MARBLE_RADIUS*2.0);
+  marble1Layer.bounds = layerRect;
+  marble1Layer.frame = layerRect;
+  marble1Layer.anchorPoint=CGPointMake(0.5, .5);
+  marble1Layer.position=CGPointMake(self.bounds.size.width/2.0, MARBLE_RADIUS+5);
+  CGImageRef texture = [myImage CGImage];
+  marble1Layer.contents = (id)texture;
+  marble1Layer.overlayLayer.contents = (id)[[self.delegate marbleGlossImage] CGImage];
+  return [marble1Layer autorelease];
 }
 
 - (IBAction) createMarble:(id) sender

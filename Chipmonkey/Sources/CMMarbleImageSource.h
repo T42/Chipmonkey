@@ -10,5 +10,6 @@
 #import <UIKit/UIKit.h>
 @protocol CMMarbleImageSource <NSObject>
 - (UIImage*) nextImage;
+- (UIImage*) marbleGlossImage;
 - (void) imagesOnField:(NSSet*) images;
 @end
