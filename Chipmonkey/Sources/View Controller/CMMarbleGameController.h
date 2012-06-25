@@ -15,7 +15,6 @@
 #import "CMMarbleLevelStartController.h"
 #import "CMMarbleLevelEndController.h"
 
-#define USE_BILLARD_IMAGES 1
 #define USE_BILLARD_IMAGES 0
 
 
