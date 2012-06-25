@@ -420,6 +420,7 @@ levelStatistics,currentStatistics,comboMarkerView,fourMarkerView,comboHits;
 	[self startSimulation:nil];
 	CMMarbleLevel *currentL = [self.levelSet.levelList objectAtIndex:self.currentLevel];
   //	[self.playgroundView fireMarbles:currentL.numberOfMarbles inTime:10.0];
+  	[self.playgroundView fireMarbles:currentL.numberOfMarbles inTime:10.0];
 
 }
 #pragma mark -
