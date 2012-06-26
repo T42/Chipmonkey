@@ -398,6 +398,7 @@ levelStatistics,currentStatistics,comboMarkerView,fourMarkerView,comboHits;
 
 - (IBAction)finishLevel:(id)sender
 {
+  self.scoreView.hidden = YES;
   self.localPopoverController = nil;
 	self.currentLevel = (self.currentLevel +1)%([self.levelSet.levelList count]+1);
 	[self prepareLevel:self.currentLevel];
@@ -419,7 +420,7 @@ levelStatistics,currentStatistics,comboMarkerView,fourMarkerView,comboHits;
 	self.scoreView.hidden = NO;
 	[self startSimulation:nil];
 	CMMarbleLevel *currentL = [self.levelSet.levelList objectAtIndex:self.currentLevel];
-  	[self.playgroundView fireMarbles:currentL.numberOfMarbles inTime:10.0];
+  [self.playgroundView fireMarbles:currentL.numberOfMarbles inTime:10.0];
 
 }
 #pragma mark -
@@ -496,7 +497,7 @@ levelStatistics,currentStatistics,comboMarkerView,fourMarkerView,comboHits;
 		self.marblePreview = [self freshImage];
 	}
 	if (![self->marbleImages count]) {
-		self.scoreView.hidden = YES;
+    //		self.scoreView.hidden = YES;
 		[self stopSimulation:nil];
 		[self loadMarbleImages];
 		self.marblePreview = [self freshImage];

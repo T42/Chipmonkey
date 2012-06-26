@@ -149,7 +149,7 @@ NSString *currentCollisionKey = @"currenrCollision";
 	NSMutableSet *processed = [NSMutableSet set];
 	for (id<NSCopying> k in [self.collisionData allKeys]) {
 		if (![processed containsObject:k]) {
-			NSMutableSet *resultSet = [NSMutableSet set];
+			NSMutableSet *resultSet = nil;
 			NSMutableSet *currentK = [NSMutableSet setWithArray:[self currentCollisionsFor:k]];
 			[currentK addObjectsFromArray:[[self formerCollisionsFor:k]allKeys]];
 			resultSet = [self collectCollision:currentK forObject:k processed:processed];			

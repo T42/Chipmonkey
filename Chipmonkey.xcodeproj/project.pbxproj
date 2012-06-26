@@ -69,13 +69,6 @@
 		9380D0E415975F410001D608 /* Ball_9.png in Resources */ = {isa = PBXBuildFile; fileRef = 9380D0DB15975F410001D608 /* Ball_9.png */; };
 		9380D0EF159785D70001D608 /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9380D0EE159785D70001D608 /* CoreImage.framework */; };
 		9380D0F6159789C70001D608 /* Ball_Overlay.png in Resources */ = {isa = PBXBuildFile; fileRef = 9380D0F5159789C70001D608 /* Ball_Overlay.png */; };
-		939682AD1583E717007CD4FA /* Marble_3.png in Resources */ = {isa = PBXBuildFile; fileRef = 939682A61583E717007CD4FA /* Marble_3.png */; };
-		939682AE1583E717007CD4FA /* Marble_4.png in Resources */ = {isa = PBXBuildFile; fileRef = 939682A71583E717007CD4FA /* Marble_4.png */; };
-		939682AF1583E717007CD4FA /* Marble_5.png in Resources */ = {isa = PBXBuildFile; fileRef = 939682A81583E717007CD4FA /* Marble_5.png */; };
-		939682B01583E717007CD4FA /* Marble_6.png in Resources */ = {isa = PBXBuildFile; fileRef = 939682A91583E717007CD4FA /* Marble_6.png */; };
-		939682B11583E717007CD4FA /* Marble_7.png in Resources */ = {isa = PBXBuildFile; fileRef = 939682AA1583E717007CD4FA /* Marble_7.png */; };
-		939682B21583E717007CD4FA /* Marble_8.png in Resources */ = {isa = PBXBuildFile; fileRef = 939682AB1583E717007CD4FA /* Marble_8.png */; };
-		939682B31583E717007CD4FA /* Marble_9.png in Resources */ = {isa = PBXBuildFile; fileRef = 939682AC1583E717007CD4FA /* Marble_9.png */; };
 		939682C215841956007CD4FA /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 939682C115841956007CD4FA /* Icon.png */; };
 		93AFEA1415828FA1003A6382 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93AFEA1315828FA1003A6382 /* UIKit.framework */; };
 		93AFEA1615828FA1003A6382 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93AFEA1515828FA1003A6382 /* Foundation.framework */; };
@@ -84,8 +77,6 @@
 		93AFEA2015828FA1003A6382 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 93AFEA1F15828FA1003A6382 /* main.m */; };
 		93AFEA2A15828FA1003A6382 /* CMMarbleGameController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93AFEA2815828FA1003A6382 /* CMMarbleGameController.xib */; };
 		93AFEA78158290B2003A6382 /* libChipmunkPro-iPhone.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 93AFEA7615829097003A6382 /* libChipmunkPro-iPhone.a */; };
-		93AFEA7C1582968C003A6382 /* Marble_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 93AFEA7A1582968C003A6382 /* Marble_1.png */; };
-		93AFEA7D1582968C003A6382 /* Marble_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 93AFEA7B1582968C003A6382 /* Marble_2.png */; };
 		93C0389D1596616200F0637E /* CMMarbleLevelStatistics.m in Sources */ = {isa = PBXBuildFile; fileRef = 93C0389C1596616200F0637E /* CMMarbleLevelStatistics.m */; };
 		93EBF3C6158BAEE1005D32BF /* CMOptionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93EBF3C4158BAEE1005D32BF /* CMOptionsViewController.m */; };
 		93EBF3C7158BAEE1005D32BF /* CMOptionsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93EBF3C5158BAEE1005D32BF /* CMOptionsViewController.xib */; };
@@ -212,13 +203,6 @@
 		9380D0DB15975F410001D608 /* Ball_9.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Ball_9.png; sourceTree = "<group>"; };
 		9380D0EE159785D70001D608 /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
 		9380D0F5159789C70001D608 /* Ball_Overlay.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Ball_Overlay.png; sourceTree = "<group>"; };
-		939682A61583E717007CD4FA /* Marble_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Marble_3.png; sourceTree = "<group>"; };
-		939682A71583E717007CD4FA /* Marble_4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Marble_4.png; sourceTree = "<group>"; };
-		939682A81583E717007CD4FA /* Marble_5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Marble_5.png; sourceTree = "<group>"; };
-		939682A91583E717007CD4FA /* Marble_6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Marble_6.png; sourceTree = "<group>"; };
-		939682AA1583E717007CD4FA /* Marble_7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Marble_7.png; sourceTree = "<group>"; };
-		939682AB1583E717007CD4FA /* Marble_8.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Marble_8.png; sourceTree = "<group>"; };
-		939682AC1583E717007CD4FA /* Marble_9.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Marble_9.png; sourceTree = "<group>"; };
 		939682B41583F3E5007CD4FA /* CMMarbleImageSource.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CMMarbleImageSource.h; sourceTree = "<group>"; };
 		939682BA15840637007CD4FA /* marchutil */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = marchutil; sourceTree = "<group>"; };
 		939682C115841956007CD4FA /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
@@ -273,8 +257,6 @@
 		93AFEA7515829097003A6382 /* cpPolyline.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = cpPolyline.h; sourceTree = "<group>"; };
 		93AFEA7615829097003A6382 /* libChipmunkPro-iPhone.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libChipmunkPro-iPhone.a"; sourceTree = "<group>"; };
 		93AFEA7715829097003A6382 /* ObjectiveChipmunk.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ObjectiveChipmunk.h; sourceTree = "<group>"; };
-		93AFEA7A1582968C003A6382 /* Marble_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Marble_1.png; sourceTree = "<group>"; };
-		93AFEA7B1582968C003A6382 /* Marble_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Marble_2.png; sourceTree = "<group>"; };
 		93AFEA7E15829AB9003A6382 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		93C0389B1596616200F0637E /* CMMarbleLevelStatistics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMMarbleLevelStatistics.h; sourceTree = "<group>"; };
 		93C0389C1596616200F0637E /* CMMarbleLevelStatistics.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMMarbleLevelStatistics.m; sourceTree = "<group>"; };
@@ -673,15 +655,6 @@
 				9380D0DA15975F410001D608 /* Ball_8.png */,
 				9380D0DB15975F410001D608 /* Ball_9.png */,
 				9380D0F5159789C70001D608 /* Ball_Overlay.png */,
-				93AFEA7A1582968C003A6382 /* Marble_1.png */,
-				93AFEA7B1582968C003A6382 /* Marble_2.png */,
-				939682A61583E717007CD4FA /* Marble_3.png */,
-				939682A71583E717007CD4FA /* Marble_4.png */,
-				939682A81583E717007CD4FA /* Marble_5.png */,
-				939682A91583E717007CD4FA /* Marble_6.png */,
-				939682AA1583E717007CD4FA /* Marble_7.png */,
-				939682AB1583E717007CD4FA /* Marble_8.png */,
-				939682AC1583E717007CD4FA /* Marble_9.png */,
 				93EBF3C8158BB311005D32BF /* Settings.bundle */,
 			);
 			path = Resources;
@@ -837,15 +810,6 @@
 			files = (
 				93AFEA1E15828FA1003A6382 /* InfoPlist.strings in Resources */,
 				93AFEA2A15828FA1003A6382 /* CMMarbleGameController.xib in Resources */,
-				93AFEA7C1582968C003A6382 /* Marble_1.png in Resources */,
-				93AFEA7D1582968C003A6382 /* Marble_2.png in Resources */,
-				939682AD1583E717007CD4FA /* Marble_3.png in Resources */,
-				939682AE1583E717007CD4FA /* Marble_4.png in Resources */,
-				939682AF1583E717007CD4FA /* Marble_5.png in Resources */,
-				939682B01583E717007CD4FA /* Marble_6.png in Resources */,
-				939682B11583E717007CD4FA /* Marble_7.png in Resources */,
-				939682B21583E717007CD4FA /* Marble_8.png in Resources */,
-				939682B31583E717007CD4FA /* Marble_9.png in Resources */,
 				939682C215841956007CD4FA /* Icon.png in Resources */,
 				93F664B7158A8BE5002B4E97 /* CMMarbleMenuController.xib in Resources */,
 				93EBF3C7158BAEE1005D32BF /* CMOptionsViewController.xib in Resources */,
