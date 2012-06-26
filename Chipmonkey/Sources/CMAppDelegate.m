@@ -51,7 +51,6 @@
 	self.window.rootViewController = self.viewController;
 	[self.window makeKeyAndVisible];
 	[self setupAudio];
-	NSLog(@"FilterNames: %@",[CIFilter filterNamesInCategories:nil]);
 	return YES;
 }
 

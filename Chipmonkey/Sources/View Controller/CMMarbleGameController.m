@@ -83,7 +83,7 @@ levelStatistics,currentStatistics,comboMarkerView,fourMarkerView,comboHits;
 	self.currentLevel = 0;
 	self.frameTime = 1.0/60;
 	self->scoreView.hidden = YES;
-	self.playSound = NO;
+	self.playSound = YES;
 	self.playMusic = NO;
 	self.soundVolume = 1.0;
 	self.musicVolume = 1.0;
