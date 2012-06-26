@@ -25,7 +25,6 @@
 		
 		vertices[ll-i] = p;
 		vertices[ll-i].y = size.height - p.y; 
-		NSLog(@"Got: %@ (%@)",NSStringFromCGPoint(p),NSStringFromCGPoint(vertices[ll-i]));
 	}
 	for (NSUInteger i=0; i<ll; i++) {
 		ChipmunkSegmentShape *cs= [ChipmunkSegmentShape segmentWithBody:nil from:vertices[i] to:vertices[i+1] radius:3];
@@ -44,13 +43,13 @@
 	NSError *fileError = nil;
 	NSString *contents = [NSString stringWithContentsOfURL:aFile encoding:NSUTF8StringEncoding error:&fileError];
 	NSArray *dataLines = [contents componentsSeparatedByString:@"\n"];
-//	[dataLines removeObjectsInRange:NSMakeRange(0, 2)];
+
 	
 	NSUInteger numOfLinesInShape = 0;
 	for(NSUInteger i=0;i<[dataLines count];i++){
 		NSString *line = [dataLines objectAtIndex:i];		
 
-//    NSLog(@"Got: %@",line);
+
 		if([line hasPrefix:@"*"]){ // start of an shape
 			line = [line stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"*"]];
 			numOfLinesInShape = (NSUInteger)[line integerValue];

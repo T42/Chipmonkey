@@ -54,15 +54,16 @@ lastMarbleSoundTime;
 	[self.space addBounds:newBounds thickness:20.0 elasticity:BORDER_ELASTICITY friction:BORDER_FRICTION layers:CP_ALL_LAYERS group:CP_NO_GROUP collisionType:borderType];
 	self.space.gravity = cpv(0.0, SPACE_GRAVITY);
 
-	NSLog(@"Persistance: %u Bias: %f Slope: %f,iterations %i",self.space.collisionPersistence,self.space.collisionBias,self.space.collisionSlop,self.space.iterations);
+	NSLog(@"Persistance: %u Idle: %f Sleep: %f",self.space.collisionPersistence,self.space.idleSpeedThreshold,self.space.sleepTimeThreshold);
 //  self.space.collisionPersistence = 10;
 //  self.space.collisionSlop = 0.01;
 //	self.space.collisionBias=.1;
 //	self.space.iterations = 10;	
 //	self.space.damping=0.7;
-	self.space.sleepTimeThreshold = .50;
+	self.space.sleepTimeThreshold = .10;
+	self.space.idleSpeedThreshold = 0.0001;
 	[self.space addCollisionHandler:self typeA:[CMMarbleLayer class] typeB:[CMMarbleLayer class]
-														begin:@selector(beginMarbleCollision:space:) 
+														begin:nil 
 												 preSolve:nil 
 												postSolve:@selector(postMarbleCollision:space:)
 												 separate:@selector(separateMarbleCollision:space:)];
@@ -240,34 +241,22 @@ lastMarbleSoundTime;
 #pragma mark -
 #pragma mark Collision Handlers
 
-
-- (bool) beginMarbleCollision:(cpArbiter*)arbiter space:(ChipmunkSpace*)space
-{
-	CHIPMUNK_ARBITER_GET_SHAPES(arbiter, firstMarble, secondMarble);
-	CMMarbleLayer *firstMarbleLayer = firstMarble.data;
-	CMMarbleLayer *secondMarbleLayer = secondMarble.data;
-	
-	if (firstMarbleLayer.contents == secondMarbleLayer.contents) {
-#if USE_NEW_COLLISION_DETECTOR
-				[self.collisionCollector object:firstMarbleLayer touching:secondMarbleLayer];
-#else
-				[self marble:firstMarbleLayer touching:secondMarbleLayer];
-#endif
-	}
-
-	return TRUE;
-}
-
-- (void) postMarbleCollision:(cpArbiter*)arbiter space:(ChipmunkSpace*)sp
+- (void) processSound:(cpArbiter*)arbiter
 {
 	if (!self.delegate.playSound) {
 		return;
 	}
-	
 	CHIPMUNK_ARBITER_GET_SHAPES(arbiter, firstMarble, secondMarble);
 	CMMarbleLayer *firstMarbleLayer = firstMarble.data;
 	CMMarbleLayer *secondMarbleLayer = secondMarble.data;
+	
+	
 	if ((self.lastMarbleSoundTime - firstMarbleLayer.lastSoundTime) < 1/2) {
+		return;
+	}
+	CGFloat fSpeed = cpvlength(firstMarble.body.vel);
+	CGFloat sSpeed = cpvlength(secondMarble.body.vel);
+	if ((fSpeed < 1.0) || (sSpeed < 1.0) ) {
 		return;
 	}
 	
@@ -276,21 +265,41 @@ lastMarbleSoundTime;
 		return;
 	}
 	cpFloat impulse = cpvlength(cpArbiterTotalImpulseWithFriction(arbiter));
-	if (impulse<2500.00) {
+	if (impulse<1000.00) {
 		return;
 	}
+	
+	//	CGFloat sVal = fSpeed + sSpeed;
+	//	NSLog(@"%f,%f,(%f)",self.lastMarbleSoundTime,currentTime,currentTime-self.lastMarbleSoundTime);
+	float volume = MIN(impulse/6000.0f , 1.0f);
 
-//	NSLog(@"%f,%f,(%f)",self.lastMarbleSoundTime,currentTime,currentTime-self.lastMarbleSoundTime);
-	float volume = MIN(impulse/8000.0f, 1.0f);
 	volume *= self.delegate.soundVolume;
-	if(volume > 0.05f){
+	if(volume > 0.1f){
+//		NSLog(@"S1(%p) = %f, S2(%p) = %f (%04.3f,%04.3f)",firstMarble,fSpeed,secondMarble,sSpeed,impulse,volume);
 		[[OALSimpleAudio sharedInstance] playEffect:MARBLE_SOUND volume:volume pitch:1.0 pan:1.0 loop:NO];
 		self.lastMarbleSoundTime = [NSDate timeIntervalSinceReferenceDate];
 		firstMarbleLayer.lastSoundTime = self.lastMarbleSoundTime;
 		secondMarbleLayer.lastSoundTime = self.lastMarbleSoundTime;
-		//		[SimpleSound playSoundWithVolume:volume];
 	}
+	
+}
 
+- (void) postMarbleCollision:(cpArbiter*)arbiter space:(ChipmunkSpace*)sp
+{
+	[self processSound:arbiter];
+
+	CHIPMUNK_ARBITER_GET_SHAPES(arbiter, firstMarble, secondMarble);
+	CMMarbleLayer *firstMarbleLayer = firstMarble.data;
+	CMMarbleLayer *secondMarbleLayer = secondMarble.data;
+	
+	
+	if (firstMarbleLayer.contents == secondMarbleLayer.contents) {
+#if USE_NEW_COLLISION_DETECTOR
+		[self.collisionCollector object:firstMarbleLayer touching:secondMarbleLayer];
+#else
+		[self marble:firstMarbleLayer touching:secondMarbleLayer];
+#endif
+	}
 }
 
 - (void) separateMarbleCollision:(cpArbiter*)arbiter space:(ChipmunkSpace*)space
@@ -349,7 +358,7 @@ lastMarbleSoundTime;
 													 return NSOrderedSame;
 												 }])
 	{
-		NSLog(@"Length: %d",[colSet count]);
+//		NSLog(@"Length: %d",[colSet count]);
 		for (CMMarbleLayer* layer in colSet) {
 			if (![alreadyRemoved containsObject:layer]) {
 				[alreadyRemoved addObject:layer];
@@ -360,7 +369,7 @@ lastMarbleSoundTime;
 				layer.shouldDestroy = YES;
 				[self.collisionCollector removeObject:layer];
 			}else {
-				NSLog(@"Possible 4");
+//				NSLog(@"Possible 4");
 			}
 		}
 	}
@@ -370,7 +379,7 @@ lastMarbleSoundTime;
 			[imageSet addObject:aLayer.contents];
 		}
 		[self.delegate imagesOnField:imageSet];
-		NSLog(@"---\r");
+//		NSLog(@"---\r");
 	}
 	
 	[self.collisionCollector cleanupFormerCollisions];

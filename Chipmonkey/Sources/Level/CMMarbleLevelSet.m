@@ -41,7 +41,7 @@
 																																											options:kCFPropertyListImmutable 
 																																											 format:nil error:&error];
 
-		NSLog(@"Got : %@",propList);
+//		NSLog(@"Got : %@",propList);
 		// now create my onw list of Levels and 
 		self.levelList = [self loadLevelsFromDictionary:propList];
 	}
