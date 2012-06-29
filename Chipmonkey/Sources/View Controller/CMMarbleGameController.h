@@ -14,6 +14,7 @@
 #import "CMGameControllerProtocol.h"
 #import "CMMarbleLevelStartController.h"
 #import "CMMarbleLevelEndController.h"
+#import "CMMarbleCollisionCollector.h"
 
 #define USE_BILLARD_IMAGES 0
 

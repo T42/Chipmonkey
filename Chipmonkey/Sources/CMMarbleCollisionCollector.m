@@ -73,24 +73,21 @@ NSString *currentCollisionKey = @"currenrCollision";
 {
 	NSMutableArray * firstCollisions = [self currentCollisionsFor:first];
 	NSMutableArray *secondCollisions = [self currentCollisionsFor:second];
-
+	
 	if (![firstCollisions containsObject:second]){
 		[firstCollisions addObject:second];
 	}
-
+	
 	if(![secondCollisions containsObject:first]){
 		[secondCollisions addObject:first];	
 	}
 	// check former collisions
 	NSMutableDictionary *firstFormer = [self formerCollisionsFor:first];
 	NSMutableDictionary *secondFormer = [self formerCollisionsFor:second];
-	if ([[firstFormer allKeys] containsObject:second]) {
-		[firstFormer removeObjectForKey:second];
-	}
 	
-	if([[secondFormer allKeys] containsObject:first]){
-		[secondFormer removeObjectForKey:first];
-	}
+	[firstFormer removeObjectForKey:second];
+	[secondFormer removeObjectForKey:first];
+	
 }
 
 - (void) object:(id<NSCopying>)first releasing:(id<NSCopying>)second
@@ -129,11 +126,11 @@ NSString *currentCollisionKey = @"currenrCollision";
 		proccessed = [NSMutableSet set];
 	}
 	
-	NSMutableSet *result = [NSMutableSet setWithSet:currentCollisions];
+	NSMutableSet *result = currentCollisions; //[currentCollisions mutableCopy];//[NSMutableSet setWithSet:currentCollisions];
 	[result addObject:obj];
-	[proccessed addObject:obj];
+//	[proccessed addObject:obj];
 	for (id<NSCopying>  k in currentCollisions) {
-    if (![proccessed containsObject:k]) {
+    if (![result containsObject:k]) {
 			NSMutableSet *currentK = [NSMutableSet setWithArray:[self currentCollisionsFor:k]];
 			[currentK addObjectsFromArray: [[self formerCollisionsFor:k]allKeys]];
 			[result addObjectsFromArray:[[self collectCollision:currentK forObject:k processed:proccessed]allObjects]];
@@ -191,6 +188,20 @@ NSString *currentCollisionKey = @"currenrCollision";
 		}
 	}
 	return result;
+}
+
+- (NSTimeInterval) oldestCollisionTime:(NSSet *)collisionSet
+{
+	NSTimeInterval k = 0.0;
+	for (id<NSCopying> obj in collisionSet) {
+    NSArray *colTimes = [[self formerCollisionsFor:obj] allValues];
+		for (NSNumber *n in colTimes) {
+			if (k<[n doubleValue]) {
+				k=[n doubleValue];
+			}
+		}	
+	}
+	return k;
 }
 
 @end

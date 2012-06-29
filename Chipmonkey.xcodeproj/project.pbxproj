@@ -99,7 +99,6 @@
 		93F664B7158A8BE5002B4E97 /* CMMarbleMenuController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93F664B9158A8BE5002B4E97 /* CMMarbleMenuController.xib */; };
 		93F664BF158A98FF002B4E97 /* CMFunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = 93F664BE158A98FF002B4E97 /* CMFunctions.m */; };
 		93FE06841593CEF3000EBB92 /* marbleKlick.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 93FE06831593CEF3000EBB92 /* marbleKlick.mp3 */; };
-		93FE06861593F300000EBB92 /* Level0-StaticBodies.stb in Resources */ = {isa = PBXBuildFile; fileRef = 93FE06851593F300000EBB92 /* Level0-StaticBodies.stb */; };
 		93FE068915961CE6000EBB92 /* CMMarbleCollisionCollector.m in Sources */ = {isa = PBXBuildFile; fileRef = 93FE068815961CE6000EBB92 /* CMMarbleCollisionCollector.m */; };
 		FE2E161E15937995005CF4A4 /* CMMarbleLevelStartController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE2E161C15937995005CF4A4 /* CMMarbleLevelStartController.m */; };
 		FE2E161F15937995005CF4A4 /* CMMarbleLevelStartController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE2E161D15937995005CF4A4 /* CMMarbleLevelStartController.xib */; };
@@ -302,7 +301,6 @@
 		93F664BD158A98E7002B4E97 /* CMFunctions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CMFunctions.h; sourceTree = "<group>"; };
 		93F664BE158A98FF002B4E97 /* CMFunctions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMFunctions.m; sourceTree = "<group>"; };
 		93FE06831593CEF3000EBB92 /* marbleKlick.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = marbleKlick.mp3; sourceTree = "<group>"; };
-		93FE06851593F300000EBB92 /* Level0-StaticBodies.stb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "Level0-StaticBodies.stb"; path = "Chipmonkey/Resources/DummyLevels.levelset/Level0-StaticBodies.stb"; sourceTree = "<group>"; };
 		93FE068715961CE6000EBB92 /* CMMarbleCollisionCollector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMMarbleCollisionCollector.h; sourceTree = "<group>"; };
 		93FE068815961CE6000EBB92 /* CMMarbleCollisionCollector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMMarbleCollisionCollector.m; sourceTree = "<group>"; };
 		FE2E161B15937995005CF4A4 /* CMMarbleLevelStartController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMMarbleLevelStartController.h; sourceTree = "<group>"; };
@@ -527,8 +525,6 @@
 		93AFEA0415828FA1003A6382 = {
 			isa = PBXGroup;
 			children = (
-				9380D0EE159785D70001D608 /* CoreImage.framework */,
-				93FE06851593F300000EBB92 /* Level0-StaticBodies.stb */,
 				9324856E1587E28E0092E2FD /* Scripts */,
 				939682B915840617007CD4FA /* Helpers */,
 				93AFEA1915828FA1003A6382 /* Chipmonkey */,
@@ -548,6 +544,7 @@
 		93AFEA1215828FA1003A6382 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9380D0EE159785D70001D608 /* CoreImage.framework */,
 				932527D1159257A300A8D98F /* AudioToolbox.framework */,
 				932527CF1592578300A8D98F /* OpenAL.framework */,
 				932527CD1592577300A8D98F /* AVFoundation.framework */,
@@ -850,7 +847,6 @@
 				FE2E161F15937995005CF4A4 /* CMMarbleLevelStartController.xib in Resources */,
 				FE2E162415937ABD005CF4A4 /* CMMarbleLevelEndController.xib in Resources */,
 				93FE06841593CEF3000EBB92 /* marbleKlick.mp3 in Resources */,
-				93FE06861593F300000EBB92 /* Level0-StaticBodies.stb in Resources */,
 				9380D0DC15975F410001D608 /* Ball_1.png in Resources */,
 				9380D0DD15975F410001D608 /* Ball_2.png in Resources */,
 				9380D0DE15975F410001D608 /* Ball_3.png in Resources */,

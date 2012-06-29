@@ -60,10 +60,10 @@ lastMarbleSoundTime;
 //	self.space.collisionBias=.1;
 //	self.space.iterations = 10;	
 //	self.space.damping=0.7;
-	self.space.sleepTimeThreshold = .10;
+	self.space.sleepTimeThreshold = 2.0;
 	self.space.idleSpeedThreshold = 0.0001;
 	[self.space addCollisionHandler:self typeA:[CMMarbleLayer class] typeB:[CMMarbleLayer class]
-														begin:nil 
+														begin:@selector(beginMarbleCollision:space:) 
 												 preSolve:nil 
 												postSolve:@selector(postMarbleCollision:space:)
 												 separate:@selector(separateMarbleCollision:space:)];
@@ -241,12 +241,29 @@ lastMarbleSoundTime;
 #pragma mark -
 #pragma mark Collision Handlers
 
-- (void) processSound:(cpArbiter*)arbiter
+- (void) beginMarbleCollision:(cpArbiter*) arbiter space:(ChipmunkSpace*) space
+{
+	CHIPMUNK_ARBITER_GET_SHAPES(arbiter, firstMarble, secondMarble);
+	CMMarbleLayer *firstMarbleLayer = firstMarble.data;
+	CMMarbleLayer *secondMarbleLayer = secondMarble.data;
+	
+	
+	if (firstMarbleLayer.contents == secondMarbleLayer.contents) {
+#if USE_NEW_COLLISION_DETECTOR
+		[self.collisionCollector object:firstMarbleLayer touching:secondMarbleLayer];
+#else
+		[self marble:firstMarbleLayer touching:secondMarbleLayer];
+#endif
+	}
+
+}
+
+- (void) processSound:(cpArbiter*)arbiter first:(ChipmunkShape*) firstMarble second:(ChipmunkShape*) secondMarble
 {
 	if (!self.delegate.playSound) {
 		return;
 	}
-	CHIPMUNK_ARBITER_GET_SHAPES(arbiter, firstMarble, secondMarble);
+//	CHIPMUNK_ARBITER_GET_SHAPES(arbiter, firstMarble, secondMarble);
 	CMMarbleLayer *firstMarbleLayer = firstMarble.data;
 	CMMarbleLayer *secondMarbleLayer = secondMarble.data;
 	
@@ -286,20 +303,9 @@ lastMarbleSoundTime;
 
 - (void) postMarbleCollision:(cpArbiter*)arbiter space:(ChipmunkSpace*)sp
 {
-	[self processSound:arbiter];
 
 	CHIPMUNK_ARBITER_GET_SHAPES(arbiter, firstMarble, secondMarble);
-	CMMarbleLayer *firstMarbleLayer = firstMarble.data;
-	CMMarbleLayer *secondMarbleLayer = secondMarble.data;
-	
-	
-	if (firstMarbleLayer.contents == secondMarbleLayer.contents) {
-#if USE_NEW_COLLISION_DETECTOR
-		[self.collisionCollector object:firstMarbleLayer touching:secondMarbleLayer];
-#else
-		[self marble:firstMarbleLayer touching:secondMarbleLayer];
-#endif
-	}
+	[self processSound:arbiter first:firstMarble second:secondMarble];
 }
 
 - (void) separateMarbleCollision:(cpArbiter*)arbiter space:(ChipmunkSpace*)space
@@ -344,11 +350,39 @@ lastMarbleSoundTime;
     [space step:(CGFloat)fixed_dt];
 		self->accumulator -= fixed_dt;
 	}
+//	[self.collisionCollector cleanupFormerCollisions];
 }
-- (NSArray*) removeCollisionSets
+
+- (void) removeCollisionSets:(NSArray*) layers
 {
-	NSArray *collisionSets = [self.collisionCollector collisionSetsWithMinMembers:3];
 	NSMutableSet *alreadyRemoved = [NSMutableSet set];
+
+	for (NSSet *colSet in layers) {
+    for (CMMarbleLayer *layer in colSet) {
+			if (![alreadyRemoved containsObject:layer]) {
+				[alreadyRemoved addObject:layer];
+
+				[self.space remove:layer];
+				
+				[self->simulatedLayers removeObject:layer];
+				layer.shouldDestroy = YES;
+				[self.collisionCollector removeObject:layer];
+			}
+		}
+	}
+	if ([alreadyRemoved count]) {
+		NSMutableSet *imageSet = [NSMutableSet set];
+		for (CMMarbleLayer *aLayer in self.simulatedLayers) {
+			[imageSet addObject:aLayer.contents];
+		}
+		[self.delegate imagesOnField:imageSet];
+	}
+
+}
+- (NSArray*) getCollisionSets:(NSUInteger)minCollisions
+{
+	NSArray *collisionSets = [self.collisionCollector collisionSetsWithMinMembers:minCollisions];
+
 	for (NSSet *colSet in [collisionSets sortedArrayUsingComparator:
 												 ^NSComparisonResult(id obj1, id obj2){
 													 NSUInteger a = [obj1 count];
@@ -360,46 +394,12 @@ lastMarbleSoundTime;
 	{
 //		NSLog(@"Length: %d",[colSet count]);
 		for (CMMarbleLayer* layer in colSet) {
-			if (![alreadyRemoved containsObject:layer]) {
-				[alreadyRemoved addObject:layer];
-				//				NSLog(@"Remove: %@",layer);
-				[self.space remove:layer];
-
-				[self->simulatedLayers removeObject:layer];
-				layer.shouldDestroy = YES;
-				[self.collisionCollector removeObject:layer];
-			}else {
-//				NSLog(@"Possible 4");
-			}
+			
 		}
-	}
-	if ([alreadyRemoved count]) {
-		NSMutableSet *imageSet = [NSMutableSet set];
-		for (CMMarbleLayer *aLayer in self.simulatedLayers) {
-			[imageSet addObject:aLayer.contents];
-		}
-		[self.delegate imagesOnField:imageSet];
-//		NSLog(@"---\r");
 	}
 	
-	[self.collisionCollector cleanupFormerCollisions];
+//	[self.collisionCollector cleanupFormerCollisions];
 	return collisionSets;
-}
-
-- (NSUInteger) filterSimulatedLayers
-{
-	NSUInteger removedMarbles=0;
-	NSArray *p = [self removeCollisionSets];
-	NSMutableSet *testSet  = [NSMutableSet set];
-	for (NSSet *t in p) {
-    [testSet addObjectsFromArray:[t allObjects]];
-		removedMarbles += [t count];
-	}
-	
-	if (removedMarbles != [testSet count]) {
-		NSLog(@"Count missmatch (double hits) sets: %d, test:%d",removedMarbles,[testSet count]);
-	}
-	return removedMarbles;
 }
 
 

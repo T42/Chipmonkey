@@ -74,7 +74,7 @@
 - (void) resetSimulation;
 - (void) removeLevelData;
 - (void) update:(NSTimeInterval)dt;
-//- (NSUInteger) filterSimulatedLayers;
-- (NSArray*) removeCollisionSets;
+- (NSArray*) getCollisionSets:(NSUInteger) minCollisions;
+- (void) removeCollisionSets:(NSArray*)colSets;
 - (void) updateLayerPositions;
 @end

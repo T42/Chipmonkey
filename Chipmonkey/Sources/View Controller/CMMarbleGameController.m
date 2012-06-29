@@ -283,12 +283,75 @@ levelStatistics,currentStatistics,comboMarkerView,fourMarkerView,comboHits;
 
 - (void) updateStatisticsView
 {
-	self.playerScoreLabel.text = [NSString stringWithFormat:@"%d",self.currentStatistics.score];
+	if ([self.playerScoreLabel.text intValue] != self.currentStatistics.score) {
+			self.playerScoreLabel.text = [NSString stringWithFormat:@"%d",self.currentStatistics.score];
+	}
+
 	
 	NSInteger min = (NSInteger)(self.currentStatistics.time / 60.0);
 	NSInteger sec = ((NSInteger)self.currentStatistics.time) % 60;
 	self->levelTimeLabel.text = [NSString stringWithFormat:@"%2d:%02d",min,sec];
 	
+}
+
+- (void) checkMarbleCollisionsAt:(NSTimeInterval) time
+{
+	NSTimeInterval now = [NSDate timeIntervalSinceReferenceDate];
+	__block NSUInteger normalHits = 0;
+	__block NSUInteger multiHits = 0;
+	__block NSMutableArray *oldestHit = [NSMutableArray array];
+	NSArray *removedMarbles = [self.playgroundView getCollisionSets:3];
+	if (![removedMarbles count]) {
+		return;
+	}
+	[removedMarbles enumerateObjectsUsingBlock:
+	 ^(id obj, NSUInteger idx, BOOL* stop){
+		 NSTimeInterval k = [self.playgroundView.collisionCollector oldestCollisionTime:obj];
+		 if (k) {
+			 k= now - k;
+		 }
+		 [oldestHit addObject:[NSNumber numberWithDouble:k]];
+		 if ([obj count]==3) {
+			 normalHits ++;
+		 }else if ([obj count]>3) {
+			 multiHits ++;
+		 }
+	 }];
+	NSLog(@"%@",oldestHit);
+	if (multiHits) {
+		self.fourMarkerView.hidden=NO;
+		[NSTimer scheduledTimerWithTimeInterval:5 
+																		 target:self 
+																	 selector:@selector(markerTimerCallback:) 
+																	 userInfo:self.fourMarkerView 
+																		repeats:NO];
+	}
+	self.comboHits += [removedMarbles count];
+	
+	if (self.comboHits>1) {
+		if (self.comboMarkerView.hidden) {
+			self.comboMarkerView.hidden = NO;
+			[NSTimer scheduledTimerWithTimeInterval:5 
+																			 target:self 
+																		 selector:@selector(markerTimerCallback:) 
+																		 userInfo:self.comboMarkerView 
+																			repeats:NO];
+			
+		}
+		self.currentStatistics.score += self.comboHits*10;
+		self.comboHits --;
+	}
+	
+	if (self.lastDisplayTime) {
+		self.currentStatistics.time+= (time - self.lastDisplayTime);
+	}
+	
+	self.currentStatistics.score += (normalHits*3) + (multiHits*6);
+
+	self.lastDisplayTime = time;
+	[self.playgroundView removeCollisionSets:removedMarbles];
+
+
 }
 
 - (void) displayTick:(CADisplayLink*) link
@@ -304,51 +367,9 @@ levelStatistics,currentStatistics,comboMarkerView,fourMarkerView,comboHits;
   NSTimeInterval k = MIN(time - self.lastDisplayTime,MAX_DT_FRAMERATE);
 	if (k>=self.frameTime) {
 		[self.playgroundView updateLayerPositions];
-		__block NSUInteger normalHits = 0;
-		__block NSUInteger multiHits = 0;
-		NSArray *removedMarbles = [self.playgroundView removeCollisionSets];
-		[removedMarbles enumerateObjectsUsingBlock:
-		 ^(id obj, NSUInteger idx, BOOL* stop){
-			 if ([obj count]==3) {
-				 normalHits ++;
-			 }else if ([obj count]>3) {
-				 multiHits ++;
-			 }
-		 }];
-		if (multiHits) {
-			self.fourMarkerView.hidden=NO;
-			[NSTimer scheduledTimerWithTimeInterval:5 
-																			 target:self 
-																		 selector:@selector(markerTimerCallback:) 
-																		 userInfo:self.fourMarkerView 
-																			repeats:NO];
-		}
-		self.comboHits += [removedMarbles count];
-		
-		if (self.comboHits>1) {
-			if (self.comboMarkerView.hidden) {
-				self.comboMarkerView.hidden = NO;
-				[NSTimer scheduledTimerWithTimeInterval:5 
-																				 target:self 
-																			 selector:@selector(markerTimerCallback:) 
-																			 userInfo:self.comboMarkerView 
-																				repeats:NO];
-
-			}
-			self.currentStatistics.score += self.comboHits*10;
-			self.comboHits --;
-		}
-
-		//		NSUInteger minusMarbles = [self.playgroundView filterSimulatedLayers];
-
-		if (self.lastDisplayTime) {
-			self.currentStatistics.time+= (time - self.lastDisplayTime);
-		}
-
-		self.currentStatistics.score += (normalHits*3) + (multiHits*6);
+		[self checkMarbleCollisionsAt:time];
+		[self.playgroundView.collisionCollector cleanupFormerCollisions];
 		[self updateStatisticsView];
-		self.lastDisplayTime = time;		
-
 	}
 }
 

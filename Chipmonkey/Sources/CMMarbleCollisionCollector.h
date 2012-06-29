@@ -26,4 +26,5 @@
 - (NSArray*) collisionSetsWithMinMembers:(NSUInteger) minCollisions;
 - (void) reset;
 - (NSArray*) activeObjects;
+- (NSTimeInterval) oldestCollisionTime:(NSSet*) collisionSet;
 @end
