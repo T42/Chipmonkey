@@ -18,6 +18,7 @@
 #import "CMMarbleLevel.h"
 #import "ObjectAL.h"
 #import "CMMarbleLevelStatistics.h"
+#import "CMDecorationLayer.h"
 
 #define MAX_MARBLE_IMAGES 9
 
@@ -294,6 +295,21 @@ levelStatistics,currentStatistics,comboMarkerView,fourMarkerView,comboHits;
 	
 }
 
+
+- (CGPoint) centerOfMarbles:(id<NSFastEnumeration>) marbleSet
+{
+  CGPoint result = CGPointZero;
+  NSUInteger t = 0;
+  for (CALayer* mLayer in marbleSet) {
+    result.x += mLayer.position.x;
+    result.y += mLayer.position.y;
+    t++;
+  }
+  result.x /=t;
+  result.y /=t;
+  return result;
+}
+
 - (void) checkMarbleCollisionsAt:(NSTimeInterval) time
 {
 	NSTimeInterval now = [NSDate timeIntervalSinceReferenceDate];
@@ -314,6 +330,9 @@ levelStatistics,currentStatistics,comboMarkerView,fourMarkerView,comboHits;
 		 if ([obj count]==3) {
 			 normalHits ++;
 		 }else if ([obj count]>3) {
+       CGPoint p= [self centerOfMarbles:obj];
+       CMDecorationLayer *decLayer = [[[CMDecorationLayer alloc]init]autorelease];
+       [decLayer addToSuperlayer:self.playgroundView.layer withPosition:p];
 			 multiHits ++;
 		 }
 	 }];
@@ -329,6 +348,14 @@ levelStatistics,currentStatistics,comboMarkerView,fourMarkerView,comboHits;
 	self.comboHits += [removedMarbles count];
 	
 	if (self.comboHits>1) {
+    NSMutableSet *allMarbles =[NSMutableSet set];
+    for (NSSet*t in removedMarbles) {
+      [allMarbles addObjectsFromArray:[t allObjects]];
+    }
+    CGPoint l = [self centerOfMarbles:allMarbles];
+    CMDecorationLayer *decLayer = [[CMDecorationLayer new]autorelease];
+    decLayer.backgroundColor = [[UIColor colorWithRed:1.0 green:0.0 blue:0.0 alpha:.3] CGColor];
+    [decLayer addToSuperlayer:self.playgroundView.layer withPosition:l];
 		if (self.comboMarkerView.hidden) {
 			self.comboMarkerView.hidden = NO;
 			[NSTimer scheduledTimerWithTimeInterval:5 
@@ -339,12 +366,9 @@ levelStatistics,currentStatistics,comboMarkerView,fourMarkerView,comboHits;
 			
 		}
 		self.currentStatistics.score += self.comboHits*10;
-		self.comboHits --;
+		self.comboHits -= [removedMarbles count];
 	}
 	
-	if (self.lastDisplayTime) {
-		self.currentStatistics.time+= (time - self.lastDisplayTime);
-	}
 	
 	self.currentStatistics.score += (normalHits*3) + (multiHits*6);
 
@@ -368,8 +392,13 @@ levelStatistics,currentStatistics,comboMarkerView,fourMarkerView,comboHits;
 	if (k>=self.frameTime) {
 		[self.playgroundView updateLayerPositions];
 		[self checkMarbleCollisionsAt:time];
+    if (self.lastDisplayTime) {
+      self.currentStatistics.time+= (time - self.lastDisplayTime);
+    }
+
 		[self.playgroundView.collisionCollector cleanupFormerCollisions];
 		[self updateStatisticsView];
+    self.lastDisplayTime = time;
 	}
 }
 

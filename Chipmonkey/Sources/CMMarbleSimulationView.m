@@ -181,21 +181,21 @@ lastMarbleSoundTime;
 -(void) createAnimations:(CMMarbleLayer*) layer duration:(CGFloat) duration
 {
   if(layer){
-  CABasicAnimation *an = [CABasicAnimation animationWithKeyPath:@"opacity"];
-  an.fromValue = [NSNumber numberWithFloat: 0.0];
-  an.toValue = [NSNumber numberWithFloat:1.0];
-  an.duration = duration/self.timeScale;
-  an.delegate = self;
-  [layer addAnimation:an forKey:@"shouldDestroy"];
-  layer.opacity = 1.0;
-  
-  CABasicAnimation *na = [CABasicAnimation animationWithKeyPath:@"transform.scale"];
-  na.fromValue = [NSNumber numberWithFloat:0.010];
-  na.toValue = [NSNumber numberWithFloat:1.0];
-  na.duration = duration/self.timeScale;
-  na.delegate = self;
-  [layer addAnimation:na forKey:@"shouldDestroy2"];
-  [layer setValue:[NSNumber numberWithFloat:1.0] forKeyPath:@"transform.scale"];
+    CABasicAnimation *an = [CABasicAnimation animationWithKeyPath:@"opacity"];
+    an.fromValue = [NSNumber numberWithFloat: 0.0];
+    an.toValue = [NSNumber numberWithFloat:1.0];
+    an.duration = duration/self.timeScale;
+    an.delegate = self;
+    [layer addAnimation:an forKey:@"shouldDestroy"];
+    layer.opacity = 1.0;
+    
+    CABasicAnimation *na = [CABasicAnimation animationWithKeyPath:@"transform.scale"];
+    na.fromValue = [NSNumber numberWithFloat:0.010];
+    na.toValue = [NSNumber numberWithFloat:1.0];
+    na.duration = duration/self.timeScale;
+    na.delegate = self;
+    [layer addAnimation:na forKey:@"shouldDestroy2"];
+    [layer setValue:[NSNumber numberWithFloat:1.0] forKeyPath:@"transform.scale"];
   }
 }
 
@@ -392,13 +392,8 @@ lastMarbleSoundTime;
 													 return NSOrderedSame;
 												 }])
 	{
-//		NSLog(@"Length: %d",[colSet count]);
-		for (CMMarbleLayer* layer in colSet) {
-			
-		}
 	}
 	
-//	[self.collisionCollector cleanupFormerCollisions];
 	return collisionSets;
 }
 

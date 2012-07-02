@@ -114,6 +114,7 @@
 		FE2E161F15937995005CF4A4 /* CMMarbleLevelStartController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE2E161D15937995005CF4A4 /* CMMarbleLevelStartController.xib */; };
 		FE2E162315937ABD005CF4A4 /* CMMarbleLevelEndController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE2E162115937ABD005CF4A4 /* CMMarbleLevelEndController.m */; };
 		FE2E162415937ABD005CF4A4 /* CMMarbleLevelEndController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE2E162215937ABD005CF4A4 /* CMMarbleLevelEndController.xib */; };
+		FE82A69815A22D4900B9A7CE /* CMDecorationLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = FE82A69715A22D4900B9A7CE /* CMDecorationLayer.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -329,6 +330,8 @@
 		FE2E162015937ABD005CF4A4 /* CMMarbleLevelEndController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMMarbleLevelEndController.h; sourceTree = "<group>"; };
 		FE2E162115937ABD005CF4A4 /* CMMarbleLevelEndController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMMarbleLevelEndController.m; sourceTree = "<group>"; };
 		FE2E162215937ABD005CF4A4 /* CMMarbleLevelEndController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CMMarbleLevelEndController.xib; sourceTree = "<group>"; };
+		FE82A69615A22D4900B9A7CE /* CMDecorationLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMDecorationLayer.h; sourceTree = "<group>"; };
+		FE82A69715A22D4900B9A7CE /* CMDecorationLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMDecorationLayer.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -355,14 +358,13 @@
 		9312972C1582A23D00A2B556 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				FE82A69415A22BEC00B9A7CE /* Layers */,
 				93252764159253B800A8D98F /* Level */,
 				93EBF3BE158BA3B5005D32BF /* MarbleGameController */,
 				93F664AA158A8707002B4E97 /* View Controller */,
 				932485731587E4520092E2FD /* HelperClasses */,
 				9312972D1582A48400A2B556 /* CMMarbleSimulationView.h */,
 				9312972E1582A48400A2B556 /* CMMarbleSimulationView.m */,
-				931297301582A5D700A2B556 /* CMMarbleLayer.h */,
-				931297311582A5D700A2B556 /* CMMarbleLayer.m */,
 				93F664AF158A87CE002B4E97 /* CMAppDelegate.h */,
 				93F664B0158A87CE002B4E97 /* CMAppDelegate.m */,
 				939682B41583F3E5007CD4FA /* CMMarbleImageSource.h */,
@@ -813,6 +815,17 @@
 			name = "Level Dialogs";
 			sourceTree = "<group>";
 		};
+		FE82A69415A22BEC00B9A7CE /* Layers */ = {
+			isa = PBXGroup;
+			children = (
+				931297301582A5D700A2B556 /* CMMarbleLayer.h */,
+				931297311582A5D700A2B556 /* CMMarbleLayer.m */,
+				FE82A69615A22D4900B9A7CE /* CMDecorationLayer.h */,
+				FE82A69715A22D4900B9A7CE /* CMDecorationLayer.m */,
+			);
+			path = Layers;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -972,6 +985,7 @@
 				FE2E162315937ABD005CF4A4 /* CMMarbleLevelEndController.m in Sources */,
 				93FE068915961CE6000EBB92 /* CMMarbleCollisionCollector.m in Sources */,
 				93C0389D1596616200F0637E /* CMMarbleLevelStatistics.m in Sources */,
+				FE82A69815A22D4900B9A7CE /* CMDecorationLayer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
