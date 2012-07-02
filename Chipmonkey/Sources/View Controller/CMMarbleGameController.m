@@ -406,9 +406,9 @@ levelStatistics,currentStatistics,comboMarkerView,fourMarkerView,comboHits;
       if (t>0.10)
         self.comboMarkerView.text = @"Perfect";
       if (t>0.15)
-        self.comboMarkerView.text = @"Trickshoot";
+        self.comboMarkerView.text = @"Trickshot";
       if (t>0.17) {
-        self.comboMarkerView.text = @"lucky one";
+        self.comboMarkerView.text = @"Lucky One";
       }
       self.comboMarkerView.hidden = NO;
       [NSTimer scheduledTimerWithTimeInterval:5
