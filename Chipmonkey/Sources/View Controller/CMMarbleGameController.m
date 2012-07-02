@@ -332,6 +332,8 @@ levelStatistics,currentStatistics,comboMarkerView,fourMarkerView,comboHits;
 	if (![removedMarbles count]) {
 		return;
 	}
+  
+  // collect info
 	[removedMarbles enumerateObjectsUsingBlock:
 	 ^(id obj, NSUInteger idx, BOOL* stop){
 		 NSTimeInterval k = [self.playgroundView.collisionCollector oldestCollisionTime:obj];
@@ -341,7 +343,7 @@ levelStatistics,currentStatistics,comboMarkerView,fourMarkerView,comboHits;
 		 [oldestHit addObject:[NSNumber numberWithDouble:k]];
 		 if ([obj count]==3) {
 			 normalHits ++;
-		 }else if ([obj count]>3) {
+		 }else if ([obj count]>3) { // multi Hit
        CGPoint p= [self centerOfMarbles:obj];
        UIImage *c = [self multiDecorationImage];
        CGSize contentSize = [c size];
@@ -351,16 +353,22 @@ levelStatistics,currentStatistics,comboMarkerView,fourMarkerView,comboHits;
 			 multiHits ++;
 		 }
 	 }];
-	NSLog(@"%@",oldestHit);
-	if (multiHits) {
-		self.fourMarkerView.hidden=NO;
-		[NSTimer scheduledTimerWithTimeInterval:5 
-																		 target:self 
-																	 selector:@selector(markerTimerCallback:) 
-																	 userInfo:self.fourMarkerView 
-																		repeats:NO];
-	}
-	self.comboHits += [removedMarbles count];
+
+  
+  
+//	if (multiHits) {
+//		self.fourMarkerView.hidden=NO;
+//		[NSTimer scheduledTimerWithTimeInterval:5 
+//																		 target:self 
+//																	 selector:@selector(markerTimerCallback:) 
+//																	 userInfo:self.fourMarkerView 
+//																		repeats:NO];
+//	}
+
+	
+  
+  // Combo Hits
+  self.comboHits += [removedMarbles count];
 	
 	if (self.comboHits>1) {
     NSMutableSet *allMarbles =[NSMutableSet set];
@@ -374,18 +382,43 @@ levelStatistics,currentStatistics,comboMarkerView,fourMarkerView,comboHits;
     CMDecorationLayer *decLayer = [[[CMDecorationLayer alloc] initWithContent:(id)[p CGImage] andSize:contentSize]autorelease];
     decLayer.backgroundColor = nil;
     [decLayer addToSuperlayer:self.playgroundView.layer withPosition:l];
-		if (self.comboMarkerView.hidden) {
-			self.comboMarkerView.hidden = NO;
-			[NSTimer scheduledTimerWithTimeInterval:5 
-																			 target:self 
-																		 selector:@selector(markerTimerCallback:) 
-																		 userInfo:self.comboMarkerView 
-																			repeats:NO];
-			
-		}
+//		if (self.comboMarkerView.hidden) {
+//			self.comboMarkerView.hidden = NO;
+//			[NSTimer scheduledTimerWithTimeInterval:5 
+//																			 target:self 
+//																		 selector:@selector(markerTimerCallback:) 
+//																		 userInfo:self.comboMarkerView 
+//																			repeats:NO];
+//			
+//		}
 		self.currentStatistics.score += self.comboHits*10;
 		self.comboHits -= [removedMarbles count];
 	}
+  
+  // specialMoves
+
+  for (NSNumber * delay in oldestHit) {
+    CGFloat t = [delay floatValue];
+    if (t>0.001) {
+      self.comboMarkerView.text = @"Nice";
+      if(t>0.05)
+        self.comboMarkerView.text = @"Respect";
+      if (t>0.10)
+        self.comboMarkerView.text = @"Perfect";
+      if (t>0.15)
+        self.comboMarkerView.text = @"Trickshoot";
+      if (t>0.17) {
+        self.comboMarkerView.text = @"lucky one";
+      }
+      self.comboMarkerView.hidden = NO;
+      [NSTimer scheduledTimerWithTimeInterval:5
+                                       target:self
+                                     selector:@selector(markerTimerCallback:)
+                                     userInfo:self.comboMarkerView
+                                      repeats:NO];
+      
+    }
+  }
 	
 	
 	self.currentStatistics.score += (normalHits*3) + (multiHits*6);
