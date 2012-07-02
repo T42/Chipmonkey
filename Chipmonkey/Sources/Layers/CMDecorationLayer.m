@@ -85,7 +85,7 @@
 {
   [superlayer addSublayer:self];
   self.position = position;
-  [self createAnimations:self duration:2 endPosition:CGPointMake(position.x, position.y - 100)];
+  [self createAnimations:self duration:3 endPosition:CGPointMake(position.x, position.y - 300)];
 }
 
 - (void) animationDidStop:(CAAnimation *)anim finished:(BOOL)flag
