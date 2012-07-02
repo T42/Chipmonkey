@@ -59,7 +59,7 @@ playerScore, levelTime,
 menuController,localPopoverController, levelEndController, levelStartController,
 displayLink,lastSimulationTime,lastDisplayTime,frameTime,
 playMusic,playSound,musicVolume,soundVolume,
-levelStatistics,currentStatistics,comboMarkerView,fourMarkerView,comboHits;
+levelStatistics,currentStatistics,comboMarkerView,comboHits;
 
 @synthesize timescale,framerate,simulationrate;
 

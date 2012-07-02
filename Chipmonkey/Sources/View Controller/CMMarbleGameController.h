@@ -43,7 +43,7 @@
 	UILabel											*levelTimeLabel;
 	UILabel											*playerScoreLabel;
 	UILabel											*comboMarkerView;
-	UIView											*fourMarkerView;	
+
 	
 	NSUInteger                      currentLevel;
 	CMMarbleLevelSet                *levelSet;
@@ -78,7 +78,7 @@
 @property(retain,nonatomic) IBOutlet CMMarbleLevelEndController *levelEndController;
 @property(retain,nonatomic) IBOutlet UIPopoverController *localPopoverController;
 @property(retain,nonatomic) IBOutlet UILabel *comboMarkerView;
-@property(retain,nonatomic) IBOutlet UIView *fourMarkerView;
+
 @property(retain,nonatomic) IBOutlet UILabel* levelTimeLabel;
 @property(retain,nonatomic) IBOutlet UILabel* playerScoreLabel;
 
