@@ -29,28 +29,28 @@
 -(void) createAnimations:(CMDecorationLayer*) layer duration:(CGFloat) duration endPosition:(CGPoint) endPos
 {
   if(layer){
-//    CABasicAnimation *an = [CABasicAnimation animationWithKeyPath:@"opacity"];
-//    an.fromValue = [NSNumber numberWithFloat: 1.0];
-//    an.toValue = [NSNumber numberWithFloat:0.0];
-//    an.duration = 2;
-//    //    an.delegate = self;
-//    [layer addAnimation:an forKey:@"fadeOut"];
-//    layer.opacity = 1.0;
-//    
-//    CABasicAnimation *na = [CABasicAnimation animationWithKeyPath:@"transform.scale"];
-//    na.fromValue = [NSNumber numberWithFloat:1.0];
-//    na.toValue = [NSNumber numberWithFloat:0.01];
-//    na.duration = 2;
-//    //    na.delegate = self;
-//    [layer addAnimation:na forKey:@"fadeOut"];
-//    [layer setValue:[NSNumber numberWithFloat:1.0] forKeyPath:@"transform.scale"];
+    CABasicAnimation *an = [CABasicAnimation animationWithKeyPath:@"opacity"];
+    an.fromValue = [NSNumber numberWithFloat: 1.0];
+    an.toValue = [NSNumber numberWithFloat:0.0];
+    an.duration = duration;
+    an.delegate = self;
+    [layer addAnimation:an forKey:@"opacity"];
+    //    layer.opacity = 0.0;
+    
+    CABasicAnimation *na = [CABasicAnimation animationWithKeyPath:@"transform.scale"];
+    na.fromValue = [NSNumber numberWithFloat:1.0];
+    na.toValue = [NSNumber numberWithFloat:0.01];
+    na.duration = duration;
+    na.delegate = self;
+    [layer addAnimation:na forKey:@"fadeOut"];
+    //    [layer setValue:[NSNumber numberWithFloat:0.01] forKeyPath:@"transform.scale"];
     
     CABasicAnimation *pAnim = [CABasicAnimation animationWithKeyPath:@"position"];
     pAnim.fromValue = [NSValue valueWithCGPoint:self.position];
     pAnim.toValue = [NSValue valueWithCGPoint:endPos];
-    pAnim.duration = 2.1;
+    pAnim.duration = duration;
     pAnim.delegate = self;
-    [layer addAnimation:pAnim forKey:@"move"];
+    [layer addAnimation:pAnim forKey:@"position"];
     layer.position = endPos;
   }
 }

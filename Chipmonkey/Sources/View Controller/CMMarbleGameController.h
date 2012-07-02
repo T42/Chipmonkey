@@ -37,6 +37,7 @@
   CMMarbleLevelStartController    *levelStartController;
   CMMarbleLevelEndController      *levelEndController;
 	UIPopoverController             *localPopoverController;
+  UIButton                        *menuButton;
 
 	// score view Elements
 	UILabel											*levelTimeLabel;
@@ -67,6 +68,7 @@
 	// combo Helper
 	NSUInteger					comboHits;
 }
+@property(retain,nonatomic) IBOutlet UIButton * menuButton;
 @property(retain,nonatomic) IBOutlet CMMarbleSimulationView *playgroundView;
 @property(retain,nonatomic) UIImage* marblePreview;
 @property(retain,nonatomic) IBOutlet UILabel *levelLabel;

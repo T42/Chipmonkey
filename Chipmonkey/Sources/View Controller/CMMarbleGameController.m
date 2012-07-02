@@ -53,7 +53,7 @@
 
 @implementation CMMarbleGameController
 
-@synthesize playgroundView, marblePreview,
+@synthesize playgroundView, marblePreview,menuButton,
 levelLabel,currentLevel,levelSet, playerScoreLabel, levelTimeLabel, scoreView,
 playerScore, levelTime,
 menuController,localPopoverController, levelEndController, levelStartController,
@@ -477,9 +477,14 @@ levelStatistics,currentStatistics,comboMarkerView,fourMarkerView,comboHits;
 
 - (void) popupViewController:(CMPopoverContentController*)controller withBackgroundClass:(Class) backgroundClass andRect:(CGRect)rect
 {
+  if (self.localPopoverController) {
+    [self.localPopoverController dismissPopoverAnimated:NO];
+  }
+  
 //	if(!self.localPopoverController){
 		self.localPopoverController = [[[UIPopoverController alloc]initWithContentViewController:controller]autorelease];
 //	}
+  self.localPopoverController.passthroughViews = [NSArray arrayWithObject:self.menuButton];
   self.localPopoverController.contentViewController = controller;
 	self.localPopoverController.popoverLayoutMargins = UIEdgeInsetsMake(0, 0, 0, 0);
 	self.localPopoverController.popoverBackgroundViewClass = backgroundClass;
