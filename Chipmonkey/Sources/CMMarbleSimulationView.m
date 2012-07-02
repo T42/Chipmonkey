@@ -241,7 +241,7 @@ lastMarbleSoundTime;
 #pragma mark -
 #pragma mark Collision Handlers
 
-- (void) beginMarbleCollision:(cpArbiter*) arbiter space:(ChipmunkSpace*) space
+- (BOOL) beginMarbleCollision:(cpArbiter*) arbiter space:(ChipmunkSpace*) space
 {
 	CHIPMUNK_ARBITER_GET_SHAPES(arbiter, firstMarble, secondMarble);
 	CMMarbleLayer *firstMarbleLayer = firstMarble.data;
@@ -255,7 +255,7 @@ lastMarbleSoundTime;
 		[self marble:firstMarbleLayer touching:secondMarbleLayer];
 #endif
 	}
-
+  return YES;
 }
 
 - (void) processSound:(cpArbiter*)arbiter first:(ChipmunkShape*) firstMarble second:(ChipmunkShape*) secondMarble
