@@ -30,7 +30,9 @@
 - (id) initWithContent:(id) content andSize:(CGSize) size
 {
   if((self = [super init])){
+    [self initDefaults];
     self.bounds = CGRectMake(0, 0, size.width, size.height);
+    self.contents = content;
   }
   return self;
 }
@@ -90,6 +92,15 @@
 {
   //	NSLog(@"finished: %i",flag);
 	[self removeFromSuperlayer];
+}
+
++ (id<CAAction>) defaultActionForKey:(NSString *)event
+{
+  return NULL;
+}
+- (id <CAAction>) actionForKey:(NSString *)event
+{
+	return [NSNull null];
 }
 
 @end

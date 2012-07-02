@@ -131,12 +131,14 @@ levelStatistics,currentStatistics,comboMarkerView,fourMarkerView,comboHits;
 }
 - (UIImage*) comboDecorationImage
 {
-  return [UIImage imageNamed:@"combo"];
+  UIImage *p =[UIImage imageNamed:@"combo"];
+  return p;
 }
 
 - (UIImage*) multiDecorationImage
 {
-  return [UIImage imageNamed:@"multi"];
+  UIImage *p =[UIImage imageNamed:@"multi"];
+  return p;
 }
 
 
