@@ -10,21 +10,44 @@
 
 @implementation CMDecorationLayer
 
+- (void) initDefaults
+{
+  self.backgroundColor = [[UIColor blackColor]CGColor];
+  self.backgroundColor = CGColorCreateCopyWithAlpha(self.backgroundColor, .8);
+  self.bounds = CGRectMake(0.0, 0.0, 30, 30);
+  
+}
+
 
 - (id) init
 {
   if((self = [super init])){
-    self.backgroundColor = [[UIColor blackColor]CGColor];
-    self.backgroundColor = CGColorCreateCopyWithAlpha(self.backgroundColor, .8);
-    self.bounds = CGRectMake(0.0, 0.0, 30, 30);
+    [self initDefaults];
   }
   return self;
 }
+
+- (id) initWithContent:(id) content andSize:(CGSize) size
+{
+  if((self = [super init])){
+    self.bounds = CGRectMake(0, 0, size.width, size.height);
+  }
+  return self;
+}
+
 - (void) dealloc
 {
   [super dealloc];
 }
 
+//- (void) createAnimations:(CMDecorationLayer*) layer duration:(CGFloat) duration endPosition:(CGPoint) endPos
+//{
+//  self.duration = duration;
+//  self.opacity = 0.0;
+//  //  self.transform.scale = 0.01;
+//  self.position = endPos;
+//  
+//}
 
 -(void) createAnimations:(CMDecorationLayer*) layer duration:(CGFloat) duration endPosition:(CGPoint) endPos
 {

@@ -9,6 +9,6 @@
 #import <QuartzCore/QuartzCore.h>
 
 @interface CMDecorationLayer : CALayer
-
+- (id) initWithContent:(id) content andSize:(CGSize) size;
 - (void) addToSuperlayer:(CALayer*)superlayer withPosition:(CGPoint) position;
 @end

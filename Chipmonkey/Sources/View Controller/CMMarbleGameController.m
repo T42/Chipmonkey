@@ -129,6 +129,16 @@ levelStatistics,currentStatistics,comboMarkerView,fourMarkerView,comboHits;
 		return YES;
 	return NO;
 }
+- (UIImage*) comboDecorationImage
+{
+  return [UIImage imageNamed:@"combo"];
+}
+
+- (UIImage*) multiDecorationImage
+{
+  return [UIImage imageNamed:@"multi"];
+}
+
 
 #pragma mark - Marble Image Handling
 
@@ -331,7 +341,10 @@ levelStatistics,currentStatistics,comboMarkerView,fourMarkerView,comboHits;
 			 normalHits ++;
 		 }else if ([obj count]>3) {
        CGPoint p= [self centerOfMarbles:obj];
-       CMDecorationLayer *decLayer = [[[CMDecorationLayer alloc]init]autorelease];
+       UIImage *c = [self multiDecorationImage];
+       CGSize contentSize = [c size];
+       CMDecorationLayer *decLayer = [[[CMDecorationLayer alloc]initWithContent:(id)[c CGImage] andSize:contentSize]autorelease];
+       decLayer.backgroundColor = nil;
        [decLayer addToSuperlayer:self.playgroundView.layer withPosition:p];
 			 multiHits ++;
 		 }
@@ -352,9 +365,12 @@ levelStatistics,currentStatistics,comboMarkerView,fourMarkerView,comboHits;
     for (NSSet*t in removedMarbles) {
       [allMarbles addObjectsFromArray:[t allObjects]];
     }
+    CGSize contentSize = CGSizeZero;
     CGPoint l = [self centerOfMarbles:allMarbles];
-    CMDecorationLayer *decLayer = [[CMDecorationLayer new]autorelease];
-    decLayer.backgroundColor = [[UIColor colorWithRed:1.0 green:0.0 blue:0.0 alpha:.3] CGColor];
+    UIImage *p = [self comboDecorationImage];
+    contentSize = [p size];
+    CMDecorationLayer *decLayer = [[[CMDecorationLayer alloc] initWithContent:(id)[p CGImage] andSize:contentSize]autorelease];
+    decLayer.backgroundColor = nil;
     [decLayer addToSuperlayer:self.playgroundView.layer withPosition:l];
 		if (self.comboMarkerView.hidden) {
 			self.comboMarkerView.hidden = NO;
