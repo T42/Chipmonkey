@@ -60,7 +60,7 @@
     an.duration = duration;
     an.delegate = self;
     [layer addAnimation:an forKey:@"opacity"];
-    //    layer.opacity = 0.0;
+    layer.opacity = 0.0;
     
     CABasicAnimation *na = [CABasicAnimation animationWithKeyPath:@"transform.scale"];
     na.fromValue = [NSNumber numberWithFloat:1.0];
@@ -68,7 +68,7 @@
     na.duration = duration;
     na.delegate = self;
     [layer addAnimation:na forKey:@"fadeOut"];
-    //    [layer setValue:[NSNumber numberWithFloat:0.01] forKeyPath:@"transform.scale"];
+    [layer setValue:[NSNumber numberWithFloat:0.01] forKeyPath:@"transform.scale"];
     
     CABasicAnimation *pAnim = [CABasicAnimation animationWithKeyPath:@"position"];
     pAnim.fromValue = [NSValue valueWithCGPoint:self.position];
@@ -94,13 +94,9 @@
 	[self removeFromSuperlayer];
 }
 
-+ (id<CAAction>) defaultActionForKey:(NSString *)event
-{
-  return NULL;
-}
-- (id <CAAction>) actionForKey:(NSString *)event
-{
-	return [NSNull null];
-}
+//- (id <CAAction>) actionForKey:(NSString *)event
+//{
+//	return nil ;
+//}
 
 @end
