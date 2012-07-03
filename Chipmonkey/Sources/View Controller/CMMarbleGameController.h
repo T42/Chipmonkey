@@ -15,6 +15,8 @@
 #import "CMMarbleLevelStartController.h"
 #import "CMMarbleLevelEndController.h"
 #import "CMMarbleCollisionCollector.h"
+#import "CMLayerStackView.h"
+#import "CMLayerStackLayer.h"
 
 #define USE_BILLARD_IMAGES 0
 
@@ -43,7 +45,7 @@
 	UILabel											*levelTimeLabel;
 	UILabel											*playerScoreLabel;
 	UILabel											*comboMarkerView;
-
+	CMLayerStackView						*removedMarbleStack;
 	
 	NSUInteger                      currentLevel;
 	CMMarbleLevelSet                *levelSet;
@@ -78,6 +80,7 @@
 @property(retain,nonatomic) IBOutlet CMMarbleLevelEndController *levelEndController;
 @property(retain,nonatomic) IBOutlet UIPopoverController *localPopoverController;
 @property(retain,nonatomic) IBOutlet UILabel *comboMarkerView;
+@property(retain,nonatomic) IBOutlet CMLayerStackView *removedMarbleStack;
 
 @property(retain,nonatomic) IBOutlet UILabel* levelTimeLabel;
 @property(retain,nonatomic) IBOutlet UILabel* playerScoreLabel;

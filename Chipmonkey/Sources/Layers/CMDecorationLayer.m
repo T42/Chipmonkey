@@ -54,12 +54,14 @@
 -(void) createAnimations:(CMDecorationLayer*) layer duration:(CGFloat) duration endPosition:(CGPoint) endPos
 {
   if(layer){
+		CAAnimationGroup *group = [CAAnimationGroup animation];
+
     CABasicAnimation *an = [CABasicAnimation animationWithKeyPath:@"opacity"];
     an.fromValue = [NSNumber numberWithFloat: 1.0];
     an.toValue = [NSNumber numberWithFloat:0.0];
     an.duration = duration;
     an.delegate = self;
-    [layer addAnimation:an forKey:@"opacity"];
+//    [layer addAnimation:an forKey:@"opacity"];
     layer.opacity = 0.0;
     
     CABasicAnimation *na = [CABasicAnimation animationWithKeyPath:@"transform.scale"];
@@ -67,16 +69,28 @@
     na.toValue = [NSNumber numberWithFloat:0.01];
     na.duration = duration;
     na.delegate = self;
-    [layer addAnimation:na forKey:@"fadeOut"];
+//    [layer addAnimation:na forKey:@"fadeOut"];
     [layer setValue:[NSNumber numberWithFloat:0.01] forKeyPath:@"transform.scale"];
+		
+		CABasicAnimation *rotAnim = [CABasicAnimation animationWithKeyPath:@"transform.rotation.x"];
+		rotAnim.fromValue = [NSNumber numberWithFloat:0*M_PI/180.0];
+		rotAnim.toValue = [NSNumber numberWithFloat:359*M_PI/180.0];
+		rotAnim.repeatCount = 5;
+		rotAnim.autoreverses = NO;
+		rotAnim.duration = duration/rotAnim.repeatCount;
     
     CABasicAnimation *pAnim = [CABasicAnimation animationWithKeyPath:@"position"];
     pAnim.fromValue = [NSValue valueWithCGPoint:self.position];
     pAnim.toValue = [NSValue valueWithCGPoint:endPos];
     pAnim.duration = duration;
     pAnim.delegate = self;
-    [layer addAnimation:pAnim forKey:@"position"];
+//    [layer addAnimation:pAnim forKey:@"position"];
     layer.position = endPos;
+		
+		group.animations = [NSArray arrayWithObjects:an,na,pAnim,rotAnim, nil];
+		group.duration = duration;
+		group.delegate = self;
+		[layer addAnimation:group forKey:@"flow"];
   }
 }
 

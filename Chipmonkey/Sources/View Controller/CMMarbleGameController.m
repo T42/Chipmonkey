@@ -59,7 +59,7 @@ playerScore, levelTime,
 menuController,localPopoverController, levelEndController, levelStartController,
 displayLink,lastSimulationTime,lastDisplayTime,frameTime,
 playMusic,playSound,musicVolume,soundVolume,
-levelStatistics,currentStatistics,comboMarkerView,comboHits;
+levelStatistics,currentStatistics,comboMarkerView,comboHits,removedMarbleStack;
 
 @synthesize timescale,framerate,simulationrate;
 
@@ -204,6 +204,7 @@ levelStatistics,currentStatistics,comboMarkerView,comboHits;
 //	}
 	self.currentStatistics = [self statisticsForLevel:currentL.name];
 	[self.currentStatistics reset];
+	[self.removedMarbleStack clearStack];
   [self popupViewController:self.levelStartController withBackgroundClass:[CMSimplePopoverBackground class]];
   self.levelStartController.levelname.text =currentL.name;//[NSString stringWithFormat:@"Level - %d",levelIndex];
 }
@@ -591,6 +592,10 @@ levelStatistics,currentStatistics,comboMarkerView,comboHits;
 	for (UIImage * anImage in mySet) {
     [self->marbleImages removeObject:anImage];
 		[self.currentStatistics marbleCleared:anImage];
+		CALayer *myLayer = [CALayer layer];
+		myLayer.bounds = CGRectMake(0, 0, 40, 40);
+		myLayer.contents = (id)[anImage CGImage];
+		[self.removedMarbleStack pushLayer:myLayer];
 	}
 	if(self.playgroundView.preparedLayer){
 		UIImage *t = [self marbleImageForCGImage:(CGImageRef)self.playgroundView.preparedLayer.contents];

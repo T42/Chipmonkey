@@ -39,6 +39,8 @@
 		16E45E27159A68C4009DB5E2 /* w2marble_8.png in Resources */ = {isa = PBXBuildFile; fileRef = 16E45E1E159A68C4009DB5E2 /* w2marble_8.png */; };
 		16E45E28159A68C4009DB5E2 /* w2marble_9.png in Resources */ = {isa = PBXBuildFile; fileRef = 16E45E1F159A68C4009DB5E2 /* w2marble_9.png */; };
 		16E45E2B159A68EE009DB5E2 /* w2marble_overlay.png in Resources */ = {isa = PBXBuildFile; fileRef = 16E45E2A159A68EE009DB5E2 /* w2marble_overlay.png */; };
+		9306D23C15A3873C00D027FD /* CMLayerStackLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 9306D23B15A3873C00D027FD /* CMLayerStackLayer.m */; };
+		9306D23F15A38A5A00D027FD /* CMLayerStackView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9306D23E15A38A5A00D027FD /* CMLayerStackView.m */; };
 		9311BE88158AA83C004E13F4 /* CMSimplePopoverBackground.m in Sources */ = {isa = PBXBuildFile; fileRef = 9311BE87158AA83C004E13F4 /* CMSimplePopoverBackground.m */; };
 		9311BE8C158AB0DC004E13F4 /* CMPopoverContentController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9311BE8B158AB0DC004E13F4 /* CMPopoverContentController.m */; };
 		9312972F1582A48400A2B556 /* CMMarbleSimulationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9312972E1582A48400A2B556 /* CMMarbleSimulationView.m */; };
@@ -152,6 +154,10 @@
 		16E45E1E159A68C4009DB5E2 /* w2marble_8.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = w2marble_8.png; sourceTree = "<group>"; };
 		16E45E1F159A68C4009DB5E2 /* w2marble_9.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = w2marble_9.png; sourceTree = "<group>"; };
 		16E45E2A159A68EE009DB5E2 /* w2marble_overlay.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = w2marble_overlay.png; sourceTree = "<group>"; };
+		9306D23A15A3873C00D027FD /* CMLayerStackLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMLayerStackLayer.h; sourceTree = "<group>"; };
+		9306D23B15A3873C00D027FD /* CMLayerStackLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMLayerStackLayer.m; sourceTree = "<group>"; };
+		9306D23D15A38A5A00D027FD /* CMLayerStackView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMLayerStackView.h; sourceTree = "<group>"; };
+		9306D23E15A38A5A00D027FD /* CMLayerStackView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMLayerStackView.m; sourceTree = "<group>"; };
 		9311BE86158AA83C004E13F4 /* CMSimplePopoverBackground.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMSimplePopoverBackground.h; sourceTree = "<group>"; };
 		9311BE87158AA83C004E13F4 /* CMSimplePopoverBackground.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMSimplePopoverBackground.m; sourceTree = "<group>"; };
 		9311BE8A158AB0DC004E13F4 /* CMPopoverContentController.h */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 2; lastKnownFileType = sourcecode.c.h; path = CMPopoverContentController.h; sourceTree = "<group>"; tabWidth = 2; usesTabs = 1; wrapsLines = 0; };
@@ -828,6 +834,10 @@
 				931297311582A5D700A2B556 /* CMMarbleLayer.m */,
 				FE82A69615A22D4900B9A7CE /* CMDecorationLayer.h */,
 				FE82A69715A22D4900B9A7CE /* CMDecorationLayer.m */,
+				9306D23A15A3873C00D027FD /* CMLayerStackLayer.h */,
+				9306D23B15A3873C00D027FD /* CMLayerStackLayer.m */,
+				9306D23D15A38A5A00D027FD /* CMLayerStackView.h */,
+				9306D23E15A38A5A00D027FD /* CMLayerStackView.m */,
 			);
 			path = Layers;
 			sourceTree = "<group>";
@@ -994,6 +1004,8 @@
 				93FE068915961CE6000EBB92 /* CMMarbleCollisionCollector.m in Sources */,
 				93C0389D1596616200F0637E /* CMMarbleLevelStatistics.m in Sources */,
 				FE82A69815A22D4900B9A7CE /* CMDecorationLayer.m in Sources */,
+				9306D23C15A3873C00D027FD /* CMLayerStackLayer.m in Sources */,
+				9306D23F15A38A5A00D027FD /* CMLayerStackView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
