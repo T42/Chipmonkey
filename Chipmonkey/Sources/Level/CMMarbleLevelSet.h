@@ -18,4 +18,5 @@
 @property (retain, nonatomic) NSArray* levelList;
 
 - (id) initWithURL:(NSURL*) levelSetURL;
+- (void) releaseLevelData;
 @end

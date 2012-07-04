@@ -205,6 +205,7 @@ levelStatistics,currentStatistics,comboMarkerView,comboHits,removedMarbleStack;
 	self.currentStatistics = [self statisticsForLevel:currentL.name];
 	[self.currentStatistics reset];
 	[self.removedMarbleStack clearStack];
+	[self.levelSet releaseLevelData];
   [self popupViewController:self.levelStartController withBackgroundClass:[CMSimplePopoverBackground class]];
   self.levelStartController.levelname.text =currentL.name;//[NSString stringWithFormat:@"Level - %d",levelIndex];
 }

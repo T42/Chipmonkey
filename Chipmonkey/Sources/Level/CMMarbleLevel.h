@@ -44,4 +44,6 @@
 @property (retain, nonatomic) NSURL*baseURL;
 - (id) initWithDictionary:(NSDictionary*)dict;
 
+- (void) releaseLevelData;
+
 @end

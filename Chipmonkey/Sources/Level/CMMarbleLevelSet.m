@@ -54,4 +54,10 @@
 	self.levelList = nil;
 	[super dealloc];
 }
+- (void) releaseLevelData
+{
+	for (CMMarbleLevel *level in self.levelList) {
+    [level releaseLevelData];
+	}
+}
 @end

@@ -115,4 +115,11 @@ baseURL,numberOfMarbles;
 	}
 	return self->shapeReader;
 }
+
+- (void) releaseLevelData
+{
+	self.backgroundImage = nil;
+	self.overlayImage = nil;
+	self.shapeReader = nil;
+}
 @end

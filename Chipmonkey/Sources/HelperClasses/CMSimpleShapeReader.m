@@ -82,4 +82,10 @@
 	NSURL * fileURL = [NSURL fileURLWithPath:filePath];
 	return [self initWithContentsOfURL:fileURL];
 }
+
+- (void) dealloc
+{
+	self.shapes = nil;
+	[super dealloc];
+}
 @end
