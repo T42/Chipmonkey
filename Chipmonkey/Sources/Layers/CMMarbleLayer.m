@@ -70,6 +70,7 @@
 	[self setBody:nil];
 	self.shape.body = nil;
 	[self setShape:nil];
+	self.overlayLayer = nil;
 	[self->chipmunkObjects release];
 //	[self setChipmunkObjects:nil];
 

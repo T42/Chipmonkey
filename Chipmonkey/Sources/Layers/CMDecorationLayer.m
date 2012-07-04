@@ -12,8 +12,7 @@
 
 - (void) initDefaults
 {
-  self.backgroundColor = [[UIColor blackColor]CGColor];
-  self.backgroundColor = CGColorCreateCopyWithAlpha(self.backgroundColor, .8);
+  self.backgroundColor = [[UIColor colorWithWhite:0.0 alpha:0.8]CGColor];
   self.bounds = CGRectMake(0.0, 0.0, 30, 30);
   
 }

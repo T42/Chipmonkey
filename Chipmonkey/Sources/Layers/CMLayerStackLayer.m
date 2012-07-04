@@ -70,7 +70,7 @@
 }
 - (void) clearStack
 {
-	for (CALayer* aLayer in [self.sublayers copy]) {
+	for (CALayer* aLayer in [[self.sublayers copy]autorelease]) {
     [aLayer removeFromSuperlayer];
 	}
 }
