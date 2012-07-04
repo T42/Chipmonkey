@@ -48,7 +48,7 @@
 	for (CALayer *a in superContent) {
     if (a!=myLayer) {
 			for (CALayer *b in [[a.sublayers copy]autorelease]) {
-				[b removeFromSuperlayer];
+				b.hidden = YES;
 			}
 		}
 	}
