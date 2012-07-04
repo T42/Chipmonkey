@@ -184,14 +184,6 @@
 
 - (id <CAAction>) actionForKey:(NSString *)event
 {
-	if ([event isEqualToString:@"shouldDestroy"]) {
-		CABasicAnimation *an = [CABasicAnimation animationWithKeyPath:@"opacity"];
-		an.fromValue = [NSNumber numberWithFloat: 1.0];
-		an.toValue = [NSNumber numberWithFloat:0.0];
-		an.duration = 10;
-		an.delegate = self;
-		return an;
-	}	
 	return nil;
 }
 
@@ -201,17 +193,6 @@
 	[self removeFromSuperlayer];
 }
 
-//- (void) setTouchedShapes:(NSUInteger)tS
-//{
-//	if(tS != self->touchedShapes){
-//		self->touchedShapes = tS;
-//	}
-//	if (self->touchedShapes!=0) {
-//		self.backgroundColor = [[UIColor redColor]CGColor];
-//	}else{
-//		self.backgroundColor = nil;
-//	}
-//}
 - (void) destroy
 {
 	
