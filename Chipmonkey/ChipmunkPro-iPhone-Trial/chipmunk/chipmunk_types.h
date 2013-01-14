@@ -1,19 +1,18 @@
-#include <math.h>
 #include <stdint.h>
 
 #ifdef __APPLE__
-   #import "TargetConditionals.h"
+   #include "TargetConditionals.h"
 #endif
 
-#if (TARGET_OS_IPHONE == 1) && (!defined CP_USE_CGPOINTS)
+#if (TARGET_OS_IPHONE == 1) || (TARGET_OS_MAC == 1) && (!defined CP_USE_CGPOINTS)
 	#define CP_USE_CGPOINTS 1
 #endif
 
-#ifdef CP_USE_CGPOINTS
+#if CP_USE_CGPOINTS == 1
 	#if TARGET_OS_IPHONE
 		#import <CoreGraphics/CGGeometry.h>
 	#elif TARGET_OS_MAC
-		#import <ApplicationServices/ApplicationServices.h>
+		#include <ApplicationServices/ApplicationServices.h>
 	#endif
 	
 	#if defined(__LP64__) && __LP64__
@@ -61,7 +60,6 @@
 #endif
 
 #ifndef INFINITY
-	//TODO use C++ infinity
 	#ifdef _MSC_VER
 		union MSVC_EVIL_FLOAT_HACK
 		{
@@ -203,7 +201,7 @@ typedef uintptr_t cpHashValue;
 
 // CGPoints are structurally the same, and allow
 // easy interoperability with other Cocoa libraries
-#ifdef CP_USE_CGPOINTS
+#if CP_USE_CGPOINTS
 	typedef CGPoint cpVect;
 #else
 /// Chipmunk's 2D vector type.
@@ -211,4 +209,7 @@ typedef uintptr_t cpHashValue;
 	typedef struct cpVect{cpFloat x,y;} cpVect;
 #endif
 
-
+typedef struct cpMat2x2 {
+	// Row major [[a, b][c d]]
+	cpFloat a, b, c, d;
+} cpMat2x2;

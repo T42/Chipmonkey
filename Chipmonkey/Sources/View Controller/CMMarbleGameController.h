@@ -18,7 +18,7 @@
 #import "CMLayerStackView.h"
 #import "CMLayerStackLayer.h"
 
-#define USE_BILLARD_IMAGES 0
+#define USE_BILLARD_IMAGES 1
 
 
 @interface UIButton (CMMarbleGameHelper)

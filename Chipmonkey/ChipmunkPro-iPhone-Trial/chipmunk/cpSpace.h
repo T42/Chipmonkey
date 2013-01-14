@@ -98,9 +98,9 @@ struct cpSpace {
 	
 	CP_PRIVATE(cpHashSet *collisionHandlers);
 	CP_PRIVATE(cpCollisionHandler defaultHandler);
-	CP_PRIVATE(cpHashSet *postStepCallbacks);
 	
-	CP_PRIVATE(cpSpaceArbiterApplyImpulseFunc arbiterApplyImpulse);
+	CP_PRIVATE(cpBool skipPostStep);
+	CP_PRIVATE(cpArray *postStepCallbacks);
 	
 	CP_PRIVATE(cpBody _staticBody);
 };
@@ -127,18 +127,18 @@ static inline void cpSpaceSet##name(cpSpace *space, type value){space->member = 
 CP_DefineSpaceStructGetter(type, member, name) \
 CP_DefineSpaceStructSetter(type, member, name)
 
-CP_DefineSpaceStructProperty(int, iterations, Iterations);
-CP_DefineSpaceStructProperty(cpVect, gravity, Gravity);
-CP_DefineSpaceStructProperty(cpFloat, damping, Damping);
-CP_DefineSpaceStructProperty(cpFloat, idleSpeedThreshold, IdleSpeedThreshold);
-CP_DefineSpaceStructProperty(cpFloat, sleepTimeThreshold, SleepTimeThreshold);
-CP_DefineSpaceStructProperty(cpFloat, collisionSlop, CollisionSlop);
-CP_DefineSpaceStructProperty(cpFloat, collisionBias, CollisionBias);
-CP_DefineSpaceStructProperty(cpTimestamp, collisionPersistence, CollisionPersistence);
-CP_DefineSpaceStructProperty(cpBool, enableContactGraph, EnableContactGraph);
-CP_DefineSpaceStructProperty(cpDataPointer, data, UserData);
-CP_DefineSpaceStructGetter(cpBody*, staticBody, StaticBody);
-CP_DefineSpaceStructGetter(cpFloat, CP_PRIVATE(curr_dt), CurrentTimeStep);
+CP_DefineSpaceStructProperty(int, iterations, Iterations)
+CP_DefineSpaceStructProperty(cpVect, gravity, Gravity)
+CP_DefineSpaceStructProperty(cpFloat, damping, Damping)
+CP_DefineSpaceStructProperty(cpFloat, idleSpeedThreshold, IdleSpeedThreshold)
+CP_DefineSpaceStructProperty(cpFloat, sleepTimeThreshold, SleepTimeThreshold)
+CP_DefineSpaceStructProperty(cpFloat, collisionSlop, CollisionSlop)
+CP_DefineSpaceStructProperty(cpFloat, collisionBias, CollisionBias)
+CP_DefineSpaceStructProperty(cpTimestamp, collisionPersistence, CollisionPersistence)
+CP_DefineSpaceStructProperty(cpBool, enableContactGraph, EnableContactGraph)
+CP_DefineSpaceStructProperty(cpDataPointer, data, UserData)
+CP_DefineSpaceStructGetter(cpBody*, staticBody, StaticBody)
+CP_DefineSpaceStructGetter(cpFloat, CP_PRIVATE(curr_dt), CurrentTimeStep)
 
 /// returns true from inside a callback and objects cannot be added/removed.
 static inline cpBool
@@ -202,10 +202,12 @@ cpBool cpSpaceContainsBody(cpSpace *space, cpBody *body);
 cpBool cpSpaceContainsConstraint(cpSpace *space, cpConstraint *constraint);
 
 /// Post Step callback function type.
-typedef void (*cpPostStepFunc)(cpSpace *space, void *obj, void *data);
+typedef void (*cpPostStepFunc)(cpSpace *space, void *key, void *data);
 /// Schedule a post-step callback to be called when cpSpaceStep() finishes.
-/// @c obj is used a key, you can only register one callback per unique value for @c obj
-void cpSpaceAddPostStepCallback(cpSpace *space, cpPostStepFunc func, void *obj, void *data);
+/// You can only register one callback per unique value for @c key.
+/// Returns true only if @c key has never been scheduled before.
+/// It's possible to pass @c NULL for @c func if you only want to mark @c key as being used.
+cpBool cpSpaceAddPostStepCallback(cpSpace *space, cpPostStepFunc func, void *key, void *data);
 
 /// Point query callback function type.
 typedef void (*cpSpacePointQueryFunc)(cpShape *shape, void *data);
@@ -213,6 +215,13 @@ typedef void (*cpSpacePointQueryFunc)(cpShape *shape, void *data);
 void cpSpacePointQuery(cpSpace *space, cpVect point, cpLayers layers, cpGroup group, cpSpacePointQueryFunc func, void *data);
 /// Query the space at a point and return the first shape found. Returns NULL if no shapes were found.
 cpShape *cpSpacePointQueryFirst(cpSpace *space, cpVect point, cpLayers layers, cpGroup group);
+
+/// Nearest point query callback function type.
+typedef void (*cpSpaceNearestPointQueryFunc)(cpShape *shape, cpFloat distance, cpVect point, void *data);
+/// Query the space at a point and call @c func for each shape found.
+void cpSpaceNearestPointQuery(cpSpace *space, cpVect point, cpFloat maxDistance, cpLayers layers, cpGroup group, cpSpaceNearestPointQueryFunc func, void *data);
+/// Query the space at a point and return the nearest shape found. Returns NULL if no shapes were found.
+cpShape *cpSpaceNearestPointQueryNearest(cpSpace *space, cpVect point, cpFloat maxDistance, cpLayers layers, cpGroup group, cpNearestPointQueryInfo *out);
 
 /// Segment query callback function type.
 typedef void (*cpSpaceSegmentQueryFunc)(cpShape *shape, cpFloat t, cpVect n, void *data);
